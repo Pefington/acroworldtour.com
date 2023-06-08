@@ -11,22 +11,14 @@ import { components } from "@/types";
 type Judge = components["schemas"]["Judge"];
 
 const Judges = () => {
-  const {
-    setPageTitle,
-    setPageDescription,
-    setActiveNav,
-  } = useLayout();
+  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
   useEffect(() => {
     setPageTitle("Acro World Tour | Judges");
     setPageDescription("All the judges of the Acro World Tour");
 
     setActiveNav("judges");
-  }, [
-    setActiveNav,
-    setPageDescription,
-    setPageTitle,
-  ]);
+  }, [setActiveNav, setPageDescription, setPageTitle]);
 
   const {
     data: judges,

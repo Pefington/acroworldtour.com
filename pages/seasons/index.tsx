@@ -16,11 +16,7 @@ const currentYear = new Date().getFullYear();
 const Seasons = () => {
   const [selectedYear, setSelectedYear] = useState(currentYear);
 
-  const {
-    setPageTitle,
-    setPageDescription,
-    setActiveNav,
-  } = useLayout();
+  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
   const {
     data: seasons,
@@ -32,11 +28,7 @@ const Seasons = () => {
     setPageTitle("Acro World Tour | Seasons");
     setPageDescription(`All the seasons of the Acro World Tour.`);
     setActiveNav("seasons");
-  }, [
-    setActiveNav,
-    setPageDescription,
-    setPageTitle,
-  ]);
+  }, [setActiveNav, setPageDescription, setPageTitle]);
 
   if (isLoading) return <FetchLoading />;
   if (error) return <FetchError />;

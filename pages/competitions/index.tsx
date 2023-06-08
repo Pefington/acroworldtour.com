@@ -17,21 +17,13 @@ const currentYear = new Date().getFullYear();
 const Competitions = () => {
   const [selectedYear, setSelectedYear] = useState(currentYear);
 
-  const {
-    setPageTitle,
-    setPageDescription,
-    setActiveNav,
-  } = useLayout();
+  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
   useEffect(() => {
     setPageTitle("Acro World Tour | Competitions");
     setPageDescription(`All the competitions of the Acro World Tour.`);
     setActiveNav("competitions");
-  }, [
-    setActiveNav,
-    setPageDescription,
-    setPageTitle,
-  ]);
+  }, [setActiveNav, setPageDescription, setPageTitle]);
 
   const {
     data: seasons,

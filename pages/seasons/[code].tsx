@@ -12,11 +12,7 @@ import { components } from "@/types";
 type Season = components["schemas"]["SeasonExport"];
 
 const SeasonPage = () => {
-  const {
-    setPageTitle,
-    setPageDescription,
-    setActiveNav,
-  } = useLayout();
+  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
   const router = useRouter();
   const [code, setCode] = useState<string>("");
@@ -38,12 +34,7 @@ const SeasonPage = () => {
       setPageDescription(`Season page for ${season.name}`);
       setActiveNav("seasons");
     }
-  }, [
-    season,
-    setActiveNav,
-    setPageDescription,
-    setPageTitle,
-  ]);
+  }, [season, setActiveNav, setPageDescription, setPageTitle]);
 
   if (isLoading) return <FetchLoading />;
   if (error) return <FetchError />;

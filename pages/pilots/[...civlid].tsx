@@ -12,11 +12,7 @@ import { components } from "@/types";
 type Pilot = components["schemas"]["Pilot"];
 
 const PilotPage = () => {
-  const {
-    setPageTitle,
-    setPageDescription,
-    setActiveNav,
-  } = useLayout();
+  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
   const router = useRouter();
   const [civlid, setCivlid] = useState("");
 
@@ -37,13 +33,7 @@ const PilotPage = () => {
       setPageDescription(`Pilot page for ${pilot.name}`);
       setActiveNav("pilots");
     }
-  }, [
-    civlid,
-    pilot,
-    setActiveNav,
-    setPageDescription,
-    setPageTitle,
-  ]);
+  }, [civlid, pilot, setActiveNav, setPageDescription, setPageTitle]);
 
   if (isLoading) return <FetchLoading />;
   if (error) return <FetchError />;

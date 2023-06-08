@@ -12,11 +12,7 @@ import { components } from "@/types";
 type Competition = components["schemas"]["CompetitionPublicExportWithResults"];
 
 const CompetitionPage = () => {
-  const {
-    setPageTitle,
-    setPageDescription,
-    setActiveNav,
-  } = useLayout();
+  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
   const router = useRouter();
   const [code, setCode] = useState<string>("");
@@ -40,12 +36,7 @@ const CompetitionPage = () => {
       setPageDescription(`Competition page for ${competition.name}`);
       setActiveNav("competitions");
     }
-  }, [
-    competition,
-    setActiveNav,
-    setPageDescription,
-    setPageTitle,
-  ]);
+  }, [competition, setActiveNav, setPageDescription, setPageTitle]);
 
   if (isLoading) return <FetchLoading />;
   if (error) return <FetchError />;

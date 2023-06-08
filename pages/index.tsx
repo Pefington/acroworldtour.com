@@ -15,11 +15,7 @@ const About = dynamic(() => import("@/components/about"), {
 preload(`${API_URL}/competitions/`, fetcher);
 
 const Home = () => {
-  const {
-    setPageTitle,
-    setPageDescription,
-    setActiveNav,
-  } = useLayout();
+  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
   useEffect(() => {
     setPageTitle("Acro World Tour | Home");
@@ -28,11 +24,7 @@ const Home = () => {
       In this app you can find everything you need to know about competition results and your favourite pilots.`,
     );
     setActiveNav("home");
-  }, [
-    setActiveNav,
-    setPageDescription,
-    setPageTitle,
-  ]);
+  }, [setActiveNav, setPageDescription, setPageTitle]);
 
   return (
     <>

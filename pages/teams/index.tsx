@@ -14,22 +14,14 @@ type Team = components["schemas"]["TeamExport"];
 preload(`${API_URL}/teams/`, fetcher);
 
 const Teams = () => {
-  const {
-    setPageTitle,
-    setPageDescription,
-    setActiveNav,
-  } = useLayout();
+  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
   useEffect(() => {
     setPageTitle("Acro World Tour | Teams");
     setPageDescription("All the teams of the Acro World Tour");
 
     setActiveNav("teams");
-  }, [
-    setActiveNav,
-    setPageDescription,
-    setPageTitle,
-  ]);
+  }, [setActiveNav, setPageDescription, setPageTitle]);
 
   const {
     data: teams,

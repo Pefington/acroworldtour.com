@@ -12,11 +12,7 @@ import { components } from "@/types";
 type Team = components["schemas"]["TeamExport"];
 
 const TeamPage = () => {
-  const {
-    setPageTitle,
-    setPageDescription,
-    setActiveNav,
-  } = useLayout();
+  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
   const router = useRouter();
   const [teamId, setTeamId] = useState("");
 
@@ -37,13 +33,7 @@ const TeamPage = () => {
       setPageDescription(`Team page for ${team.name}`);
       setActiveNav("teams");
     }
-  }, [
-    teamId,
-    team,
-    setActiveNav,
-    setPageDescription,
-    setPageTitle,
-  ]);
+  }, [teamId, team, setActiveNav, setPageDescription, setPageTitle]);
 
   if (isLoading) return <FetchLoading />;
   if (error) return <FetchError />;

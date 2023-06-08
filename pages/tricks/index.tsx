@@ -11,22 +11,14 @@ import { components } from "@/types";
 type Trick = components["schemas"]["Trick"];
 
 const Tricks = () => {
-  const {
-    setPageTitle,
-    setPageDescription,
-    setActiveNav,
-  } = useLayout();
+  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
   useEffect(() => {
     setPageTitle("Acro World Tour | Tricks");
     setPageDescription("All the tricks of the Acro World Tour");
 
     setActiveNav("tricks");
-  }, [
-    setActiveNav,
-    setPageDescription,
-    setPageTitle,
-  ]);
+  }, [setActiveNav, setPageDescription, setPageTitle]);
 
   const {
     data: tricks,

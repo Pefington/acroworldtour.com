@@ -11,21 +11,13 @@ import { components } from "@/types";
 type Pilot = components["schemas"]["Pilot"];
 
 const Pilots = () => {
-  const {
-    setPageTitle,
-    setPageDescription,
-    setActiveNav,
-  } = useLayout();
+  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
   useEffect(() => {
     setPageTitle("Acro World Tour | Pilots");
     setPageDescription(`All the pilots of the Acro World Tour.`);
     setActiveNav("pilots");
-  }, [
-    setActiveNav,
-    setPageDescription,
-    setPageTitle,
-  ]);
+  }, [setActiveNav, setPageDescription, setPageTitle]);
 
   const {
     data: pilots,
