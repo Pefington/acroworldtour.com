@@ -31,13 +31,13 @@ const CompetitionRunMain = ({ results, type, className }: Props) => {
 
   return (
     <article className={className}>
-      <h4 className="col-span-2 col-start-1 border-awt-dark-500 bg-awt-dark-900 py-3 text-white">
+      <h4 className="border-awt-dark-500 bg-awt-dark-900 col-span-2 col-start-1 py-3 text-white">
         Rank
       </h4>
-      <h4 className="col-span-7 border-x-[1px] border-awt-dark-500 bg-awt-dark-900 py-3 text-white">
+      <h4 className="border-awt-dark-500 bg-awt-dark-900 col-span-7 border-x-[1px] py-3 text-white">
         Pilot
       </h4>
-      <h4 className="col-span-3 border-awt-dark-500 bg-awt-dark-900 py-3 text-white">
+      <h4 className="border-awt-dark-500 bg-awt-dark-900 col-span-3 py-3 text-white">
         Score
       </h4>
       {results.map((result, resultIndex) => {
@@ -105,7 +105,7 @@ const CompetitionRunMain = ({ results, type, className }: Props) => {
 
             {showDetails[resultIndex] && (
               <>
-                <h4 className="col-span-full col-start-1 bg-awt-dark-700 py-3 text-white">
+                <h4 className="bg-awt-dark-700 col-span-full col-start-1 py-3 text-white">
                   Judge&apos;s Marks
                 </h4>
                 <h5
@@ -162,13 +162,13 @@ const CompetitionRunMain = ({ results, type, className }: Props) => {
                     </p>
                   </>
                 )}
-                <h4 className="col-span-4 col-start-1 bg-awt-dark-700 py-3 text-white">
+                <h4 className="bg-awt-dark-700 col-span-4 col-start-1 py-3 text-white">
                   Technicity
                 </h4>
-                <h4 className="col-span-4 border-x-[1px] border-awt-dark-500 bg-awt-dark-700 py-3 text-white">
+                <h4 className="border-awt-dark-500 bg-awt-dark-700 col-span-4 border-x-[1px] py-3 text-white">
                   Bonus
                 </h4>
-                <h4 className="col-span-4 bg-awt-dark-700 py-3 text-white">
+                <h4 className="bg-awt-dark-700 col-span-4 py-3 text-white">
                   Malus
                 </h4>
                 <p className="col-span-4 col-start-1 py-3 text-center">
@@ -179,7 +179,7 @@ const CompetitionRunMain = ({ results, type, className }: Props) => {
                   {(malus || 0) > 0 && "🔻"}
                 </p>
                 <p className="col-span-4 py-3 text-center">{malus}%</p>
-                <h4 className="col-span-full col-start-1 bg-awt-dark-700 py-3 text-white">
+                <h4 className="bg-awt-dark-700 col-span-full col-start-1 py-3 text-white">
                   Tricks
                 </h4>
                 <ul className="col-span-full col-start-1 pb-4 pl-4 pt-2">
@@ -191,7 +191,7 @@ const CompetitionRunMain = ({ results, type, className }: Props) => {
                     </li>
                   ))}
                 </ul>
-                <h4 className="col-span-full col-start-1 bg-awt-dark-700 py-3 text-white">
+                <h4 className="bg-awt-dark-700 col-span-full col-start-1 py-3 text-white">
                   Final Marks
                 </h4>
                 <h5

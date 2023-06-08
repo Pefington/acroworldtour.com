@@ -63,7 +63,7 @@ const SeasonOverallPilotResults = ({
               className={classNames(
                 "col-span-8 col-start-3",
                 "flex items-center",
-                "border-[1px] bg-awt-dark-300 pl-2",
+                "bg-awt-dark-300 border-[1px] pl-2",
               )}
             >
               <h6 className="hover:font-bold">
@@ -71,7 +71,7 @@ const SeasonOverallPilotResults = ({
                 {["🥇", "🥈", "🥉"][rank - 1]}
               </h6>
             </Link>
-            <p className="col-span-2 col-start-11 border-[1px] bg-awt-dark-300 py-2 text-center">
+            <p className="bg-awt-dark-300 col-span-2 col-start-11 border-[1px] py-2 text-center">
               {roundedScore}
             </p>
           </Fragment>

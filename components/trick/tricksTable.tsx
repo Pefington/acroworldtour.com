@@ -8,19 +8,19 @@ interface Props {
 const TricksTable = ({ tricks, className }: Props) => {
   return (
     <article className={className}>
-      <h4 className="col-span-6 col-start-1 border-[1px] border-awt-dark-500 bg-awt-dark-900 py-1 text-white">
+      <h4 className="border-awt-dark-500 bg-awt-dark-900 col-span-6 col-start-1 border-[1px] py-1 text-white">
         Trick
       </h4>
-      <h4 className="col-span-1 col-start-7 border-[1px] border-awt-dark-500 bg-awt-dark-900 py-1 text-white">
+      <h4 className="border-awt-dark-500 bg-awt-dark-900 col-span-1 col-start-7 border-[1px] py-1 text-white">
         Acronym
       </h4>
-      <h4 className="col-span-1 col-start-8 border-[1px] border-awt-dark-500 bg-awt-dark-900 py-1 text-white">
+      <h4 className="border-awt-dark-500 bg-awt-dark-900 col-span-1 col-start-8 border-[1px] py-1 text-white">
         Properties
       </h4>
-      <h4 className="col-span-2 col-start-9 border-[1px] border-awt-dark-500 bg-awt-dark-900 py-1 text-white">
+      <h4 className="border-awt-dark-500 bg-awt-dark-900 col-span-2 col-start-9 border-[1px] py-1 text-white">
         Bonuses
       </h4>
-      <h4 className="col-span-1 col-start-11 border-[1px] border-awt-dark-500 bg-awt-dark-900 py-1 text-white">
+      <h4 className="border-awt-dark-500 bg-awt-dark-900 col-span-1 col-start-11 border-[1px] py-1 text-white">
         Technical Coefficient
       </h4>
       {tricks

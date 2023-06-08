@@ -65,7 +65,7 @@ const CompetitionDetails = ({ competition }: Props) => {
         <CompetitionSummary
           competition={competition}
           className={classNames(
-            "w-1/2 max-w-lg rounded-xl bg-awt-dark-50 px-2 py-2 pb-2 shadow-inner",
+            "bg-awt-dark-50 w-1/2 max-w-lg rounded-xl px-2 py-2 pb-2 shadow-inner",
             "portrait:w-full",
             hideSummary && "landscape:hidden",
           )}
@@ -74,7 +74,7 @@ const CompetitionDetails = ({ competition }: Props) => {
         {overallResults.length > 0 && (
           <section
             className={classNames(
-              "flex w-full flex-grow flex-col gap-4 rounded-xl bg-awt-dark-50 py-2 shadow-inner",
+              "bg-awt-dark-50 flex w-full flex-grow flex-col gap-4 rounded-xl py-2 shadow-inner",
               hideSummary ? "lg:col-span-full" : "lg:col-span-6 lg:col-start-4",
             )}
           >

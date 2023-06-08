@@ -50,7 +50,7 @@ const JudgeCard = ({ judge, small }: Props) => {
         className={classNames(
           "relative flex aspect-square flex-col justify-between",
           "bg-cover bg-center bg-no-repeat",
-          "rounded-xl shadow shadow-awt-dark-400",
+          "shadow-awt-dark-400 rounded-xl shadow",
           small ? "mb-2 h-24" : "mb-4 h-48",
         )}
       >

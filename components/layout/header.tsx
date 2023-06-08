@@ -14,7 +14,7 @@ const Header = ({ fontClass }: Props) => {
     <header
       className={classNames(
         fontClass,
-        "z-20 flex h-24 w-full items-center justify-between bg-awt-dark-950 bg-contain bg-right bg-no-repeat px-6 text-white",
+        "bg-awt-dark-950 z-20 flex h-24 w-full items-center justify-between bg-contain bg-right bg-no-repeat px-6 text-white",
         "lg:fixed lg:top-0",
       )}
       style={{

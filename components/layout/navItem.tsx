@@ -22,7 +22,7 @@ const NavItem = ({ link, active }: Props) => (
   <Link
     href={`/${link.toLowerCase()}`}
     className={classNames(
-      "flex flex-col items-center justify-center rounded-xl p-2 text-xs font-semibold text-awt-dark-600",
+      "text-awt-dark-600 flex flex-col items-center justify-center rounded-xl p-2 text-xs font-semibold",
       "lg:flex-row lg:justify-start lg:rounded-r-none lg:py-3 lg:pl-6 lg:text-base",
       !active &&
         "hover:bg-awt-accent-600 hover:fill-white hover:text-white hover:shadow-md",

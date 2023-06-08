@@ -71,7 +71,7 @@ const Seasons = () => {
               <option
                 key={year}
                 value={year}
-                className="text-base text-awt-dark-600"
+                className="text-awt-dark-600 text-base"
               >
                 {year}
               </option>

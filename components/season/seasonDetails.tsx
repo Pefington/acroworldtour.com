@@ -58,13 +58,13 @@ const SeasonDetails = ({ season }: Props) => {
         <SeasonSummary
           season={season}
           className={classNames(
-            "w-1/2 max-w-lg rounded-xl bg-awt-dark-50 px-2 py-2 pb-2 shadow-inner",
+            "bg-awt-dark-50 w-1/2 max-w-lg rounded-xl px-2 py-2 pb-2 shadow-inner",
             "portrait:w-full",
           )}
         />
         <section
           className={classNames(
-            "flex w-full flex-grow flex-col gap-4 rounded-xl bg-awt-dark-50 py-2 shadow-inner",
+            "bg-awt-dark-50 flex w-full flex-grow flex-col gap-4 rounded-xl py-2 shadow-inner",
             "lg:col-span-6 lg:col-start-4",
           )}
         >

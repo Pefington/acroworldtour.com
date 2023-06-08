@@ -14,7 +14,7 @@ const Download = () => (
         target="_blank"
         rel="noopener noreferrer"
         className={classNames(
-          "mt-4 flex flex-col items-start rounded-xl bg-awt-dark-50 p-4 text-sm font-semibold text-orange-500 shadow",
+          "bg-awt-dark-50 mt-4 flex flex-col items-start rounded-xl p-4 text-sm font-semibold text-orange-500 shadow",
           "hover:invert",
         )}
       >

@@ -35,7 +35,7 @@ const About = () => {
       </button>
       <div
         className={classNames(
-          "flex h-56 flex-col items-center justify-evenly rounded-xl bg-awt-dark-100 px-4 font-medium shadow",
+          "bg-awt-dark-100 flex h-56 flex-col items-center justify-evenly rounded-xl px-4 font-medium shadow",
           hideAbout && "-mt-64 opacity-0",
         )}
       >

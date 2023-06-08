@@ -51,13 +51,13 @@ const CompetitionOverallHeader = ({ result, rank, type }: Props) => {
 
       {showMore && (
         <>
-          <h6 className="col-span-2 col-start-3 bg-awt-dark-500 text-white">
+          <h6 className="bg-awt-dark-500 col-span-2 col-start-3 text-white">
             Run#
           </h6>
-          <h6 className="col-span-3 col-start-5 bg-awt-dark-500 text-white">
+          <h6 className="bg-awt-dark-500 col-span-3 col-start-5 text-white">
             Rank
           </h6>
-          <h6 className="col-span-3 col-start-8 bg-awt-dark-500 text-white">
+          <h6 className="bg-awt-dark-500 col-span-3 col-start-8 text-white">
             Score
           </h6>
 

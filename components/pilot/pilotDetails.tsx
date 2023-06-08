@@ -112,7 +112,7 @@ const PilotDetails = ({ pilot }: Props) => {
       )}
       {((competitionsResults?.length ?? 0) > 0 ||
         (seasonsResults?.length ?? 0) > 0) && (
-        <div className="mt-4 w-full bg-awt-dark-50 p-2">
+        <div className="bg-awt-dark-50 mt-4 w-full p-2">
           {(competitionsResults?.length ?? 0) > 0 && (
             <table className="w-full">
               <thead>
@@ -127,7 +127,7 @@ const PilotDetails = ({ pilot }: Props) => {
                   return (
                     <tr
                       key={code}
-                      className="h-8 cursor-pointer hover:bg-awt-dark-200"
+                      className="hover:bg-awt-dark-200 h-8 cursor-pointer"
                     >
                       <td className="pl-2">
                         <a href={`/competitions/${code}`}>
@@ -155,7 +155,7 @@ const PilotDetails = ({ pilot }: Props) => {
                     return (
                       <tr
                         key={code}
-                        className="h-8 cursor-pointer hover:bg-awt-dark-200"
+                        className="hover:bg-awt-dark-200 h-8 cursor-pointer"
                       >
                         <td className="pl-2">
                           <a href={`/seasons/${code}`}>

@@ -26,8 +26,8 @@ const TeamCard = ({ team }: Props) => {
           "relative flex flex-col justify-between",
           "h-48 overflow-hidden rounded-xl py-2 text-white",
           "bg-awt-dark-950/60 bg-cover bg-center bg-no-repeat bg-blend-overlay",
-          "shadow shadow-awt-dark-600",
-          "hover:-translate-y-1 hover:bg-gradient-radial hover:from-awt-accent-400/50 hover:to-awt-accent-950/50 hover:bg-blend-screen",
+          "shadow-awt-dark-600 shadow",
+          "hover:bg-gradient-radial hover:from-awt-accent-400/50 hover:to-awt-accent-950/50 hover:-translate-y-1 hover:bg-blend-screen",
           "hover:shadow-md",
         )}
       >

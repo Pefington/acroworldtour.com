@@ -44,7 +44,7 @@ const CompetitionCard = ({ competition }: Props) => {
         className={classNames(
           "flex h-48 flex-col justify-between rounded-xl text-white",
           "bg-awt-dark-900/60 bg-cover bg-center bg-no-repeat p-4 bg-blend-multiply",
-          "shadow shadow-awt-dark-400",
+          "shadow-awt-dark-400 shadow",
           "hover:-translate-y-2 hover:bg-white/90 hover:text-current hover:bg-blend-screen",
           "hover:shadow-md",
         )}
