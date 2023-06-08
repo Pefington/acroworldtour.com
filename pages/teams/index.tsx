@@ -17,8 +17,6 @@ const Teams = () => {
   const {
     setPageTitle,
     setPageDescription,
-    setHeaderTitle,
-    setHeaderSubtitle,
     setActiveNav,
   } = useLayout();
 
@@ -26,13 +24,9 @@ const Teams = () => {
     setPageTitle("Acro World Tour | Teams");
     setPageDescription("All the teams of the Acro World Tour");
 
-    setHeaderTitle("Teams");
-    setHeaderSubtitle("Acro World Tour");
     setActiveNav("teams");
   }, [
     setActiveNav,
-    setHeaderSubtitle,
-    setHeaderTitle,
     setPageDescription,
     setPageTitle,
   ]);

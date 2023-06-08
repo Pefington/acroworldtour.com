@@ -7,11 +7,9 @@ import awtLogo from "/img/logo.svg";
 
 interface Props {
   fontClass: string;
-  headerTitle: string;
-  headerSubtitle: string;
 }
 
-const Header = ({ fontClass, headerTitle, headerSubtitle }: Props) => {
+const Header = ({ fontClass }: Props) => {
   return (
     <header
       className={classNames(
@@ -32,12 +30,6 @@ const Header = ({ fontClass, headerTitle, headerSubtitle }: Props) => {
           className="h-11 w-auto"
         />
       </Link>
-      <hgroup>
-        <h2 className="text-right text-base capitalize opacity-70 lg:text-lg">
-          {headerSubtitle}
-        </h2>
-        <h1 className="text-right capitalize">{headerTitle}</h1>
-      </hgroup>
     </header>
   );
 };

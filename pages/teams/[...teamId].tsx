@@ -15,8 +15,6 @@ const TeamPage = () => {
   const {
     setPageTitle,
     setPageDescription,
-    setHeaderTitle,
-    setHeaderSubtitle,
     setActiveNav,
   } = useLayout();
   const router = useRouter();
@@ -37,16 +35,12 @@ const TeamPage = () => {
     if (team) {
       setPageTitle(team.name || "");
       setPageDescription(`Team page for ${team.name}`);
-      setHeaderTitle(team.name || "");
-      setHeaderSubtitle("Team");
       setActiveNav("teams");
     }
   }, [
     teamId,
     team,
     setActiveNav,
-    setHeaderSubtitle,
-    setHeaderTitle,
     setPageDescription,
     setPageTitle,
   ]);

@@ -15,8 +15,6 @@ const PilotPage = () => {
   const {
     setPageTitle,
     setPageDescription,
-    setHeaderTitle,
-    setHeaderSubtitle,
     setActiveNav,
   } = useLayout();
   const router = useRouter();
@@ -37,20 +35,12 @@ const PilotPage = () => {
     if (pilot) {
       setPageTitle(pilot.name || "");
       setPageDescription(`Pilot page for ${pilot.name}`);
-      setHeaderTitle(
-        `${["🥇", "🥈", "🥉"][pilot.rank - 1]} ${pilot.name}` || "",
-      );
-      setHeaderSubtitle(
-        `${pilot.rank === 9999 ? "" : "#" + pilot.rank + " -"} ${civlid}` || "",
-      );
       setActiveNav("pilots");
     }
   }, [
     civlid,
     pilot,
     setActiveNav,
-    setHeaderSubtitle,
-    setHeaderTitle,
     setPageDescription,
     setPageTitle,
   ]);

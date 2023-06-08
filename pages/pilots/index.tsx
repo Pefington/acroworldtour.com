@@ -14,21 +14,15 @@ const Pilots = () => {
   const {
     setPageTitle,
     setPageDescription,
-    setHeaderTitle,
-    setHeaderSubtitle,
     setActiveNav,
   } = useLayout();
 
   useEffect(() => {
     setPageTitle("Acro World Tour | Pilots");
     setPageDescription(`All the pilots of the Acro World Tour.`);
-    setHeaderTitle("Pilots");
-    setHeaderSubtitle("Acro World Tour");
     setActiveNav("pilots");
   }, [
     setActiveNav,
-    setHeaderSubtitle,
-    setHeaderTitle,
     setPageDescription,
     setPageTitle,
   ]);

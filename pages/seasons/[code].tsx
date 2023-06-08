@@ -15,8 +15,6 @@ const SeasonPage = () => {
   const {
     setPageTitle,
     setPageDescription,
-    setHeaderTitle,
-    setHeaderSubtitle,
     setActiveNav,
   } = useLayout();
 
@@ -38,15 +36,11 @@ const SeasonPage = () => {
     if (season) {
       setPageTitle(season.name || "");
       setPageDescription(`Season page for ${season.name}`);
-      setHeaderTitle(season.name || "");
-      setHeaderSubtitle(`${season.type} season` || "");
       setActiveNav("seasons");
     }
   }, [
     season,
     setActiveNav,
-    setHeaderSubtitle,
-    setHeaderTitle,
     setPageDescription,
     setPageTitle,
   ]);

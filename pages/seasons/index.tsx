@@ -19,8 +19,6 @@ const Seasons = () => {
   const {
     setPageTitle,
     setPageDescription,
-    setHeaderTitle,
-    setHeaderSubtitle,
     setActiveNav,
   } = useLayout();
 
@@ -33,13 +31,9 @@ const Seasons = () => {
   useEffect(() => {
     setPageTitle("Acro World Tour | Seasons");
     setPageDescription(`All the seasons of the Acro World Tour.`);
-    setHeaderTitle("Seasons");
-    setHeaderSubtitle("Acro World Tour");
     setActiveNav("seasons");
   }, [
     setActiveNav,
-    setHeaderSubtitle,
-    setHeaderTitle,
     setPageDescription,
     setPageTitle,
   ]);

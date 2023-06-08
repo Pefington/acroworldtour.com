@@ -14,8 +14,6 @@ const Judges = () => {
   const {
     setPageTitle,
     setPageDescription,
-    setHeaderTitle,
-    setHeaderSubtitle,
     setActiveNav,
   } = useLayout();
 
@@ -23,13 +21,9 @@ const Judges = () => {
     setPageTitle("Acro World Tour | Judges");
     setPageDescription("All the judges of the Acro World Tour");
 
-    setHeaderTitle("Judges");
-    setHeaderSubtitle("Acro World Tour");
     setActiveNav("judges");
   }, [
     setActiveNav,
-    setHeaderSubtitle,
-    setHeaderTitle,
     setPageDescription,
     setPageTitle,
   ]);

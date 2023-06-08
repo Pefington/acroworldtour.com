@@ -14,8 +14,6 @@ const Tricks = () => {
   const {
     setPageTitle,
     setPageDescription,
-    setHeaderTitle,
-    setHeaderSubtitle,
     setActiveNav,
   } = useLayout();
 
@@ -23,13 +21,9 @@ const Tricks = () => {
     setPageTitle("Acro World Tour | Tricks");
     setPageDescription("All the tricks of the Acro World Tour");
 
-    setHeaderTitle("Tricks");
-    setHeaderSubtitle("Acro World Tour");
     setActiveNav("tricks");
   }, [
     setActiveNav,
-    setHeaderSubtitle,
-    setHeaderTitle,
     setPageDescription,
     setPageTitle,
   ]);

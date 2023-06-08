@@ -18,8 +18,6 @@ const Home = () => {
   const {
     setPageTitle,
     setPageDescription,
-    setHeaderTitle,
-    setHeaderSubtitle,
     setActiveNav,
   } = useLayout();
 
@@ -29,13 +27,9 @@ const Home = () => {
       `Home page for the official web application of the Acro World Tour.
       In this app you can find everything you need to know about competition results and your favourite pilots.`,
     );
-    setHeaderTitle("");
-    setHeaderSubtitle("");
     setActiveNav("home");
   }, [
     setActiveNav,
-    setHeaderSubtitle,
-    setHeaderTitle,
     setPageDescription,
     setPageTitle,
   ]);

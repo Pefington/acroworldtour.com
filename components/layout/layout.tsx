@@ -13,8 +13,6 @@ interface LayoutProps {
 const Layout = ({ children, fontClass }: LayoutProps) => {
   const [pageTitle, setPageTitle] = useState("");
   const [pageDescription, setPageDescription] = useState("");
-  const [headerTitle, setHeaderTitle] = useState("");
-  const [headerSubtitle, setHeaderSubtitle] = useState("");
   const [activeNav, setActiveNav] = useState("");
 
   return (
@@ -22,13 +20,9 @@ const Layout = ({ children, fontClass }: LayoutProps) => {
       value={{
         pageTitle,
         pageDescription,
-        headerTitle,
-        headerSubtitle,
         activeNav,
         setPageTitle,
         setPageDescription,
-        setHeaderTitle,
-        setHeaderSubtitle,
         setActiveNav,
       }}
     >
@@ -36,11 +30,7 @@ const Layout = ({ children, fontClass }: LayoutProps) => {
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
       </Head>
-      <Header
-        fontClass={fontClass}
-        headerTitle={headerTitle}
-        headerSubtitle={headerSubtitle}
-      />
+      <Header fontClass={fontClass} />
       {children}
       <Nav fontClass={fontClass} activeNav={activeNav} />
     </LayoutContext.Provider>

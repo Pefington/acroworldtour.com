@@ -20,21 +20,15 @@ const Competitions = () => {
   const {
     setPageTitle,
     setPageDescription,
-    setHeaderTitle,
-    setHeaderSubtitle,
     setActiveNav,
   } = useLayout();
 
   useEffect(() => {
     setPageTitle("Acro World Tour | Competitions");
     setPageDescription(`All the competitions of the Acro World Tour.`);
-    setHeaderTitle("Competitions");
-    setHeaderSubtitle("Acro World Tour");
     setActiveNav("competitions");
   }, [
     setActiveNav,
-    setHeaderSubtitle,
-    setHeaderTitle,
     setPageDescription,
     setPageTitle,
   ]);
