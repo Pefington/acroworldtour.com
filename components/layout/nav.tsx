@@ -19,8 +19,8 @@ const Nav = ({ activeNav, fontClass }: Props) => (
     style={{}}
     className={classNames(
       fontClass,
-      "z-10 h-[90px] w-full items-center bg-primary",
-      "md:fixed md:top-0 md:flex md:h-[90px] md:max-w-[1420px] md:px-[70px]",
+      "absolute z-10 h-[90px] w-full items-center bg-primary",
+      "md:fixed md:top-0 md:flex md:h-[90px] md:max-w-[1420px] md:px-5",
     )}
   >
     <div
@@ -30,7 +30,7 @@ const Nav = ({ activeNav, fontClass }: Props) => (
     />
     <div
       className={classNames(
-        "z-10 flex h-[90px] w-full items-center justify-between fill-white px-10 text-white",
+        "z-10 flex h-[90px] w-full items-center justify-between fill-white px-5 text-white md:px-7",
       )}
     >
       <Link href="/" title="Navigate Home" className="shrink-0">

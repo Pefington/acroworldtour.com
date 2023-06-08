@@ -1,16 +1,17 @@
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { preload } from "swr";
 
-import CurrentCompetitions from "@/components/competition/currentCompetitions";
-import Download from "@/components/download";
+import Header from "@/components/header";
+// import CurrentCompetitions from "@/components/competition/currentCompetitions";
+// import Download from "@/components/download";
 import { useLayout } from "@/components/layout/layoutContext";
 import { API_URL } from "@/constants";
 import { fetcher } from "@/utils/fetcher";
 
-const About = dynamic(() => import("@/components/about"), {
-  ssr: false,
-});
+// const About = dynamic(() => import("@/components/about"), {
+//   ssr: false,
+// });
 
 preload(`${API_URL}/competitions/`, fetcher);
 
@@ -28,9 +29,10 @@ const Home = () => {
 
   return (
     <>
-      <About />
+      <Header />
+      {/* <About />
       <CurrentCompetitions />
-      <Download />
+      <Download /> */}
     </>
   );
 };
