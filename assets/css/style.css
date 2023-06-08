@@ -1,105 +1,16 @@
-/* exo-regular - latin */
-@font-face {
-  font-display: swap;
-  font-family: 'Exo';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/exo-v20-latin-regular.woff2') format('woff2'),
-    url('../fonts/exo-v20-latin-regular.woff') format('woff');
-}
-
-/* exo-500 - latin */
-@font-face {
-  font-display: swap;
-  font-family: 'Exo';
-  font-style: normal;
-  font-weight: 500;
-  src: url('../fonts/exo-v20-latin-500.woff2') format('woff2'),
-    url('../fonts/exo-v20-latin-500.woff') format('woff');
-}
-
-/* exo-600 - latin */
-@font-face {
-  font-display: swap;
-  font-family: 'Exo';
-  font-style: normal;
-  font-weight: 600;
-  src: url('../fonts/exo-v20-latin-600.woff2') format('woff2'),
-    url('../fonts/exo-v20-latin-600.woff') format('woff');
-}
-
-/* exo-700 - latin */
-@font-face {
-  font-display: swap;
-  font-family: 'Exo';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/exo-v20-latin-700.woff2') format('woff2'),
-    url('../fonts/exo-v20-latin-700.woff') format('woff');
-}
-
-/* exo-900 - latin */
-@font-face {
-  font-display: swap;
-  font-family: 'Exo';
-  font-style: normal;
-  font-weight: 900;
-  src: url('../fonts/exo-v20-latin-900.woff2') format('woff2'),
-    url('../fonts/exo-v20-latin-900.woff') format('woff');
-}
-
-:root {
+/* :root {
   --base-color: #171717;
   --base-text-color: #171717;
   --primary-color: #fb8b24;
   --secondary-color: #bababa;
   --border-radius: 20px;
   --primary-hover-color: #dc7a1f;
-}
+} */
 
-* {
-  box-sizing: border-box;
-}
-
-body,
-html,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ul,
-li {
-  padding: 0;
-  margin: 0;
-}
-
-body,
-html {
-  font-family: Exo, sans-serif;
-  color: var(--base-text-color);
-}
-
-ul {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-button {
-  outline: none;
-  border: none;
-  background: none;
-}
-
-::selection {
+/* ::selection {
   background-color: #fb8b24;
   color: #171717;
-}
+} */
 
 .is-visually-hidden {
   position: absolute;
@@ -193,11 +104,11 @@ button {
     background-color: var(--base-color);
 } */
 
-.nav__logo img {
+/* .nav__logo img {
   width: 100px;
-}
+} */
 
-.nav__list {
+/* .nav__list {
   background-color: var(--base-color);
   position: fixed;
   bottom: 20px;
@@ -209,21 +120,21 @@ button {
   gap: 20px;
   padding: 20px 30px 18px;
   border-radius: var(--border-radius);
-}
+} */
 
-.nav__link {
+/* .nav__link {
   color: #fff;
   font-weight: 600;
   font-size: 12px;
   display: block;
   transition: 0.2s;
   text-transform: uppercase;
-}
+} */
 
-.nav__link--active,
+/* .nav__link--active,
 .nav__link:hover {
   color: var(--primary-color);
-}
+} */
 
 .nav__link::before {
   content: '';

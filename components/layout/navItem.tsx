@@ -16,30 +16,30 @@ interface Props {
   active: boolean;
 }
 
-const iconClasses = classNames("fill-inherit h-6 w-auto", "lg:pr-3");
+const NavItem = ({ link, active }: Props) => {
+  const iconClasses = classNames("fill-white h-5 w-auto", "md:hidden");
 
-const NavItem = ({ link, active }: Props) => (
-  <Link
-    href={`/${link.toLowerCase()}`}
-    className={classNames(
-      "text-awt-dark-600 flex flex-col items-center justify-center rounded-xl p-2 text-xs font-semibold",
-      "lg:flex-row lg:justify-start lg:rounded-r-none lg:py-3 lg:pl-6 lg:text-base",
-      !active &&
-        "hover:bg-awt-accent-600 hover:fill-white hover:text-white hover:shadow-md",
-      active
-        ? "bg-awt-dark-900 fill-white text-white shadow-md"
-        : "fill-awt-dark-600",
-    )}
-  >
-    {link === "" && <HomeIcon className={iconClasses} />}
-    {link === "Seasons" && <SeasonsIcon className={iconClasses} />}
-    {link === "Competitions" && <CompetitionsIcon className={iconClasses} />}
-    {link === "Pilots" && <PilotsIcon className={iconClasses} />}
-    {link === "Teams" && <TeamsIcon className={iconClasses} />}
-    {link === "Judges" && <JudgesIcon className={iconClasses} />}
-    {link === "Tricks" && <TricksIcon className={iconClasses} />}
-    <span>{link || "Home"}</span>
-  </Link>
-);
+  return (
+    <Link
+      href={`/${link.toLowerCase()}`}
+      className={classNames(
+        "flex flex-col items-center justify-center gap-1",
+        "fill-white text-xs font-semibold uppercase",
+        "md:text-sm",
+        "md:hover:text-accent",
+        active && "fill-accent text-accent",
+      )}
+    >
+      {link === "" && <HomeIcon className={iconClasses} />}
+      {link === "Seasons" && <SeasonsIcon className={iconClasses} />}
+      {link === "Competitions" && <CompetitionsIcon className={iconClasses} />}
+      {link === "Pilots" && <PilotsIcon className={iconClasses} />}
+      {link === "Teams" && <TeamsIcon className={iconClasses} />}
+      {link === "Judges" && <JudgesIcon className={iconClasses} />}
+      {link === "Tricks" && <TricksIcon className={iconClasses} />}
+      <span>{link || "Home"}</span>
+    </Link>
+  );
+};
 
 export default NavItem;

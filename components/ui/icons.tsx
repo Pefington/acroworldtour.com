@@ -71,7 +71,7 @@ export const PilotsIcon = ({ className }: Props) => (
 
 export const TeamsIcon = ({ className }: Props) => (
   <svg
-    width="75"
+    width="90"
     height="75"
     viewBox="0 0 640 512"
     fill="none"

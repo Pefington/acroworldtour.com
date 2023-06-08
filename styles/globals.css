@@ -25,6 +25,7 @@ to be the same across browsers e.g. margin 0 and padding 0:
 
 @layer base {
   * {
+    @apply transition-colors duration-200 ease-in-out;
     /* DEV ONLY */
     /* @apply outline outline-1 outline-red-200; */
   }
