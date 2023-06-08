@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { ReactNode, useState } from "react";
 
-import Header from "./header";
 import LayoutContext from "./layoutContext";
 import Nav from "./nav";
 
@@ -30,9 +29,8 @@ const Layout = ({ children, fontClass }: LayoutProps) => {
         <title>{pageTitle}</title>
         <meta name="description" content={pageDescription} />
       </Head>
-      <Header fontClass={fontClass} />
-      {children}
       <Nav fontClass={fontClass} activeNav={activeNav} />
+      {children}
     </LayoutContext.Provider>
   );
 };
