@@ -9,12 +9,22 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        'awt-dark': colors.slate,
-        'awt-accent': colors.sky,
+      screens: {
+        md: '800px', // 'md:'
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      colors: {
+        // i.e. text-primary bg-primary ...
+        primary: colors.neutral[900],
+        secondary: {
+          light: colors.neutral[100],
+          medium: colors.neutral[200],
+          DEFAULT: colors.neutral[400],
+        },
+        accent: colors.orange[400],
+        hover: colors.amber[600],
+      },
+      borderRadius: {
+        DEFAULT: '20px', // 'rounded'
       },
     },
   },
