@@ -3,13 +3,13 @@ import "semantic-ui-flag/flag.min.css";
 
 import classNames from "classnames";
 import type { AppProps } from "next/app";
-import { Montserrat } from "next/font/google";
+import { Exo } from "next/font/google";
 import { SWRConfig } from "swr";
 
 import Layout from "@/components/layout/layout";
 import { fetcher } from "@/utils/fetcher";
 
-const font = Montserrat({
+const font = Exo({
   subsets: ["latin"],
 });
 
