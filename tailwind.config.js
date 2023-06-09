@@ -9,8 +9,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      screens: {
-        md: '800px', // 'md:'
+      borderRadius: {
+        DEFAULT: '20px', // 'rounded'
       },
       colors: {
         // i.e. text-primary bg-primary ...
@@ -23,8 +23,8 @@ module.exports = {
         accent: colors.orange[400],
         hover: colors.amber[600],
       },
-      borderRadius: {
-        DEFAULT: '20px', // 'rounded'
+      maxWidth: {
+        '8xl': '90rem',
       },
     },
   },
