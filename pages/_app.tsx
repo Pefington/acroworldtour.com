@@ -17,7 +17,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <SWRConfig value={{ fetcher }}>
       <Layout fontClass={font.className}>
-        <main className={classNames(font.className, "w-full")}>
+        <main className={classNames(font.className, "w-full flex flex-col")}>
           <Component {...pageProps} />
         </main>
       </Layout>

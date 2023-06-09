@@ -2,7 +2,8 @@
 import { useEffect } from "react";
 import { preload } from "swr";
 
-import Header from "@/components/header";
+import HomeHero from "@/components/home/hero";
+import HomeIntro from "@/components/home/intro";
 // import CurrentCompetitions from "@/components/competition/currentCompetitions";
 // import Download from "@/components/download";
 import { useLayout } from "@/components/layout/layoutContext";
@@ -19,7 +20,9 @@ const Home = () => {
   const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
   useEffect(() => {
-    setPageTitle("Acro World Tour | Home");
+    setPageTitle(
+      "Acro World Tour | The world's best pilots fighting for the most prestigious title",
+    );
     setPageDescription(
       `Home page for the official web application of the Acro World Tour.
       In this app you can find everything you need to know about competition results and your favourite pilots.`,
@@ -29,7 +32,8 @@ const Home = () => {
 
   return (
     <>
-      <Header />
+      <HomeHero />
+      <HomeIntro />
       {/* <About />
       <CurrentCompetitions />
       <Download /> */}

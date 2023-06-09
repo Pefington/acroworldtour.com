@@ -23,6 +23,7 @@ const NavItem = ({ link, active }: Props) => {
     <Link
       href={`/${link.toLowerCase()}`}
       className={classNames(
+        /* "nav__link", */
         "flex flex-col items-center justify-center gap-1",
         "fill-white text-xs font-semibold uppercase",
         "md:text-sm",

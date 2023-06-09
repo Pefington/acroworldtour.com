@@ -19,11 +19,13 @@ const Nav = ({ activeNav, fontClass }: Props) => (
     style={{}}
     className={classNames(
       fontClass,
+      /* "nav", */
       "absolute z-10 h-20 w-full items-center bg-primary",
       "md:fixed md:top-0 md:flex md:max-w-8xl md:px-5",
     )}
   >
     <div
+      /* ::before */
       className={classNames(
         "absolute -left-5 hidden aspect-square h-full skew-x-[26deg] bg-primary md:block",
       )}
@@ -33,17 +35,25 @@ const Nav = ({ activeNav, fontClass }: Props) => (
         "z-10 flex h-20 w-full items-center justify-between fill-white px-5 text-white md:px-7",
       )}
     >
-      <Link href="/" title="Navigate Home" className="shrink-0">
+      <Link
+        href="/"
+        title="Navigate Home"
+        className={classNames(
+          /* "nav__logo", */
+          "shrink-0",
+        )}
+      >
         <Image
           src={awtLogo}
           alt="Acro World Tour logo"
           width="0"
           height="0"
-          className="w-[100px]"
+          className={classNames("w-24")}
         />
       </Link>
       <ul
         className={classNames(
+          /* "nav__list", */
           "fixed bottom-5 left-1/2 -translate-x-1/2",
           "flex justify-around",
           "w-11/12 rounded bg-primary px-7 pb-4 pt-5",
@@ -60,10 +70,10 @@ const Nav = ({ activeNav, fontClass }: Props) => (
             <NavItem link="Seasons" active={activeNav === "seasons"} />
           </li> */}
         <li
-          onMouseEnter={() => {
-            preload(`${API_URL}/competitions/`, fetcher);
-            preload(`${API_URL}/seasons/`, fetcher);
-          }}
+        // onMouseEnter={() => {
+        //   preload(`${API_URL}/competitions/`, fetcher);
+        //   preload(`${API_URL}/seasons/`, fetcher);
+        // }}
         >
           <NavItem link="Competitions" active={activeNav === "competitions"} />
         </li>
@@ -82,6 +92,7 @@ const Nav = ({ activeNav, fontClass }: Props) => (
       </ul>
     </div>
     <div
+      /* after */
       className={classNames(
         "absolute -right-5 hidden aspect-square h-full -skew-x-[26deg] bg-primary md:block",
       )}

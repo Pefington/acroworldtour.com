@@ -8,6 +8,7 @@ const HomeHero = () => {
   return (
     <header
       className={classNames(
+        /* "header", */
         "h-[50vh min-h-[500px]",
         "bg-cover bg-right bg-no-repeat",
         "flex items-center",
@@ -18,21 +19,44 @@ const HomeHero = () => {
         backgroundImage: `url(${header.src})`,
       }}
     >
-      <div className="wrapper">
-        <article className="max-w-md translate-y-10 text-white">
-          <span className="text-lg font-medium">Welcome to</span>
+      <div className={classNames("wrapper")}>
+        <article
+          className={classNames(
+            /* "header__content", */
+            "max-w-md translate-y-10 text-white",
+          )}
+        >
+          <span
+            className={classNames(
+              /* "header__pre-title", */
+              "text-lg font-medium",
+            )}
+          >
+            Welcome to
+          </span>
           <h1
             className={classNames(
+              /* "header__title", */
               "my-4 text-4xl font-black uppercase",
               "md:text-6xl",
             )}
           >
             The Acro World Tour
           </h1>
-          <span className="text-lg font-medium">
+          <span
+            className={classNames(
+              /* "header__subtitle", */
+              "text-lg font-medium",
+            )}
+          >
             {"The world's best pilots fighting for the most prestigious title."}
           </span>
-          <footer className="mt-7 flex items-center gap-3 px-1">
+          <footer
+            className={classNames(
+              /* "header_icons icons", */
+              "mt-7 flex items-center gap-3 px-1",
+            )}
+          >
             <SocialLink
               link="https://instagram.com/acroworldtour"
               media="instagram"

@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import Link from "next/link";
 
 import {
@@ -30,7 +31,10 @@ const SocialLink = ({ className, link, media }: Props) => {
       href={{ pathname: link }}
       title={media}
       target="_blank"
-      className={className}
+      className={classNames(
+        /* "icons", in caller */
+        className,
+      )}
       rel="noopener noreferrer"
     >
       {(mediaName === "facebook" && <FacebookIcon />) ||
