@@ -8,7 +8,7 @@ const HomeHero = () => {
   return (
     <header
       className={classNames(
-        "h-12 w-full",
+        "h-[50vh min-h-[500px]",
         "bg-cover bg-right bg-no-repeat",
         "flex items-center",
         "md:h-[80vh]",
