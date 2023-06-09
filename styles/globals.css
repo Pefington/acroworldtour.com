@@ -39,4 +39,14 @@ to be the same across browsers e.g. margin 0 and padding 0:
   ::selection {
     @apply bg-accent;
   }
+
+  section {
+    @apply py-16 md:py-24;
+  }
+}
+
+@layer utilities {
+  .wrapper {
+    @apply mx-auto w-full max-w-8xl px-5;
+  }
 }

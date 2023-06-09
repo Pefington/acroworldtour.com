@@ -19,18 +19,18 @@ const Nav = ({ activeNav, fontClass }: Props) => (
     style={{}}
     className={classNames(
       fontClass,
-      "absolute z-10 h-[90px] w-full items-center bg-primary",
-      "md:fixed md:top-0 md:flex md:h-[90px] md:max-w-[1420px] md:px-5",
+      "absolute z-10 h-20 w-full items-center bg-primary",
+      "md:fixed md:top-0 md:flex md:max-w-8xl md:px-5",
     )}
   >
     <div
       className={classNames(
-        "absolute -left-[23px] hidden aspect-square h-full skew-x-[26deg] bg-primary md:block",
+        "absolute -left-5 hidden aspect-square h-full skew-x-[26deg] bg-primary md:block",
       )}
     />
     <div
       className={classNames(
-        "z-10 flex h-[90px] w-full items-center justify-between fill-white px-5 text-white md:px-7",
+        "z-10 flex h-20 w-full items-center justify-between fill-white px-5 text-white md:px-7",
       )}
     >
       <Link href="/" title="Navigate Home" className="shrink-0">
@@ -46,8 +46,8 @@ const Nav = ({ activeNav, fontClass }: Props) => (
         className={classNames(
           "fixed bottom-5 left-1/2 -translate-x-1/2",
           "flex justify-around",
-          "w-[calc(100vw-40px)] rounded bg-primary px-[30px] pb-[18px] pt-5",
-          "md:relative md:bottom-0 md:left-0 md:transform-none md:justify-end md:gap-[60px] md:bg-transparent md:p-0",
+          "w-11/12 rounded bg-primary px-7 pb-4 pt-5",
+          "md:relative md:bottom-0 md:left-0 md:transform-none md:justify-end md:gap-7 md:bg-transparent md:p-0",
           "",
         )}
       >
@@ -83,7 +83,7 @@ const Nav = ({ activeNav, fontClass }: Props) => (
     </div>
     <div
       className={classNames(
-        "absolute -right-[23px] hidden aspect-square h-full -skew-x-[26deg] bg-primary md:block",
+        "absolute -right-5 hidden aspect-square h-full -skew-x-[26deg] bg-primary md:block",
       )}
     />
   </nav>
