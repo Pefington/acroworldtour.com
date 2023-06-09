@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 
-import { ChevronIcon } from "./ui/icons";
-import SocialLink from "./ui/socialLink";
+import { ChevronIcon } from "../ui/icons";
+import SocialLink from "../ui/socialLink";
 
 const About = () => {
   const [hideAbout, setHideAbout] = useState(

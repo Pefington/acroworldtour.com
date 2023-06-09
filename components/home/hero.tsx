@@ -2,9 +2,9 @@ import classNames from "classnames";
 
 import header from "@/assets/img/header.jpg";
 
-import SocialLink from "./ui/socialLink";
+import SocialLink from "../ui/socialLink";
 
-const Header = () => {
+const HomeHero = () => {
   return (
     <header
       className={classNames(
@@ -52,4 +52,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HomeHero;
