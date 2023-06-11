@@ -1,20 +1,20 @@
 // import dynamic from "next/dynamic";
 import { useEffect } from "react";
-import { preload } from "swr";
 
+// import { preload } from "swr";
 import HomeHero from "@/components/home/hero";
 import HomeIntro from "@/components/home/intro";
 // import CurrentCompetitions from "@/components/competition/currentCompetitions";
 // import Download from "@/components/download";
 import { useLayout } from "@/components/layout/layoutContext";
-import { API_URL } from "@/constants";
-import { fetcher } from "@/utils/fetcher";
+// import { API_URL } from "@/constants";
+// import { fetcher } from "@/utils/fetcher";
 
 // const About = dynamic(() => import("@/components/about"), {
 //   ssr: false,
 // });
 
-preload(`${API_URL}/competitions/`, fetcher);
+// preload(`${API_URL}/competitions/`, fetcher);
 
 const Home = () => {
   const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
