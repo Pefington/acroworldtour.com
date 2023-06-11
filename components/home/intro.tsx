@@ -15,6 +15,7 @@ const HomeIntro = () => {
     >
       <HomeVideo
         title="Replay Acro World Tour 2023 Nest Games"
+        /* USE youtube-nocookie.com (official) as we don't want tracking */
         embedUrl="https://www.youtube-nocookie.com/embed/G3mZelZKIaU"
       />
 
