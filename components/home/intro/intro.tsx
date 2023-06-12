@@ -8,7 +8,7 @@ const HomeIntro = () => {
   return (
     <section
       className={classNames(
-        "section wrapper",
+        "section",
         "flex flex-col gap-10",
         "lg:flex-row",
       )}

@@ -21,6 +21,7 @@
     "next": "13.4.1",
     "postcss": "8.4.23",
     "react": "18.2.0",
+    "react-circle-flags": "^0.0.18",
     "react-dom": "18.2.0",
     "semantic-ui-flag": "^2.5.0",
     "sharp": "^0.32.1",

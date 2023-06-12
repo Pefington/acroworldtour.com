@@ -3,7 +3,8 @@ import { useEffect } from "react";
 
 // import { preload } from "swr";
 import HomeHero from "@/components/home/hero";
-import HomeIntro from "@/components/home/intro";
+import HomeIntro from "@/components/home/intro/intro";
+import HomeUpcoming from "@/components/home/upcoming/upcoming";
 // import CurrentCompetitions from "@/components/competition/currentCompetitions";
 // import Download from "@/components/download";
 import { useLayout } from "@/components/layout/layoutContext";
@@ -34,6 +35,7 @@ const Home = () => {
     <>
       <HomeHero />
       <HomeIntro />
+      <HomeUpcoming />
       {/* <About />
       <CurrentCompetitions />
       <Download /> */}

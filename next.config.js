@@ -15,7 +15,7 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ['api.acroworldtour.com', 'civlcomps.org'],
+    domains: ['api.acroworldtour.com', 'civlcomps.org', 'hatscripts.github.io'],
   },
   reactStrictMode: true,
 };

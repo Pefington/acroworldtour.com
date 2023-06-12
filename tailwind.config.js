@@ -18,10 +18,13 @@ module.exports = {
         secondary: {
           light: colors.neutral[100],
           medium: colors.neutral[200],
-          DEFAULT: colors.neutral[400],
+          DEFAULT: colors.neutral[500],
         },
-        accent: colors.orange[400],
-        hover: colors.amber[600],
+        accent: {
+          DEFAULT: colors.orange[400],
+          text: colors.orange[500],
+        },
+        hover: colors.amber[500],
       },
       maxWidth: {
         '8xl': '90rem',

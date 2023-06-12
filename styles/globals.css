@@ -42,11 +42,7 @@ to be the same across browsers e.g. margin 0 and padding 0:
 }
 
 @layer utilities {
-  .wrapper {
-    @apply mx-auto w-full max-w-8xl px-5;
-  }
-
   .section {
-    @apply py-16 md:py-24;
+    @apply px-5 py-16 md:py-24 lg:px-16;
   }
 }
