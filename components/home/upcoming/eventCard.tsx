@@ -50,7 +50,7 @@ const UpcomingEventCard = ({ competition }: Props) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <figure className={classNames("relative h-2/3 w-full")}>
+      <figure className={classNames("relative h-2/3 w-full overflow-hidden")}>
         {image && (
           <Image
             src={image}
