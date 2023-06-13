@@ -5,7 +5,7 @@ interface Props {
   embedUrl: string;
 }
 
-const HomeVideo = ({ title, embedUrl }: Props) => (
+const HomeIntroVideo = ({ title, embedUrl }: Props) => (
   <article
     className={classNames(
       /* "introduction__video", */
@@ -34,4 +34,4 @@ const HomeVideo = ({ title, embedUrl }: Props) => (
   </article>
 );
 
-export default HomeVideo;
+export default HomeIntroVideo;

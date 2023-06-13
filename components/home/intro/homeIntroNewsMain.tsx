@@ -9,7 +9,7 @@ interface Props {
   imageUrl: string;
 }
 
-const HomeNewsMain = ({ title, href, imageUrl }: Props) => {
+const HomeIntroNewsMain = ({ title, href, imageUrl }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -59,4 +59,4 @@ const HomeNewsMain = ({ title, href, imageUrl }: Props) => {
   );
 };
 
-export default HomeNewsMain;
+export default HomeIntroNewsMain;

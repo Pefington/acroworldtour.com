@@ -92,7 +92,6 @@ const TricksTable = ({ tricks, className }: Props) => {
                     {bonus.name} ({bonus.bonus}%)
                     {bonus.sample_video && (
                       <a href={bonus.sample_video} target="_blank">
-                        {" "}
                         📺
                       </a>
                     )}
