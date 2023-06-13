@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import countries from "i18n-iso-countries";
 import Link from "next/link";
+import { useState } from "react";
 import { CircleFlag } from "react-circle-flags";
 
 import { components } from "@/types";
@@ -19,6 +20,8 @@ interface Props {
 }
 
 const OverallResultsCard = ({ event, limitTo }: Props) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const results =
     "overall_results" in event.results
       ? (event.results.overall_results as CompetitionResult[])
@@ -34,7 +37,12 @@ const OverallResultsCard = ({ event, limitTo }: Props) => {
   const clampedResults = limitTo ? results.slice(0, limitTo) : results;
 
   return (
-    <article className={classNames("w-full rounded pt-7 shadow-md")}>
+    <article
+      className={classNames(
+        "w-full rounded pt-7",
+        isHovered ? "-translate-y-1 shadow-lg" : "shadow-md",
+      )}
+    >
       <h3 className={classNames("px-7 text-3xl font-bold uppercase")}>
         {isCompetition ? "Acro World Tour" : "Acro World Qualifier"}
       </h3>
@@ -89,15 +97,21 @@ const OverallResultsCard = ({ event, limitTo }: Props) => {
         })}
       </ul>
 
-      <footer className="w-full rounded-b py-4 text-center font-bold text-accent-text hover:bg-secondary-light">
+      <footer
+        className="grid w-full place-items-center font-bold text-accent-text hover:text-hover hover:drop-shadow-md"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <Link
           href={
             isCompetition
               ? `/competitions/${event.code}`
               : `/seasons/${event.code}`
           }
+          title={`View detailed results for ${event.name}`}
+          className="w-full py-4 text-center"
         >
-          View All
+          View More
         </Link>
       </footer>
     </article>

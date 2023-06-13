@@ -47,6 +47,7 @@ const HomeUpcoming = () => {
         </h2>
         <Link
           href="/competitions"
+          title="View all competitions"
           className={classNames(
             "mb-8 min-w-max font-bold text-accent-text hover:text-hover hover:drop-shadow-md",
           )}

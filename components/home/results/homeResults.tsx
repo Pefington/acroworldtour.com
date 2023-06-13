@@ -82,6 +82,7 @@ const HomeResults = () => {
         </h2>
         <Link
           href="/results"
+          title="View all results"
           className={classNames(
             "mb-8 min-w-max font-bold text-accent-text hover:text-hover hover:drop-shadow-md",
           )}
