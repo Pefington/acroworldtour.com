@@ -4,8 +4,9 @@ import { preload } from "swr";
 
 import HomeHero from "@/components/home/hero";
 import HomeIntro from "@/components/home/intro/homeIntro";
+import HomePilots from "@/components/home/pilots/homePilots";
 import HomeResults from "@/components/home/results/homeResults";
-import HomeUpcoming from "@/components/home/upcoming/upcoming";
+import HomeUpcoming from "@/components/home/upcoming/homeUpcoming";
 // import CurrentCompetitions from "@/components/competition/currentCompetitions";
 // import Download from "@/components/download";
 import { useLayout } from "@/components/layout/layoutContext";
@@ -18,6 +19,7 @@ import { fetcher } from "@/utils/fetcher";
 
 preload(`${API_URL}/competitions/`, fetcher);
 preload(`${API_URL}/seasons/`, fetcher);
+preload(`${API_URL}/pilots/`, fetcher);
 
 const Home = () => {
   const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
@@ -39,6 +41,7 @@ const Home = () => {
       <HomeIntro />
       <HomeUpcoming />
       <HomeResults />
+      <HomePilots />
       {/* <About />
       <CurrentCompetitions />
       <Download /> */}

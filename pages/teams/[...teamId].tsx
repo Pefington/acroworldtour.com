@@ -39,8 +39,6 @@ const TeamPage = () => {
   if (error) return <FetchError />;
   if (!team) return <h2>Team not found</h2>;
 
-  console.log(team);
-
   return <TeamDetails team={team} />;
 };
 

@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import "semantic-ui-flag/flag.min.css";
 
 import classNames from "classnames";
 import type { AppProps } from "next/app";

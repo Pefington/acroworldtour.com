@@ -80,13 +80,6 @@ const UpcomingEventCard = ({ competition }: Props) => {
         >
           {alpha2country && (
             <CircleFlag countryCode={alpha2country} className="-mx-[2px] h-5" />
-            // <Image
-            //   src={`https://hatscripts.github.io/circle-flags/flags/${alpha2country}.svg`}
-            //   alt=""
-            //   height={20}
-            //   width={20}
-            //   className={classNames("aspect-square h-5")}
-            // />
           )}
 
           {location}

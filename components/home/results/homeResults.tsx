@@ -67,8 +67,6 @@ const HomeResults = () => {
     .sort((a, b) => a.year - b.year)
     .at(-1);
 
-  console.log(lastAwtCompetition);
-
   return (
     <section className={classNames("section", "flex flex-col")}>
       <header className="flex items-center justify-between">

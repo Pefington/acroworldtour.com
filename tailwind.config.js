@@ -6,6 +6,7 @@ module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/flowbite-react/**/*.js',
   ],
   theme: {
     extend: {
@@ -17,7 +18,7 @@ module.exports = {
         primary: colors.neutral[900],
         secondary: {
           light: colors.neutral[100],
-          medium: colors.neutral[200],
+          medium: colors.neutral[400],
           DEFAULT: colors.neutral[500],
         },
         accent: {
@@ -35,6 +36,5 @@ module.exports = {
     require('@tailwindcss/forms')({
       strategy: 'base',
     }),
-    require('@tailwindcss/typography'),
   ],
 };
