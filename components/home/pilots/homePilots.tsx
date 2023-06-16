@@ -1,3 +1,5 @@
+import "flickity/css/flickity.css";
+
 import classNames from "classnames";
 import Link from "next/link";
 import Flickity from "react-flickity-component";
@@ -49,11 +51,15 @@ const HomePilots = () => {
         </Link>
       </header>
       <Flickity
-        className={"outline-none"}
+        className={
+          "-mx-5 w-screen overflow-visible bg-lime-400 outline-none lg:-mx-16 [&_.dot]:!bg-secondary-medium [&_.dot]:!opacity-100 [&_.is-selected]:!bg-accent"
+        }
         options={{
-          initialIndex: 1,
-          prevNextButtons: true,
+          initialIndex: 2,
+          prevNextButtons: false,
           pageDots: true,
+          cellAlign: "left",
+          contain: true,
         }}
         reloadOnUpdate
       >

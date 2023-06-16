@@ -61,6 +61,9 @@ devDependencies:
   '@tailwindcss/forms':
     specifier: ^0.5.3
     version: 0.5.3(tailwindcss@3.3.2)
+  '@types/flickity':
+    specifier: ^2.2.7
+    version: 2.2.7
   eslint:
     specifier: ^8.42.0
     version: 8.42.0
@@ -325,6 +328,10 @@ packages:
     dependencies:
       mini-svg-data-uri: 1.4.4
       tailwindcss: 3.3.2
+    dev: true
+
+  /@types/flickity@2.2.7:
+    resolution: {integrity: sha512-Vsf/n2Yab2ytHXBhgs+XJi7nXEOnspUdApe7WbnKGrBAZvSpz8+pjxpeKfFWPrFeDrgLRJr230DHb4YyIw4lbA==}
     dev: true
 
   /@types/json5@0.0.29:

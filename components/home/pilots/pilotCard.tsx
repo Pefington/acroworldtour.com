@@ -33,6 +33,8 @@ const PilotCard = ({ pilot }: Props) => {
         "relative flex",
         "mr-7 aspect-[260/370] w-full max-w-xs",
         "overflow-hidden rounded shadow-md",
+        "hover:drop-shadow-lg",
+        "pointer-events-none",
       )}
     >
       <figure className={classNames("absolute inset-0")}>
