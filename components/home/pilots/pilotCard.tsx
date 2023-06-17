@@ -26,50 +26,57 @@ const PilotCard = ({ pilot }: Props) => {
   const countryName = countries.getName(country, "en");
 
   return (
-    <Link
-      href={`/pilots/${civlid}`}
-      title={name}
+    <article
       className={classNames(
-        "relative flex",
-        "mr-7 aspect-[260/370] w-full max-w-xs",
+        "relative flex flex-col justify-end",
+        "aspect-[260/370] w-full max-w-[min(80vw,260px)]",
         "overflow-hidden rounded shadow-md",
         "hover:drop-shadow-lg",
-        "pointer-events-none",
       )}
     >
-      <figure className={classNames("absolute inset-0")}>
+      <figure
+        className={classNames(
+          "absolute inset-0",
+          "bg-gradient-to-b from-transparent to-slate-900/90",
+        )}
+      >
         <Image
           src={photo || photoLowres}
           alt={name}
           fill
           className={classNames(
-            "object-cover duration-500",
+            "-z-10 object-cover duration-500",
             isHovered && "scale-105",
           )}
         />
-      </figure>
-      <figcaption
+      </figure>{" "}
+      <Link
+        href={`/pilots/${civlid}`}
+        title={name}
         className={classNames(
           "z-10 w-full",
           "flex flex-col justify-end",
           "py-7 text-center",
-          "bg-gradient-to-b from-transparent to-slate-900/90",
         )}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <h3 className={classNames("text-lg font-bold uppercase text-white")}>
-          {name}
-        </h3>
-        <span
-          className={classNames(
-            "font-semibold uppercase text-secondary-medium",
-          )}
+        <figcaption
+          className={classNames(isHovered && "animate-once animate-ping")}
         >
-          {countryName}
-        </span>
-      </figcaption>
-    </Link>
+          <h3 className={classNames("text-lg font-bold uppercase text-white")}>
+            {name}
+          </h3>
+          <span
+            className={classNames(
+              "font-semibold uppercase text-secondary-medium",
+            )}
+          >
+            {countryName}
+          </span>
+        </figcaption>
+      </Link>
+    </article>
   );
 };
 

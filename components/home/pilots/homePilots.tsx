@@ -51,17 +51,22 @@ const HomePilots = () => {
         </Link>
       </header>
       <Flickity
-        className={
-          "-mx-5 w-screen overflow-visible bg-lime-400 outline-none lg:-mx-16 [&_.dot]:!bg-secondary-medium [&_.dot]:!opacity-100 [&_.is-selected]:!bg-accent"
-        }
+        className={classNames(
+          "-mx-5 w-screen lg:-mx-16" /* cancel .section padding */,
+          "sm:[&_ol]:-bottom-14" /* vertical position of pagination dots */,
+          "[&_li]:!bg-primary" /* pagination dots dots colour */,
+          "[&_article]:m-2 sm:[&_article]:m-4" /* cards margin */,
+          "",
+          "",
+          "",
+        )}
         options={{
           initialIndex: 2,
           prevNextButtons: false,
-          pageDots: true,
-          cellAlign: "left",
-          contain: true,
+          cellAlign: "center",
         }}
         reloadOnUpdate
+        static
       >
         {awtPilots.map((pilot) => (
           <PilotCard key={pilot.civlid} pilot={pilot} />
