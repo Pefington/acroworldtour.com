@@ -1,21 +1,15 @@
-// import dynamic from "next/dynamic";
 import { useEffect } from "react";
 import { preload } from "swr";
 
-import HomeHero from "@/components/home/hero";
+import HomePilots from "@/components/home/discover-pilots/homePilots";
+import HomeHero from "@/components/home/homeHero";
 import HomeIntro from "@/components/home/intro/homeIntro";
-import HomePilots from "@/components/home/pilots/homePilots";
-import HomeResults from "@/components/home/results/homeResults";
-import HomeUpcoming from "@/components/home/upcoming/homeUpcoming";
-// import CurrentCompetitions from "@/components/competition/currentCompetitions";
-// import Download from "@/components/download";
+import HomeResults from "@/components/home/latest-results/homeResults";
+import HomeRules from "@/components/home/learn-rules/homeRules";
+import HomeUpcoming from "@/components/home/upcoming-events/homeUpcoming";
 import { useLayout } from "@/components/layout/layoutContext";
 import { API_URL } from "@/constants";
 import { fetcher } from "@/utils/fetcher";
-
-// const About = dynamic(() => import("@/components/about"), {
-//   ssr: false,
-// });
 
 preload(`${API_URL}/competitions/`, fetcher);
 preload(`${API_URL}/seasons/`, fetcher);
@@ -42,6 +36,7 @@ const Home = () => {
       <HomeUpcoming />
       <HomeResults />
       <HomePilots />
+      <HomeRules />
       {/* <About />
       <CurrentCompetitions />
       <Download /> */}

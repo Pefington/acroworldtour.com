@@ -11,13 +11,14 @@ module.exports = {
   theme: {
     extend: {
       borderRadius: {
-        DEFAULT: '20px', // 'rounded'
+        DEFAULT: '20px', // 'rounded' with no suffix
       },
       colors: {
         // i.e. text-primary bg-primary ...
         primary: colors.neutral[900],
         secondary: {
           light: colors.neutral[100],
+          'light-hover': colors.neutral[200],
           medium: colors.neutral[400],
           DEFAULT: colors.neutral[500],
         },

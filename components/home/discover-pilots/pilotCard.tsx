@@ -61,9 +61,7 @@ const PilotCard = ({ pilot }: Props) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <figcaption
-          className={classNames(isHovered && "animate-once animate-ping")}
-        >
+        <figcaption className={classNames()}>
           <h3 className={classNames("text-lg font-bold uppercase text-white")}>
             {name}
           </h3>
