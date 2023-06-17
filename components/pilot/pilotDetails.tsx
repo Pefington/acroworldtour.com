@@ -84,7 +84,7 @@ const PilotDetails = ({ pilot }: Props) => {
             const { name: linkName, link: linkUrl } = link;
             return (
               <li key={linkName} className="hover:fill-awt-accent-500">
-                <SocialLink link={linkUrl} media={linkName} />
+                <SocialLink link={linkUrl} />
               </li>
             );
           })}

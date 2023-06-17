@@ -59,18 +59,9 @@ const HomeHero = () => {
             "mt-7 flex items-center gap-3 px-1",
           )}
         >
-          <SocialLink
-            link="https://instagram.com/acroworldtour"
-            media="instagram"
-          />
-          <SocialLink
-            link="https://www.facebook.com/groups/120757714620928"
-            media="facebook"
-          />
-          <SocialLink
-            link="https://www.youtube.com/@acroworldtour"
-            media="youtube"
-          />
+          <SocialLink link="https://instagram.com/acroworldtour" />
+          <SocialLink link="https://www.facebook.com/groups/120757714620928" />
+          <SocialLink link="https://www.youtube.com/@acroworldtour" />
         </footer>
       </article>
     </header>

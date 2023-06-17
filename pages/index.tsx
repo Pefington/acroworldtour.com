@@ -37,9 +37,6 @@ const Home = () => {
       <HomeResults />
       <HomePilots />
       <HomeRules />
-      {/* <About />
-      <CurrentCompetitions />
-      <Download /> */}
     </>
   );
 };

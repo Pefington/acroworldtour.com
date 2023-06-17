@@ -14,18 +14,29 @@ import {
 interface Props {
   className?: string;
   link: string;
-  media:
-    | "facebook"
-    | "instagram"
-    | "tiktok"
-    | "twitter"
-    | "wikipedia"
-    | "youtube"
-    | string;
 }
 
-const SocialLink = ({ className, link, media }: Props) => {
-  const mediaName = media.toLowerCase();
+const SocialLink = ({ className, link }: Props) => {
+  const mediaLookup: { [substring: string]: string } = {
+    facebook: "Facebook",
+    instagram: "Instagram",
+    tiktok: "TikTok",
+    twitter: "Twitter",
+    "/t.co": "Twitter",
+    wiki: "Wikipedia",
+    youtube: "YouTube",
+    "youtu.be": "YouTube",
+  };
+
+  let media;
+
+  for (const substring in mediaLookup) {
+    if (link.includes(substring)) {
+      media = mediaLookup[substring];
+      break;
+    }
+  }
+
   return (
     <Link
       href={{ pathname: link }}
@@ -37,12 +48,12 @@ const SocialLink = ({ className, link, media }: Props) => {
       )}
       rel="noopener noreferrer"
     >
-      {(mediaName === "facebook" && <FacebookIcon />) ||
-        (mediaName === "instagram" && <InstagramIcon />) ||
-        (mediaName === "tiktok" && <TikTokIcon />) ||
-        (mediaName === "twitter" && <TwitterIcon />) ||
-        (mediaName === "wikipedia" && <WikipediaIcon />) ||
-        (mediaName === "youtube" && <YouTubeIcon />) || <WebsiteIcon />}
+      {(media === "Facebook" && <FacebookIcon />) ||
+        (media === "Instagram" && <InstagramIcon />) ||
+        (media === "TikTok" && <TikTokIcon />) ||
+        (media === "Twitter" && <TwitterIcon />) ||
+        (media === "Wikipedia" && <WikipediaIcon />) ||
+        (media === "YouTube" && <YouTubeIcon />) || <WebsiteIcon />}
     </Link>
   );
 };

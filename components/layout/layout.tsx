@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-vars */
 import Head from "next/head";
 import { ReactNode, useState } from "react";
 
+import Footer from "./footer";
 import LayoutContext from "./layoutContext";
 import Nav from "./nav";
 
@@ -73,8 +73,9 @@ const Layout = ({ children, fontClass }: LayoutProps) => {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      {/* <Nav fontClass={fontClass} activeNav={activeNav} /> */}
+      <Nav fontClass={fontClass} activeNav={activeNav} />
       {children}
+      <Footer />
     </LayoutContext.Provider>
   );
 };
