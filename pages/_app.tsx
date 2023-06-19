@@ -12,11 +12,20 @@ const font = Exo({
   subsets: ["latin"],
 });
 
+export const fontClass = font.className;
+
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <SWRConfig value={{ fetcher }}>
       <Layout fontClass={font.className}>
-        <main className={classNames(font.className, "grow", "flex flex-col")}>
+        <main
+          className={classNames(
+            font.className,
+            "w-full grow",
+            "flex flex-col",
+            "md:pt-20",
+          )}
+        >
           <Component {...pageProps} />
         </main>
       </Layout>

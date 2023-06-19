@@ -14,7 +14,7 @@ const HomeHero = () => {
         "flex items-center",
         "px-5",
         "lg:px-14",
-        "md:h-[80vh]",
+        "md:-mt-20 md:h-[80vh]",
         "md:bg-center",
       )}
       style={{
