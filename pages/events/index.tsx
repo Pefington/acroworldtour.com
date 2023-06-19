@@ -80,7 +80,7 @@ const Competitions = () => {
 
   return (
     <>
-      <header className="header">
+      <header className="header flex flex-wrap items-baseline">
         <YearSelector
           years={years}
           list={soloSeasons}

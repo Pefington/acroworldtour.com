@@ -22,14 +22,14 @@ const YearSelector = ({
   };
 
   return (
-    <section
-      className={classNames(
-        "flex items-baseline text-4xl font-black",
-        "mt-8 flex items-baseline text-4xl font-black",
-        "md:text-6xl",
-      )}
-    >
-      <h1>
+    <>
+      <h1
+        className={classNames(
+          "mr-3 mt-8 min-w-max",
+          "text-4xl font-black",
+          "md:text-6xl",
+        )}
+      >
         <label htmlFor="year-selector">
           {list.length === 0
             ? `No ${pluralString.toLowerCase()} in `
@@ -42,10 +42,9 @@ const YearSelector = ({
         value={selectedYear ?? ""}
         className={classNames(
           "border-none bg-secondary-light focus:ring-0 md:text-6xl",
-          "py-2 pr-20",
+          "-ml-3 pr-14",
+          "md:pr-24",
           "text-4xl font-black",
-          "",
-          "",
         )}
         onChange={handleYearChange}
       >
@@ -59,7 +58,7 @@ const YearSelector = ({
           </option>
         ))}
       </select>
-    </section>
+    </>
   );
 };
 
