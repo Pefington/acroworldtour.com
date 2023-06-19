@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { CircleFlag } from "react-circle-flags";
 
-import { CalendarIcon } from "@/components/ui/icons";
+import { RolodexIcon } from "@/components/ui/icons";
 import { components } from "@/types";
 
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
@@ -68,7 +68,7 @@ const UpcomingEventCard = ({ competition }: Props) => {
       >
         <h3 className={classNames("text-lg font-bold uppercase")}>{name}</h3>
         <span className={classNames("flex items-center gap-2 font-semibold")}>
-          <CalendarIcon className="-ml-[2px] -mt-1 aspect-square h-[18px] fill-current" />
+          <RolodexIcon className="-ml-[2px] -mt-1 aspect-square h-[18px] fill-current" />
           {`${startDay} ${startMonth !== endMonth ? startMonth : ""} ${
             startYear !== endYear ? startYear : ""
           } to ${endDay} ${endMonth} ${endYear}`}

@@ -2,13 +2,13 @@ import classNames from "classnames";
 import Link from "next/link";
 
 import {
-  CompetitionsIcon,
+  CalendarIcon,
   HomeIcon,
   JudgesIcon,
-  PilotsIcon,
-  SeasonsIcon,
+  PersonIcon,
   TeamsIcon,
   TricksIcon,
+  TrophyIcon,
 } from "../ui/icons";
 
 interface Props {
@@ -32,12 +32,18 @@ const NavItem = ({ link, active }: Props) => {
       )}
     >
       {link === "" && <HomeIcon className={iconClasses} />}
-      {link === "Seasons" && <SeasonsIcon className={iconClasses} />}
-      {link === "Competitions" && <CompetitionsIcon className={iconClasses} />}
-      {link === "Pilots" && <PilotsIcon className={iconClasses} />}
+      {link === "Events" && <CalendarIcon className={iconClasses} />}
+      {link === "Results" && <TrophyIcon className={iconClasses} />}
+      {link === "Pilots" && <PersonIcon className={iconClasses} />}
+
       {link === "Teams" && <TeamsIcon className={iconClasses} />}
+
+      {link === "Seasons" && <CalendarIcon className={iconClasses} />}
+      {link === "Competitions" && <TrophyIcon className={iconClasses} />}
+
       {link === "Judges" && <JudgesIcon className={iconClasses} />}
       {link === "Tricks" && <TricksIcon className={iconClasses} />}
+
       <span>{link || "Home"}</span>
     </Link>
   );

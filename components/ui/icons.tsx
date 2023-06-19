@@ -30,7 +30,7 @@ export const ResultsIcon = ({ className }: Props) => (
   </svg>
 );
 
-export const SeasonsIcon = ({ className }: Props) => (
+export const CalendarIcon = ({ className }: Props) => (
   <svg
     width="75"
     height="75"
@@ -43,7 +43,7 @@ export const SeasonsIcon = ({ className }: Props) => (
   </svg>
 );
 
-export const CompetitionsIcon = ({ className }: Props) => (
+export const TrophyIcon = ({ className }: Props) => (
   <svg
     width="73"
     height="76"
@@ -56,7 +56,7 @@ export const CompetitionsIcon = ({ className }: Props) => (
   </svg>
 );
 
-export const PilotsIcon = ({ className }: Props) => (
+export const PersonIcon = ({ className }: Props) => (
   <svg
     width="75"
     height="75"
@@ -256,7 +256,7 @@ export const ThumbDownIcon = ({ className }: Props) => (
   </svg>
 );
 
-export const CalendarIcon = ({ className }: Props) => (
+export const RolodexIcon = ({ className }: Props) => (
   <svg
     width="20"
     height="17"
