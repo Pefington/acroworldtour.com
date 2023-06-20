@@ -2,16 +2,16 @@ import classNames from "classnames";
 
 interface Props {
   title: string;
-  embedUrl: string;
+  embedSlug: string;
 }
 
-const HomeIntroVideo = ({ title, embedUrl }: Props) => (
+const HomeYouTubeEmbed = ({ title, embedSlug }: Props) => (
   <article className={classNames("w-full", "lg:w-2/3")}>
     <h2 className={classNames("mb-4 text-3xl font-black uppercase")}>
       {title}
     </h2>
     <iframe
-      src={embedUrl}
+      src={`https://www.youtube-nocookie.com/embed/${embedSlug}`}
       title="YouTube video player"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowFullScreen
@@ -22,4 +22,4 @@ const HomeIntroVideo = ({ title, embedUrl }: Props) => (
   </article>
 );
 
-export default HomeIntroVideo;
+export default HomeYouTubeEmbed;

@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import HomeIntroNewsMain from "./homeIntroNewsMain";
 import HomeIntroNewsSecondary from "./homeIntroNewsSecondary";
-import HomeIntroVideo from "./homeIntroVideo";
+import HomeYouTubeEmbed from "./homeYoutubeEmbed";
 
 const HomeIntro = () => {
   return (
@@ -13,10 +13,9 @@ const HomeIntro = () => {
         "lg:flex-row",
       )}
     >
-      <HomeIntroVideo
-        title="Replay Acro World Tour 2023 Nest Games"
-        /* Use youtube-nocookie.com (official) as we don't want tracking */
-        embedUrl="https://www.youtube-nocookie.com/embed/G3mZelZKIaU"
+      <HomeYouTubeEmbed
+        title="Acro World Tour 2023 | Stop 01 - Nest Games"
+        embedSlug="tIfpP5pdqZ4"
       />
 
       <section className={classNames("flex flex-col")}>
