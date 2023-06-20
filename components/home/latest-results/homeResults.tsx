@@ -68,7 +68,7 @@ const HomeResults = () => {
     .at(-1);
 
   return (
-    <section className={classNames("section", "flex flex-col")}>
+    <section className={classNames("awt-section awt-center", "flex flex-col")}>
       <header className="flex items-center justify-between">
         <h2
           className={classNames(

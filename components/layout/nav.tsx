@@ -19,97 +19,76 @@ const Nav = ({ activeNav, fontClass }: Props) => (
     style={{}}
     className={classNames(
       fontClass,
-      /* "nav", */
-      "absolute z-10 h-20 w-full items-center bg-primary",
-      "md:fixed md:top-0 md:flex md:max-w-8xl md:px-5",
+      "absolute z-10 flex h-20 w-full max-w-8xl items-center bg-primary text-white",
+      "md:fixed md:top-0",
+      "before:aspect-[0.5] before:h-full before:-translate-x-[20px] before:skew-x-[26deg] before:bg-primary",
+      "after:aspect-[0.5] after:h-full after:translate-x-[20px] after:-skew-x-[26deg] after:bg-primary",
     )}
   >
-    <div
-      /* ::before */
+    <Link
+      href="/"
+      title="Navigate Home"
+      className={classNames("h-3/5 shrink-0")}
+    >
+      <Image
+        src={awtLogo}
+        alt="Acro World Tour logo"
+        width="0"
+        height="0"
+        className={classNames("h-full w-auto")}
+      />
+    </Link>
+    <ul
       className={classNames(
-        "absolute -left-5 hidden aspect-square h-full skew-x-[26deg] bg-primary md:block",
-      )}
-    />
-    <div
-      className={classNames(
-        "z-10 flex h-20 w-full items-center justify-between fill-white px-5 text-white md:px-7",
+        "fixed bottom-5 left-1/2 -translate-x-1/2",
+        "flex justify-around",
+        "w-11/12 rounded bg-primary px-7 pb-4 pt-5",
+        "md:relative md:bottom-0 md:left-0 md:transform-none",
+        "md:mr-4 md:justify-end md:gap-14 md:p-0",
       )}
     >
-      <Link
-        href="/"
-        title="Navigate Home"
-        className={classNames(
-          /* "nav__logo", */
-          "shrink-0",
-        )}
-      >
-        <Image
-          src={awtLogo}
-          alt="Acro World Tour logo"
-          width="0"
-          height="0"
-          className={classNames("w-24")}
-        />
-      </Link>
-      <ul
-        className={classNames(
-          /* "nav__list", */
-          "fixed bottom-5 left-1/2 -translate-x-1/2",
-          "flex justify-around",
-          "w-11/12 rounded bg-primary px-7 pb-4 pt-5",
-          "md:relative md:bottom-0 md:left-0 md:transform-none",
-          "md:mr-4 md:justify-end md:gap-14 md:p-0",
-        )}
-      >
-        <li>
-          <NavItem link="" active={activeNav === "home"} />
-        </li>
+      <li>
+        <NavItem link="" active={activeNav === "home"} />
+      </li>
 
-        {/* <li onMouseEnter={() => preload(`${API_URL}/seasons/`, fetcher)}>
+      {/* <li onMouseEnter={() => preload(`${API_URL}/seasons/`, fetcher)}>
             <NavItem link="Seasons" active={activeNav === "seasons"} />
         </li> */}
 
-        <li
-          onMouseEnter={() => {
-            preload(`${API_URL}/competitions/`, fetcher);
-            preload(`${API_URL}/seasons/`, fetcher);
-          }}
-        >
-          <NavItem link="Events" active={activeNav === "events"} />
-        </li>
+      <li
+        onMouseEnter={() => {
+          preload(`${API_URL}/competitions/`, fetcher);
+          preload(`${API_URL}/seasons/`, fetcher);
+        }}
+      >
+        <NavItem link="Events" active={activeNav === "events"} />
+      </li>
 
-        <li
-          onMouseEnter={() => {
-            preload(`${API_URL}/competitions/`, fetcher);
-            preload(`${API_URL}/seasons/`, fetcher);
-          }}
-        >
-          <NavItem link="Results" active={activeNav === "results"} />
-        </li>
+      <li
+        onMouseEnter={() => {
+          preload(`${API_URL}/competitions/`, fetcher);
+          preload(`${API_URL}/seasons/`, fetcher);
+        }}
+      >
+        <NavItem link="Results" active={activeNav === "results"} />
+      </li>
 
-        <li onMouseEnter={() => preload(`${API_URL}/pilots/`, fetcher)}>
-          <NavItem link="Pilots" active={activeNav === "pilots"} />
-        </li>
+      <li onMouseEnter={() => preload(`${API_URL}/pilots/`, fetcher)}>
+        <NavItem link="Pilots" active={activeNav === "pilots"} />
+      </li>
 
-        {/* <li onMouseEnter={() => preload(`${API_URL}/teams/`, fetcher)}>
+      {/* <li onMouseEnter={() => preload(`${API_URL}/teams/`, fetcher)}>
           <NavItem link="Teams" active={activeNav === "teams"} />
         </li> */}
 
-        {/* <li onMouseEnter={() => preload(`${API_URL}/judges/`, fetcher)}>
+      {/* <li onMouseEnter={() => preload(`${API_URL}/judges/`, fetcher)}>
             <NavItem link="Judges" active={activeNav === "judges"} />
           </li> */}
 
-        {/* <li onMouseEnter={() => preload(`${API_URL}/tricks/`, fetcher)}>
+      {/* <li onMouseEnter={() => preload(`${API_URL}/tricks/`, fetcher)}>
             <NavItem link="Tricks" active={activeNav === "tricks"} />
           </li> */}
-      </ul>
-    </div>
-    <div
-      /* after */
-      className={classNames(
-        "absolute -right-5 hidden aspect-square h-full -skew-x-[26deg] bg-primary md:block",
-      )}
-    />
+    </ul>
   </nav>
 );
 

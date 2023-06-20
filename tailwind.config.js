@@ -37,5 +37,25 @@ module.exports = {
     require('@tailwindcss/forms')({
       strategy: 'base',
     }),
+    ({ addUtilities }) => {
+      addUtilities({
+        '.awt-header': {
+          '@apply bg-secondary-light pb-16 pt-40 uppercase md:-mt-20': {},
+        },
+        '.awt-section': {
+          '@apply py-16 md:py-24': {},
+        },
+        /* Centers with 20px of padding, max width 1440px */
+        '.awt-center': {
+          '@apply px-[max((calc((100vw-1440px)/2)),20px)]': {},
+        },
+        '.awt-accordion-open': {
+          '@apply grid-rows-[1fr]': {},
+        },
+        '.awt-accordion-closed': {
+          '@apply grid-rows-[0fr]': {},
+        },
+      });
+    },
   ],
 };

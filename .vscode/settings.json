@@ -10,5 +10,13 @@
   // "editor.formatOnType": true,
   // "editor.guides.bracketPairs": true,
   // "editor.inlineSuggest.enabled": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "javascript": "javascript"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

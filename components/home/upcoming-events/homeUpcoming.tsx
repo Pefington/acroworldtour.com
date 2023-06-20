@@ -34,7 +34,10 @@ const HomeUpcoming = () => {
 
   return (
     <section
-      className={classNames("section bg-secondary-light", "flex flex-col")}
+      className={classNames(
+        "bg-secondary-light awt-section awt-center",
+        "flex flex-col",
+      )}
     >
       <header className="flex items-center justify-between">
         <h2

@@ -7,7 +7,11 @@ import HomeIntroVideo from "./homeIntroVideo";
 const HomeIntro = () => {
   return (
     <section
-      className={classNames("section", "flex flex-col gap-10", "lg:flex-row")}
+      className={classNames(
+        "awt-section awt-center",
+        "flex flex-col gap-10",
+        "lg:flex-row",
+      )}
     >
       <HomeIntroVideo
         title="Replay Acro World Tour 2023 Nest Games"

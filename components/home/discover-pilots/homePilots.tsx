@@ -29,9 +29,9 @@ const HomePilots = () => {
 
   return (
     <section
-      className={classNames("section bg-secondary-light", "flex flex-col")}
+      className={classNames("bg-secondary-light awt-section", "flex flex-col")}
     >
-      <header className="flex items-center justify-between">
+      <header className="flex items-center justify-between awt-center">
         <h2
           className={classNames(
             "mb-8 text-3xl font-black uppercase",
@@ -52,8 +52,8 @@ const HomePilots = () => {
       </header>
       <Flickity
         className={classNames(
-          "-mx-5 w-screen lg:-mx-16" /* cancel .section padding */,
-          "sm:[&_ol]:-bottom-14" /* vertical position of pagination dots */,
+          "w-screen" /* cancel .section padding */,
+          "sm:[&_ol]:-bottom-10" /* vertical position of pagination dots */,
           "[&_li]:!bg-primary" /* pagination dots dots colour */,
           "[&_article]:m-2 sm:[&_article]:m-4" /* cards margin */,
           "",

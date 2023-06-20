@@ -80,11 +80,11 @@ const Competitions = () => {
 
   return (
     <>
-      <header className="header flex flex-wrap items-baseline">
+      <header className="flex flex-wrap items-baseline awt-header awt-center">
         <YearSelector
           years={years}
           list={soloSeasons}
-          pluralString={"Events"}
+          pluralString={"events"}
           selectedYear={selectedYear}
           setSelectedYear={setSelectedYear}
         />

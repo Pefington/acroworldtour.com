@@ -25,14 +25,14 @@ const YearSelector = ({
     <>
       <h1
         className={classNames(
-          "mr-3 mt-8 min-w-max",
+          "mr-3 min-w-max",
           "text-4xl font-black",
           "md:text-6xl",
         )}
       >
         <label htmlFor="year-selector">
           {list.length === 0
-            ? `No ${pluralString.toLowerCase()} in `
+            ? `No ${pluralString} in `
             : `${list.length} ${pluralString} in `}
         </label>
       </h1>
@@ -41,7 +41,7 @@ const YearSelector = ({
         title="Select a year"
         value={selectedYear ?? ""}
         className={classNames(
-          "border-none bg-secondary-light focus:ring-0 md:text-6xl",
+          "border-none bg-transparent focus:ring-0 md:text-6xl",
           "-ml-3 pr-14",
           "md:pr-24",
           "text-4xl font-black",
