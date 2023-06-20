@@ -1,6 +1,7 @@
 import cn from "classnames";
 import countries from "i18n-iso-countries";
 import Link from "next/link";
+import { CircleFlag } from "react-circle-flags";
 
 import { components } from "@/types";
 
@@ -62,7 +63,7 @@ const PilotDetails = ({ pilot }: Props) => {
         >
           <h2 className="text-800">
             {name} {["🥇", "🥈", "🥉"][rank - 1]}
-            <i className={cn(country && alpha2country, "flag translate-x-2")} />
+            <CircleFlag countryCode={alpha2country} className="" />
           </h2>
           <h3 className="font-semibold">FAI Rank #{rank}</h3>
         </Link>

@@ -17,7 +17,7 @@ const EventCardSkeleton = ({ error }: Props) => (
       <figure className="flex w-full grow flex-col items-center justify-center gap-4 overflow-hidden bg-skeleton">
         <div className="text-9xl opacity-40">{error && "😵"}</div>
         <div className="text-2xl font-semibold text-red-500 opacity-80">
-          Error fetching data.
+          {error && "Error fetching data."}
         </div>
       </figure>
       <figcaption className="flex flex-col gap-3 px-7 py-4">

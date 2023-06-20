@@ -1,6 +1,7 @@
 import cn from "classnames";
 import { alpha3ToAlpha2 } from "i18n-iso-countries";
 import Link from "next/link";
+import { CircleFlag } from "react-circle-flags";
 import useSWR from "swr";
 
 import { API_URL } from "@/constants";
@@ -54,13 +55,7 @@ const JudgeCard = ({ judge, small }: Props) => {
           small ? "mb-2 h-24" : "mb-4 h-48",
         )}
       >
-        <i
-          className={cn(
-            country && alpha2country,
-            "flag",
-            "absolute right-1 top-3",
-          )}
-        />
+        <CircleFlag countryCode={alpha2country} className="" />
       </figure>
       <figcaption className="self-center px-2">
         <h6 className="text-sm">{name}</h6>

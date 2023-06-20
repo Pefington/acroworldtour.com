@@ -13,6 +13,7 @@ interface Props {
 }
 
 const PilotCard = ({ pilot }: Props) => {
+  const [imgLoading, setImgLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
   const {
@@ -41,13 +42,15 @@ const PilotCard = ({ pilot }: Props) => {
         )}
       >
         <Image
-          src={photo || photoLowres}
+          src={photo ?? photoLowres ?? "/img/blur.jpg"}
           alt={name}
           fill
           className={cn(
             "-z-10 object-cover duration-500",
             isHovered && "scale-105",
+            imgLoading && "scale-110 blur-2xl",
           )}
+          onLoadingComplete={() => setImgLoading(false)}
         />
       </figure>
       <Link

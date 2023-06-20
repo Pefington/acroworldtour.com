@@ -5,27 +5,21 @@ import Link from "next/link";
 import Flickity from "react-flickity-component";
 import useSWR from "swr";
 
-import FetchError from "@/components/ui/fetchError";
-import FetchLoading from "@/components/ui/fetchLoading";
+import PilotCard from "@/components/pilot/pilotCard";
+import PilotCardSkeleton from "@/components/pilot/pilotCardSkeleton";
 import { API_URL } from "@/constants";
 import { components } from "@/types";
-
-import PilotCard from "../../pilot/pilotCard";
 
 type Pilot = components["schemas"]["Pilot"];
 
 const HomePilots = () => {
   const {
     data: pilots,
-    error,
-    isLoading,
+    error: pilotsError,
+    isLoading: pilotsLoading,
   } = useSWR<Pilot[], Error>(`${API_URL}/pilots/`);
 
-  if (isLoading) return <FetchLoading />;
-  if (error) return <FetchError />;
-  if (!pilots) return <h2>Competitions not found</h2>;
-
-  const awtPilots = pilots.filter((pilot) => pilot.is_awt);
+  const awtPilots = pilots?.filter((pilot) => pilot.is_awt);
 
   return (
     <section className={cn("bg-secondary-light awt-section", "flex flex-col")}>
@@ -49,9 +43,6 @@ const HomePilots = () => {
           "sm:[&_ol]:-bottom-10" /* vertical position of pagination dots */,
           "[&_li]:!bg-primary" /* pagination dots dots colour */,
           "[&_article]:m-2 sm:[&_article]:m-4" /* cards margin */,
-          "",
-          "",
-          "",
         )}
         options={{
           initialIndex: 2,
@@ -61,9 +52,15 @@ const HomePilots = () => {
         reloadOnUpdate
         static
       >
-        {awtPilots.map((pilot) => (
-          <PilotCard key={pilot.civlid} pilot={pilot} />
-        ))}
+        {pilotsLoading || pilotsError
+          ? Array(10)
+              .fill(0)
+              .map((_, index) => (
+                <PilotCardSkeleton key={index} error={!!pilotsError} />
+              ))
+          : awtPilots?.map((pilot) => (
+              <PilotCard key={pilot.civlid} pilot={pilot} />
+            ))}
       </Flickity>
     </section>
   );

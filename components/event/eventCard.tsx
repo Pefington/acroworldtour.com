@@ -24,8 +24,8 @@ const EventCard = ({ competition }: Props) => {
 
   const {
     data: seasons,
-    error: seasonError,
-    isLoading: seasonLoading,
+    error: seasonsError,
+    isLoading: seasonsLoading,
   } = useSWR<Season[]>(`${API_URL}/seasons/`);
 
   const {
@@ -123,10 +123,10 @@ const EventCard = ({ competition }: Props) => {
                 "rounded-xl bg-accent text-white",
                 "text-sm font-semibold uppercase",
                 "hover:px-4",
-                seasonLoading && "animate-pulse",
+                seasonsLoading && "animate-pulse",
               )}
             >
-              {(seasonError && "❗") || seasonLoading ? "..." : tag}
+              {(seasonsError && "❗") || seasonsLoading ? "..." : tag}
             </Link>
           );
         })}

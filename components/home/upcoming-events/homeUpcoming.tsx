@@ -57,10 +57,11 @@ const HomeUpcoming = () => {
         )}
       >
         {competitionsLoading || competitionsError
-          ? // true
-            Array(4)
+          ? Array(4)
               .fill(0)
-              .map((_, index) => <EventCardSkeleton key={index} error />)
+              .map((_, index) => (
+                <EventCardSkeleton key={index} error={!!competitionsError} />
+              ))
           : upcomingEvents?.map((competition) => (
               <EventCard key={competition.code} competition={competition} />
             ))}

@@ -1,6 +1,7 @@
 import cn from "classnames";
 import { alpha3ToAlpha2 } from "i18n-iso-countries";
 import Link from "next/link";
+import { CircleFlag } from "react-circle-flags";
 import { preload } from "swr";
 
 import { API_URL } from "@/constants";
@@ -67,8 +68,9 @@ const TeamCard = ({ team }: Props) => {
                 >
                   {pilot.name}
                   {["🥇", "🥈", "🥉"][pilot.rank - 1]}
-                  <i
-                    className={cn(pilot.country && alpha2country, "flag pl-2")}
+                  <CircleFlag
+                    countryCode={alpha2country}
+                    className="-mx-[2px] h-5"
                   />
                 </p>
               );
