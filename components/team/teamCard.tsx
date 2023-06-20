@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import { alpha3ToAlpha2 } from "i18n-iso-countries";
 import Link from "next/link";
 import { preload } from "swr";
@@ -18,11 +18,11 @@ const TeamCard = ({ team }: Props) => {
     <Link
       key={teamId}
       href={`/teams/${teamId}/${name}`}
-      className={classNames("max-w-lg flex-1", "min-w-[300px]", "lg:min-w-max")}
+      className={cn("max-w-lg flex-1", "min-w-[300px]", "lg:min-w-max")}
       onMouseEnter={() => preload(`${API_URL}/teams/${teamId}`, fetcher)}
     >
       <article
-        className={classNames(
+        className={cn(
           "relative flex flex-col justify-between",
           "h-48 overflow-hidden rounded-xl py-2 text-white",
           "bg-awt-dark-950/60 bg-cover bg-center bg-no-repeat bg-blend-overlay",
@@ -34,7 +34,7 @@ const TeamCard = ({ team }: Props) => {
         <h3 className="capitalize">{name}</h3>
 
         <div
-          className={classNames(
+          className={cn(
             "absolute inset-0 flex flex-grow overflow-hidden",
             "rounded-xl mix-blend-overlay",
             "hover:blur-sm",
@@ -46,7 +46,7 @@ const TeamCard = ({ team }: Props) => {
               <div
                 key={civlid}
                 style={{ backgroundImage: `url(${photo})` }}
-                className={classNames(
+                className={cn(
                   "h-full w-full",
                   "bg-cover bg-center bg-no-repeat",
                 )}
@@ -68,10 +68,7 @@ const TeamCard = ({ team }: Props) => {
                   {pilot.name}
                   {["🥇", "🥈", "🥉"][pilot.rank - 1]}
                   <i
-                    className={classNames(
-                      pilot.country && alpha2country,
-                      "flag pl-2",
-                    )}
+                    className={cn(pilot.country && alpha2country, "flag pl-2")}
                   />
                 </p>
               );

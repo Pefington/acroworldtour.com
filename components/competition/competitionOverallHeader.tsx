@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import { useState } from "react";
 
 import { components } from "@/types";
@@ -40,10 +40,7 @@ const CompetitionOverallHeader = ({ result, rank, type }: Props) => {
           )}
         </h5>
         <ChevronIcon
-          className={classNames(
-            "my-auto ml-1 h-2 w-2",
-            !showMore && "-rotate-90",
-          )}
+          className={cn("my-auto ml-1 h-2 w-2", !showMore && "-rotate-90")}
         />
       </button>
 

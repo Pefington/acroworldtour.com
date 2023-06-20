@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import Link from "next/link";
 
 import { components } from "@/types";
@@ -40,11 +40,11 @@ const SeasonCard = ({ season }: Props) => {
     <Link
       key={code}
       href={`/seasons/${code}`}
-      className={classNames("max-w-lg flex-grow")}
+      className={cn("max-w-lg flex-grow")}
     >
       <article
         style={{ backgroundImage: `url(${seasonCover})` }}
-        className={classNames(
+        className={cn(
           "relative flex flex-col justify-between",
           "h-48 min-w-[240px] overflow-hidden rounded-xl p-4 text-white",
           "bg-awt-dark-900/60 bg-cover bg-center bg-no-repeat bg-blend-multiply",
@@ -58,7 +58,7 @@ const SeasonCard = ({ season }: Props) => {
 
         {!seasonCover && (
           <div
-            className={classNames(
+            className={cn(
               "absolute inset-0 flex flex-grow overflow-hidden",
               "scale-105 rounded-xl mix-blend-overlay",
             )}
@@ -69,7 +69,7 @@ const SeasonCard = ({ season }: Props) => {
                 <div
                   key={code}
                   style={{ backgroundImage: `url(${image})` }}
-                  className={classNames(
+                  className={cn(
                     "h-full w-full scale-110",
                     "bg-cover bg-center bg-no-repeat",
                   )}

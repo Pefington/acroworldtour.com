@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 
 import HomeIntroNewsMain from "./homeIntroNewsMain";
 import HomeIntroNewsSecondary from "./homeIntroNewsSecondary";
@@ -7,7 +7,7 @@ import HomeYouTubeEmbed from "./homeYoutubeEmbed";
 const HomeIntro = () => {
   return (
     <section
-      className={classNames(
+      className={cn(
         "awt-section awt-center",
         "flex flex-col gap-10",
         "lg:flex-row",
@@ -18,10 +18,8 @@ const HomeIntro = () => {
         embedSlug="tIfpP5pdqZ4"
       />
 
-      <section className={classNames("flex flex-col")}>
-        <h2 className={classNames("mb-4 text-3xl font-black uppercase")}>
-          Hot News
-        </h2>
+      <section className={cn("flex flex-col")}>
+        <h2 className={cn("mb-4 text-3xl font-black uppercase")}>Hot News</h2>
 
         <HomeIntroNewsMain
           title="Nest Games AWT 01 Results"
@@ -29,7 +27,7 @@ const HomeIntro = () => {
           imageUrl="/img/news/DSC05527.jpg"
         />
 
-        <div className={classNames("flex flex-col gap-3")}>
+        <div className={cn("flex flex-col gap-3")}>
           <HomeIntroNewsSecondary
             title="The AWT 2023 is about to start!"
             href="/news/the-awt-2023-is-about-to-start"

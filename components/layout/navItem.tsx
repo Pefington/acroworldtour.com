@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import Link from "next/link";
 
 import {
@@ -17,12 +17,12 @@ interface Props {
 }
 
 const NavItem = ({ link, active }: Props) => {
-  const iconClasses = classNames("fill-white h-5 w-auto", "md:hidden");
+  const iconClasses = cn("fill-white h-5 w-auto", "md:hidden");
 
   return (
     <Link
       href={`/${link.toLowerCase()}`}
-      className={classNames(
+      className={cn(
         "flex flex-col items-center justify-center gap-1",
         "fill-white text-xs font-semibold uppercase",
         "md:text-sm",

@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import Link from "next/link";
 import useSWR from "swr";
 
@@ -68,32 +68,22 @@ const HomeResults = () => {
     .at(-1);
 
   return (
-    <section className={classNames("awt-section awt-center", "flex flex-col")}>
+    <section className={cn("awt-section awt-center", "flex flex-col")}>
       <header className="flex items-center justify-between">
-        <h2
-          className={classNames(
-            "mb-8 text-3xl font-black uppercase",
-            "md:text-5xl",
-          )}
-        >
+        <h2 className={cn("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
           Latest Results
         </h2>
         <Link
           href="/results"
           title="View all results"
-          className={classNames(
+          className={cn(
             "mb-8 min-w-max font-bold text-accent-text hover:text-hover hover:drop-shadow-md",
           )}
         >
           View All
         </Link>
       </header>
-      <div
-        className={classNames(
-          "grid place-items-center gap-10",
-          "md:grid-cols-2",
-        )}
-      >
+      <div className={cn("grid place-items-center gap-10", "md:grid-cols-2")}>
         {lastAwtCompetition && (
           <OverallResultsCard event={lastAwtCompetition} limitTo={5} />
         )}

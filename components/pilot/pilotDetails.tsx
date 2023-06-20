@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import countries from "i18n-iso-countries";
 import Link from "next/link";
 
@@ -41,35 +41,28 @@ const PilotDetails = ({ pilot }: Props) => {
   );
 
   return (
-    <section
-      className={classNames("flex w-full flex-col", "lg:w-1/2 lg:self-start")}
-    >
+    <section className={cn("flex w-full flex-col", "lg:w-1/2 lg:self-start")}>
       <Link
         href={civlLink}
         target="_blank"
         style={{ backgroundImage: `url('${photoHighres || photo}')` }}
-        className={classNames(
+        className={cn(
           "aspect-square w-full bg-cover bg-center bg-no-repeat",
           "lg:fixed lg:right-0 lg:w-5/12",
         )}
       />
-      <article className={classNames("flex w-full flex-col gap-4 px-4")}>
+      <article className={cn("flex w-full flex-col gap-4 px-4")}>
         <Link
           href={civlLink}
           target="_blank"
-          className={classNames(
+          className={cn(
             "flex w-full max-w-sm flex-wrap items-baseline justify-between self-center px-4",
             "hover:bg-awt-accent-600 hover:text-white",
           )}
         >
           <h2 className="text-800">
             {name} {["🥇", "🥈", "🥉"][rank - 1]}
-            <i
-              className={classNames(
-                country && alpha2country,
-                "flag translate-x-2",
-              )}
-            />
+            <i className={cn(country && alpha2country, "flag translate-x-2")} />
           </h2>
           <h3 className="font-semibold">FAI Rank #{rank}</h3>
         </Link>
@@ -101,7 +94,7 @@ const PilotDetails = ({ pilot }: Props) => {
                 title={sponsor.name}
                 style={{ backgroundImage: `url('${sponsor.img}')` }}
                 target="_blank"
-                className={classNames(
+                className={cn(
                   "m-4 aspect-video w-20 bg-contain bg-center bg-no-repeat",
                   "hover:fill-awt-accent-500",
                 )}

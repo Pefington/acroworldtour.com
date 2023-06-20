@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import { ChangeEvent, Dispatch, SetStateAction } from "react";
 
 interface Props {
@@ -24,11 +24,7 @@ const YearSelector = ({
   return (
     <>
       <h1
-        className={classNames(
-          "mr-3 min-w-max",
-          "text-4xl font-black",
-          "md:text-6xl",
-        )}
+        className={cn("mr-3 min-w-max", "text-4xl font-black", "md:text-6xl")}
       >
         <label htmlFor="year-selector">
           {list.length === 0
@@ -40,7 +36,7 @@ const YearSelector = ({
         id="year-selector"
         title="Select a year"
         value={selectedYear ?? ""}
-        className={classNames(
+        className={cn(
           "border-none bg-transparent focus:ring-0 md:text-6xl",
           "-ml-3 pr-14",
           "md:pr-24",

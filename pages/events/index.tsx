@@ -1,4 +1,4 @@
-// import classNames from "classnames";
+// import cn from "classnames";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 
@@ -89,41 +89,6 @@ const Competitions = () => {
           setSelectedYear={setSelectedYear}
         />
       </header>
-
-      {/* {soloSeasons.map((season) => {
-        const { code, competitions, name } = season;
-        competitions.sort(
-          (a, b) =>
-            new Date(a.start_date).getTime() - new Date(b.start_date).getTime(),
-        );
-
-        return (
-          <Fragment key={code}>
-            <h3 className="mb-6 mt-4 opacity-80">{name}</h3>
-            <section key={code} className={classNames("wrapper mb-8")}>
-              {competitions.map((competition) => (
-                <CompetitionCard
-                  key={competition.code}
-                  competition={competition}
-                />
-              ))}
-            </section>
-          </Fragment>
-        );
-      })} */}
-      {/* {offSeasonCompetitions.length > 0 && (
-        <>
-          <h3 className="mb-6 mt-6 opacity-80">Off Season</h3>
-          <section className={classNames("wrapper mb-8")}>
-            {offSeasonCompetitions.map((competition) => (
-              <CompetitionCard
-                key={competition.code}
-                competition={competition}
-              />
-            ))}
-          </section>
-        </>
-      )} */}
     </>
   );
 };

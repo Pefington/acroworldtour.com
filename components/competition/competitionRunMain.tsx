@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import { Fragment, useState } from "react";
 
 import { components } from "@/types";
@@ -74,7 +74,7 @@ const CompetitionRunMain = ({ results, type, className }: Props) => {
             <p className="col-span-2 col-start-1 py-3 text-center">{rank}</p>
             <button
               title="Click to open/close run details"
-              className={classNames(
+              className={cn(
                 "col-span-7 flex cursor-pointer items-baseline border-x-[1px] py-3 pl-1",
               )}
               onClick={() => toggleDetails(resultIndex)}
@@ -94,7 +94,7 @@ const CompetitionRunMain = ({ results, type, className }: Props) => {
                 )}
               </h4>
               <ChevronIcon
-                className={classNames(
+                className={cn(
                   "my-auto ml-1 h-2 w-2",
                   !showDetails[resultIndex] && "-rotate-90",
                 )}
@@ -109,18 +109,18 @@ const CompetitionRunMain = ({ results, type, className }: Props) => {
                   Judge&apos;s Marks
                 </h4>
                 <h5
-                  className={classNames(
+                  className={cn(
                     "col-start-1 pt-2",
                     type === "synchro" ? "col-span-3" : "col-span-4",
                   )}
                 >
                   Technical
                 </h5>
-                <h5 className={classNames("col-span-4 border-x-[1px] pt-2")}>
+                <h5 className={cn("col-span-4 border-x-[1px] pt-2")}>
                   Choreography
                 </h5>
                 <h5
-                  className={classNames(
+                  className={cn(
                     "pt-2",
                     type === "synchro" ? "col-span-2" : "col-span-4",
                   )}
@@ -133,22 +133,18 @@ const CompetitionRunMain = ({ results, type, className }: Props) => {
                   </h5>
                 )}
                 <p
-                  className={classNames(
+                  className={cn(
                     "py-1 text-center",
                     type === "synchro" ? "col-span-3" : "col-span-4",
                   )}
                 >
                   {technicalJudge?.toFixed(3)}
                 </p>
-                <p
-                  className={classNames(
-                    "col-span-4 border-x-[1px] py-1 text-center",
-                  )}
-                >
+                <p className={cn("col-span-4 border-x-[1px] py-1 text-center")}>
                   {choreographyJudge?.toFixed(3)}
                 </p>
                 <p
-                  className={classNames(
+                  className={cn(
                     "py-1 text-center",
                     type === "synchro" ? "col-span-2" : "col-span-4",
                   )}
@@ -195,18 +191,18 @@ const CompetitionRunMain = ({ results, type, className }: Props) => {
                   Final Marks
                 </h4>
                 <h5
-                  className={classNames(
+                  className={cn(
                     "col-start-1 pt-2",
                     type === "synchro" ? "col-span-3" : "col-span-4",
                   )}
                 >
                   Technical
                 </h5>
-                <h5 className={classNames("col-span-4 border-x-[1px] pt-2")}>
+                <h5 className={cn("col-span-4 border-x-[1px] pt-2")}>
                   Choreography
                 </h5>
                 <h5
-                  className={classNames(
+                  className={cn(
                     "pt-2",
                     type === "synchro" ? "col-span-2" : "col-span-4",
                   )}
@@ -219,22 +215,18 @@ const CompetitionRunMain = ({ results, type, className }: Props) => {
                   </h5>
                 )}
                 <p
-                  className={classNames(
+                  className={cn(
                     "py-1 text-center",
                     type === "synchro" ? "col-span-3" : "col-span-4",
                   )}
                 >
                   {technicalFinal?.toFixed(3)}
                 </p>
-                <p
-                  className={classNames(
-                    "col-span-4 border-x-[1px] py-1 text-center",
-                  )}
-                >
+                <p className={cn("col-span-4 border-x-[1px] py-1 text-center")}>
                   {choreographyFinal?.toFixed(3)}
                 </p>
                 <p
-                  className={classNames(
+                  className={cn(
                     "py-1 text-center",
                     type === "synchro" ? "col-span-2" : "col-span-4",
                   )}

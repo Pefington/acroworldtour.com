@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 
 import SocialLink from "../ui/socialLink";
 
@@ -6,7 +6,7 @@ const currentYear = new Date().getFullYear();
 
 const Footer = () => (
   <footer
-    className={classNames(
+    className={cn(
       "w-full",
       "flex flex-col items-center justify-center gap-3",
       "sm:flex-row sm:justify-between",

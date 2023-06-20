@@ -27,6 +27,7 @@ module.exports = {
           text: colors.orange[500],
         },
         hover: colors.amber[500],
+        skeleton: colors.neutral[200],
       },
       maxWidth: {
         '8xl': '90rem',

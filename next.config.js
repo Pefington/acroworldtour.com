@@ -7,6 +7,10 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           {
+            key: 'Access-Control-Allow-Origin',
+            value: 'hatscripts.github.io',
+          },
+          {
             key: 'X-Content-Type-Options',
             value: 'nosniff',
           },

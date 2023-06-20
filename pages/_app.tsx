@@ -1,6 +1,6 @@
 import "@/styles/tailwind.css";
 
-import classNames from "classnames";
+import cn from "classnames";
 import type { AppProps } from "next/app";
 import { Exo } from "next/font/google";
 import { SWRConfig } from "swr";
@@ -19,7 +19,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <SWRConfig value={{ fetcher }}>
       <Layout fontClass={font.className}>
         <main
-          className={classNames(
+          className={cn(
             font.className,
             "w-full grow",
             "flex flex-col",

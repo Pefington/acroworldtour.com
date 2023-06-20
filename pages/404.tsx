@@ -1,9 +1,9 @@
-import classNames from "classnames";
+import cn from "classnames";
 
 const Custom404 = () => {
   return (
     <h2
-      className={classNames(
+      className={cn(
         "bg-[url('/img/404.jpg')] bg-cover bg-center bg-no-repeat",
         "w-screen grow",
         "flex items-center justify-center",

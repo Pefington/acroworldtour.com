@@ -1,47 +1,76 @@
-import classNames from "classnames";
-import { alpha3ToAlpha2 } from "i18n-iso-countries";
+import cn from "classnames";
+import countries from "i18n-iso-countries";
+import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 import { components } from "@/types";
+
+countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
 interface Props {
   pilot: components["schemas"]["Pilot"];
 }
 
 const PilotCard = ({ pilot }: Props) => {
-  const { civlid, name, photo, country, rank } = pilot;
-  const urlName = name.toLowerCase().replace(/\s/g, "-");
-  const alpha2country = alpha3ToAlpha2(country?.toUpperCase())?.toLowerCase();
+  const [isHovered, setIsHovered] = useState(false);
+
+  const {
+    civlid,
+    name,
+    photo: photoLowres,
+    photo_highres: photo,
+    country,
+  } = pilot;
+
+  const countryName = countries.getName(country, "en");
 
   return (
-    <Link
-      key={civlid}
-      title={`See ${name}'s profile`}
-      href={`/pilots/${civlid}/${urlName}`}
-      className={classNames(
-        "flex w-48 flex-col rounded-xl pb-4",
-        "hover:-translate-y-2 hover:shadow-md",
+    <article
+      className={cn(
+        "relative flex flex-col justify-end",
+        "aspect-[260/370] w-full max-w-[min(80vw,260px)]",
+        "overflow-hidden rounded shadow-md",
+        "hover:drop-shadow-lg",
       )}
     >
       <figure
-        style={{ backgroundImage: `url('${photo}')` }}
-        className="pilot-card relative flex aspect-square flex-col justify-between"
+        className={cn(
+          "absolute inset-0",
+          "bg-gradient-to-b from-transparent to-slate-900/90",
+        )}
       >
-        <i
-          className={classNames(
-            country && alpha2country,
-            "flag",
-            "absolute right-4 top-4",
+        <Image
+          src={photo || photoLowres}
+          alt={name}
+          fill
+          className={cn(
+            "-z-10 object-cover duration-500",
+            isHovered && "scale-105",
           )}
         />
       </figure>
-      <figcaption className="self-center pt-3">
-        <h3 className="text-left">
-          {name} {["🥇", "🥈", "🥉"][rank - 1]}
-        </h3>
-        <p>FAI Rank: #{rank}</p>
-      </figcaption>
-    </Link>
+      <Link
+        href={`/pilots/${civlid}`}
+        title={name}
+        className={cn(
+          "z-10 w-full",
+          "flex flex-col justify-end",
+          "py-7 text-center",
+        )}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <figcaption className={cn()}>
+          <h3 className={cn("text-lg font-bold uppercase text-white")}>
+            {name}
+          </h3>
+          <span className={cn("font-semibold uppercase text-secondary-medium")}>
+            {countryName}
+          </span>
+        </figcaption>
+      </Link>
+    </article>
   );
 };
 

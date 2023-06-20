@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import { Fragment, useState } from "react";
 
 import { components } from "@/types";
@@ -76,7 +76,7 @@ const SeasonCategoryResults = ({
                 )}
               </h5>
               <ChevronIcon
-                className={classNames(
+                className={cn(
                   "my-auto ml-1 h-2 w-2",
                   !expandPilot[index] && "-rotate-90",
                 )}

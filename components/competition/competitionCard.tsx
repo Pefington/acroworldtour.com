@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import Link from "next/link";
 
 import { components } from "@/types";
@@ -37,11 +37,11 @@ const CompetitionCard = ({ competition }: Props) => {
     <Link
       key={code}
       href={`/competitions/${code}`}
-      className={classNames("max-w-lg flex-grow")}
+      className={cn("max-w-lg flex-grow")}
     >
       <article
         style={{ backgroundImage: `url(${image})` }}
-        className={classNames(
+        className={cn(
           "flex h-48 flex-col justify-between rounded-xl text-white",
           "bg-awt-dark-900/60 bg-cover bg-center bg-no-repeat p-4 bg-blend-multiply",
           "shadow-awt-dark-400 shadow",

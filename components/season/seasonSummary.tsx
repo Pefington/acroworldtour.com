@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import Image from "next/image";
 
 import { components } from "@/types";
@@ -23,7 +23,7 @@ const SeasonSummary = ({ season, className }: Props) => {
   return (
     <article className={className}>
       <header
-        className={classNames(
+        className={cn(
           "relative flex aspect-video w-full flex-grow overflow-hidden",
           "rounded-xl",
         )}
@@ -42,7 +42,7 @@ const SeasonSummary = ({ season, className }: Props) => {
               <div
                 key={code}
                 style={{ backgroundImage: `url(${competitionImage})` }}
-                className={classNames(
+                className={cn(
                   "h-full w-full",
                   "bg-cover bg-center bg-no-repeat",
                 )}

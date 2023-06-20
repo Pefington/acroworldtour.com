@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import Link from "next/link";
 import { Fragment } from "react";
 
@@ -60,7 +60,7 @@ const SeasonOverallPilotResults = ({
             <Link
               href={`/competitions/${competitionCode}`}
               title={`Competition page for ${competitionName}`}
-              className={classNames(
+              className={cn(
                 "col-span-8 col-start-3",
                 "flex items-center",
                 "bg-awt-dark-300 border-[1px] pl-2",

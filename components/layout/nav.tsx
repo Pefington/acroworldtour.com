@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { preload } from "swr";
@@ -17,7 +17,7 @@ interface Props {
 const Nav = ({ activeNav, fontClass }: Props) => (
   <nav
     style={{}}
-    className={classNames(
+    className={cn(
       fontClass,
       "absolute z-10 flex h-20 w-full max-w-8xl items-center bg-primary text-white",
       "md:fixed md:top-0",
@@ -25,21 +25,17 @@ const Nav = ({ activeNav, fontClass }: Props) => (
       "after:aspect-[0.5] after:h-full after:translate-x-[20px] after:-skew-x-[26deg] after:bg-primary",
     )}
   >
-    <Link
-      href="/"
-      title="Navigate Home"
-      className={classNames("h-3/5 shrink-0")}
-    >
+    <Link href="/" title="Navigate Home" className={cn("h-3/5 shrink-0")}>
       <Image
         src={awtLogo}
         alt="Acro World Tour logo"
         width="0"
         height="0"
-        className={classNames("h-full w-auto")}
+        className={cn("h-full w-auto")}
       />
     </Link>
     <ul
-      className={classNames(
+      className={cn(
         "fixed bottom-5 left-1/2 -translate-x-1/2",
         "flex justify-around",
         "w-11/12 rounded bg-primary px-7 pb-4 pt-5",

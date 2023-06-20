@@ -1,16 +1,11 @@
-import classNames from "classnames";
+import cn from "classnames";
 import Link from "next/link";
 
 import { SPORTING_CODE_MANUAL_URL } from "@/constants";
 
 const HomeRules = () => (
-  <section className={classNames("awt-section awt-center", "flex flex-col")}>
-    <h2
-      className={classNames(
-        "mb-8 text-3xl font-black uppercase",
-        "md:text-5xl",
-      )}
-    >
+  <section className={cn("awt-section awt-center", "flex flex-col")}>
+    <h2 className={cn("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
       Learn the Rules
     </h2>
     <p>
@@ -24,7 +19,7 @@ const HomeRules = () => (
       }}
       target="_blank"
       rel="noopener noreferrer"
-      className={classNames(
+      className={cn(
         "w-full max-w-sm",
         "mt-7 p-4",
         "text-center text-sm font-bold",

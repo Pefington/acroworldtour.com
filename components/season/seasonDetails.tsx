@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import { Fragment, useEffect, useState } from "react";
 
 import { components } from "@/types";
@@ -51,19 +51,19 @@ const SeasonDetails = ({ season }: Props) => {
       <h2 className="mb-4">{name}</h2>
       {resultCategories.length === 0 && <h3>No results at the moment.</h3>}
       <div
-        className={classNames(
+        className={cn(
           "mt-4 flex w-full items-start justify-center gap-4 portrait:flex-col",
         )}
       >
         <SeasonSummary
           season={season}
-          className={classNames(
+          className={cn(
             "bg-awt-dark-50 w-1/2 max-w-lg rounded-xl px-2 py-2 pb-2 shadow-inner",
             "portrait:w-full",
           )}
         />
         <section
-          className={classNames(
+          className={cn(
             "bg-awt-dark-50 flex w-full flex-grow flex-col gap-4 rounded-xl py-2 shadow-inner",
             "lg:col-span-6 lg:col-start-4",
           )}
@@ -84,7 +84,7 @@ const SeasonDetails = ({ season }: Props) => {
               <Fragment key={catIndex}>
                 <button
                   title={`Click to open/close ${category} results`}
-                  className={classNames(
+                  className={cn(
                     "col-span-full flex items-baseline justify-center",
                   )}
                   onClick={() => changeCategory(catIndex)}
@@ -94,7 +94,7 @@ const SeasonDetails = ({ season }: Props) => {
                 >
                   <h3 className="capitalize">{`${category} results`}</h3>
                   <ChevronIcon
-                    className={classNames(
+                    className={cn(
                       "ml-2 h-3 w-auto",
                       !showCategory[catIndex] && "-rotate-90",
                     )}

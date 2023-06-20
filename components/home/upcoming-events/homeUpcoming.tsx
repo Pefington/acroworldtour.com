@@ -1,32 +1,27 @@
-import classNames from "classnames";
+import cn from "classnames";
 import Link from "next/link";
 import useSWR from "swr";
 
-import FetchError from "@/components/ui/fetchError";
-import FetchLoading from "@/components/ui/fetchLoading";
+import EventCardSkeleton from "@/components/event/eventCardSkeleton";
 import { API_URL } from "@/constants";
 import { components } from "@/types";
 
-import UpcomingEventCard from "./eventCard";
+import EventCard from "../../event/eventCard";
 
 type Competition = components["schemas"]["CompetitionPublicExport"];
 
 const HomeUpcoming = () => {
   const {
     data: competitions,
-    error,
-    isLoading,
+    error: competitionsError,
+    isLoading: competitionsLoading,
   } = useSWR<Competition[], Error>(`${API_URL}/competitions/`);
 
-  if (isLoading) return <FetchLoading />;
-  if (error) return <FetchError />;
-  if (!competitions) return <h2>Competitions not found</h2>;
-
   const upcomingEvents = competitions
-    .filter((competition) => competition.state === "init")
+    ?.filter((competition) => competition.state === "init")
     .slice(0, 4);
 
-  upcomingEvents.sort((a, b) => {
+  upcomingEvents?.sort((a, b) => {
     const aDate = new Date(a.start_date);
     const bDate = new Date(b.start_date);
     return aDate.getTime() - bDate.getTime();
@@ -34,24 +29,19 @@ const HomeUpcoming = () => {
 
   return (
     <section
-      className={classNames(
+      className={cn(
         "bg-secondary-light awt-section awt-center",
         "flex flex-col",
       )}
     >
       <header className="flex items-center justify-between">
-        <h2
-          className={classNames(
-            "mb-8 text-3xl font-black uppercase",
-            "md:text-5xl",
-          )}
-        >
+        <h2 className={cn("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
           Upcoming Events
         </h2>
         <Link
           href="/competitions"
           title="View all competitions"
-          className={classNames(
+          className={cn(
             "mb-8 min-w-max font-bold text-accent-text hover:text-hover hover:drop-shadow-md",
           )}
         >
@@ -59,16 +49,21 @@ const HomeUpcoming = () => {
         </Link>
       </header>
       <div
-        className={classNames(
+        className={cn(
           "grid place-items-center gap-10",
           "sm:grid-cols-2",
           "lg:grid-cols-3",
           "xl:grid-cols-4",
         )}
       >
-        {upcomingEvents.map((competition) => (
-          <UpcomingEventCard key={competition.code} competition={competition} />
-        ))}
+        {competitionsLoading || competitionsError
+          ? // true
+            Array(4)
+              .fill(0)
+              .map((_, index) => <EventCardSkeleton key={index} error />)
+          : upcomingEvents?.map((competition) => (
+              <EventCard key={competition.code} competition={competition} />
+            ))}
       </div>
     </section>
   );

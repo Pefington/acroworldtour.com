@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import countries from "i18n-iso-countries";
 import Link from "next/link";
 import { useState } from "react";
@@ -38,30 +38,30 @@ const OverallResultsCard = ({ event, limitTo }: Props) => {
 
   return (
     <article
-      className={classNames(
+      className={cn(
         "w-full rounded pt-7",
         isHovered ? "-translate-y-1 shadow-lg" : "shadow-md",
       )}
     >
-      <h3 className={classNames("px-7 text-3xl font-bold uppercase")}>
+      <h3 className={cn("px-7 text-3xl font-bold uppercase")}>
         {isCompetition ? "Acro World Tour" : "Acro World Qualifier"}
       </h3>
-      <h4 className={classNames("px-7 font-semibold uppercase text-secondary")}>
+      <h4 className={cn("px-7 font-semibold uppercase text-secondary")}>
         {isCompetition
           ? event.name
           : `Overall Standings ${event.name.split(" ").at(-1)}`}
       </h4>
       <header
-        className={classNames(
+        className={cn(
           "my-4 grid grid-cols-12 px-7 text-sm font-bold text-secondary",
         )}
       >
-        <span className={classNames("col-span-2")}>Pos.</span>
-        <span className={classNames("col-span-8 ml-8")}>Pilot</span>
-        <span className={classNames("col-span-2")}>Pts.</span>
+        <span className={cn("col-span-2")}>Pos.</span>
+        <span className={cn("col-span-8 ml-8")}>Pilot</span>
+        <span className={cn("col-span-2")}>Pts.</span>
       </header>
 
-      <ul className={classNames("col-span-full")}>
+      <ul className={cn("col-span-full")}>
         {clampedResults.map((result, index) => {
           const { pilot, score } = result;
           const roundedScore = score.toFixed(3);
@@ -74,14 +74,14 @@ const OverallResultsCard = ({ event, limitTo }: Props) => {
           return (
             <li
               key={pilot?.civlid}
-              className={classNames(
+              className={cn(
                 "grid w-full grid-cols-12 px-7 py-4 text-sm font-bold odd:bg-secondary-light",
               )}
             >
-              <span className={classNames("col-span-2 text-secondary")}>
+              <span className={cn("col-span-2 text-secondary")}>
                 {index + 1}
               </span>
-              <span className={classNames("col-span-8 flex gap-4")}>
+              <span className={cn("col-span-8 flex gap-4")}>
                 {alpha2country ? (
                   <CircleFlag countryCode={alpha2country} className="h-5" />
                 ) : (
@@ -91,7 +91,7 @@ const OverallResultsCard = ({ event, limitTo }: Props) => {
                 )}
                 {pilot?.name}
               </span>
-              <span className={classNames("col-span-2")}>{roundedScore}</span>
+              <span className={cn("col-span-2")}>{roundedScore}</span>
             </li>
           );
         })}

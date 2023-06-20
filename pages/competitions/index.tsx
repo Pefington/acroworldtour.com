@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import { ChangeEvent, Fragment, useEffect, useState } from "react";
 import useSWR from "swr";
 
@@ -129,7 +129,7 @@ const Competitions = () => {
         return (
           <Fragment key={code}>
             <h3 className="mb-6 mt-4 opacity-80">{name}</h3>
-            <section key={code} className={classNames("wrapper mb-8")}>
+            <section key={code} className={cn("wrapper mb-8")}>
               {competitions.map((competition) => (
                 <CompetitionCard
                   key={competition.code}
@@ -143,7 +143,7 @@ const Competitions = () => {
       {offSeasonCompetitions.length > 0 && (
         <>
           <h3 className="mb-6 mt-6 opacity-80">Off Season</h3>
-          <section className={classNames("wrapper mb-8")}>
+          <section className={cn("wrapper mb-8")}>
             {offSeasonCompetitions.map((competition) => (
               <CompetitionCard
                 key={competition.code}

@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 
 import { components } from "@/types";
 
@@ -14,9 +14,7 @@ const TeamDetails = ({ team }: Props) => {
   return (
     <>
       <h2 className="mb-4">{name}</h2>
-      <section
-        className={classNames("mt-2 flex flex-wrap justify-center gap-8")}
-      >
+      <section className={cn("mt-2 flex flex-wrap justify-center gap-8")}>
         {pilots.map((pilot) => (
           <PilotCard key={pilot.civlid} pilot={pilot} />
         ))}

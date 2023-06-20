@@ -1,6 +1,6 @@
 import "flickity/css/flickity.css";
 
-import classNames from "classnames";
+import cn from "classnames";
 import Link from "next/link";
 import Flickity from "react-flickity-component";
 import useSWR from "swr";
@@ -10,7 +10,7 @@ import FetchLoading from "@/components/ui/fetchLoading";
 import { API_URL } from "@/constants";
 import { components } from "@/types";
 
-import PilotCard from "./pilotCard";
+import PilotCard from "../../pilot/pilotCard";
 
 type Pilot = components["schemas"]["Pilot"];
 
@@ -28,22 +28,15 @@ const HomePilots = () => {
   const awtPilots = pilots.filter((pilot) => pilot.is_awt);
 
   return (
-    <section
-      className={classNames("bg-secondary-light awt-section", "flex flex-col")}
-    >
+    <section className={cn("bg-secondary-light awt-section", "flex flex-col")}>
       <header className="flex items-center justify-between awt-center">
-        <h2
-          className={classNames(
-            "mb-8 text-3xl font-black uppercase",
-            "md:text-5xl",
-          )}
-        >
+        <h2 className={cn("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
           Discover Our Pilots
         </h2>
         <Link
           href="/pilots"
           title="View all competitions"
-          className={classNames(
+          className={cn(
             "mb-8 min-w-max font-bold text-accent-text hover:text-hover hover:drop-shadow-md",
           )}
         >
@@ -51,7 +44,7 @@ const HomePilots = () => {
         </Link>
       </header>
       <Flickity
-        className={classNames(
+        className={cn(
           "w-screen" /* cancel .section padding */,
           "sm:[&_ol]:-bottom-10" /* vertical position of pagination dots */,
           "[&_li]:!bg-primary" /* pagination dots dots colour */,

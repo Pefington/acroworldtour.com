@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import { alpha3ToAlpha2 } from "i18n-iso-countries";
 import Link from "next/link";
 import useSWR from "swr";
@@ -38,7 +38,7 @@ const JudgeCard = ({ judge, small }: Props) => {
       key={_id}
       title={`See ${name}'s profile`}
       href={`/pilots/${civlid}/${urlName}`}
-      className={classNames(
+      className={cn(
         "flex max-w-min flex-shrink flex-col items-center rounded-xl",
         "hover:-translate-y-1 hover:drop-shadow-md",
         !civlid && "pointer-events-none",
@@ -47,7 +47,7 @@ const JudgeCard = ({ judge, small }: Props) => {
     >
       <figure
         style={{ backgroundImage: `url('${photo}')` }}
-        className={classNames(
+        className={cn(
           "relative flex aspect-square flex-col justify-between",
           "bg-cover bg-center bg-no-repeat",
           "shadow-awt-dark-400 rounded-xl shadow",
@@ -55,7 +55,7 @@ const JudgeCard = ({ judge, small }: Props) => {
         )}
       >
         <i
-          className={classNames(
+          className={cn(
             country && alpha2country,
             "flag",
             "absolute right-1 top-3",

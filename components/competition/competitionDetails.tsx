@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import { Fragment, useEffect, useState } from "react";
 
 import { components } from "@/types";
@@ -58,13 +58,13 @@ const CompetitionDetails = ({ competition }: Props) => {
       <h2 className="mb-4">{name}</h2>
       {overallResults.length === 0 && <h3>No results at the moment.</h3>}
       <div
-        className={classNames(
+        className={cn(
           "mt-4 flex w-full items-start justify-center gap-4 portrait:flex-col",
         )}
       >
         <CompetitionSummary
           competition={competition}
-          className={classNames(
+          className={cn(
             "bg-awt-dark-50 w-1/2 max-w-lg rounded-xl px-2 py-2 pb-2 shadow-inner",
             "portrait:w-full",
             hideSummary && "landscape:hidden",
@@ -73,7 +73,7 @@ const CompetitionDetails = ({ competition }: Props) => {
 
         {overallResults.length > 0 && (
           <section
-            className={classNames(
+            className={cn(
               "bg-awt-dark-50 flex w-full flex-grow flex-col gap-4 rounded-xl py-2 shadow-inner",
               hideSummary ? "lg:col-span-full" : "lg:col-span-6 lg:col-start-4",
             )}
@@ -87,7 +87,7 @@ const CompetitionDetails = ({ competition }: Props) => {
             {overallResults.length > 0 && (
               <button
                 title="Click to open/close overall results"
-                className={classNames(
+                className={cn(
                   "col-span-full flex cursor-pointer items-baseline justify-center",
                 )}
                 onClick={() => changeResults("overall")}
@@ -97,7 +97,7 @@ const CompetitionDetails = ({ competition }: Props) => {
               >
                 <h3>Overall Results</h3>
                 <ChevronIcon
-                  className={classNames(
+                  className={cn(
                     "ml-2 h-3 w-auto",
                     !showOverall && "-rotate-90",
                   )}
@@ -120,7 +120,7 @@ const CompetitionDetails = ({ competition }: Props) => {
                 <Fragment key={runIndex}>
                   <button
                     title="Click to open/close run results"
-                    className={classNames(
+                    className={cn(
                       "col-span-full flex cursor-pointer items-baseline justify-center",
                     )}
                     onClick={() => changeResults(runIndex)}
@@ -130,7 +130,7 @@ const CompetitionDetails = ({ competition }: Props) => {
                   >
                     <h3>{`Run ${runNumber}`}</h3>
                     <ChevronIcon
-                      className={classNames(
+                      className={cn(
                         "ml-2 h-3 w-auto",
                         !showRun[runIndex] && "-rotate-90",
                       )}

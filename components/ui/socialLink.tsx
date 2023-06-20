@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import Link from "next/link";
 
 import {
@@ -42,7 +42,7 @@ const SocialLink = ({ className, link }: Props) => {
       href={{ pathname: link }}
       title={media}
       target="_blank"
-      className={classNames(
+      className={cn(
         /* "icons", in caller */
         className,
       )}

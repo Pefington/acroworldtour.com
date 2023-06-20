@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import cn from "classnames";
 import { ChangeEvent, useEffect, useState } from "react";
 import useSWR from "swr";
 
@@ -84,7 +84,7 @@ const Seasons = () => {
   return (
     <>
       <YearSelector years={years} />
-      <section className={classNames("wrapper mb-8")}>
+      <section className={cn("wrapper mb-8")}>
         {filteredSeasons.map((season) => (
           <SeasonCard key={season.code} season={season} />
         ))}
