@@ -13,13 +13,15 @@ import { components } from "@/types";
 type Pilot = components["schemas"]["Pilot"];
 
 const HomePilots = () => {
-  const {
+  let {
     data: pilots,
     error: pilotsError,
     isLoading: pilotsLoading,
   } = useSWR<Pilot[], Error>(`${API_URL}/pilots/`);
 
   const awtPilots = pilots?.filter((pilot) => pilot.is_awt);
+
+  pilotsLoading = true;
 
   return (
     <section className={cn("bg-secondary-light awt-section", "flex flex-col")}>

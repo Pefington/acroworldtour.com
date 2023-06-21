@@ -10,8 +10,8 @@ import EventCard from "../../event/eventCard";
 
 type Competition = components["schemas"]["CompetitionPublicExport"];
 
-const HomeUpcoming = () => {
-  const {
+const HomeUpcomingEvents = () => {
+  let {
     data: competitions,
     error: competitionsError,
     isLoading: competitionsLoading,
@@ -70,4 +70,4 @@ const HomeUpcoming = () => {
   );
 };
 
-export default HomeUpcoming;
+export default HomeUpcomingEvents;

@@ -3,10 +3,10 @@ import { preload } from "swr";
 
 import HomePilots from "@/components/home/discover-pilots/homePilots";
 import HomeHero from "@/components/home/homeHero";
-import HomeIntro from "@/components/home/intro/homeIntro";
+import HomeIntro from "@/components/home/intro-news/homeIntro";
 import HomeResults from "@/components/home/latest-results/homeResults";
 import HomeRules from "@/components/home/learn-rules/homeRules";
-import HomeUpcoming from "@/components/home/upcoming-events/homeUpcoming";
+import HomeUpcomingEvents from "@/components/home/upcoming-events/homeUpcomingEvents";
 import { useLayout } from "@/components/layout/layoutContext";
 import { API_URL } from "@/constants";
 import { fetcher } from "@/utils/fetcher";
@@ -33,7 +33,7 @@ const Home = () => {
     <>
       <HomeHero />
       <HomeIntro />
-      <HomeUpcoming />
+      <HomeUpcomingEvents />
       <HomeResults />
       <HomePilots />
       <HomeRules />
