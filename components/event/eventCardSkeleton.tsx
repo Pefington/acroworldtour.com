@@ -1,7 +1,7 @@
 import cn from "classnames";
 
 interface Props {
-  error?: boolean;
+  error: boolean;
 }
 
 const EventCardSkeleton = ({ error }: Props) => (

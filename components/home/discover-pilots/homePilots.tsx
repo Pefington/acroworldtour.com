@@ -49,8 +49,6 @@ const HomePilots = () => {
           prevNextButtons: false,
           cellAlign: "center",
         }}
-        reloadOnUpdate
-        static
       >
         {pilotsLoading || pilotsError
           ? Array(10)

@@ -55,7 +55,7 @@ const PilotCard = ({ pilot }: Props) => {
       </figure>
       <Link
         href={`/pilots/${civlid}`}
-        title={name}
+        title={`View ${name}'s profile`}
         className={cn(
           "z-10 w-full",
           "flex flex-col justify-end",
