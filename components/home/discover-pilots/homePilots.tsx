@@ -21,8 +21,6 @@ const HomePilots = () => {
 
   const awtPilots = pilots?.filter((pilot) => pilot.is_awt);
 
-  pilotsLoading = true;
-
   return (
     <section className={cn("bg-secondary-light awt-section", "flex flex-col")}>
       <header className="flex items-center justify-between awt-center">
