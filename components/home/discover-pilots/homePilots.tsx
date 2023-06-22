@@ -17,6 +17,7 @@ const HomePilots = () => {
     data: pilots,
     error: pilotsError,
     isLoading: pilotsLoading,
+    isValidating: pilotsValidating,
   } = useSWR<Pilot[], Error>(`${API_URL}/pilots/`);
 
   const awtPilots = pilots?.filter((pilot) => pilot.is_awt);
@@ -57,7 +58,11 @@ const HomePilots = () => {
                 <PilotCardSkeleton key={index} error={!!pilotsError} />
               ))
           : awtPilots?.map((pilot) => (
-              <PilotCard key={pilot.civlid} pilot={pilot} />
+              <PilotCard
+                key={pilot.civlid}
+                pilot={pilot}
+                updating={pilotsValidating}
+              />
             ))}
       </Flickity>
     </section>

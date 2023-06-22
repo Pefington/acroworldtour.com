@@ -21,12 +21,13 @@ const Pilots = () => {
 
   const {
     data: pilots,
-    error,
-    isLoading,
+    error: pilotsError,
+    isLoading: ipilotsLoading,
+    isValidating: pilotsValidating,
   } = useSWR<Pilot[], Error>(`${API_URL}/pilots/`);
 
-  if (isLoading) return <FetchLoading />;
-  if (error) return <FetchError />;
+  if (ipilotsLoading) return <FetchLoading />;
+  if (pilotsError) return <FetchError />;
   if (!pilots) return <h2>No pilots found.</h2>;
 
   const awtPilots = pilots.filter((pilot) => pilot.is_awt);
@@ -39,14 +40,22 @@ const Pilots = () => {
       <h2>AWT Pilots</h2>
       <section className="wrapper">
         {awtPilots.map((pilot) => (
-          <PilotCard key={pilot.civlid} pilot={pilot} />
+          <PilotCard
+            key={pilot.civlid}
+            pilot={pilot}
+            updating={pilotsValidating}
+          />
         ))}
       </section>
 
       <h2>AWQ Pilots</h2>
       <section className="wrapper">
         {awqPilots.map((pilot) => (
-          <PilotCard key={pilot.civlid} pilot={pilot} />
+          <PilotCard
+            key={pilot.civlid}
+            pilot={pilot}
+            updating={pilotsValidating}
+          />
         ))}
       </section>
     </>

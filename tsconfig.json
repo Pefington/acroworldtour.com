@@ -18,12 +18,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "pages/judges/[...id].tsx",
-    "constants.ts"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "constants.ts"],
   "exclude": ["node_modules, assets"]
 }

@@ -19,7 +19,7 @@ interface Props {
   limitTo?: number;
 }
 
-const OverallResultsCard = ({ event, limitTo }: Props) => {
+const BasicResultsCard = ({ event, limitTo = 5 }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const results =
@@ -118,4 +118,4 @@ const OverallResultsCard = ({ event, limitTo }: Props) => {
   );
 };
 
-export default OverallResultsCard;
+export default BasicResultsCard;

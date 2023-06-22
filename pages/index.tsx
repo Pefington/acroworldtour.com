@@ -6,7 +6,7 @@ import HomeHero from "@/components/home/homeHero";
 import HomeIntro from "@/components/home/intro-news/homeIntro";
 import HomeResults from "@/components/home/latest-results/homeResults";
 import HomeRules from "@/components/home/learn-rules/homeRules";
-import HomeUpcomingEvents from "@/components/home/upcoming-events/homeUpcomingEvents";
+import HomeEvents from "@/components/home/upcoming-events/homeEvents";
 import { useLayout } from "@/components/layout/layoutContext";
 import { API_URL } from "@/constants";
 import { fetcher } from "@/utils/fetcher";
@@ -33,7 +33,7 @@ const Home = () => {
     <>
       <HomeHero />
       <HomeIntro />
-      <HomeUpcomingEvents />
+      <HomeEvents />
       <HomeResults />
       <HomePilots />
       <HomeRules />

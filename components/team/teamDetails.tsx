@@ -16,7 +16,7 @@ const TeamDetails = ({ team }: Props) => {
       <h2 className="mb-4">{name}</h2>
       <section className={cn("mt-2 flex flex-wrap justify-center gap-8")}>
         {pilots.map((pilot) => (
-          <PilotCard key={pilot.civlid} pilot={pilot} />
+          <PilotCard key={pilot.civlid} pilot={pilot} updating={false} />
         ))}
       </section>
     </>

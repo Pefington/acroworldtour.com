@@ -10,11 +10,12 @@ import EventCard from "../../event/eventCard";
 
 type Competition = components["schemas"]["CompetitionPublicExport"];
 
-const HomeUpcomingEvents = () => {
+const HomeEvents = () => {
   let {
     data: competitions,
     error: competitionsError,
     isLoading: competitionsLoading,
+    isValidating: competitionsValidating,
   } = useSWR<Competition[], Error>(`${API_URL}/competitions/`);
 
   const upcomingEvents = competitions
@@ -36,7 +37,9 @@ const HomeUpcomingEvents = () => {
     >
       <header className="flex items-center justify-between">
         <h2 className={cn("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
-          Upcoming Events
+          {`${
+            competitions && upcomingEvents?.length === 0 && "No "
+          }Upcoming Events`}
         </h2>
         <Link
           href="/competitions"
@@ -63,11 +66,15 @@ const HomeUpcomingEvents = () => {
                 <EventCardSkeleton key={index} error={!!competitionsError} />
               ))
           : upcomingEvents?.map((competition) => (
-              <EventCard key={competition.code} competition={competition} />
+              <EventCard
+                key={competition.code}
+                competition={competition}
+                updating={competitionsValidating}
+              />
             ))}
       </div>
     </section>
   );
 };
 
-export default HomeUpcomingEvents;
+export default HomeEvents;

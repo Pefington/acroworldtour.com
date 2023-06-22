@@ -12,8 +12,8 @@ const PilotCardSkeleton = ({ error }: Props) => (
       "aspect-[260/370] w-full max-w-[min(80vw,260px)]",
       "rounded bg-secondary-medium/50 shadow-md",
       "pb-8",
-      !error && "animate-pulse",
-      error && "outline outline-red-500/80",
+      "animate-pulse",
+      error && "animate-none outline outline-red-500/80",
     )}
   >
     <div className="text-9xl opacity-40">{error && "😵"}</div>

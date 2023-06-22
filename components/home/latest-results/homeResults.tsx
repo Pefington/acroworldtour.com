@@ -7,7 +7,7 @@ import FetchLoading from "@/components/ui/fetchLoading";
 import { API_URL } from "@/constants";
 import { components } from "@/types";
 
-import OverallResultsCard from "./overallResultsCard";
+import BasicResultsCard from "../../results/basicResultsCard";
 
 type Competition = components["schemas"]["CompetitionPublicExport"];
 type Season = components["schemas"]["SeasonExport"];
@@ -84,10 +84,8 @@ const HomeResults = () => {
         </Link>
       </header>
       <div className={cn("grid place-items-center gap-10", "md:grid-cols-2")}>
-        {lastAwtCompetition && (
-          <OverallResultsCard event={lastAwtCompetition} limitTo={5} />
-        )}
-        {awq && <OverallResultsCard event={awq} limitTo={5} />}
+        {lastAwtCompetition && <BasicResultsCard event={lastAwtCompetition} />}
+        {awq && <BasicResultsCard event={awq} />}
       </div>
     </section>
   );
