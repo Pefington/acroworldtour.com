@@ -16,10 +16,9 @@ type Season = components["schemas"]["SeasonExport"];
 
 interface Props {
   competition: components["schemas"]["CompetitionPublicExport"];
-  updating: boolean;
 }
 
-const EventCard = ({ competition, updating }: Props) => {
+const EventCard = ({ competition }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -86,12 +85,7 @@ const EventCard = ({ competition, updating }: Props) => {
             onLoadingComplete={() => setImgLoading(false)}
           />
         </figure>
-        <figcaption
-          className={cn(
-            "flex min-w-max flex-col gap-3 px-7 py-4",
-            updating && "animate-pulse",
-          )}
-        >
+        <figcaption className={cn("flex min-w-max flex-col gap-3 px-7 py-4")}>
           <h3 className={cn("text-lg font-bold uppercase")}>{name}</h3>
           <span className={cn("flex items-center gap-2 font-semibold")}>
             <RolodexIcon className="-ml-[2px] -mt-1 aspect-square h-[18px] fill-current" />

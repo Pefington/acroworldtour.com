@@ -10,10 +10,9 @@ countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
 interface Props {
   pilot: components["schemas"]["Pilot"];
-  updating: boolean;
 }
 
-const PilotCard = ({ pilot, updating }: Props) => {
+const PilotCard = ({ pilot }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -65,7 +64,7 @@ const PilotCard = ({ pilot, updating }: Props) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <figcaption className={cn(updating && "animate-pulse")}>
+        <figcaption>
           <h3 className={cn("text-lg font-bold uppercase text-white")}>
             {name}
           </h3>

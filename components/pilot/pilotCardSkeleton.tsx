@@ -6,14 +6,14 @@ interface Props {
 
 const PilotCardSkeleton = ({ error }: Props) => (
   <article
-    title={error ? "Error fetching data." : "Fetching data..."}
+    title={error ? "Could not fetch data." : "Fetching data..."}
     className={cn(
       "flex flex-col items-center justify-end gap-2",
       "aspect-[260/370] w-full max-w-[min(80vw,260px)]",
-      "rounded bg-secondary-medium/50 shadow-md",
+      "rounded bg-skeleton shadow-md",
       "pb-8",
-      "animate-pulse",
-      error && "animate-none outline outline-red-500/80",
+      "[&>*]:animate-pulse",
+      error && "outline outline-red-500/80 [&>*]:animate-none",
     )}
   >
     <div className="text-9xl opacity-40">{error && "😵"}</div>
@@ -21,7 +21,7 @@ const PilotCardSkeleton = ({ error }: Props) => (
       {error && "Could not fetch data."}
     </div>
     <div className="h-5 w-3/5 rounded-sm bg-white/75" />
-    <div className="h-4 w-1/3 rounded-sm bg-secondary-light/50" />
+    <div className="h-4 w-1/3 rounded-sm bg-secondary-light/75" />
   </article>
 );
 

@@ -6,19 +6,19 @@ interface Props {
 
 const EventCardSkeleton = ({ error }: Props) => (
   <article
-    title={error ? "Error fetching data." : "Fetching data..."}
+    title={error ? "Could not fetch data." : "Fetching data..."}
     className={cn(
       "flex aspect-[2/3] w-full flex-col overflow-hidden rounded bg-white shadow-md",
       "[&_div]:rounded-sm",
-      "animate-pulse",
-      error && "animate-none outline outline-red-500/80",
+      "[&>*]:animate-pulse",
+      error && "outline outline-red-500/80 [&>*]:animate-none",
     )}
   >
     <div className="flex grow flex-col overflow-hidden">
       <figure className="flex w-full grow flex-col items-center justify-center gap-4 overflow-hidden bg-skeleton">
         <div className="text-9xl opacity-40">{error && "😵"}</div>
         <div className="text-2xl font-semibold text-red-500 opacity-80">
-          {error && "Error fetching data."}
+          {error && "Could not fetch data."}
         </div>
       </figure>
       <figcaption className="flex flex-col gap-3 px-7 py-4">

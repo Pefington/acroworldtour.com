@@ -15,7 +15,6 @@ const HomeEvents = () => {
     data: competitions,
     error: competitionsError,
     isLoading: competitionsLoading,
-    isValidating: competitionsValidating,
   } = useSWR<Competition[], Error>(`${API_URL}/competitions/`);
 
   const upcomingEvents = competitions
@@ -38,7 +37,7 @@ const HomeEvents = () => {
       <header className="flex items-center justify-between">
         <h2 className={cn("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
           {`${
-            competitions && upcomingEvents?.length === 0 && "No "
+            competitions && upcomingEvents?.length === 0 ? "No " : ""
           }Upcoming Events`}
         </h2>
         <Link
@@ -66,11 +65,7 @@ const HomeEvents = () => {
                 <EventCardSkeleton key={index} error={!!competitionsError} />
               ))
           : upcomingEvents?.map((competition) => (
-              <EventCard
-                key={competition.code}
-                competition={competition}
-                updating={competitionsValidating}
-              />
+              <EventCard key={competition.code} competition={competition} />
             ))}
       </div>
     </section>

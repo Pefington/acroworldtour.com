@@ -16,10 +16,11 @@ type SeasonResult = components["schemas"]["models__seasons__SeasonResult"];
 
 interface Props {
   event: Competition | Season;
-  limitTo?: number;
+  updating: boolean;
+  limitTo?: number | "all";
 }
 
-const BasicResultsCard = ({ event, limitTo = 5 }: Props) => {
+const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const results =
@@ -34,7 +35,8 @@ const BasicResultsCard = ({ event, limitTo = 5 }: Props) => {
 
   const isCompetition = "overall_results" in event.results;
 
-  const clampedResults = limitTo ? results.slice(0, limitTo) : results;
+  const clampedResults =
+    limitTo === "all" ? results : results.slice(0, limitTo);
 
   return (
     <article
@@ -57,7 +59,7 @@ const BasicResultsCard = ({ event, limitTo = 5 }: Props) => {
         )}
       >
         <span className={cn("col-span-2")}>Pos.</span>
-        <span className={cn("col-span-8 ml-8")}>Pilot</span>
+        <span className={cn("col-span-8 ml-9")}>Pilot</span>
         <span className={cn("col-span-2")}>Pts.</span>
       </header>
 
@@ -76,6 +78,7 @@ const BasicResultsCard = ({ event, limitTo = 5 }: Props) => {
               key={pilot?.civlid}
               className={cn(
                 "grid w-full grid-cols-12 px-7 py-4 text-sm font-bold odd:bg-secondary-light",
+                updating && "opacity-75 [&>*]:animate-pulse [&>*]:blur-[1px]",
               )}
             >
               <span className={cn("col-span-2 text-secondary")}>
