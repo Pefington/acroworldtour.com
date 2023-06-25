@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { preload } from "swr";
 
-import awtLogo from "@/assets/img/logo.svg";
 import { API_URL } from "@/constants";
 import { fetcher } from "@/utils/fetcher";
 
@@ -16,7 +15,6 @@ interface Props {
 
 const Nav = ({ activeNav, fontClass }: Props) => (
   <nav
-    style={{}}
     className={cn(
       fontClass,
       "absolute z-10 flex h-20 w-full max-w-8xl items-center bg-primary text-white",
@@ -27,7 +25,7 @@ const Nav = ({ activeNav, fontClass }: Props) => (
   >
     <Link href="/" title="Navigate Home" className={cn("h-3/5 shrink-0")}>
       <Image
-        src={awtLogo}
+        src="/img/logo.svg"
         alt="Acro World Tour logo"
         width="0"
         height="0"

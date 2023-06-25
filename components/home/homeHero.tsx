@@ -1,6 +1,5 @@
 import cn from "classnames";
-
-import header from "@/assets/img/header.jpg";
+import Image from "next/image";
 
 import SocialLink from "../ui/socialLink";
 
@@ -8,16 +7,20 @@ const HomeHero = () => {
   return (
     <header
       className={cn(
-        "h-[50vh] min-h-[500px]",
+        "relative h-[50vh] min-h-[500px]",
         "bg-cover bg-right bg-no-repeat",
         "flex items-end",
         "md:-mt-20",
         "lg:bg-center",
       )}
-      style={{
-        backgroundImage: `url(${header.src})`,
-      }}
     >
+      <Image
+        src="/img/hero.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className={cn("-z-10 object-cover object-right", "md:object-center")}
+      />
       <article className={cn("max-w-lg pb-20 text-white awt-center")}>
         <span className={cn("text-lg font-medium")}>Welcome to</span>
         <h1
