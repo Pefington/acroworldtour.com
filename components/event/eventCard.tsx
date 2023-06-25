@@ -98,12 +98,10 @@ const EventCard = ({ competition }: Props) => {
               "flex items-center gap-3 text-sm font-medium text-secondary",
             )}
           >
-            {alpha2country && (
-              <CircleFlag
-                countryCode={alpha2country}
-                className="-mx-[2px] h-5"
-              />
-            )}
+            <CircleFlag
+              countryCode={alpha2country || "earth"}
+              className="-mx-[2px] h-5"
+            />
             {location}
           </span>
         </figcaption>

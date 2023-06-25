@@ -85,13 +85,10 @@ const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
                 {index + 1}
               </span>
               <span className={cn("col-span-8 flex gap-4")}>
-                {alpha2country ? (
-                  <CircleFlag countryCode={alpha2country} className="h-5" />
-                ) : (
-                  <div className="w-5 rounded-full bg-secondary-medium text-center text-white">
-                    ?
-                  </div>
-                )}
+                <CircleFlag
+                  countryCode={alpha2country || "earth"}
+                  className="h-5"
+                />
                 {pilot?.name}
               </span>
               <span className={cn("col-span-2")}>{roundedScore}</span>
