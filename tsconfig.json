@@ -19,5 +19,5 @@
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "constants.ts"],
-  "exclude": ["node_modules, _old, .next"]
+  "exclude": ["node_modules"]
 }
