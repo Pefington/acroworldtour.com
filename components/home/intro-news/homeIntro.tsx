@@ -8,7 +8,7 @@ const HomeIntro = () => {
   return (
     <section
       className={cn(
-        "awt-section awt-center",
+        "awt-home-section awt-center",
         "flex flex-col gap-10",
         "lg:flex-row",
       )}

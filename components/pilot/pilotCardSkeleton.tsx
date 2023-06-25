@@ -9,7 +9,7 @@ const PilotCardSkeleton = ({ error }: Props) => (
     title={error ? "Could not fetch data." : "Fetching data..."}
     className={cn(
       "flex flex-col items-center justify-end gap-2",
-      "aspect-[260/370] w-full max-w-[min(80vw,260px)]",
+      "aspect-[260/370] w-full max-w-card",
       "rounded bg-skeleton shadow-md",
       "pb-8",
       "[&>*]:animate-pulse",

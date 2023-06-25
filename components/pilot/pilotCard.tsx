@@ -30,7 +30,7 @@ const PilotCard = ({ pilot }: Props) => {
     <article
       className={cn(
         "relative flex flex-col justify-end",
-        "aspect-[260/370] w-full max-w-[min(80vw,260px)]",
+        "aspect-[260/370] w-full max-w-card",
         "overflow-hidden rounded shadow-md",
         "hover:drop-shadow-lg",
       )}

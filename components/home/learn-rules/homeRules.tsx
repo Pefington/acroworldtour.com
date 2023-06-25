@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SPORTING_CODE_MANUAL_URL } from "@/constants";
 
 const HomeRules = () => (
-  <section className={cn("awt-section awt-center", "flex flex-col")}>
+  <section className={cn("awt-home-section awt-center", "flex flex-col")}>
     <h2 className={cn("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
       Learn the Rules
     </h2>

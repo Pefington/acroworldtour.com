@@ -30,6 +30,7 @@ module.exports = {
         skeleton: colors.neutral[200],
       },
       maxWidth: {
+        card: 'min(80vw,260px)',
         '8xl': '90rem',
       },
     },
@@ -44,6 +45,9 @@ module.exports = {
           '@apply bg-secondary-light pb-16 pt-40 uppercase md:-mt-20': {},
         },
         '.awt-section': {
+          '@apply pt-8 pb-14 odd:bg-secondary-light': {},
+        },
+        '.awt-home-section': {
           '@apply py-16 md:py-24': {},
         },
         /* Centers with 20px of padding, max width 1440px */

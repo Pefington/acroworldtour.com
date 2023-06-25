@@ -22,7 +22,9 @@ const HomePilots = () => {
   const awtPilots = pilots?.filter((pilot) => pilot.is_awt);
 
   return (
-    <section className={cn("bg-secondary-light awt-section", "flex flex-col")}>
+    <section
+      className={cn("bg-secondary-light awt-home-section", "flex flex-col")}
+    >
       <header className="flex items-center justify-between awt-center">
         <h2 className={cn("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
           Discover Our Pilots

@@ -30,7 +30,7 @@ const HomeEvents = () => {
   return (
     <section
       className={cn(
-        "bg-secondary-light awt-section awt-center",
+        "bg-secondary-light awt-home-section awt-center",
         "flex flex-col",
       )}
     >
