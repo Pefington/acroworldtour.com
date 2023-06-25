@@ -1,10 +1,8 @@
-// import cn from "classnames";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 
+import EventsSection from "@/components/event/eventsSection";
 import { useLayout } from "@/components/layout/layoutContext";
-import FetchError from "@/components/ui/fetchError";
-import FetchLoading from "@/components/ui/fetchLoading";
 import YearSelector from "@/components/ui/yearSelector";
 import { API_URL } from "@/constants";
 import { components } from "@/types";
@@ -15,6 +13,7 @@ type Season = components["schemas"]["SeasonExport"];
 const currentYear = new Date().getFullYear();
 
 const Competitions = () => {
+  const [selectedSeason, setSelectedSeason] = useState<Season | null>(null);
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
@@ -23,6 +22,10 @@ const Competitions = () => {
     setPageDescription(`All the events of the Acro World Tour.`);
     setActiveNav("events");
   }, [setActiveNav, setPageDescription, setPageTitle]);
+
+  useEffect(() => {
+    setSelectedSeason(null);
+  }, [selectedYear]);
 
   const {
     data: seasons,
@@ -36,59 +39,77 @@ const Competitions = () => {
     isLoading: competitionsLoading,
   } = useSWR<Competition[]>(`${API_URL}/competitions/`);
 
-  if (seasonsLoading || competitionsLoading) return <FetchLoading />;
-  if (competitionsError || seasonsError) return <FetchError />;
-  if (!competitions || !seasons) return <h2>Competitions not found</h2>;
+  const loading = seasonsLoading || competitionsLoading;
+  const error = seasonsError || competitionsError;
 
-  const filteredCompetitions = competitions.filter((competition) => {
-    const startYear = new Date(competition.start_date).getFullYear();
-    const endYear = new Date(competition.end_date).getFullYear();
-    return startYear === selectedYear || endYear === selectedYear;
-  });
-
-  const soloSeasons = seasons.filter((season) =>
-    season.competitions.some((comp) =>
-      filteredCompetitions.some(
-        (filteredComp) => filteredComp.code === comp.code,
-      ),
-    ),
-  );
-
-  soloSeasons.sort(
-    (a, b) =>
-      b.year - a.year ||
-      (a.index || 999) - (b.index || 999) ||
-      a.name.localeCompare(b.name),
-  );
-
-  const offSeasonCompetitions = filteredCompetitions.filter(
-    (competition) => competition.seasons.length === 0,
-  );
-
-  offSeasonCompetitions.sort((a, b) =>
-    b.start_date.localeCompare(a.start_date),
-  );
+  seasons?.sort((a, b) => a.name.localeCompare(b.name));
 
   const years = [
     ...new Set(
-      competitions.flatMap((comp) => [
+      competitions?.flatMap((comp) => [
         new Date(comp.start_date).getFullYear(),
         new Date(comp.end_date).getFullYear(),
       ]),
     ).add(currentYear),
   ].sort((a, b) => b - a);
 
+  const filteredCompetitions = competitions?.filter((competition) => {
+    const startYear = new Date(competition.start_date).getFullYear();
+    const endYear = new Date(competition.end_date).getFullYear();
+    return startYear === selectedYear || endYear === selectedYear;
+  });
+
+  filteredCompetitions?.sort((a, b) =>
+    b.start_date.localeCompare(a.start_date),
+  );
+
+  const filteredSeasons = seasons?.filter(
+    (season) => season.year === selectedYear,
+  );
+
+  const soloSeasons = filteredSeasons?.filter(
+    (season) => season.type === "solo",
+  );
+
+  const synchroSeasons = filteredSeasons?.filter(
+    (season) => season.type === "synchro",
+  );
+
+  const handleSelect = (season: Season) => {
+    selectedSeason?.code === season.code
+      ? setSelectedSeason(null)
+      : setSelectedSeason(season);
+  };
+
   return (
     <>
       <header className="flex flex-wrap items-baseline awt-header awt-center">
         <YearSelector
           years={years}
-          list={soloSeasons}
-          pluralString={"events"}
+          list={filteredSeasons || []}
+          pluralString={"seasons"}
           selectedYear={selectedYear}
           setSelectedYear={setSelectedYear}
         />
       </header>
+      {soloSeasons && soloSeasons.length > 0 && (
+        <EventsSection
+          seasons={soloSeasons}
+          loading={loading}
+          error={error}
+          handleSelect={handleSelect}
+          selectedSeason={selectedSeason}
+        />
+      )}
+      {synchroSeasons && synchroSeasons.length > 0 && (
+        <EventsSection
+          seasons={synchroSeasons}
+          loading={loading}
+          error={error}
+          handleSelect={handleSelect}
+          selectedSeason={selectedSeason}
+        />
+      )}
     </>
   );
 };
