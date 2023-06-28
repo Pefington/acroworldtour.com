@@ -13,7 +13,7 @@ type Season = components["schemas"]["SeasonExport"];
 const currentYear = new Date().getFullYear();
 
 const Competitions = () => {
-  const [selectedSeason, setSelectedSeason] = useState<Season | null>(null);
+  const [activeSeason, setActiveSeason] = useState<Season | "all">("all");
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
 
@@ -24,7 +24,7 @@ const Competitions = () => {
   }, [setActiveNav, setPageDescription, setPageTitle]);
 
   useEffect(() => {
-    setSelectedSeason(null);
+    setActiveSeason("all");
   }, [selectedYear]);
 
   const {
@@ -75,11 +75,12 @@ const Competitions = () => {
     (season) => season.type === "synchro",
   );
 
-  const handleSelect = (season: Season) => {
-    selectedSeason?.code === season.code
-      ? setSelectedSeason(null)
-      : setSelectedSeason(season);
-  };
+  const handleSelect = (season: Season) =>
+    activeSeason === season ? setActiveSeason("all") : setActiveSeason(season);
+
+  // const offSeasonCompetitions = filteredCompetitions?.filter(
+  //   (competition) => competition.seasons.length === 0,
+  // );
 
   return (
     <>
@@ -98,7 +99,7 @@ const Competitions = () => {
           loading={loading}
           error={error}
           handleSelect={handleSelect}
-          selectedSeason={selectedSeason}
+          activeSeason={activeSeason}
         />
       )}
       {synchroSeasons && synchroSeasons.length > 0 && (
@@ -107,9 +108,18 @@ const Competitions = () => {
           loading={loading}
           error={error}
           handleSelect={handleSelect}
-          selectedSeason={selectedSeason}
+          activeSeason={activeSeason}
         />
       )}
+      {
+        // competitions && (
+        // <div className={cn("flex flex-wrap justify-evenly gap-8 awt-center")}>
+        //   {competitions.map((competition) => (
+        //     <EventCard key={competition.code} competition={competition} />
+        //   ))}
+        // </div>
+        // )
+      }
     </>
   );
 };

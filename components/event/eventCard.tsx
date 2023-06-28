@@ -52,14 +52,13 @@ const EventCard = ({ competition }: Props) => {
   const endYear = endDate.getFullYear();
 
   const country = location.split(", ").at(-1);
-  const alpha2country = country
-    ? countries.getAlpha2Code(country, "en").toLowerCase()
-    : null;
+  const alpha2country =
+    (country && countries.getAlpha2Code(country, "en")?.toLowerCase()) || null;
 
   return (
     <article
       className={cn(
-        "aspect-[2/3] w-full",
+        "aspect-[2/3] w-full max-w-sm",
         "overflow-hidden rounded bg-white shadow-md",
         "flex flex-col",
       )}

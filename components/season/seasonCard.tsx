@@ -12,11 +12,11 @@ type Season = components["schemas"]["SeasonExport"];
 
 interface Props {
   season: Season;
-  selected: boolean | null;
+  active: boolean | null;
   handleSelect: Function;
 }
 
-const SeasonCard = ({ season, selected, handleSelect }: Props) => {
+const SeasonCard = ({ season, active, handleSelect }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -34,7 +34,7 @@ const SeasonCard = ({ season, selected, handleSelect }: Props) => {
         "flex flex-col justify-end awt-accordion-closed",
         "aspect-video w-full min-w-max",
         "overflow-hidden rounded-md bg-white shadow-md",
-        selected && "opacity-30 blur-[1px]",
+        !active && "opacity-30 blur-[1px]",
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

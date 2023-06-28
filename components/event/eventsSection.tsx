@@ -12,7 +12,7 @@ interface Props {
   loading: boolean;
   error: boolean;
   handleSelect: Function;
-  selectedSeason: Season | null;
+  activeSeason: Season | "all";
 }
 
 const EventsSection = ({
@@ -20,7 +20,7 @@ const EventsSection = ({
   loading,
   error,
   handleSelect,
-  selectedSeason,
+  activeSeason: activeSeason,
 }: Props) => {
   const { type } = seasons[0];
 
@@ -53,7 +53,7 @@ const EventsSection = ({
                 <SeasonCard
                   key={season.code}
                   season={season}
-                  selected={season.code === selectedSeason?.code}
+                  active={activeSeason === "all" || activeSeason === season}
                   handleSelect={handleSelect}
                 />
               ))}
