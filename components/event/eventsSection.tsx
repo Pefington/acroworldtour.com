@@ -11,18 +11,10 @@ interface Props {
   seasons: Season[];
   loading: boolean;
   error: boolean;
-  handleSelect: Function;
-  activeSeason: Season | "all";
 }
 
-const EventsSection = ({
-  seasons,
-  loading,
-  error,
-  handleSelect,
-  activeSeason: activeSeason,
-}: Props) => {
-  const { type } = seasons[0];
+const EventsSection = ({ seasons, loading, error }: Props) => {
+  const type = seasons ? seasons[0].type : null;
 
   return (
     <section className={cn("awt-section awt-center")}>
@@ -49,13 +41,8 @@ const EventsSection = ({
                 .map((_, index) => (
                   <SeasonCardSkeleton key={index} error={error} />
                 ))
-            : seasons.map((season) => (
-                <SeasonCard
-                  key={season.code}
-                  season={season}
-                  active={activeSeason === "all" || activeSeason === season}
-                  handleSelect={handleSelect}
-                />
+            : seasons?.map((season) => (
+                <SeasonCard key={season.code} season={season} />
               ))}
         </div>
       )}

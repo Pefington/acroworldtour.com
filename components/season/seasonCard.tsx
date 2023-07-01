@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { CircleFlag } from "react-circle-flags";
 
+import { useEvents } from "@/state/userContext";
 import { components } from "@/types";
 
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
@@ -12,13 +13,16 @@ type Season = components["schemas"]["SeasonExport"];
 
 interface Props {
   season: Season;
-  active: boolean | null;
-  handleSelect: Function;
 }
 
-const SeasonCard = ({ season, active, handleSelect }: Props) => {
+const SeasonCard = ({ season }: Props) => {
+  const { activeYear, activeSeasonCodes, setActiveSeasonCodes } = useEvents();
   const [imgLoading, setImgLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+
+  const active =
+    !activeSeasonCodes[activeYear] ||
+    activeSeasonCodes[activeYear] === season.code;
 
   const { name, image, competitions, country } = season;
 
@@ -27,6 +31,16 @@ const SeasonCard = ({ season, active, handleSelect }: Props) => {
         .getAlpha2Code(countries.getName(country, "en"), "en")
         ?.toLowerCase()
     : null;
+
+  const handleSelect = (code: string) => {
+    const newSeasonCodes = { ...activeSeasonCodes };
+
+    newSeasonCodes[activeYear] === code
+      ? delete newSeasonCodes[activeYear]
+      : (newSeasonCodes[activeYear] = code);
+
+    setActiveSeasonCodes(newSeasonCodes);
+  };
 
   return (
     <button
@@ -38,8 +52,8 @@ const SeasonCard = ({ season, active, handleSelect }: Props) => {
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => handleSelect(season)}
-      onKeyDown={({ key }) => key === "Enter" && handleSelect(season)}
+      onClick={() => handleSelect(season.code)}
+      onKeyDown={({ key }) => key === "Enter" && handleSelect(season.code)}
     >
       <figure className={cn("relative flex h-full w-full overflow-hidden")}>
         {image ? (
@@ -62,7 +76,7 @@ const SeasonCard = ({ season, active, handleSelect }: Props) => {
               <div
                 key={code}
                 className={cn(
-                  "h-full w-full",
+                  "relative h-full w-full",
                   isHovered ? "scale-105" : "scale-100",
                   imgLoading && "scale-110 blur-2xl",
                 )}

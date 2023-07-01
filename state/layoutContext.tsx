@@ -2,19 +2,19 @@ import { createContext, useContext } from "react";
 
 interface ILayoutContext {
   pageTitle: string;
-  pageDescription: string;
-  activeNav: string;
   setPageTitle: Function;
+  pageDescription: string;
   setPageDescription: Function;
+  activeNav: string;
   setActiveNav: Function;
 }
 
 const LayoutContext = createContext<ILayoutContext>({
   pageTitle: "",
-  pageDescription: "",
-  activeNav: "",
   setPageTitle: () => {},
+  pageDescription: "",
   setPageDescription: () => {},
+  activeNav: "",
   setActiveNav: () => {},
 });
 

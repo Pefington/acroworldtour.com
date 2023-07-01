@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { ReactNode, useState } from "react";
 
+import LayoutContext from "../../state/layoutContext";
 import Footer from "./footer";
-import LayoutContext from "./layoutContext";
 import Nav from "./nav";
 
 interface LayoutProps {
@@ -11,7 +11,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, fontClass }: LayoutProps) => {
-  const [pageTitle, setPageTitle] = useState("");
+  const [pageTitle, setPageTitle] = useState("Acro World Tour");
   const [pageDescription, setPageDescription] = useState("");
   const [activeNav, setActiveNav] = useState("");
 
@@ -19,10 +19,10 @@ const Layout = ({ children, fontClass }: LayoutProps) => {
     <LayoutContext.Provider
       value={{
         pageTitle,
-        pageDescription,
-        activeNav,
         setPageTitle,
+        pageDescription,
         setPageDescription,
+        activeNav,
         setActiveNav,
       }}
     >
@@ -32,7 +32,7 @@ const Layout = ({ children, fontClass }: LayoutProps) => {
         <meta name="description" content={pageDescription} />
 
         <meta
-          name="Generator"
+          name="generator"
           content="Acro World Tour - Copyright (C). All rights reserved."
         />
         <meta name="author" content="Acro World Tour" />
@@ -42,12 +42,8 @@ const Layout = ({ children, fontClass }: LayoutProps) => {
         />
         <meta name="reply-to" content="info[at]acroworldtour.com" />
         <meta
-          name="Keywords"
-          content="Acro World Tour - The world's best pilots fighting for the most prestigious title"
-        />
-        <meta
-          name="Description"
-          content="The world's best pilots fighting for the most prestigious title"
+          name="keywords"
+          content="Acro World Tour AWT Paragliding Competitions Championships FAI Féderation Aéronautique Internationale"
         />
 
         {/* Favicon */}
@@ -73,6 +69,7 @@ const Layout = ({ children, fontClass }: LayoutProps) => {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
+
       <Nav fontClass={fontClass} activeNav={activeNav} />
       {children}
       <Footer />

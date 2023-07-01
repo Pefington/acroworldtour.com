@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useSWR from "swr";
 
 import EventsSection from "@/components/event/eventsSection";
-import { useLayout } from "@/components/layout/layoutContext";
 import YearSelector from "@/components/ui/yearSelector";
 import { API_URL } from "@/constants";
+import { useLayout } from "@/state/layoutContext";
+import { useEvents } from "@/state/userContext";
 import { components } from "@/types";
 
 type Competition = components["schemas"]["CompetitionPublicExport"];
@@ -13,19 +14,14 @@ type Season = components["schemas"]["SeasonExport"];
 const currentYear = new Date().getFullYear();
 
 const Competitions = () => {
-  const [activeSeason, setActiveSeason] = useState<Season | "all">("all");
-  const [selectedYear, setSelectedYear] = useState(currentYear);
   const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
+  const { activeYear } = useEvents();
 
   useEffect(() => {
     setPageTitle("Acro World Tour | Events");
     setPageDescription(`All the events of the Acro World Tour.`);
     setActiveNav("events");
-  }, [setActiveNav, setPageDescription, setPageTitle]);
-
-  useEffect(() => {
-    setActiveSeason("all");
-  }, [selectedYear]);
+  }, [setPageTitle, setPageDescription, setActiveNav]);
 
   const {
     data: seasons,
@@ -56,7 +52,7 @@ const Competitions = () => {
   const filteredCompetitions = competitions?.filter((competition) => {
     const startYear = new Date(competition.start_date).getFullYear();
     const endYear = new Date(competition.end_date).getFullYear();
-    return startYear === selectedYear || endYear === selectedYear;
+    return startYear === activeYear || endYear === activeYear;
   });
 
   filteredCompetitions?.sort((a, b) =>
@@ -64,7 +60,7 @@ const Competitions = () => {
   );
 
   const filteredSeasons = seasons?.filter(
-    (season) => season.year === selectedYear,
+    (season) => season.year === activeYear,
   );
 
   const soloSeasons = filteredSeasons?.filter(
@@ -74,9 +70,6 @@ const Competitions = () => {
   const synchroSeasons = filteredSeasons?.filter(
     (season) => season.type === "synchro",
   );
-
-  const handleSelect = (season: Season) =>
-    activeSeason === season ? setActiveSeason("all") : setActiveSeason(season);
 
   // const offSeasonCompetitions = filteredCompetitions?.filter(
   //   (competition) => competition.seasons.length === 0,
@@ -89,26 +82,23 @@ const Competitions = () => {
           years={years}
           list={filteredSeasons || []}
           pluralString={"seasons"}
-          selectedYear={selectedYear}
-          setSelectedYear={setSelectedYear}
+          loading={loading}
         />
       </header>
-      {soloSeasons && soloSeasons.length > 0 && (
-        <EventsSection
-          seasons={soloSeasons}
-          loading={loading}
-          error={error}
-          handleSelect={handleSelect}
-          activeSeason={activeSeason}
-        />
-      )}
+      {loading ||
+        error ||
+        (soloSeasons && soloSeasons.length > 0 && (
+          <EventsSection
+            seasons={soloSeasons}
+            loading={loading}
+            error={error}
+          />
+        ))}
       {synchroSeasons && synchroSeasons.length > 0 && (
         <EventsSection
           seasons={synchroSeasons}
           loading={loading}
           error={error}
-          handleSelect={handleSelect}
-          activeSeason={activeSeason}
         />
       )}
       {
