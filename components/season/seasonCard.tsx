@@ -16,9 +16,9 @@ interface Props {
 }
 
 const SeasonCard = ({ season }: Props) => {
-  const { activeYear, activeSeasonCodes, setActiveSeasonCodes } = useEvents();
   const [imgLoading, setImgLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+  const { activeYear, activeSeasonCodes, setActiveSeasonCodes } = useEvents();
 
   const active =
     !activeSeasonCodes[activeYear] ||

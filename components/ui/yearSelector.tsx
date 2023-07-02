@@ -1,5 +1,7 @@
 import cn from "classnames";
+import { useEffect } from "react";
 
+import useLocalStorage from "@/state/useLocalStorage";
 import { useEvents } from "@/state/userContext";
 
 interface Props {
@@ -11,6 +13,24 @@ interface Props {
 
 const YearSelector = ({ years, list, pluralString, loading }: Props) => {
   const { activeYear, setActiveYear } = useEvents();
+  const [storedActiveYear, setStoredActiveYear] = useLocalStorage(
+    "activeYear",
+    null,
+  );
+
+  useEffect(() => {
+    if (storedActiveYear) {
+      setActiveYear(Number(storedActiveYear));
+    } else {
+      setStoredActiveYear(activeYear);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    setStoredActiveYear(activeYear);
+  }, [activeYear, setStoredActiveYear]);
+
   return (
     <>
       <h1
