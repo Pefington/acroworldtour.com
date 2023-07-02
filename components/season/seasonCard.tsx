@@ -1,9 +1,10 @@
 import cn from "classnames";
 import countries from "i18n-iso-countries";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CircleFlag } from "react-circle-flags";
 
+import useLocalStorage from "@/state/useLocalStorage";
 import { useEvents } from "@/state/userContext";
 import { components } from "@/types";
 
@@ -19,6 +20,24 @@ const SeasonCard = ({ season }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const { activeYear, activeSeasonCodes, setActiveSeasonCodes } = useEvents();
+
+  const [storedSeasonCodes, setStoredSeasonCodes] = useLocalStorage(
+    "activeSeasonCodes",
+    null,
+  );
+
+  useEffect(() => {
+    if (storedSeasonCodes) {
+      setActiveSeasonCodes(storedSeasonCodes);
+    } else {
+      setStoredSeasonCodes(activeSeasonCodes);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    setStoredSeasonCodes(activeSeasonCodes);
+  }, [activeSeasonCodes, setStoredSeasonCodes]);
 
   const active =
     !activeSeasonCodes[activeYear] ||
