@@ -17,15 +17,17 @@ const HomeEvents = () => {
     isLoading: competitionsLoading,
   } = useSWR<Competition[], Error>(`${API_URL}/competitions/`);
 
-  const upcomingEvents = competitions
-    ?.filter((competition) => competition.state === "init")
-    .slice(0, 4);
+  const upcomingEvents = competitions?.filter(
+    (competition) => competition.state === "init",
+  );
 
   upcomingEvents?.sort((a, b) => {
     const aDate = new Date(a.start_date);
     const bDate = new Date(b.start_date);
     return aDate.getTime() - bDate.getTime();
   });
+
+  const nextFourEvents = upcomingEvents?.slice(0, 4);
 
   return (
     <section
@@ -64,7 +66,7 @@ const HomeEvents = () => {
               .map((_, index) => (
                 <EventCardSkeleton key={index} error={!!competitionsError} />
               ))
-          : upcomingEvents?.map((competition) => (
+          : nextFourEvents?.map((competition) => (
               <EventCard key={competition.code} competition={competition} />
             ))}
       </div>

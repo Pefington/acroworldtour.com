@@ -55,6 +55,8 @@ const EventCard = ({ competition }: Props) => {
   const alpha2country =
     (country && countries.getAlpha2Code(country, "en")?.toLowerCase()) || null;
 
+  const nameWithoutYear = name.split(" ").slice(0, -1).join(" ");
+
   return (
     <article
       className={cn(
@@ -85,7 +87,9 @@ const EventCard = ({ competition }: Props) => {
           />
         </figure>
         <figcaption className={cn("flex min-w-max flex-col gap-3 px-7 py-4")}>
-          <h3 className={cn("text-lg font-bold uppercase")}>{name}</h3>
+          <h3 className={cn("text-lg font-bold uppercase")}>
+            {nameWithoutYear}
+          </h3>
           <span className={cn("flex items-center gap-2 font-semibold")}>
             <RolodexIcon className="-ml-[2px] -mt-1 aspect-square h-[18px] fill-current" />
             {`${startDay} ${startMonth !== endMonth ? startMonth : ""} ${
