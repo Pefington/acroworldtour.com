@@ -24,7 +24,7 @@ const PilotCard = ({ pilot }: Props) => {
     country,
   } = pilot;
 
-  const countryName = countries.getName(country, "en");
+  const countryName = countries.getName(country, "en") || "Earth";
 
   return (
     <article
