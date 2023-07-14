@@ -17,7 +17,7 @@ const Nav = ({ activeNav, fontClass }: Props) => (
   <nav
     className={cn(
       fontClass,
-      "absolute z-10 flex h-20 w-full max-w-8xl items-center bg-primary text-white",
+      "absolute z-50 flex h-20 w-full max-w-8xl items-center bg-primary text-white",
       "md:fixed md:top-0",
       "before:aspect-[0.5] before:h-full before:-translate-x-[20px] before:skew-x-[26deg] before:bg-primary",
       "after:aspect-[0.5] after:h-full after:translate-x-[20px] after:-skew-x-[26deg] after:bg-primary",

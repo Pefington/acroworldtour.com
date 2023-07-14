@@ -10,7 +10,7 @@ const Footer = () => (
       "w-full",
       "flex flex-col items-center justify-center gap-3",
       "sm:flex-row sm:justify-between",
-      "bg-primary text-white",
+      "bg-primary fill-white text-white",
       "px-5 pb-28 pt-9",
       "sm:px-20",
       "md:pb-9",

@@ -38,7 +38,10 @@ const HomeHero = () => {
         <footer className={cn("mt-7 flex items-center gap-3 px-1")}>
           <SocialLink link="https://instagram.com/acroworldtour" />
           <SocialLink link="https://www.facebook.com/groups/120757714620928" />
-          <SocialLink link="https://www.youtube.com/@acroworldtour" />
+          <SocialLink
+            link="https://www.youtube.com/@acroworldtour"
+            className="fill-white"
+          />
         </footer>
       </article>
     </header>

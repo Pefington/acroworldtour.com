@@ -15,7 +15,7 @@ const HomeIntro = () => {
     >
       <HomeYouTubeEmbed
         title="Acro World Tour 2023 | Stop 01 - Nest Games"
-        embedSlug="tIfpP5pdqZ4"
+        embedId="tIfpP5pdqZ4"
       />
 
       <section className={cn("flex flex-col")}>
