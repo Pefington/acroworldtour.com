@@ -25,6 +25,7 @@ const HomeIntroNewsMain = ({ title, href, imageUrl }: Props) => {
           src={imageUrl}
           alt={title}
           fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
           className={cn("object-cover duration-500", isHovered && "scale-105")}
         />
       </figure>

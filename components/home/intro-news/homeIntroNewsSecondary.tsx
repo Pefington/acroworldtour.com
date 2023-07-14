@@ -34,6 +34,7 @@ const HomeIntroNewsSecondary = ({ title, href, imageUrl }: Props) => {
           src={imageUrl}
           alt={title}
           fill
+          sizes="(max-width: 640px) 100vw, 25vw"
           className={cn(
             "duration-500",
             "rounded-xl object-cover",

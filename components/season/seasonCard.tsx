@@ -61,6 +61,8 @@ const SeasonCard = ({ season }: Props) => {
     setActiveSeasonCodes(newSeasonCodes);
   };
 
+  const nameWithoutYear = name.split(" ").slice(0, -1).join(" ");
+
   return (
     <button
       className={cn(
@@ -122,7 +124,7 @@ const SeasonCard = ({ season }: Props) => {
             className="-mt-0.5 h-5"
           />
           <h4 className={cn("font-bold uppercase", "sm:text-lg")}>
-            {name.split(" ").slice(0, -1).join(" ")}
+            {nameWithoutYear}
           </h4>
         </span>
       </figcaption>
