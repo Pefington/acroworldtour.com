@@ -8,20 +8,24 @@ type Year = number;
 
 const currentYear = new Date().getFullYear();
 
-interface Events {
+interface UserState {
+  youTubeConsent: boolean;
+  setYouTubeConsent: Function;
   activeYear: Year;
   setActiveYear: Function;
   activeSeasonCodes: { [key: Year]: SeasonCode };
   setActiveSeasonCodes: Function;
 }
 
-const UserContext = createContext<Events>({
+const UserContext = createContext<UserState>({
+  youTubeConsent: false,
+  setYouTubeConsent: () => {},
   activeYear: currentYear,
   setActiveYear: () => {},
   activeSeasonCodes: {},
   setActiveSeasonCodes: () => {},
 });
 
-export const useEvents = () => useContext(UserContext);
+export const useUserContext = () => useContext(UserContext);
 
 export default UserContext;

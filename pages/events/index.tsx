@@ -5,7 +5,7 @@ import EventsSection from "@/components/event/eventsSection";
 import YearSelector from "@/components/ui/yearSelector";
 import { API_URL } from "@/constants";
 import { useLayout } from "@/state/layoutContext";
-import { useEvents } from "@/state/userContext";
+import { useUserContext } from "@/state/userContext";
 import { components } from "@/types";
 
 type Competition = components["schemas"]["CompetitionPublicExport"];
@@ -15,7 +15,7 @@ const currentYear = new Date().getFullYear();
 
 const Competitions = () => {
   const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
-  const { activeYear } = useEvents();
+  const { activeYear } = useUserContext();
 
   useEffect(() => {
     setPageTitle("Acro World Tour | Events");

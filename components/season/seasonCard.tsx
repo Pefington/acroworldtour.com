@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { CircleFlag } from "react-circle-flags";
 
 import useLocalStorage from "@/state/useLocalStorage";
-import { useEvents } from "@/state/userContext";
+import { useUserContext } from "@/state/userContext";
 import { components } from "@/types";
 
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
@@ -19,7 +19,8 @@ interface Props {
 const SeasonCard = ({ season }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
-  const { activeYear, activeSeasonCodes, setActiveSeasonCodes } = useEvents();
+  const { activeYear, activeSeasonCodes, setActiveSeasonCodes } =
+    useUserContext();
 
   const [storedSeasonCodes, setStoredSeasonCodes] = useLocalStorage(
     "activeSeasonCodes",

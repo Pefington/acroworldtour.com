@@ -2,7 +2,7 @@ import cn from "classnames";
 import { useEffect } from "react";
 
 import useLocalStorage from "@/state/useLocalStorage";
-import { useEvents } from "@/state/userContext";
+import { useUserContext } from "@/state/userContext";
 
 interface Props {
   years: number[];
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const YearSelector = ({ years, list, pluralString, loading }: Props) => {
-  const { activeYear, setActiveYear } = useEvents();
+  const { activeYear, setActiveYear } = useUserContext();
   const [storedActiveYear, setStoredActiveYear] = useLocalStorage(
     "activeYear",
     null,

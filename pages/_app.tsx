@@ -20,7 +20,8 @@ const currentYear = new Date().getFullYear();
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [activeYear, setActiveYear] = useState(currentYear);
-  const [seasonCodes, setSeasonCodes] = useState({});
+  const [activeSeasonCodes, setActiveSeasonCodes] = useState({});
+  const [youTubeConsent, setYouTubeConsent] = useState(false);
 
   return (
     <SWRConfig value={{ fetcher }}>
@@ -35,10 +36,12 @@ const App = ({ Component, pageProps }: AppProps) => {
         >
           <UserContext.Provider
             value={{
+              youTubeConsent,
+              setYouTubeConsent,
               activeYear,
               setActiveYear,
-              activeSeasonCodes: seasonCodes,
-              setActiveSeasonCodes: setSeasonCodes,
+              activeSeasonCodes,
+              setActiveSeasonCodes,
             }}
           >
             <Component {...pageProps} />

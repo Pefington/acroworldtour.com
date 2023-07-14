@@ -1,8 +1,10 @@
 import cn from "classnames";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { YouTubeIcon } from "@/components/ui/icons";
+import useLocalStorage from "@/state/useLocalStorage";
+import { useUserContext } from "@/state/userContext";
 
 interface Props {
   title: string;
@@ -10,18 +12,36 @@ interface Props {
 }
 
 const HomeYouTubeEmbed = ({ title, embedId }: Props) => {
-  const [consented, setConsented] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
+  const { youTubeConsent, setYouTubeConsent, setActiveYear } = useUserContext();
+  const [storedYouTubeConsent, setStoredYouTubeConsent] = useLocalStorage(
+    "youTubeConsent",
+    null,
+  );
+
+  useEffect(() => {
+    console.log(setYouTubeConsent, setActiveYear);
+    if (storedYouTubeConsent) {
+      setYouTubeConsent(storedYouTubeConsent);
+    } else {
+      setStoredYouTubeConsent(youTubeConsent);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    setStoredYouTubeConsent(youTubeConsent);
+  }, [setStoredYouTubeConsent, youTubeConsent]);
 
   const handleDialog = (choice: "Accepted" | "Rejected") => {
-    if (choice === "Accepted") setConsented(true);
+    if (choice === "Accepted") setYouTubeConsent(true);
     setShowDialog(false);
   };
 
   return (
     <article className={cn("w-full", "lg:w-2/3")}>
       <h2 className={cn("mb-4 text-3xl font-black uppercase")}>{title}</h2>
-      {consented ? (
+      {youTubeConsent ? (
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${embedId}`}
           title="YouTube Video Player"
