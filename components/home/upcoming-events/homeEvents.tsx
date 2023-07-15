@@ -1,4 +1,4 @@
-import cn from "classnames";
+import cn from "classix";
 import Link from "next/link";
 import useSWR from "swr";
 

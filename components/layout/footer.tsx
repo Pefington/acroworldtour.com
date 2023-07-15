@@ -1,4 +1,4 @@
-import cn from "classnames";
+import cn from "classix";
 
 import SocialLink from "../ui/socialLink";
 

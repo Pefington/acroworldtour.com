@@ -1,4 +1,4 @@
-import cn from "classnames";
+import cn from "classix";
 import Link from "next/link";
 
 import { SPORTING_CODE_MANUAL_URL } from "@/constants";

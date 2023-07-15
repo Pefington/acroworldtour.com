@@ -1,4 +1,4 @@
-import cn from "classnames";
+import cn from "classix";
 
 const Custom404 = () => {
   return (

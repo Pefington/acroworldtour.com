@@ -1,4 +1,4 @@
-import cn from "classnames";
+import cn from "classix";
 import { useEffect } from "react";
 
 import useLocalStorage from "@/state/useLocalStorage";

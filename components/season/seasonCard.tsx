@@ -1,4 +1,4 @@
-import cn from "classnames";
+import cn from "classix";
 import countries from "i18n-iso-countries";
 import Image from "next/image";
 import { useEffect, useState } from "react";

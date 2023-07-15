@@ -1,6 +1,6 @@
 import "@/styles/tailwind.css";
 
-import cn from "classnames";
+import cn from "classix";
 import type { AppProps } from "next/app";
 import { Exo } from "next/font/google";
 import { useState } from "react";

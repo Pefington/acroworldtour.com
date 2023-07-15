@@ -1,4 +1,4 @@
-import cn from "classnames";
+import cn from "classix";
 import countries from "i18n-iso-countries";
 import Link from "next/link";
 import { useState } from "react";

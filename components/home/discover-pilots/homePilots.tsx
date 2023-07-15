@@ -1,6 +1,6 @@
 import "flickity/css/flickity.css";
 
-import cn from "classnames";
+import cn from "classix";
 import Link from "next/link";
 import Flickity from "react-flickity-component";
 import useSWR from "swr";
