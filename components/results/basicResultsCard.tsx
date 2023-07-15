@@ -84,6 +84,8 @@ const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
               <p className={cn("col-span-2 text-secondary")}>{index + 1}</p>
               <span className={cn("col-span-8 flex gap-4")}>
                 <CircleFlag
+                  width={20}
+                  height={20}
                   countryCode={alpha2country || "earth"}
                   className="h-5"
                 />

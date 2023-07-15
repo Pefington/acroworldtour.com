@@ -102,6 +102,8 @@ const EventCard = ({ competition }: Props) => {
             )}
           >
             <CircleFlag
+              width={20}
+              height={20}
               countryCode={alpha2country || "earth"}
               className="-mx-[2px] h-5"
             />

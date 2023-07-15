@@ -82,6 +82,7 @@ const SeasonCard = ({ season }: Props) => {
           <Image
             src={image}
             alt={name}
+            priority
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
             className={cn(
@@ -106,6 +107,7 @@ const SeasonCard = ({ season }: Props) => {
                 <Image
                   src={compImg || "/img/blur.jpg"}
                   alt={name}
+                  priority
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 10vw"
                   className={cn("object-cover")}
@@ -121,6 +123,8 @@ const SeasonCard = ({ season }: Props) => {
           className={cn("col-span-8 flex items-center gap-3 font-semibold")}
         >
           <CircleFlag
+            width={20}
+            height={20}
             countryCode={alpha2country || "earth"}
             className="-mt-0.5 h-5"
           />
