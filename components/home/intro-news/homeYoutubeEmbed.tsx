@@ -13,14 +13,13 @@ interface Props {
 
 const HomeYouTubeEmbed = ({ title, embedId }: Props) => {
   const [showDialog, setShowDialog] = useState(false);
-  const { youTubeConsent, setYouTubeConsent, setActiveYear } = useUserContext();
+  const { youTubeConsent, setYouTubeConsent } = useUserContext();
   const [storedYouTubeConsent, setStoredYouTubeConsent] = useLocalStorage(
     "youTubeConsent",
     null,
   );
 
   useEffect(() => {
-    console.log(setYouTubeConsent, setActiveYear);
     if (storedYouTubeConsent) {
       setYouTubeConsent(storedYouTubeConsent);
     } else {
