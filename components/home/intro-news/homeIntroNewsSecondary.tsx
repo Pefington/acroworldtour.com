@@ -42,14 +42,14 @@ const HomeIntroNewsSecondary = ({ title, href, imageUrl }: Props) => {
           )}
         />
       </figure>
-      <figcaption className={cn("flex grow items-center uppercase")}>
+      <div className={cn("flex grow items-center uppercase")}>
         <div className={cn("w-full px-4")}>
           <h3 className={cn("mb-1 font-bold")}>
             The AWT 2022 Overall Standings
           </h3>
-          <span className={cn("text-sm font-medium text-secondary")}>
+          <p className={cn("text-sm font-medium text-secondary")}>
             24 September 2022
-          </span>
+          </p>
         </div>
         <Image
           src="/img/icons/arrow.svg"
@@ -61,7 +61,7 @@ const HomeIntroNewsSecondary = ({ title, href, imageUrl }: Props) => {
             isHovered && "translate-x-1/2",
           )}
         />
-      </figcaption>
+      </div>
     </Link>
   );
 };

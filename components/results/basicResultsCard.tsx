@@ -58,9 +58,9 @@ const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
           "my-4 grid grid-cols-12 px-7 text-sm font-bold text-secondary",
         )}
       >
-        <span className={cn("col-span-2")}>Pos.</span>
-        <span className={cn("col-span-8 ml-9")}>Pilot</span>
-        <span className={cn("col-span-2")}>Pts.</span>
+        <p className={cn("col-span-2")}>Pos.</p>
+        <p className={cn("col-span-8 ml-9")}>Pilot</p>
+        <p className={cn("col-span-2")}>Pts.</p>
       </header>
 
       <ul className={cn("col-span-full")}>
@@ -81,9 +81,7 @@ const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
                 updating && "opacity-75 [&>*]:animate-pulse [&>*]:blur-[1px]",
               )}
             >
-              <span className={cn("col-span-2 text-secondary")}>
-                {index + 1}
-              </span>
+              <p className={cn("col-span-2 text-secondary")}>{index + 1}</p>
               <span className={cn("col-span-8 flex gap-4")}>
                 <CircleFlag
                   countryCode={alpha2country || "earth"}
@@ -91,7 +89,7 @@ const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
                 />
                 {pilot?.name}
               </span>
-              <span className={cn("col-span-2")}>{roundedScore}</span>
+              <p className={cn("col-span-2")}>{roundedScore}</p>
             </li>
           );
         })}

@@ -17,10 +17,10 @@ const Footer = () => (
       "text-sm font-semibold",
     )}
   >
-    <span className="leading-loose ">
+    <p className="leading-loose ">
       Copyright © {currentYear} Acro World Tour, <wbr />
       all rights reserved.
-    </span>
+    </p>
     <div className="flex items-center gap-3">
       <SocialLink link="https://instagram.com/acroworldtour" />
       <SocialLink link="https://www.facebook.com/groups/120757714620928" />

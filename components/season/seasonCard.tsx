@@ -116,7 +116,7 @@ const SeasonCard = ({ season }: Props) => {
           })
         )}
       </figure>
-      <figcaption className={cn("flex gap-2 px-4 py-2")}>
+      <div className={cn("flex gap-2 px-4 py-2")}>
         <span
           className={cn("col-span-8 flex items-center gap-3 font-semibold")}
         >
@@ -128,7 +128,7 @@ const SeasonCard = ({ season }: Props) => {
             {nameWithoutYear}
           </h4>
         </span>
-      </figcaption>
+      </div>
     </button>
   );
 };

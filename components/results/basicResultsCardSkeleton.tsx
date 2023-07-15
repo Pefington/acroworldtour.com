@@ -5,9 +5,9 @@ interface Props {
   limitTo?: number;
 }
 
-const BasicResultsCard = ({ error, limitTo = 5 }: Props) => {
+const BasicResultsCardSkeleton = ({ error, limitTo = 5 }: Props) => {
   return (
-    <article
+    <div
       title={error ? "Could not fetch data." : "Fetching data..."}
       className={cn(
         "relative",
@@ -43,10 +43,10 @@ const BasicResultsCard = ({ error, limitTo = 5 }: Props) => {
               className="grid grid-cols-12 px-7 py-4 odd:bg-secondary-light/75 [&_div]:bg-skeleton"
             >
               <div className="col-span-2 h-5 w-5 " />
-              <span className="col-span-8 flex gap-4">
+              <div className="col-span-8 flex gap-4">
                 <div className="w-5 !rounded-full" />
                 <div className="my-0.5 w-48" />
-              </span>
+              </div>
               <div className="col-span-2 w-14 bg-skeleton" />
             </li>
           ))}
@@ -55,8 +55,8 @@ const BasicResultsCard = ({ error, limitTo = 5 }: Props) => {
       <footer className="grid w-full place-items-center py-5">
         <div className="h-4 w-24 bg-skeleton/60" />
       </footer>
-    </article>
+    </div>
   );
 };
 
-export default BasicResultsCard;
+export default BasicResultsCardSkeleton;

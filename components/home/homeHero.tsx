@@ -23,7 +23,7 @@ const HomeHero = () => {
         className={cn("-z-10 object-cover object-right", "md:object-center")}
       />
       <article className={cn("max-w-lg pb-20 text-white")}>
-        <span className={cn("text-lg font-medium")}>Welcome to</span>
+        <p className={cn("text-lg font-medium")}>Welcome to</p>
         <h1
           className={cn(
             "my-4 text-4xl font-black uppercase",
@@ -33,17 +33,17 @@ const HomeHero = () => {
         >
           The Acro World Tour
         </h1>
-        <span className={cn("text-lg font-medium")}>
+        <p className={cn("text-lg font-medium")}>
           The world&apos;s best pilots fighting for the most prestigious title.
-        </span>
-        <footer className={cn("mt-7 flex items-center gap-3 px-1")}>
+        </p>
+        <div className={cn("mt-7 flex items-center gap-3 px-1")}>
           <SocialLink link="https://instagram.com/acroworldtour" />
           <SocialLink link="https://www.facebook.com/groups/120757714620928" />
           <SocialLink
             link="https://www.youtube.com/@acroworldtour"
             className="fill-white"
           />
-        </footer>
+        </div>
       </article>
     </header>
   );

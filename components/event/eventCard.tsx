@@ -86,7 +86,7 @@ const EventCard = ({ competition }: Props) => {
             onLoadingComplete={() => setImgLoading(false)}
           />
         </figure>
-        <figcaption className={cn("flex min-w-max flex-col gap-3 px-7 py-4")}>
+        <div className={cn("flex min-w-max flex-col gap-3 px-7 py-4")}>
           <h3 className={cn("text-lg font-bold uppercase")}>
             {nameWithoutYear}
           </h3>
@@ -107,7 +107,7 @@ const EventCard = ({ competition }: Props) => {
             />
             {location}
           </span>
-        </figcaption>
+        </div>
       </Link>
       <div className={cn("mb-4 flex gap-2 px-7")}>
         {seasonCodes.map((code) => {

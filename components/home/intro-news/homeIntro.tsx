@@ -6,7 +6,7 @@ import HomeYouTubeEmbed from "./homeYoutubeEmbed";
 
 const HomeIntro = () => {
   return (
-    <section
+    <div
       className={cn(
         "awt-home-section awt-center",
         "flex flex-col gap-10",
@@ -40,7 +40,7 @@ const HomeIntro = () => {
           />
         </div>
       </section>
-    </section>
+    </div>
   );
 };
 

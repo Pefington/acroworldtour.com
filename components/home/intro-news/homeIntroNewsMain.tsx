@@ -29,12 +29,12 @@ const HomeIntroNewsMain = ({ title, href, imageUrl }: Props) => {
           className={cn("object-cover duration-500", isHovered && "scale-105")}
         />
       </figure>
-      <figcaption className={cn("flex items-center px-7 py-4 uppercase")}>
+      <div className={cn("flex items-center px-7 py-4 uppercase")}>
         <div className={cn("flex flex-col gap-1", "flex-1")}>
           <h3 className={cn("font-bold")}>The AWT 2023 is about to start!</h3>
-          <span className={cn("text-sm font-medium text-secondary")}>
+          <p className={cn("text-sm font-medium text-secondary")}>
             25 May 2023
-          </span>
+          </p>
         </div>
         <Image
           src="/img/icons/arrow.svg"
@@ -43,7 +43,7 @@ const HomeIntroNewsMain = ({ title, href, imageUrl }: Props) => {
           width={20}
           className={cn("aspect-square h-5", isHovered && "translate-x-1/2")}
         />
-      </figcaption>
+      </div>
     </Link>
   );
 };

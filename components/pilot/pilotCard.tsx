@@ -65,14 +65,14 @@ const PilotCard = ({ pilot }: Props) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <figcaption>
+        <div>
           <h3 className={cn("text-lg font-bold uppercase text-white")}>
             {name}
           </h3>
-          <span className={cn("font-semibold uppercase text-secondary-medium")}>
+          <p className={cn("font-semibold uppercase text-secondary-medium")}>
             {countryName}
-          </span>
-        </figcaption>
+          </p>
+        </div>
       </Link>
     </article>
   );

@@ -43,7 +43,7 @@ const NavItem = ({ link, active }: Props) => {
       {link === "Judges" && <JudgesIcon className={iconClasses} />}
       {link === "Tricks" && <TricksIcon className={iconClasses} />}
 
-      <span>{link || "Home"}</span>
+      <p>{link || "Home"}</p>
     </Link>
   );
 };

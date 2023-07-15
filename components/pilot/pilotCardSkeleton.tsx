@@ -5,7 +5,7 @@ interface Props {
 }
 
 const PilotCardSkeleton = ({ error }: Props) => (
-  <article
+  <div
     title={error ? "Could not fetch data." : "Fetching data..."}
     className={cn(
       "flex flex-col items-center justify-end gap-2",
@@ -22,7 +22,7 @@ const PilotCardSkeleton = ({ error }: Props) => (
     </div>
     <div className="h-5 w-3/5 rounded-sm bg-white/75" />
     <div className="h-4 w-1/3 rounded-sm bg-secondary-light/75" />
-  </article>
+  </div>
 );
 
 export default PilotCardSkeleton;
