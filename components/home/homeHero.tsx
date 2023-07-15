@@ -18,6 +18,7 @@ const HomeHero = () => {
       <Image
         src="/img/hero.jpg"
         alt=""
+        priority
         fill
         sizes="100vw"
         className={cn("-z-10 object-cover object-right", "md:object-center")}
