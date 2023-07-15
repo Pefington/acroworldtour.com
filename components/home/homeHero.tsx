@@ -7,6 +7,7 @@ const HomeHero = () => {
   return (
     <header
       className={cn(
+        "awt-center",
         "relative h-[50vh] min-h-[500px]",
         "bg-cover bg-right bg-no-repeat",
         "flex items-end",
@@ -21,7 +22,7 @@ const HomeHero = () => {
         sizes="100vw"
         className={cn("-z-10 object-cover object-right", "md:object-center")}
       />
-      <article className={cn("max-w-lg pb-20 text-white awt-center")}>
+      <article className={cn("max-w-lg pb-20 text-white")}>
         <span className={cn("text-lg font-medium")}>Welcome to</span>
         <h1
           className={cn(
