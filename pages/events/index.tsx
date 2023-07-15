@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import useSWR from "swr";
+import useSWR, { preload } from "swr";
 
 import EventsSection from "@/components/event/eventsSection";
 import YearSelector from "@/components/ui/yearSelector";
@@ -7,6 +7,10 @@ import { API_URL } from "@/constants";
 import { useLayout } from "@/state/layoutContext";
 import { useUserContext } from "@/state/userContext";
 import { components } from "@/types";
+import { fetcher } from "@/utils/fetcher";
+
+preload(`${API_URL}/seasons/`, fetcher);
+preload(`${API_URL}/competitions/`, fetcher);
 
 type Competition = components["schemas"]["CompetitionPublicExport"];
 type Season = components["schemas"]["SeasonExport"];
