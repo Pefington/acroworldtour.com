@@ -23,7 +23,7 @@ module.exports = {
           DEFAULT: colors.neutral[500],
         },
         accent: {
-          DEFAULT: colors.orange[400],
+          DEFAULT: colors.orange[500],
           text: colors.orange[500],
         },
         hover: colors.amber[500],
