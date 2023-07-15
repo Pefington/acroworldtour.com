@@ -26,7 +26,7 @@ const NavItem = ({ link, active }: Props) => {
         "flex flex-col items-center justify-center gap-1",
         "fill-white text-xs font-semibold uppercase",
         "md:text-sm",
-        "md:hover:text-accent",
+        "hover:text-accent",
         active && "fill-accent text-accent",
       )}
     >
