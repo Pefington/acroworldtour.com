@@ -97,7 +97,7 @@ const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
       </ul>
 
       <footer
-        className="grid w-full place-items-center font-bold text-accent-text hover:text-hover hover:drop-shadow-md"
+        className="grid w-full place-items-center font-bold text-accent hover:text-hover hover:drop-shadow-md"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

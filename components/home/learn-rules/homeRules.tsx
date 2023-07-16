@@ -23,7 +23,7 @@ const HomeRules = () => (
         "w-full max-w-sm",
         "mt-7 p-4",
         "text-center text-sm font-bold",
-        "rounded-xl bg-secondary-light text-accent-text shadow",
+        "rounded-xl bg-secondary-light text-accent shadow",
         "hover:bg-secondary-light-hover hover:shadow-md",
       )}
     >

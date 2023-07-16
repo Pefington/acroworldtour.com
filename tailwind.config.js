@@ -24,7 +24,7 @@ module.exports = {
         },
         accent: {
           DEFAULT: colors.orange[500],
-          text: colors.orange[500],
+          light: colors.orange[400],
         },
         hover: colors.amber[500],
         skeleton: colors.neutral[200],

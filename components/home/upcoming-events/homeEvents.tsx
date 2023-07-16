@@ -38,7 +38,7 @@ const HomeEvents = () => {
           href="/competitions"
           title="View all competitions"
           className={cn(
-            "mb-8 min-w-max font-bold text-accent-text hover:text-hover hover:drop-shadow-md",
+            "mb-8 min-w-max font-bold text-accent hover:text-hover hover:drop-shadow-md",
           )}
         >
           View All

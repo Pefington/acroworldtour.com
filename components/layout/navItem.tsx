@@ -26,8 +26,8 @@ const NavItem = ({ link, active }: Props) => {
         "flex flex-col items-center justify-center gap-1",
         "fill-white text-xs font-semibold uppercase",
         "md:text-sm",
-        "hover:text-accent",
-        active && "fill-accent text-accent",
+        "hover:text-hover",
+        active && "fill-accent-light text-accent-light",
       )}
     >
       {link === "" && <HomeIcon className={iconClasses} />}

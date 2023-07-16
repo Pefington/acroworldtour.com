@@ -39,7 +39,7 @@ to be the same across browsers e.g. margin 0 and padding 0:
   }
 
   ::selection {
-    @apply bg-accent text-primary;
+    @apply bg-accent-light text-primary;
   }
 
   select {
