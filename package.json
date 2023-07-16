@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
-    "format": "prettier --write \"pages/**/*.tsx\" \"components/**/*.tsx\" \"state/**/*.tsx\" \"utils/**/*.ts\" \"styles/**/*.css\"",
-    "interface": "openapi-typescript https://api.acroworldtour.com/openapi.json --output types.d.ts",
+    "format": "prettier --write \"pages/**/*.tsx\" \"components/**/*.tsx\" \"state/**/*.tsx\" \"utils/**/*.ts\" \"styles/**/*.css\" \"types/project.ts\"",
+    "interface": "openapi-typescript https://api.acroworldtour.com/openapi.json --output types/awt-openapi.ts",
     "prepare": "husky install"
   },
   "dependencies": {

@@ -4,15 +4,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { CircleFlag } from "react-circle-flags";
 
-import { components } from "@/types";
+import {
+  Competition,
+  CompetitionResult,
+  Season,
+  SeasonResult,
+} from "@/types/project";
 
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-
-type Competition = components["schemas"]["CompetitionPublicExportWithResults"];
-type Season = components["schemas"]["SeasonExport"];
-
-type CompetitionResult = components["schemas"]["CompetitionPilotResultsExport"];
-type SeasonResult = components["schemas"]["models__seasons__SeasonResult"];
 
 interface Props {
   event: Competition | Season;

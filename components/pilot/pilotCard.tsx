@@ -4,12 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { components } from "@/types";
+import { Pilot } from "@/types/project";
 
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
 interface Props {
-  pilot: components["schemas"]["Pilot"];
+  pilot: Pilot;
 }
 
 const PilotCard = ({ pilot }: Props) => {

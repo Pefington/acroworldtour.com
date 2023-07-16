@@ -1,8 +1,7 @@
 import { createContext, useContext } from "react";
 
-import { components } from "@/types";
+import { Season } from "@/types/project";
 
-type Season = components["schemas"]["SeasonExport"];
 type SeasonCode = Season["code"];
 type Year = number;
 

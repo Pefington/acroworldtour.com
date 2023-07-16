@@ -6,11 +6,9 @@ import { CircleFlag } from "react-circle-flags";
 
 import useLocalStorage from "@/state/useLocalStorage";
 import { useUserContext } from "@/state/userContext";
-import { components } from "@/types";
+import { Season } from "@/types/project";
 
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
-
-type Season = components["schemas"]["SeasonExport"];
 
 interface Props {
   season: Season;

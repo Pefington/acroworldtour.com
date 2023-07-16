@@ -1,11 +1,9 @@
 import cn from "classix";
 
-import { components } from "@/types";
+import { Season } from "@/types/project";
 
 import SeasonCard from "../season/seasonCard";
 import SeasonCardSkeleton from "../season/seasonCardSkeleton";
-
-type Season = components["schemas"]["SeasonExport"];
 
 interface Props {
   seasons: Season[];
