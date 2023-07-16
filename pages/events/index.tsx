@@ -1,19 +1,13 @@
 import { useEffect } from "react";
-import useSWR, { preload } from "swr";
 
 import EventsSection from "@/components/event/eventsSection";
 import YearSelector from "@/components/ui/yearSelector";
-import { API_URL } from "@/constants";
 import { useLayout } from "@/state/layoutContext";
 import { useUserContext } from "@/state/userContext";
-import { components } from "@/types";
-import { fetcher } from "@/utils/fetcher";
+import { swrPreload, useCompetitions, useSeasons } from "@/utils/swr";
 
-preload(`${API_URL}/seasons/`, fetcher);
-preload(`${API_URL}/competitions/`, fetcher);
-
-type Competition = components["schemas"]["CompetitionPublicExport"];
-type Season = components["schemas"]["SeasonExport"];
+swrPreload("seasons");
+swrPreload("competitions");
 
 const currentYear = new Date().getFullYear();
 
@@ -27,20 +21,11 @@ const Competitions = () => {
     setActiveNav("events");
   }, [setPageTitle, setPageDescription, setActiveNav]);
 
-  const {
-    data: seasons,
-    error: seasonsError,
-    isLoading: seasonsLoading,
-  } = useSWR<Season[]>(`${API_URL}/seasons/`);
+  const { seasons, seasonsError, seasonsLoading } = useSeasons();
+  const { competitions, compsLoading, compsError } = useCompetitions();
 
-  const {
-    data: competitions,
-    error: competitionsError,
-    isLoading: competitionsLoading,
-  } = useSWR<Competition[]>(`${API_URL}/competitions/`);
-
-  const loading = seasonsLoading || competitionsLoading;
-  const error = seasonsError || competitionsError;
+  const loading = seasonsLoading || compsLoading;
+  const error = seasonsError || compsError;
 
   seasons?.sort((a, b) => a.name.localeCompare(b.name));
 

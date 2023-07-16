@@ -1,10 +1,8 @@
 import cn from "classix";
 import Image from "next/image";
 import Link from "next/link";
-import { preload } from "swr";
 
-import { API_URL } from "@/constants";
-import { fetcher } from "@/utils/fetcher";
+import { swrPreload } from "@/utils/swr";
 
 import NavItem from "./navItem";
 
@@ -45,14 +43,14 @@ const Nav = ({ activeNav, fontClass }: Props) => (
         <NavItem link="" active={activeNav === "home"} />
       </li>
 
-      {/* <li onMouseEnter={() => preload(`${API_URL}/seasons/`, fetcher)}>
+      {/* <li onMouseEnter={() => swrPreload("seasons")}>
             <NavItem link="Seasons" active={activeNav === "seasons"} />
         </li> */}
 
       <li
         onMouseEnter={() => {
-          preload(`${API_URL}/competitions/`, fetcher);
-          preload(`${API_URL}/seasons/`, fetcher);
+          swrPreload("seasons");
+          swrPreload("competitions");
         }}
       >
         <NavItem link="Events" active={activeNav === "events"} />
@@ -60,26 +58,26 @@ const Nav = ({ activeNav, fontClass }: Props) => (
 
       <li
         onMouseEnter={() => {
-          preload(`${API_URL}/competitions/`, fetcher);
-          preload(`${API_URL}/seasons/`, fetcher);
+          swrPreload("competitions");
+          swrPreload("seasons");
         }}
       >
         <NavItem link="Results" active={activeNav === "results"} />
       </li>
 
-      <li onMouseEnter={() => preload(`${API_URL}/pilots/`, fetcher)}>
+      <li onMouseEnter={() => swrPreload("pilots")}>
         <NavItem link="Pilots" active={activeNav === "pilots"} />
       </li>
 
-      {/* <li onMouseEnter={() => preload(`${API_URL}/teams/`, fetcher)}>
+      {/* <li onMouseEnter={() => swrPreload("teams")}>
           <NavItem link="Teams" active={activeNav === "teams"} />
         </li> */}
 
-      {/* <li onMouseEnter={() => preload(`${API_URL}/judges/`, fetcher)}>
+      {/* <li onMouseEnter={() => swrPreload("judges")}>
             <NavItem link="Judges" active={activeNav === "judges"} />
           </li> */}
 
-      {/* <li onMouseEnter={() => preload(`${API_URL}/tricks/`, fetcher)}>
+      {/* <li onMouseEnter={() => swrPreload("tricks")}>
             <NavItem link="Tricks" active={activeNav === "tricks"} />
           </li> */}
     </ul>

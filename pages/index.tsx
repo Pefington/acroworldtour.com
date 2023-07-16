@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { preload } from "swr";
 
 import HomePilots from "@/components/home/discover-pilots/homePilots";
 import HomeHero from "@/components/home/homeHero";
@@ -7,13 +6,12 @@ import HomeIntro from "@/components/home/intro-news/homeIntro";
 import HomeResults from "@/components/home/latest-results/homeResults";
 import HomeRules from "@/components/home/learn-rules/homeRules";
 import HomeEvents from "@/components/home/upcoming-events/homeEvents";
-import { API_URL } from "@/constants";
 import { useLayout } from "@/state/layoutContext";
-import { fetcher } from "@/utils/fetcher";
+import { swrPreload } from "@/utils/swr";
 
-preload(`${API_URL}/competitions/`, fetcher);
-preload(`${API_URL}/seasons/`, fetcher);
-preload(`${API_URL}/pilots/`, fetcher);
+swrPreload("competitions");
+swrPreload("seasons");
+swrPreload("pilots");
 
 const Home = () => {
   const { setPageTitle, setPageDescription, setActiveNav } = useLayout();

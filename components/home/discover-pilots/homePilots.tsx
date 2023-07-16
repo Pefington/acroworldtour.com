@@ -3,21 +3,13 @@ import "flickity/css/flickity.css";
 import cn from "classix";
 import Link from "next/link";
 import Flickity from "react-flickity-component";
-import useSWR from "swr";
 
 import PilotCard from "@/components/pilot/pilotCard";
 import PilotCardSkeleton from "@/components/pilot/pilotCardSkeleton";
-import { API_URL } from "@/constants";
-import { components } from "@/types";
-
-type Pilot = components["schemas"]["Pilot"];
+import { usePilots } from "@/utils/swr";
 
 const HomePilots = () => {
-  let {
-    data: pilots,
-    error: pilotsError,
-    isLoading: pilotsLoading,
-  } = useSWR<Pilot[], Error>(`${API_URL}/pilots/`);
+  const { pilots, pilotsLoading, pilotsError } = usePilots();
 
   const awtPilots = pilots?.filter((pilot) => pilot.is_awt);
 
@@ -39,7 +31,7 @@ const HomePilots = () => {
           View All
         </Link>
       </header>
-      <Flickity
+      <Flickity /* Carousel */
         className={cn(
           "w-screen" /* cancel .section padding */,
           "sm:[&_ol]:-bottom-10" /* vertical position of pagination dots */,

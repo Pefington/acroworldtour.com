@@ -1,21 +1,13 @@
 import cn from "classix";
 import Link from "next/link";
-import useSWR from "swr";
 
 import EventCardSkeleton from "@/components/event/eventCardSkeleton";
-import { API_URL } from "@/constants";
-import { components } from "@/types";
+import { useCompetitions } from "@/utils/swr";
 
 import EventCard from "../../event/eventCard";
 
-type Competition = components["schemas"]["CompetitionPublicExport"];
-
 const HomeEvents = () => {
-  let {
-    data: competitions,
-    error: competitionsError,
-    isLoading: competitionsLoading,
-  } = useSWR<Competition[], Error>(`${API_URL}/competitions/`);
+  const { competitions, compsLoading, compsError } = useCompetitions();
 
   const upcomingEvents = competitions?.filter(
     (competition) => competition.state === "init",
@@ -60,11 +52,11 @@ const HomeEvents = () => {
           "xl:grid-cols-4",
         )}
       >
-        {competitionsLoading || competitionsError
+        {compsLoading || compsError
           ? Array(4)
               .fill(0)
               .map((_, index) => (
-                <EventCardSkeleton key={index} error={!!competitionsError} />
+                <EventCardSkeleton key={index} error={!!compsError} />
               ))
           : nextFourEvents?.map((competition) => (
               <EventCard key={competition.code} competition={competition} />

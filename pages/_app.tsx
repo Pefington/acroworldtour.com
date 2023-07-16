@@ -4,11 +4,9 @@ import cn from "classix";
 import type { AppProps } from "next/app";
 import { Exo } from "next/font/google";
 import { useState } from "react";
-import { SWRConfig } from "swr";
 
 import Layout from "@/components/layout/layout";
 import UserContext from "@/state/userContext";
-import { fetcher } from "@/utils/fetcher";
 
 const font = Exo({
   subsets: ["latin"],
@@ -24,31 +22,29 @@ const App = ({ Component, pageProps }: AppProps) => {
   const [youTubeConsent, setYouTubeConsent] = useState(false);
 
   return (
-    <SWRConfig value={{ fetcher }}>
-      <Layout fontClass={font.className}>
-        <main
-          className={cn(
-            font.className,
-            "w-full grow",
-            "flex flex-col",
-            "md:pt-20",
-          )}
+    <Layout fontClass={font.className}>
+      <main
+        className={cn(
+          font.className,
+          "w-full grow",
+          "flex flex-col",
+          "md:pt-20",
+        )}
+      >
+        <UserContext.Provider
+          value={{
+            youTubeConsent,
+            setYouTubeConsent,
+            activeYear,
+            setActiveYear,
+            activeSeasonCodes,
+            setActiveSeasonCodes,
+          }}
         >
-          <UserContext.Provider
-            value={{
-              youTubeConsent,
-              setYouTubeConsent,
-              activeYear,
-              setActiveYear,
-              activeSeasonCodes,
-              setActiveSeasonCodes,
-            }}
-          >
-            <Component {...pageProps} />
-          </UserContext.Provider>
-        </main>
-      </Layout>
-    </SWRConfig>
+          <Component {...pageProps} />
+        </UserContext.Provider>
+      </main>
+    </Layout>
   );
 };
 

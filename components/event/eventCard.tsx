@@ -4,29 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { CircleFlag } from "react-circle-flags";
-import useSWR from "swr";
 
 import { RolodexIcon } from "@/components/ui/icons";
-import { API_URL } from "@/constants";
-import { components } from "@/types";
+import { Competition } from "@/types/project";
+import { useSeasons } from "@/utils/swr";
 
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
-type Season = components["schemas"]["SeasonExport"];
-
 interface Props {
-  competition: components["schemas"]["CompetitionPublicExport"];
+  competition: Competition;
 }
 
 const EventCard = ({ competition }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
-  const {
-    data: seasons,
-    error: seasonsError,
-    isLoading: seasonsLoading,
-  } = useSWR<Season[]>(`${API_URL}/seasons/`);
+  const { seasons, seasonsLoading, seasonsError } = useSeasons();
 
   const {
     name,
