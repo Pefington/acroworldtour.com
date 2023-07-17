@@ -6,8 +6,9 @@ import HomeIntro from "@/components/home/intro-news/homeIntro";
 import HomeResults from "@/components/home/latest-results/homeResults";
 import HomeRules from "@/components/home/learn-rules/homeRules";
 import HomeEvents from "@/components/home/upcoming-events/homeEvents";
+import ApiDown from "@/components/ui/apiDown";
 import { useLayout } from "@/state/layoutContext";
-import { swrPreload } from "@/utils/swr";
+import { swrPreload, useAPI } from "@/utils/swr";
 
 swrPreload("competitions");
 swrPreload("seasons");
@@ -15,6 +16,8 @@ swrPreload("pilots");
 
 const Home = () => {
   const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
+
+  const { isApiDown } = useAPI("seasons");
 
   useEffect(() => {
     setPageTitle(
@@ -31,9 +34,15 @@ const Home = () => {
     <>
       <HomeHero />
       <HomeIntro />
-      <HomeEvents />
-      <HomeResults />
-      <HomePilots />
+      {isApiDown ? (
+        <ApiDown />
+      ) : (
+        <>
+          <HomeEvents />
+          <HomeResults />
+          <HomePilots />
+        </>
+      )}
       <HomeRules />
     </>
   );
