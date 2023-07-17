@@ -6,10 +6,15 @@ import Flickity from "react-flickity-component";
 
 import PilotCard from "@/components/pilot/pilotCard";
 import PilotCardSkeleton from "@/components/pilot/pilotCardSkeleton";
-import { usePilots } from "@/utils/swr";
+import { Pilot } from "@/types/project";
+import { useAPI } from "@/utils/swr";
 
 const HomePilots = () => {
-  const { pilots, pilotsLoading, pilotsError } = usePilots();
+  const {
+    data: pilots,
+    isLoading: pilotsLoading,
+    error: pilotsError,
+  } = useAPI<Pilot[]>("pilots");
 
   const awtPilots = pilots?.filter((pilot) => pilot.is_awt);
 

@@ -1,16 +1,24 @@
 import cn from "classix";
 import Link from "next/link";
 
+import BasicResultsCard from "@/components/results/basicResultsCard";
 import BasicResultsCardSkeleton from "@/components/results/basicResultsCardSkeleton";
-import { useCompetition, useCompetitions, useSeasons } from "@/utils/swr";
-
-import BasicResultsCard from "../../results/basicResultsCard";
+import { Competition, Season } from "@/types/project";
+import { useAPI } from "@/utils/swr";
 
 const HomeResults = () => {
-  const { competitions, compsLoading, compsError } = useCompetitions();
+  const {
+    data: competitions,
+    isLoading: compsLoading,
+    error: compsError,
+  } = useAPI<Competition[]>("competitions");
 
-  const { seasons, seasonsLoading, seasonsError, seasonsValidating } =
-    useSeasons();
+  const {
+    data: seasons,
+    isLoading: seasonsLoading,
+    error: seasonsError,
+    isValidating: seasonsValidating,
+  } = useAPI<Season[]>("seasons");
 
   const pastAwtCompetitions = competitions?.filter(
     (competition) =>
@@ -24,11 +32,11 @@ const HomeResults = () => {
   });
 
   const {
-    competition: lastAwtComp,
-    compError: lastAwtCompError,
-    compLoading: lastAwtCompLoading,
-    compValidating: lastAwtCompValidating,
-  } = useCompetition(pastAwtCompetitions?.at(-1)?.code);
+    data: lastAwtComp,
+    error: lastAwtCompError,
+    isLoading: lastAwtCompLoading,
+    isValidating: lastAwtCompValidating,
+  } = useAPI<Competition>("competitions", pastAwtCompetitions?.at(-1)?.code);
 
   const awq = seasons
     ?.filter(

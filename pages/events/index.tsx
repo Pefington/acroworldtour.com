@@ -4,7 +4,8 @@ import EventsSection from "@/components/event/eventsSection";
 import YearSelector from "@/components/ui/yearSelector";
 import { useLayout } from "@/state/layoutContext";
 import { useUserContext } from "@/state/userContext";
-import { swrPreload, useCompetitions, useSeasons } from "@/utils/swr";
+import { Competition, Season } from "@/types/project";
+import { swrPreload, useAPI } from "@/utils/swr";
 
 swrPreload("seasons");
 swrPreload("competitions");
@@ -21,8 +22,16 @@ const Competitions = () => {
     setActiveNav("events");
   }, [setPageTitle, setPageDescription, setActiveNav]);
 
-  const { seasons, seasonsError, seasonsLoading } = useSeasons();
-  const { competitions, compsLoading, compsError } = useCompetitions();
+  const {
+    data: seasons,
+    isLoading: seasonsLoading,
+    error: seasonsError,
+  } = useAPI<Season[]>("seasons");
+  const {
+    data: competitions,
+    isLoading: compsLoading,
+    error: compsError,
+  } = useAPI<Competition[]>("competitions");
 
   const loading = seasonsLoading || compsLoading;
   const error = seasonsError || compsError;
@@ -80,14 +89,14 @@ const Competitions = () => {
           <EventsSection
             seasons={soloSeasons}
             loading={loading}
-            error={error}
+            error={!!error}
           />
         ))}
       {synchroSeasons && synchroSeasons.length > 0 && (
         <EventsSection
           seasons={synchroSeasons}
           loading={loading}
-          error={error}
+          error={!!error}
         />
       )}
       {

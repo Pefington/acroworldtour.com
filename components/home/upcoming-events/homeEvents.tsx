@@ -1,13 +1,17 @@
 import cn from "classix";
 import Link from "next/link";
 
+import EventCard from "@/components/event/eventCard";
 import EventCardSkeleton from "@/components/event/eventCardSkeleton";
-import { useCompetitions } from "@/utils/swr";
-
-import EventCard from "../../event/eventCard";
+import { Competition } from "@/types/project";
+import { useAPI } from "@/utils/swr";
 
 const HomeEvents = () => {
-  const { competitions, compsLoading, compsError } = useCompetitions();
+  const {
+    data: competitions,
+    isLoading: compsLoading,
+    error: compsError,
+  } = useAPI<Competition[]>("competitions");
 
   const upcomingEvents = competitions?.filter(
     (competition) => competition.state === "init",

@@ -6,8 +6,8 @@ import { useState } from "react";
 import { CircleFlag } from "react-circle-flags";
 
 import { RolodexIcon } from "@/components/ui/icons";
-import { Competition } from "@/types/project";
-import { useSeasons } from "@/utils/swr";
+import { Competition, Season } from "@/types/project";
+import { useAPI } from "@/utils/swr";
 
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
@@ -19,7 +19,11 @@ const EventCard = ({ competition }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
-  const { seasons, seasonsLoading, seasonsError } = useSeasons();
+  const {
+    data: seasons,
+    isLoading: seasonsLoading,
+    error: seasonsError,
+  } = useAPI<Season[]>("seasons");
 
   const {
     name,
