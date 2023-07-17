@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { ReactNode, useState } from "react";
 
-import LayoutContext from "../../state/layoutContext";
+import LayoutContext from "@/state/layoutContext";
+
 import Footer from "./footer";
 import Nav from "./nav";
 

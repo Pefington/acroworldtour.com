@@ -9,7 +9,7 @@ import {
   TeamsIcon,
   TricksIcon,
   TrophyIcon,
-} from "../ui/icons";
+} from "@/components/ui/icons";
 
 interface Props {
   link: string;
