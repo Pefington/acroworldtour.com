@@ -16,7 +16,7 @@ const HomeHero = () => {
       )}
     >
       <Image
-        src="/img/hero.jpg"
+        src="/img/hero.webp"
         alt=""
         priority
         fill

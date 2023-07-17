@@ -103,7 +103,7 @@ const SeasonCard = ({ season }: Props) => {
                 )}
               >
                 <Image
-                  src={compImg || "/img/blur.jpg"}
+                  src={compImg || "/img/blur.webp"}
                   alt={name}
                   priority
                   fill

@@ -71,7 +71,7 @@ const EventCard = ({ competition }: Props) => {
       >
         <figure className={cn("relative w-full grow overflow-hidden")}>
           <Image
-            src={image ?? "/img/blur.jpg"}
+            src={image ?? "/img/blur.webp"}
             alt={name}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"

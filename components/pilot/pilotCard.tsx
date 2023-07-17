@@ -42,7 +42,7 @@ const PilotCard = ({ pilot }: Props) => {
         )}
       >
         <Image
-          src={photo ?? photoLowres ?? "/img/blur.jpg"}
+          src={photo ?? photoLowres ?? "/img/blur.webp"}
           alt={name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
