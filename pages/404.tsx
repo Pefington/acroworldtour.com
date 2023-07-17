@@ -4,7 +4,6 @@ const Custom404 = () => {
   return (
     <h2
       className={cn(
-        "bg-[url('/img/404.jpg')] bg-cover bg-center bg-no-repeat",
         "w-screen grow",
         "flex items-center justify-center",
         "text-lg font-bold",
