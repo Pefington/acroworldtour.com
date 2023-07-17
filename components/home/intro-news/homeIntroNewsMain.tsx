@@ -5,11 +5,12 @@ import { useState } from "react";
 
 interface Props {
   title: string;
+  date: string;
   href: string;
   imageUrl: string;
 }
 
-const HomeIntroNewsMain = ({ title, href, imageUrl }: Props) => {
+const HomeIntroNewsMain = ({ title, date, href, imageUrl }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -31,10 +32,8 @@ const HomeIntroNewsMain = ({ title, href, imageUrl }: Props) => {
       </figure>
       <div className={cn("flex items-center px-7 py-4 uppercase")}>
         <div className={cn("flex flex-col gap-1", "flex-1")}>
-          <h3 className={cn("font-bold")}>The AWT 2023 is about to start!</h3>
-          <p className={cn("text-sm font-medium text-secondary")}>
-            25 May 2023
-          </p>
+          <h3 className={cn("font-bold")}>{title}</h3>
+          <p className={cn("text-sm font-medium text-secondary")}>{date}</p>
         </div>
         <Image
           src="/img/icons/arrow.svg"

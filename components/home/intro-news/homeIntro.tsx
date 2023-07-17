@@ -22,21 +22,24 @@ const HomeIntro = () => {
         <h2 className={cn("mb-4 text-3xl font-black uppercase")}>Hot News</h2>
 
         <HomeIntroNewsMain
-          title="Nest Games AWT 01 Results"
-          href="news/nest-games-results"
-          imageUrl="/img/news/DSC05527.jpg"
+          title="Dutch pilot wins Acro World Cup for the first time in history"
+          date="17 June 2023"
+          href="/news/kings-of-the-box-results"
+          imageUrl="/img/news/news-1.webp"
         />
 
         <div className={cn("flex flex-col gap-3")}>
           <HomeIntroNewsSecondary
-            title="The AWT 2023 is about to start!"
-            href="/news/the-awt-2023-is-about-to-start"
-            imageUrl="/img/news/news-1.jpg"
+            title="Nest Games AWT 01 results"
+            date="24 September 2022"
+            href="/news/nest-games-results"
+            imageUrl="/img/news/news-2.webp"
           />
           <HomeIntroNewsSecondary
-            title="The AWT 2022 Overall Standings"
-            href="/news/the-awt-2022-overall-standings"
-            imageUrl="/img/news/news-2.jpg"
+            title="The AWT 2023 is about to start!"
+            date="24 September 2022"
+            href="/news/the-awt-2023-is-about-to-start"
+            imageUrl="/img/news/news-3.webp"
           />
         </div>
       </section>
