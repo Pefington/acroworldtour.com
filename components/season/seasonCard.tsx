@@ -60,6 +60,7 @@ const SeasonCard = ({ season }: Props) => {
   } = season;
 
   const numberOfCompetitions = competitions.length;
+  const noContestants = !numberOfPilots && !numberOfTeams;
 
   const alpha2country = country
     ? countries
@@ -165,8 +166,9 @@ const SeasonCard = ({ season }: Props) => {
           )}
         >
           <button
-            className={cn("flex items-center px-5")}
-            onClick={() => setPilotsExpanded(!pilotsExpanded)}
+            disabled={noContestants}
+            className={cn("flex items-center px-5 uppercase")}
+            onClick={() => setPilotsExpanded((expanded) => !expanded)}
           >
             {type === "solo" &&
               (numberOfPilots
@@ -177,27 +179,33 @@ const SeasonCard = ({ season }: Props) => {
               (numberOfTeams
                 ? `${numberOfTeams} team${numberOfTeams > 1 ? "s" : ""}`
                 : "No teams registered yet")}
-            <ChevronIcon
-              className={cn(
-                "h-3 fill-secondary",
-                pilotsExpanded && "rotate-180",
-              )}
-            />
+
+            {!noContestants && (
+              <ChevronIcon
+                className={cn(
+                  "h-3 fill-secondary",
+                  pilotsExpanded && "rotate-180",
+                )}
+              />
+            )}
           </button>
 
           <button
-            className={cn("flex items-center px-5")}
-            onClick={() => setCompsExpanded(!compsExpanded)}
+            disabled={!numberOfCompetitions}
+            className={cn("flex items-center px-5 uppercase")}
+            onClick={() => setCompsExpanded((expanded) => !expanded)}
           >
             {`${numberOfCompetitions} competition${
               numberOfCompetitions > 1 ? "s" : ""
             }`}
-            <ChevronIcon
-              className={cn(
-                "h-3 fill-secondary",
-                compsExpanded && "rotate-180",
-              )}
-            />
+            {numberOfCompetitions && (
+              <ChevronIcon
+                className={cn(
+                  "h-3 fill-secondary",
+                  compsExpanded && "rotate-180",
+                )}
+              />
+            )}
           </button>
         </div>
       }
