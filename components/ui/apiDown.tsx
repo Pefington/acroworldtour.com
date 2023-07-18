@@ -8,7 +8,7 @@ const ApiDown = () => {
         "flex flex-col items-center gap-8",
         "w-screen",
         "px-8",
-        "text-2xl font-bold uppercase text-[#6783b0] text-center",
+        "text-center text-2xl font-bold uppercase text-[#6783b0]",
         "sm:text-2xl",
       )}
     >
@@ -18,7 +18,7 @@ const ApiDown = () => {
         alt="Waking up the API"
         width={446}
         height={413}
-        className="-mb-4 -mt-8 -mr-4"
+        className="-mb-4 -mr-4 -mt-8"
       />
       <p className={cn("animate-pulse")}>This may take a minute.</p>
     </div>
