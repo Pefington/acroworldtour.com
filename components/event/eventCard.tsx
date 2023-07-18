@@ -102,7 +102,7 @@ const EventCard = ({ competition }: Props) => {
               width={20}
               height={20}
               countryCode={alpha2country || "earth"}
-              className="-mx-[2px] h-5"
+              className="-mx-[2px] h-5 w-5"
             />
             {location}
           </span>

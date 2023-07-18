@@ -124,7 +124,7 @@ const SeasonCard = ({ season }: Props) => {
             width={20}
             height={20}
             countryCode={alpha2country || "earth"}
-            className="-mt-0.5 h-5"
+            className="-mt-0.5 h-5 w-5"
           />
           <h4 className={cn("font-bold uppercase", "sm:text-lg")}>
             {nameWithoutYear}

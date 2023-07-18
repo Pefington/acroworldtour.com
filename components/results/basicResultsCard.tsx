@@ -86,7 +86,7 @@ const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
                   width={20}
                   height={20}
                   countryCode={alpha2country || "earth"}
-                  className="h-5"
+                  className="h-5 w-5"
                 />
                 {pilot?.name}
               </span>
