@@ -8,6 +8,8 @@ import useLocalStorage from "@/state/useLocalStorage";
 import { useUserContext } from "@/state/userContext";
 import { Season } from "@/types/project";
 
+import { ChevronIcon } from "../ui/icons";
+
 countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
 interface Props {
@@ -17,6 +19,10 @@ interface Props {
 const SeasonCard = ({ season }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+  const [isBlurred, setIsBlurred] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [pilotsExpanded, setPilotsExpanded] = useState(false);
+  const [compsExpanded, setCompsExpanded] = useState(false);
   const { activeYear, activeSeasonCodes, setActiveSeasonCodes } =
     useUserContext();
 
@@ -36,13 +42,24 @@ const SeasonCard = ({ season }: Props) => {
 
   useEffect(() => {
     setStoredSeasonCodes(activeSeasonCodes);
-  }, [activeSeasonCodes, setStoredSeasonCodes]);
+    setIsBlurred(
+      !!activeSeasonCodes[activeYear] &&
+        activeSeasonCodes[activeYear] !== season.code,
+    );
+    setIsExpanded(activeSeasonCodes[activeYear] === season.code);
+  }, [activeSeasonCodes, activeYear, season.code, setStoredSeasonCodes]);
 
-  const active =
-    !activeSeasonCodes[activeYear] ||
-    activeSeasonCodes[activeYear] === season.code;
+  const {
+    name,
+    image,
+    competitions,
+    country,
+    number_of_pilots: numberOfPilots,
+    number_of_teams: numberOfTeams,
+    type,
+  } = season;
 
-  const { name, image, competitions, country } = season;
+  const numberOfCompetitions = competitions.length;
 
   const alpha2country = country
     ? countries
@@ -63,63 +80,66 @@ const SeasonCard = ({ season }: Props) => {
   const nameWithoutYear = name.split(" ").slice(0, -1).join(" ");
 
   return (
-    <button
+    <article
       className={cn(
-        "flex flex-col justify-end awt-accordion-closed",
-        "aspect-video w-full min-w-max",
-        "overflow-hidden rounded-md bg-white shadow-md",
-        !active && "opacity-30 blur-[1px]",
+        "w-full rounded-md shadow-md",
+        !isExpanded && "aspect-video",
       )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onClick={() => handleSelect(season.code)}
-      onKeyDown={({ key }) => key === "Enter" && handleSelect(season.code)}
     >
-      <figure className={cn("relative flex h-full w-full overflow-hidden")}>
-        {image ? (
-          <Image
-            src={image}
-            alt={name}
-            priority
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-            className={cn(
-              "object-cover duration-500",
-              isHovered && "scale-105",
-              imgLoading && "scale-110 blur-2xl",
-            )}
-            onLoadingComplete={() => setImgLoading(false)}
-          />
-        ) : (
-          competitions.map((competition) => {
-            const { code, image: compImg } = competition;
-            return (
-              <div
-                key={code}
-                className={cn(
-                  "relative h-full w-full",
-                  isHovered ? "scale-105" : "scale-100",
-                  imgLoading && "scale-110 blur-2xl",
-                )}
-              >
-                <Image
-                  src={compImg || "/img/blur.webp"}
-                  alt={name}
-                  priority
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 10vw"
-                  className={cn("object-cover")}
-                  onLoadingComplete={() => setImgLoading(false)}
-                />
-              </div>
-            );
-          })
+      <button
+        className={cn(
+          "flex flex-col justify-end",
+          "aspect-video w-full min-w-max",
+          "overflow-hidden rounded-md bg-white",
+          isBlurred && "opacity-30 blur-[1px]",
         )}
-      </figure>
-      <div className={cn("flex gap-2 px-4 py-2")}>
-        <span
-          className={cn("col-span-8 flex items-center gap-3 font-semibold")}
-        >
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => handleSelect(season.code)}
+        onKeyDown={({ key }) => key === "Enter" && handleSelect(season.code)}
+      >
+        <figure className={cn("relative flex h-full w-full overflow-hidden")}>
+          {image ? (
+            <Image
+              src={image}
+              alt={name}
+              priority
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+              className={cn(
+                "object-cover duration-500",
+                isHovered && "scale-105",
+                imgLoading && "scale-110 blur-2xl",
+              )}
+              onLoadingComplete={() => setImgLoading(false)}
+            />
+          ) : (
+            competitions.map((competition) => {
+              const { code, image: compImg } = competition;
+              return (
+                <div
+                  key={code}
+                  className={cn(
+                    "relative h-full w-full",
+                    isHovered ? "scale-105" : "scale-100",
+                    imgLoading && "scale-110 blur-2xl",
+                  )}
+                >
+                  <Image
+                    src={compImg || "/img/blur.webp"}
+                    alt={name}
+                    priority
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 10vw"
+                    className={cn("object-cover")}
+                    onLoadingComplete={() => setImgLoading(false)}
+                  />
+                </div>
+              );
+            })
+          )}
+        </figure>
+        <div className={cn("flex items-center gap-2 px-4 py-2")}>
           <CircleFlag
             width={20}
             height={20}
@@ -129,9 +149,59 @@ const SeasonCard = ({ season }: Props) => {
           <h4 className={cn("font-bold uppercase", "sm:text-lg")}>
             {nameWithoutYear}
           </h4>
-        </span>
-      </div>
-    </button>
+          <ChevronIcon
+            className={cn("h-4 fill-secondary", isExpanded && "rotate-180")}
+          />
+        </div>
+      </button>
+      {
+        <div
+          aria-hidden={!isExpanded}
+          className={cn(
+            "flex w-full flex-col text-sm font-bold uppercase odd:[&>button]:bg-secondary-light [&_*]:overflow-hidden",
+            isExpanded
+              ? "[&>*]:max-h-full [&>*]:py-2"
+              : "[&>*]:max-h-0 [&>*]:py-0",
+          )}
+        >
+          <button
+            className={cn("flex items-center px-5")}
+            onClick={() => setPilotsExpanded(!pilotsExpanded)}
+          >
+            {type === "solo" &&
+              (numberOfPilots
+                ? `${numberOfPilots} pilot${numberOfPilots > 1 ? "s" : ""}`
+                : "No pilots registered yet")}
+
+            {type === "synchro" &&
+              (numberOfTeams
+                ? `${numberOfTeams} team${numberOfTeams > 1 ? "s" : ""}`
+                : "No teams registered yet")}
+            <ChevronIcon
+              className={cn(
+                "h-3 fill-secondary",
+                pilotsExpanded && "rotate-180",
+              )}
+            />
+          </button>
+
+          <button
+            className={cn("flex items-center px-5")}
+            onClick={() => setCompsExpanded(!compsExpanded)}
+          >
+            {`${numberOfCompetitions} competition${
+              numberOfCompetitions > 1 ? "s" : ""
+            }`}
+            <ChevronIcon
+              className={cn(
+                "h-3 fill-secondary",
+                compsExpanded && "rotate-180",
+              )}
+            />
+          </button>
+        </div>
+      }
+    </article>
   );
 };
 

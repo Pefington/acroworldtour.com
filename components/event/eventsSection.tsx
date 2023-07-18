@@ -26,7 +26,7 @@ const EventsSection = ({ seasons, loading, error }: Props) => {
       {(seasons?.length || 0) > 0 && (
         <div
           className={cn(
-            "mt-6 grid place-items-center gap-8",
+            "mt-6 grid gap-8",
             "sm:grid-cols-2",
             "lg:grid-cols-3",
             "xl:grid-cols-4",
