@@ -10,8 +10,9 @@ const EventCardSkeleton = ({ error }: Props) => (
     className={cn(
       "flex aspect-[2/3] w-full flex-col overflow-hidden rounded bg-white shadow-md",
       "[&_div]:rounded-sm",
-      "[&>*]:animate-pulse",
-      error && "outline outline-red-500/80 [&>*]:animate-none",
+      error
+        ? "outline outline-red-500/80 [&>*]:animate-none"
+        : "[&>*]:animate-pulse",
     )}
   >
     <div className="flex grow flex-col overflow-hidden">

@@ -14,8 +14,9 @@ const BasicResultsCardSkeleton = ({ error, limitTo = 5 }: Props) => {
         "w-full pt-8",
         "rounded shadow-md",
         "[&_div]:rounded-sm",
-        "[&_div]:animate-pulse",
-        error && "outline outline-red-500/80 [&>*]:animate-none",
+        error
+          ? "outline outline-red-500/80 [&>*]:animate-none"
+          : "[&_div]:animate-pulse",
       )}
     >
       {error && (
