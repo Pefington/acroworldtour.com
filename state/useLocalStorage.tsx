@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useLocalStorage = (key: string, initialValue: any) => {
+const useLocalStorage = (key: string, initialValue: unknown) => {
   const [value, setValue] = useState(() => getStoredValue(key, initialValue));
 
   useEffect(() => {
@@ -10,7 +10,7 @@ const useLocalStorage = (key: string, initialValue: any) => {
   return [value, setValue];
 };
 
-function getStoredValue(key: string, initialValue: any) {
+function getStoredValue(key: string, initialValue: unknown) {
   const initialValueReturn =
     initialValue instanceof Function ? initialValue() : initialValue;
   if (typeof window === "undefined") return initialValueReturn;
