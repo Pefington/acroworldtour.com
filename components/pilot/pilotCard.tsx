@@ -1,12 +1,10 @@
 import cn from "classix";
-import countries from "i18n-iso-countries";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 import { Pilot } from "@/types/project";
-
-countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+import { getCountryName } from "@/utils/countries";
 
 interface Props {
   pilot: Pilot;
@@ -23,8 +21,6 @@ const PilotCard = ({ pilot }: Props) => {
     photo_highres: photo,
     country,
   } = pilot;
-
-  const countryName = countries.getName(country, "en") || "Earth";
 
   return (
     <article
@@ -70,7 +66,7 @@ const PilotCard = ({ pilot }: Props) => {
             {name}
           </h3>
           <p className={cn("font-semibold uppercase text-secondary-medium")}>
-            {countryName}
+            {getCountryName(country)}
           </p>
         </div>
       </Link>
