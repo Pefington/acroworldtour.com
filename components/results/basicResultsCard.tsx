@@ -1,17 +1,14 @@
 import cn from "classix";
-import countries from "i18n-iso-countries";
 import Link from "next/link";
 import { useState } from "react";
-import { CircleFlag } from "react-circle-flags";
 
+import { Flag } from "@/components/ui/flag";
 import {
   Competition,
   CompetitionResult,
   Season,
   SeasonResult,
 } from "@/types/project";
-
-countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
 interface Props {
   event: Competition | Season;
@@ -66,11 +63,6 @@ const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
         {clampedResults.map((result, index) => {
           const { pilot, score } = result;
           const roundedScore = score.toFixed(3);
-          const alpha2country = pilot?.country
-            ? countries
-                .alpha3ToAlpha2(pilot.country.toUpperCase())
-                .toLowerCase()
-            : null;
 
           return (
             <li
@@ -82,12 +74,7 @@ const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
             >
               <p className={cn("col-span-2 text-secondary")}>{index + 1}</p>
               <span className={cn("col-span-8 flex gap-4")}>
-                <CircleFlag
-                  width={20}
-                  height={20}
-                  countryCode={alpha2country || "earth"}
-                  className="h-5 w-5"
-                />
+                <Flag country={pilot?.country} />
                 {pilot?.name}
               </span>
               <p className={cn("col-span-2")}>{roundedScore}</p>

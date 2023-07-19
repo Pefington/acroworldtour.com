@@ -1,15 +1,12 @@
 import cn from "classix";
-import countries from "i18n-iso-countries";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { CircleFlag } from "react-circle-flags";
 
+import { Flag } from "@/components/ui/flag";
 import { RolodexIcon } from "@/components/ui/icons";
 import { Competition, Season } from "@/types/project";
 import { useAPI } from "@/utils/swr";
-
-countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
 
 interface Props {
   competition: Competition;
@@ -49,8 +46,6 @@ const EventCard = ({ competition }: Props) => {
   const endYear = endDate.getFullYear();
 
   const country = location.split(", ").at(-1);
-  const alpha2country =
-    (country && countries.getAlpha2Code(country, "en")?.toLowerCase()) || null;
 
   const nameWithoutYear = name.split(" ").slice(0, -1).join(" ");
 
@@ -98,12 +93,7 @@ const EventCard = ({ competition }: Props) => {
               "flex items-center gap-3 text-sm font-medium text-secondary",
             )}
           >
-            <CircleFlag
-              width={20}
-              height={20}
-              countryCode={alpha2country || "earth"}
-              className="-mx-[2px] h-5 w-5"
-            />
+            <Flag country={country} className="-mx-0.5 h-5 w-5" />
             {location}
           </span>
         </div>
