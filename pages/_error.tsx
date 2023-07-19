@@ -19,7 +19,7 @@ const Error = ({ statusCode }: Props) => {
         ? `${statusCode} ${(
             <div className="mx-3 h-12 w-[2px] bg-primary/50" />
           )} An error occurred on the server.`
-        : "An error occurred on client"}
+        : "An error occurred on the client"}
     </h2>
   );
 };
