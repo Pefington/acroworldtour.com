@@ -170,15 +170,19 @@ const SeasonCard = ({ season }: Props) => {
             className={cn("flex items-center px-5 uppercase")}
             onClick={() => setPilotsExpanded((expanded) => !expanded)}
           >
-            {type === "solo" &&
-              (numberOfPilots
-                ? `${numberOfPilots} pilot${numberOfPilots > 1 ? "s" : ""}`
-                : "No pilots registered yet")}
-
-            {type === "synchro" &&
-              (numberOfTeams
-                ? `${numberOfTeams} team${numberOfTeams > 1 ? "s" : ""}`
-                : "No teams registered yet")}
+            {type === "solo" ? (
+              <p>
+                {numberOfPilots
+                  ? `${numberOfPilots} pilot${numberOfPilots > 1 ? "s" : ""}`
+                  : "No pilots registered yet"}
+              </p>
+            ) : (
+              <p>
+                {numberOfTeams
+                  ? `${numberOfTeams} team${numberOfTeams > 1 ? "s" : ""}`
+                  : "No teams registered yet"}
+              </p>
+            )}
 
             {!noContestants && (
               <ChevronIcon
