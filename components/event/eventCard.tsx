@@ -122,7 +122,7 @@ const EventCard = ({ competition }: Props) => {
                 "px-3 py-2",
                 "rounded-xl bg-accent text-white",
                 "text-sm font-semibold uppercase",
-                "hover:px-4",
+                "hover:font-black",
                 seasonsLoading && "animate-pulse",
               )}
             >
