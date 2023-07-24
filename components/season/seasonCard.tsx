@@ -1,16 +1,14 @@
 import cn from "classix";
-import countries from "i18n-iso-countries";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { CircleFlag } from "react-circle-flags";
 
+import { Flag } from "@/components/ui/flag";
+import { ChevronIcon } from "@/components/ui/icons";
 import useLocalStorage from "@/state/useLocalStorage";
 import { useUserContext } from "@/state/userContext";
 import { Season } from "@/types/project";
 
-import { ChevronIcon } from "../ui/icons";
-
-countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+import SeasonCardDetails from "./seasonCardDetails";
 
 interface Props {
   season: Season;
@@ -21,8 +19,6 @@ const SeasonCard = ({ season }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [pilotsExpanded, setPilotsExpanded] = useState(false);
-  const [compsExpanded, setCompsExpanded] = useState(false);
   const { activeYear, activeSeasonCodes, setActiveSeasonCodes } =
     useUserContext();
 
@@ -49,24 +45,7 @@ const SeasonCard = ({ season }: Props) => {
     setIsExpanded(activeSeasonCodes[activeYear] === season.code);
   }, [activeSeasonCodes, activeYear, season.code, setStoredSeasonCodes]);
 
-  const {
-    name,
-    image,
-    competitions,
-    country,
-    number_of_pilots: numberOfPilots,
-    number_of_teams: numberOfTeams,
-    type,
-  } = season;
-
-  const numberOfCompetitions = competitions.length;
-  const noContestants = !numberOfPilots && !numberOfTeams;
-
-  const alpha2country = country
-    ? countries
-        .getAlpha2Code(countries.getName(country, "en"), "en")
-        ?.toLowerCase()
-    : null;
+  const { name, image, competitions, country } = season;
 
   const handleSelect = (code: string) => {
     const newSeasonCodes = { ...activeSeasonCodes };
@@ -141,12 +120,7 @@ const SeasonCard = ({ season }: Props) => {
           )}
         </figure>
         <div className={cn("flex items-center gap-2 px-4 py-2")}>
-          <CircleFlag
-            width={20}
-            height={20}
-            countryCode={alpha2country || "earth"}
-            className="-mt-0.5 h-5 w-5"
-          />
+          <Flag country={country} className="-mt-0.5 h-5 w-5" />
           <h4 className={cn("font-bold uppercase", "sm:text-lg")}>
             {nameWithoutYear}
           </h4>
@@ -155,64 +129,8 @@ const SeasonCard = ({ season }: Props) => {
           />
         </div>
       </button>
-      {
-        <div
-          aria-hidden={!isExpanded}
-          className={cn(
-            "flex w-full flex-col text-sm font-bold uppercase odd:[&>button]:bg-secondary-light [&_*]:overflow-hidden",
-            isExpanded
-              ? "[&>*]:max-h-full [&>*]:py-2"
-              : "[&>*]:max-h-0 [&>*]:py-0",
-          )}
-        >
-          <button
-            disabled={noContestants}
-            className={cn("flex items-center px-5 uppercase")}
-            onClick={() => setPilotsExpanded((expanded) => !expanded)}
-          >
-            {type === "solo" ? (
-              <p>
-                {numberOfPilots
-                  ? `${numberOfPilots} pilot${numberOfPilots > 1 ? "s" : ""}`
-                  : "No pilots registered yet"}
-              </p>
-            ) : (
-              <p>
-                {numberOfTeams
-                  ? `${numberOfTeams} team${numberOfTeams > 1 ? "s" : ""}`
-                  : "No teams registered yet"}
-              </p>
-            )}
 
-            {!noContestants && (
-              <ChevronIcon
-                className={cn(
-                  "h-3 fill-secondary",
-                  pilotsExpanded && "rotate-180",
-                )}
-              />
-            )}
-          </button>
-
-          <button
-            disabled={!numberOfCompetitions}
-            className={cn("flex items-center px-5 uppercase")}
-            onClick={() => setCompsExpanded((expanded) => !expanded)}
-          >
-            {`${numberOfCompetitions} competition${
-              numberOfCompetitions > 1 ? "s" : ""
-            }`}
-            {numberOfCompetitions && (
-              <ChevronIcon
-                className={cn(
-                  "h-3 fill-secondary",
-                  compsExpanded && "rotate-180",
-                )}
-              />
-            )}
-          </button>
-        </div>
-      }
+      <SeasonCardDetails season={season} isExpanded={isExpanded} />
     </article>
   );
 };
