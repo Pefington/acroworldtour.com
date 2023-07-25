@@ -32,18 +32,27 @@ const SeasonCardPilots = ({ season, isExpanded }: Props) => {
             key={civlid}
             href={`/pilots/${civlid}/${name}`}
             target="_blank"
+            title={`${name}'s page - new tab`}
             className={cn(
               "flex items-center",
               "pl-7 pr-5",
               "text-sm text-secondary",
+              "group/pilots",
               "odd:bg-secondary-light",
-              "hover:text-primary [&>svg]:hover:opacity-100",
+              "[&>p]:hover:translate-x-1 [&>p]:hover:text-primary",
               isExpanded ? "[&>*]:my-1" : "[&>*]:-my-3",
             )}
           >
-            <Flag country={country} className="-mt-px mr-2 h-3 w-3" />
+            <Flag country={country} className="-mt-px mr-3 h-3.5 w-3.5" />
             <p>{name}</p>
-            <NewTabIcon className="ml-2 h-2.5 w-2.5 -translate-y-px fill-secondary opacity-0" />
+            <NewTabIcon
+              className={cn(
+                "fill-secondary opacity-0",
+                "h-2.5 w-2.5",
+                "ml-4 -translate-y-px",
+                "group-hover/pilots:opacity-100",
+              )}
+            />
           </Link>
         );
       })}

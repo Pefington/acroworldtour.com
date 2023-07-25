@@ -55,13 +55,13 @@ const SeasonCardDetails = ({ season, isExpanded }: Props) => {
         onClick={() => setShowCat(showCat === "pilots" ? "none" : "pilots")}
       >
         {type === "solo" ? (
-          <p>
+          <p className={cn(!numberOfPilots && "text-secondary-medium")}>
             {numberOfPilots
               ? `${numberOfPilots} pilot${numberOfPilots > 1 ? "s" : ""}`
               : "No pilots registered yet"}
           </p>
         ) : (
-          <p>
+          <p className={cn(!numberOfPilots && "text-secondary-medium")}>
             {numberOfTeams
               ? `${numberOfTeams} team${numberOfTeams > 1 ? "s" : ""}`
               : "No teams registered yet"}
