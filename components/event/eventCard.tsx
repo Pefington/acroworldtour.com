@@ -14,7 +14,6 @@ interface Props {
 
 const EventCard = ({ competition }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
-  const [isHovered, setIsHovered] = useState(false);
 
   const {
     data: seasons,
@@ -55,14 +54,13 @@ const EventCard = ({ competition }: Props) => {
         "aspect-[2/3] w-full max-w-sm",
         "overflow-hidden rounded bg-white shadow-md",
         "flex flex-col",
+        "group",
       )}
     >
       <Link
-        href={`/competitions/${code}`}
+        href={`/events/${code}/${name}`}
         title={name}
         className={cn("grow", "overflow-hidden", "flex flex-col")}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         <figure className={cn("relative w-full grow overflow-hidden")}>
           <Image
@@ -72,7 +70,7 @@ const EventCard = ({ competition }: Props) => {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
             className={cn(
               "object-cover duration-500",
-              isHovered && "scale-105",
+              "group-hover:scale-105",
               imgLoading && "scale-110 blur-2xl",
             )}
             onLoadingComplete={() => setImgLoading(false)}
@@ -106,7 +104,7 @@ const EventCard = ({ competition }: Props) => {
           return (
             <Link
               key={code}
-              href={`/seasons/${code}`}
+              href={`/events/${code}/${name}`}
               title={name}
               className={cn(
                 "px-3 py-2",

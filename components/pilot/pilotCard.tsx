@@ -12,7 +12,6 @@ interface Props {
 
 const PilotCard = ({ pilot }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
-  const [isHovered, setIsHovered] = useState(false);
 
   const {
     civlid,
@@ -44,7 +43,7 @@ const PilotCard = ({ pilot }: Props) => {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
           className={cn(
             "-z-10 object-cover duration-500",
-            isHovered && "scale-105",
+            "group-hover:scale-105",
             imgLoading && "scale-110 blur-2xl",
           )}
           onLoadingComplete={() => setImgLoading(false)}
@@ -58,8 +57,6 @@ const PilotCard = ({ pilot }: Props) => {
           "flex flex-col justify-end",
           "py-7 text-center",
         )}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         <div>
           <h3 className={cn("text-lg font-bold uppercase text-white")}>

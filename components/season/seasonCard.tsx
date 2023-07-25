@@ -16,7 +16,6 @@ interface Props {
 
 const SeasonCard = ({ season }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
-  const [isHovered, setIsHovered] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const { activeYear, activeSeasonCodes, setActiveSeasonCodes } =
@@ -63,6 +62,7 @@ const SeasonCard = ({ season }: Props) => {
     <article
       className={cn(
         "w-full rounded-md shadow-md",
+        "group",
         !isExpanded && "aspect-video",
       )}
     >
@@ -71,10 +71,9 @@ const SeasonCard = ({ season }: Props) => {
           "flex flex-col justify-end",
           "aspect-video w-full min-w-max",
           "overflow-hidden rounded-md bg-white",
-          isBlurred && "opacity-30 blur-[1px]",
+          isBlurred &&
+            "opacity-30 blur-[1px] group-hover:opacity-80 group-hover:blur-none",
         )}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         onClick={() => handleSelect(season.code)}
         onKeyDown={({ key }) => key === "Enter" && handleSelect(season.code)}
       >
@@ -88,7 +87,7 @@ const SeasonCard = ({ season }: Props) => {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
               className={cn(
                 "object-cover duration-500",
-                isHovered && "scale-105",
+                !isBlurred && !isExpanded && "group-hover:scale-105",
                 imgLoading && "scale-110 blur-2xl",
               )}
               onLoadingComplete={() => setImgLoading(false)}
@@ -101,7 +100,7 @@ const SeasonCard = ({ season }: Props) => {
                   key={code}
                   className={cn(
                     "relative h-full w-full",
-                    isHovered ? "scale-105" : "scale-100",
+                    !isBlurred && !isExpanded && "group-hover:scale-105",
                     imgLoading && "scale-110 blur-2xl",
                   )}
                 >

@@ -1,7 +1,6 @@
 import { Flag } from "@ui/flag";
 import cn from "classix";
 import Link from "next/link";
-import { useState } from "react";
 
 import {
   Competition,
@@ -17,8 +16,6 @@ interface Props {
 }
 
 const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   const results =
     "overall_results" in event.results
       ? (event.results.overall_results as CompetitionResult[])
@@ -35,12 +32,7 @@ const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
     limitTo === "all" ? results : results.slice(0, limitTo);
 
   return (
-    <article
-      className={cn(
-        "w-full rounded pt-7",
-        isHovered ? "-translate-y-1 shadow-lg" : "shadow-md",
-      )}
-    >
+    <article className={cn("w-full rounded pt-7", "shadow-md")}>
       <h3 className={cn("px-7 text-3xl font-bold uppercase")}>
         {isCompetition ? "Acro World Tour" : "Acro World Qualifier"}
       </h3>
@@ -84,16 +76,15 @@ const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
       </ul>
 
       <footer
-        className="grid w-full place-items-center font-bold text-accent hover:text-hover hover:drop-shadow-md"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        className={cn(
+          "mx-auto py-4",
+          "w-max",
+          "font-bold text-accent",
+          "hover:-translate-y-0.5 hover:drop-shadow-md",
+        )}
       >
         <Link
-          href={
-            isCompetition
-              ? `/competitions/${event.code}`
-              : `/seasons/${event.code}`
-          }
+          href={`/events/${event.code}/${event.name}`}
           title={`View detailed results for ${event.name}`}
           className="w-full py-4 text-center"
         >

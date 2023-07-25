@@ -1,7 +1,6 @@
 import cn from "classix";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 interface Props {
   title: string;
@@ -10,57 +9,49 @@ interface Props {
   imageUrl: string;
 }
 
-const HomeIntroNewsSecondary = ({ title, date, href, imageUrl }: Props) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  return (
-    <Link
-      href={href}
+const HomeIntroNewsSecondary = ({ title, date, href, imageUrl }: Props) => (
+  <Link
+    href={href}
+    className={cn(
+      "flex flex-col gap-4",
+      "grow",
+      "rounded p-4 shadow-md",
+      "sm:flex-row",
+      "group",
+    )}
+  >
+    <figure
       className={cn(
-        "flex flex-col gap-4",
-        "grow",
-        "rounded p-4 shadow-md",
-        "sm:flex-row",
+        "relative aspect-video overflow-hidden rounded-xl",
+        "sm:aspect-square sm:h-24",
       )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
-      <figure
+      <Image
+        src={imageUrl}
+        alt={title}
+        fill
+        sizes="(max-width: 640px) 100vw, 25vw"
         className={cn(
-          "relative aspect-video overflow-hidden rounded-xl",
-          "sm:aspect-square sm:h-24",
+          "duration-500",
+          "rounded-xl object-cover",
+          "group-hover:scale-105",
         )}
-      >
-        <Image
-          src={imageUrl}
-          alt={title}
-          fill
-          sizes="(max-width: 640px) 100vw, 25vw"
-          className={cn(
-            "duration-500",
-            "rounded-xl object-cover",
-            isHovered && "scale-105",
-          )}
-        />
-      </figure>
-      <div className={cn("flex grow items-center uppercase")}>
-        <div className={cn("w-full px-4")}>
-          <h3 className={cn("mb-1 font-bold")}>{title}</h3>
-          <p className={cn("text-sm font-medium text-secondary")}>{date}</p>
-        </div>
-        <Image
-          src="/img/icons/arrow.svg"
-          alt=""
-          height={20}
-          width={20}
-          className={cn(
-            "mr-3 aspect-square h-5",
-            isHovered && "translate-x-1/2",
-          )}
-        />
+      />
+    </figure>
+    <div className={cn("flex grow items-center uppercase")}>
+      <div className={cn("w-full px-4")}>
+        <h3 className={cn("mb-1 font-bold")}>{title}</h3>
+        <p className={cn("text-sm font-medium text-secondary")}>{date}</p>
       </div>
-    </Link>
-  );
-};
+      <Image
+        src="/img/icons/arrow.svg"
+        alt=""
+        height={20}
+        width={20}
+        className={cn("mr-3 aspect-square h-5", "group-hover:translate-x-1/2")}
+      />
+    </div>
+  </Link>
+);
 
 export default HomeIntroNewsSecondary;
