@@ -1,10 +1,10 @@
+import { getCountryName } from "@utils/countries";
 import cn from "classix";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 import { Pilot } from "@/types/project";
-import { getCountryName } from "@/utils/countries";
 
 interface Props {
   pilot: Pilot;

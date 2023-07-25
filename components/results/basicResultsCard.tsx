@@ -1,8 +1,8 @@
+import { Flag } from "@ui/flag";
 import cn from "classix";
 import Link from "next/link";
 import { useState } from "react";
 
-import { Flag } from "@/components/ui/flag";
 import {
   Competition,
   CompetitionResult,

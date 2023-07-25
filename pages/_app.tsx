@@ -1,12 +1,11 @@
 import "@/styles/tailwind.css";
 
+import Layout from "@layout/layout";
+import UserContext from "@state/userContext";
 import cn from "classix";
 import type { AppProps } from "next/app";
 import { Exo } from "next/font/google";
 import { useState } from "react";
-
-import Layout from "@/components/layout/layout";
-import UserContext from "@/state/userContext";
 
 const font = Exo({
   subsets: ["latin"],

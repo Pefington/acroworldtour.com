@@ -16,7 +16,17 @@
     "incremental": true,
     "skipDefaultLibCheck": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@event/*": ["./components/event/*"],
+      "@home/*": ["./components/home/*"],
+      "@layout/*": ["./components/layout/*"],
+      "@pilot/*": ["./components/pilot/*"],
+      "@results/*": ["./components/results/*"],
+      "@season/*": ["./components/season/*"],
+      "@ui/*": ["./components/ui/*"],
+      "@state/*": ["./state/*"],
+      "@utils/*": ["./utils/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "constants.ts"],

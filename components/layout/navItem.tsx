@@ -1,6 +1,3 @@
-import cn from "classix";
-import Link from "next/link";
-
 import {
   CalendarIcon,
   HomeIcon,
@@ -9,7 +6,9 @@ import {
   TeamsIcon,
   TricksIcon,
   TrophyIcon,
-} from "@/components/ui/icons";
+} from "@ui/icons";
+import cn from "classix";
+import Link from "next/link";
 
 interface Props {
   link: string;

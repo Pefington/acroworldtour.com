@@ -1,8 +1,7 @@
+import { swrPreload } from "@utils/swr";
 import cn from "classix";
 import Image from "next/image";
 import Link from "next/link";
-
-import { swrPreload } from "@/utils/swr";
 
 import NavItem from "./navItem";
 

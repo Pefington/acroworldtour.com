@@ -1,11 +1,11 @@
+import EventsSection from "@event/eventsSection";
+import { useLayout } from "@state/layoutContext";
+import { useUserContext } from "@state/userContext";
+import YearSelector from "@ui/yearSelector";
+import { swrPreload, useAPI } from "@utils/swr";
 import { useEffect } from "react";
 
-import EventsSection from "@/components/event/eventsSection";
-import YearSelector from "@/components/ui/yearSelector";
-import { useLayout } from "@/state/layoutContext";
-import { useUserContext } from "@/state/userContext";
 import { Competition, Season } from "@/types/project";
-import { swrPreload, useAPI } from "@/utils/swr";
 
 swrPreload("seasons");
 swrPreload("competitions");

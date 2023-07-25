@@ -1,10 +1,10 @@
+import BasicResultsCard from "@results/basicResultsCard";
+import BasicResultsCardSkeleton from "@results/basicResultsCardSkeleton";
+import { useAPI } from "@utils/swr";
 import cn from "classix";
 import Link from "next/link";
 
-import BasicResultsCard from "@/components/results/basicResultsCard";
-import BasicResultsCardSkeleton from "@/components/results/basicResultsCardSkeleton";
 import { Competition, Season } from "@/types/project";
-import { useAPI } from "@/utils/swr";
 
 const HomeResults = () => {
   const {

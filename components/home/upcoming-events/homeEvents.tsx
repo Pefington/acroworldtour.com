@@ -1,10 +1,10 @@
+import EventCard from "@event/eventCard";
+import EventCardSkeleton from "@event/eventCardSkeleton";
+import { useAPI } from "@utils/swr";
 import cn from "classix";
 import Link from "next/link";
 
-import EventCard from "@/components/event/eventCard";
-import EventCardSkeleton from "@/components/event/eventCardSkeleton";
 import { Competition } from "@/types/project";
-import { useAPI } from "@/utils/swr";
 
 const HomeEvents = () => {
   const {

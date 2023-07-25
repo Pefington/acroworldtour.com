@@ -1,13 +1,13 @@
 import "flickity/css/flickity.css";
 
+import PilotCard from "@pilot/pilotCard";
+import PilotCardSkeleton from "@pilot/pilotCardSkeleton";
+import { useAPI } from "@utils/swr";
 import cn from "classix";
 import Link from "next/link";
 import Flickity from "react-flickity-component";
 
-import PilotCard from "@/components/pilot/pilotCard";
-import PilotCardSkeleton from "@/components/pilot/pilotCardSkeleton";
 import { Pilot } from "@/types/project";
-import { useAPI } from "@/utils/swr";
 
 const HomePilots = () => {
   const {

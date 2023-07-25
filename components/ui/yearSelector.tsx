@@ -1,8 +1,7 @@
+import useLocalStorage from "@state/useLocalStorage";
+import { useUserContext } from "@state/userContext";
 import cn from "classix";
 import { useEffect } from "react";
-
-import useLocalStorage from "@/state/useLocalStorage";
-import { useUserContext } from "@/state/userContext";
 
 interface Props {
   years: number[];

@@ -1,14 +1,13 @@
+import HomePilots from "@home/discover-pilots/homePilots";
+import HomeHero from "@home/homeHero";
+import HomeIntro from "@home/intro-news/homeIntro";
+import HomeResults from "@home/latest-results/homeResults";
+import HomeRules from "@home/learn-rules/homeRules";
+import HomeEvents from "@home/upcoming-events/homeEvents";
+import { useLayout } from "@state/layoutContext";
+import ApiDown from "@ui/apiDown";
+import { swrPreload, useAPI } from "@utils/swr";
 import { useEffect } from "react";
-
-import HomePilots from "@/components/home/discover-pilots/homePilots";
-import HomeHero from "@/components/home/homeHero";
-import HomeIntro from "@/components/home/intro-news/homeIntro";
-import HomeResults from "@/components/home/latest-results/homeResults";
-import HomeRules from "@/components/home/learn-rules/homeRules";
-import HomeEvents from "@/components/home/upcoming-events/homeEvents";
-import ApiDown from "@/components/ui/apiDown";
-import { useLayout } from "@/state/layoutContext";
-import { swrPreload, useAPI } from "@/utils/swr";
 
 swrPreload("competitions");
 swrPreload("seasons");
