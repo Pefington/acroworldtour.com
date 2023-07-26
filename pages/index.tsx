@@ -1,9 +1,9 @@
-import HomePilots from "@home/discover-pilots/homePilots";
+import HomeEvents from "@home/homeEvents";
 import HomeHero from "@home/homeHero";
-import HomeIntro from "@home/intro-news/homeIntro";
-import HomeResults from "@home/latest-results/homeResults";
-import HomeRules from "@home/learn-rules/homeRules";
-import HomeEvents from "@home/upcoming-events/homeEvents";
+import HomeIntro from "@home/homeIntro";
+import HomePilots from "@home/homePilots";
+import HomeResults from "@home/homeResults";
+import HomeRules from "@home/homeRules";
 import { useLayout } from "@state/layoutContext";
 import ApiDown from "@ui/apiDown";
 import { swrPreload, useAPI } from "@utils/swr";
