@@ -1,7 +1,6 @@
 import "flickity/css/flickity.css";
 
 import PilotCard from "@pilot/pilotCard";
-import PilotCardSkeleton from "@pilot/pilotCardSkeleton";
 import { useAPI } from "@utils/swr";
 import cn from "classix";
 import Link from "next/link";
@@ -15,6 +14,8 @@ const HomePilots = () => {
     isLoading: pilotsLoading,
     error: pilotsError,
   } = useAPI<Pilot[]>("pilots");
+
+  pilots?.sort((a, b) => a.rank - b.rank);
 
   const awtPilots = pilots?.filter((pilot) => pilot.is_awt);
 
@@ -49,15 +50,13 @@ const HomePilots = () => {
           cellAlign: "center",
         }}
       >
-        {pilotsLoading || pilotsError
-          ? Array(10)
-              .fill(0)
-              .map((_, index) => (
-                <PilotCardSkeleton key={index} error={!!pilotsError} />
-              ))
-          : awtPilots?.map((pilot) => (
+        {awtPilots && awtPilots.length > 0
+          ? awtPilots.map((pilot) => (
               <PilotCard key={pilot.civlid} pilot={pilot} />
-            ))}
+            ))
+          : pilots
+              ?.slice(0, 12)
+              .map((pilot) => <PilotCard key={pilot.civlid} pilot={pilot} />)}
       </Flickity>
     </section>
   );
