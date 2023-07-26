@@ -8,9 +8,10 @@ import { Pilot } from "@/types/project";
 
 interface Props {
   pilot: Pilot;
+  loading: boolean;
 }
 
-const PilotCard = ({ pilot }: Props) => {
+const PilotCard = ({ pilot, loading }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
 
   const {
@@ -19,7 +20,15 @@ const PilotCard = ({ pilot }: Props) => {
     photo: photoLowres,
     photo_highres: photo,
     country,
-  } = pilot;
+  } = loading
+    ? {
+        civlid: 99999,
+        name: "Pilot Loading",
+        photo: "/img/blur.webp",
+        photo_highres: "/img/blur.webp",
+        country: undefined,
+      }
+    : pilot;
 
   return (
     <article
@@ -28,6 +37,7 @@ const PilotCard = ({ pilot }: Props) => {
         "aspect-[260/370] w-full max-w-card",
         "overflow-hidden rounded shadow-md",
         "hover:drop-shadow-lg",
+        "group",
       )}
     >
       <figure
@@ -51,21 +61,19 @@ const PilotCard = ({ pilot }: Props) => {
       </figure>
       <Link
         href={`/pilots/${civlid}`}
-        title={`View ${name}'s profile`}
+        title={`${name}'s page`}
         className={cn(
           "z-10 w-full",
           "flex flex-col justify-end",
           "py-7 text-center",
+          loading && "animate-pulse overflow-hidden blur-sm",
+          "group/link",
         )}
       >
-        <div>
-          <h3 className={cn("text-lg font-bold uppercase text-white")}>
-            {name}
-          </h3>
-          <p className={cn("font-semibold uppercase text-secondary-medium")}>
-            {getCountryName(country)}
-          </p>
-        </div>
+        <h3 className={cn("text-lg font-bold uppercase text-white")}>{name}</h3>
+        <p className={cn("font-semibold uppercase text-secondary-medium")}>
+          {getCountryName(country)}
+        </p>
       </Link>
     </article>
   );

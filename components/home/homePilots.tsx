@@ -15,27 +15,36 @@ const HomePilots = () => {
     error: pilotsError,
   } = useAPI<Pilot[]>("pilots");
 
-  pilots?.sort((a, b) => a.rank - b.rank);
-
-  const awtPilots = pilots?.filter((pilot) => pilot.is_awt);
+  const awtPilots = pilots
+    ?.filter((pilot) => pilot.is_awt)
+    .sort((a, b) => a.rank - b.rank);
 
   return (
-    <section
-      className={cn("bg-secondary-light awt-home-section", "flex flex-col")}
-    >
+    <section className="flex flex-col bg-secondary-light awt-home-section">
       <header className="flex items-center justify-between awt-center">
-        <h2 className={cn("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
-          Discover Our Pilots
-        </h2>
-        <Link
-          href="/pilots"
-          title="View all competitions"
+        <h2
           className={cn(
-            "mb-8 min-w-max font-bold text-accent hover:text-hover hover:drop-shadow-md",
+            "mb-8 text-3xl font-black uppercase",
+            "md:text-5xl",
+            pilotsError && "text-secondary-medium",
           )}
         >
-          View All
-        </Link>
+          {pilotsError ? "❌ Couldn't fetch pilots" : "Discover Our Pilots"}
+        </h2>
+        {!pilotsError && (
+          <Link
+            href="/pilots"
+            title="View all competitions"
+            className={cn(
+              "min-w-max",
+              "mb-8",
+              "font-bold text-accent",
+              "hover:-translate-y-0.5 hover:drop-shadow-md",
+            )}
+          >
+            View All
+          </Link>
+        )}
       </header>
       <Flickity /* Carousel */
         className={cn(
@@ -50,13 +59,14 @@ const HomePilots = () => {
           cellAlign: "center",
         }}
       >
-        {awtPilots && awtPilots.length > 0
-          ? awtPilots.map((pilot) => (
-              <PilotCard key={pilot.civlid} pilot={pilot} />
-            ))
-          : pilots
-              ?.slice(0, 12)
-              .map((pilot) => <PilotCard key={pilot.civlid} pilot={pilot} />)}
+        {!pilotsError &&
+          awtPilots?.map((pilot) => (
+            <PilotCard
+              key={pilot.civlid}
+              pilot={pilot}
+              loading={pilotsLoading}
+            />
+          ))}
       </Flickity>
     </section>
   );
