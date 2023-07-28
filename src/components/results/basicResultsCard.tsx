@@ -7,7 +7,7 @@ import {
   CompetitionResult,
   Season,
   SeasonResult,
-} from "@/types/selected-from-import";
+} from "@/types/api-types";
 
 interface Props {
   event: Competition | Season;

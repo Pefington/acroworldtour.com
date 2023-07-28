@@ -6,7 +6,7 @@ import cn from "classix";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { Season } from "@/types/selected-from-import";
+import { Season } from "@/types/api-types";
 
 import SeasonCardDetails from "./seasonCardDetails";
 

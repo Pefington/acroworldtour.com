@@ -1,4 +1,4 @@
-import "@/styles/tailwind.css";
+import "@styles/tailwind.css";
 
 import Layout from "@layout/layout";
 import UserContext from "@state/userContext";

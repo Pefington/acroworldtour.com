@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 
-import { Season } from "@/types/selected-from-import";
+import { Season } from "@/types/api-types";
 
 type SeasonCode = Season["code"];
 type Year = number;

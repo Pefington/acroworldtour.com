@@ -1,7 +1,6 @@
+import { SPORTING_CODE_MANUAL_URL } from "@constants";
 import cn from "classix";
 import Link from "next/link";
-
-import { SPORTING_CODE_MANUAL_URL } from "@/constants";
 
 const HomeRules = () => (
   <section className={cn("awt-home-section awt-center", "flex flex-col")}>

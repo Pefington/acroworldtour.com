@@ -3,7 +3,7 @@ import { NewTabIcon } from "@ui/icons";
 import cn from "classix";
 import Link from "next/link";
 
-import { Season } from "@/types/selected-from-import";
+import { Season } from "@/types/api-types";
 
 interface Props {
   season: Season;

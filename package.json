@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
-    "format": "prettier --write \"pages/**/*.tsx\" \"components/**/*.tsx\" \"state/**/*.tsx\" \"utils/**/*.ts\" \"styles/**/*.css\" \"types/**/*.ts\"",
+    "format": "prettier --write \"src/pages/**/*.tsx\" \"src/components/**/*.tsx\" \"src/state/**/*.tsx\" \"src/utils/**/*.ts\" \"src/styles/**/*.css\" \"types/**/*.ts\"",
     "interface": "openapi-typescript https://api.acroworldtour.com/openapi.json --output types/openapi-import.ts",
     "prepare": "husky install"
   },

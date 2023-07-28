@@ -40,12 +40,7 @@ export const useAPI = <T>(
   key: SwrKey,
   param: SwrParam = '',
 ): ApiResponse<T> => {
-  const {
-    data,
-    isLoading,
-    error,
-    isValidating,
-  } = useSWR(
+  const { data, isLoading, error, isValidating } = useSWR(
     `${API_URL}/${key}/${param}`,
     fetcher,
     // {

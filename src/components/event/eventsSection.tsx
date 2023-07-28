@@ -2,7 +2,7 @@ import SeasonCard from "@season/seasonCard";
 import SeasonCardSkeleton from "@season/seasonCardSkeleton";
 import cn from "classix";
 
-import { Season } from "@/types/selected-from-import";
+import { Season } from "@/types/api-types";
 
 interface Props {
   seasons: Season[];

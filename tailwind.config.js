@@ -4,9 +4,8 @@ import colors from 'tailwindcss/colors';
 
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/flowbite-react/**/*.js',
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -18,7 +17,6 @@ module.exports = {
         primary: colors.neutral[900],
         secondary: {
           light: colors.neutral[100],
-          'light-hover': colors.neutral[200],
           medium: colors.neutral[400],
           DEFAULT: colors.neutral[500],
         },
@@ -26,8 +24,6 @@ module.exports = {
           DEFAULT: colors.orange[500],
           light: colors.orange[400],
         },
-        hover: colors.amber[500],
-        skeleton: colors.neutral[200],
       },
       maxWidth: {
         card: 'min(80vw,260px)',

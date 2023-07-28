@@ -4,7 +4,7 @@ import { useAPI } from "@utils/swr";
 import cn from "classix";
 import Link from "next/link";
 
-import { Competition, Season } from "@/types/selected-from-import";
+import { Competition, Season } from "@/types/api-types";
 
 const HomeResults = () => {
   const {
@@ -59,7 +59,7 @@ const HomeResults = () => {
           href="/results"
           title="View all results"
           className={cn(
-            "mb-8 min-w-max font-bold text-accent hover:text-hover hover:drop-shadow-md",
+            "hover:text-hover mb-8 min-w-max font-bold text-accent hover:drop-shadow-md",
           )}
         >
           View All
