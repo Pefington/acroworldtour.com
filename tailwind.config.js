@@ -3,10 +3,7 @@
 import colors from 'tailwindcss/colors';
 
 module.exports = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.tsx'],
   theme: {
     extend: {
       borderRadius: {
