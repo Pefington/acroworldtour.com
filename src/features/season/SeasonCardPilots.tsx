@@ -1,9 +1,8 @@
-import cn from "classix";
+import { Season } from "@api-types";
+import { Flag } from "@ui/Flag";
+import { NewTabIcon } from "@ui/icons";
+import cx from "classix";
 import Link from "next/link";
-
-import { Flag } from "@/src/ui/flag";
-import { NewTabIcon } from "@/src/ui/icons";
-import { Season } from "@/types/api-types";
 
 interface Props {
   season: Season;
@@ -24,7 +23,7 @@ const SeasonCardPilots = ({ season, isExpanded }: Props) => {
   });
 
   return (
-    <div aria-hidden={!isExpanded} className={cn(isExpanded && "pb-2")}>
+    <div aria-hidden={!isExpanded} className={cx(isExpanded && "pb-2")}>
       {uniquePilots.map((pilot) => {
         const { name, civlid, country } = pilot;
         return (
@@ -33,7 +32,7 @@ const SeasonCardPilots = ({ season, isExpanded }: Props) => {
             href={`/pilots/${civlid}/${name}`}
             target="_blank"
             title={`${name}'s page - new tab`}
-            className={cn(
+            className={cx(
               "flex items-center",
               "pl-7 pr-5",
               "text-sm text-secondary",
@@ -46,7 +45,7 @@ const SeasonCardPilots = ({ season, isExpanded }: Props) => {
             <Flag country={country} className="-mt-px mr-3 h-3.5 w-3.5" />
             <p>{name}</p>
             <NewTabIcon
-              className={cn(
+              className={cx(
                 "fill-secondary opacity-0",
                 "h-2.5 w-2.5",
                 "ml-4 -translate-y-px",

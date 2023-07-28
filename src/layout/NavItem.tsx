@@ -1,6 +1,3 @@
-import cn from "classix";
-import Link from "next/link";
-
 import {
   CalendarIcon,
   HomeIcon,
@@ -9,7 +6,9 @@ import {
   TeamsIcon,
   TricksIcon,
   TrophyIcon,
-} from "@/src/ui/icons";
+} from "@ui/icons";
+import cx from "classix";
+import Link from "next/link";
 
 interface Props {
   link: string;
@@ -17,12 +16,12 @@ interface Props {
 }
 
 const NavItem = ({ link, active }: Props) => {
-  const iconClasses = cn("fill-white h-5 w-auto", "md:hidden");
+  const iconClasses = cx("fill-white h-5 w-auto", "md:hidden");
 
   return (
     <Link
       href={`/${link.toLowerCase()}`}
-      className={cn(
+      className={cx(
         "flex flex-col items-center justify-center gap-1",
         "fill-white text-xs font-semibold uppercase",
         "md:text-sm",

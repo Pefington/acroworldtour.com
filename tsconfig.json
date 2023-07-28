@@ -16,10 +16,8 @@
     "incremental": true,
     "skipDefaultLibCheck": true,
     "paths": {
-      "@/*": ["./*"],
-
+      "@state": ["./src/jotai.ts"],
       "@api-types": ["./types/api-types.ts"],
-
       "@constants": ["./constants.ts"],
 
       "@styles/*": ["./src/styles/*"],
@@ -27,14 +25,11 @@
       "@layout/*": ["./src/layout/*"],
       "@ui/*": ["./src/ui/*"],
 
-      "@features/*": ["./src/features/*"],
       "@event/*": ["./src/features/event/*"],
       "@home/*": ["./src/features/home/*"],
       "@pilot/*": ["./src/features/pilot/*"],
       "@results/*": ["./src/features/results/*"],
       "@season/*": ["./src/features/season/*"],
-
-      "@state/*": ["./src/state/*"],
 
       "@utils/*": ["./src/utils/*"]
     }

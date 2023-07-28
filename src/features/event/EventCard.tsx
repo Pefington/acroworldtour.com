@@ -1,12 +1,11 @@
+import { Competition, Season } from "@api-types";
+import { Flag } from "@ui/Flag";
+import { RolodexIcon } from "@ui/icons";
 import { useAPI } from "@utils/swr";
-import cn from "classix";
+import cx from "classix";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
-import { Flag } from "@/src/ui/flag";
-import { RolodexIcon } from "@/src/ui/icons";
-import { Competition, Season } from "@/types/api-types";
 
 interface Props {
   competition: Competition;
@@ -15,11 +14,7 @@ interface Props {
 const EventCard = ({ competition }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
 
-  const {
-    data: seasons,
-    isLoading: seasonsLoading,
-    error: seasonsError,
-  } = useAPI<Season[]>("seasons");
+  const { data: seasons } = useAPI<Season[]>("seasons");
 
   const {
     name,
@@ -50,7 +45,7 @@ const EventCard = ({ competition }: Props) => {
 
   return (
     <article
-      className={cn(
+      className={cx(
         "aspect-[2/3] w-full max-w-sm",
         "overflow-hidden rounded bg-white shadow-md",
         "flex flex-col",
@@ -60,15 +55,15 @@ const EventCard = ({ competition }: Props) => {
       <Link
         href={`/events/${code}/${name}`}
         title={name}
-        className={cn("grow", "overflow-hidden", "flex flex-col")}
+        className={cx("grow", "overflow-hidden", "flex flex-col")}
       >
-        <figure className={cn("relative w-full grow overflow-hidden")}>
+        <figure className={cx("relative w-full grow overflow-hidden")}>
           <Image
             src={image ?? "/img/blur.webp"}
             alt={name}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-            className={cn(
+            className={cx(
               "object-cover duration-500",
               "group-hover:scale-105",
               imgLoading && "scale-110 blur-2xl",
@@ -76,18 +71,18 @@ const EventCard = ({ competition }: Props) => {
             onLoadingComplete={() => setImgLoading(false)}
           />
         </figure>
-        <div className={cn("flex min-w-max flex-col gap-3 px-7 py-4")}>
-          <h3 className={cn("text-lg font-bold uppercase")}>
+        <div className={cx("flex min-w-max flex-col gap-3 px-7 py-4")}>
+          <h3 className={cx("text-lg font-bold uppercase")}>
             {nameWithoutYear}
           </h3>
-          <span className={cn("flex items-center gap-2 font-semibold")}>
+          <span className={cx("flex items-center gap-2 font-semibold")}>
             <RolodexIcon className="-ml-[2px] -mt-1 aspect-square h-[18px] fill-current" />
             {`${startDay} ${startMonth !== endMonth ? startMonth : ""} ${
               startYear !== endYear ? startYear : ""
             } to ${endDay} ${endMonth} ${endYear}`}
           </span>
           <span
-            className={cn(
+            className={cx(
               "flex items-center gap-3 text-sm font-medium text-secondary",
             )}
           >
@@ -96,7 +91,7 @@ const EventCard = ({ competition }: Props) => {
           </span>
         </div>
       </Link>
-      <div className={cn("mb-4 flex gap-2 px-7")}>
+      <div className={cx("mb-4 flex gap-2 px-7")}>
         {seasonCodes.map((code) => {
           const tag = code.slice(0, 3);
           const season = seasons?.find((season) => season.code === code);
@@ -106,15 +101,14 @@ const EventCard = ({ competition }: Props) => {
               key={code}
               href={`/events/${code}/${name}`}
               title={name}
-              className={cn(
+              className={cx(
                 "px-3 py-2",
                 "rounded-xl bg-accent text-white",
                 "text-sm font-semibold uppercase",
                 "hover:font-black",
-                seasonsLoading && "animate-pulse",
               )}
             >
-              {(seasonsError && "❗") || seasonsLoading ? "..." : tag}
+              {tag}
             </Link>
           );
         })}

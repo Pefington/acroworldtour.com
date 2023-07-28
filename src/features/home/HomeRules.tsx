@@ -1,10 +1,10 @@
 import { SPORTING_CODE_MANUAL_URL } from "@constants";
-import cn from "classix";
+import cx from "classix";
 import Link from "next/link";
 
 const HomeRules = () => (
-  <section className={cn("awt-home-section awt-center", "flex flex-col")}>
-    <h2 className={cn("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
+  <section className={cx("awt-home-section awt-center", "flex flex-col")}>
+    <h2 className={cx("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
       Learn the Rules
     </h2>
     <p>
@@ -18,7 +18,7 @@ const HomeRules = () => (
       }}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn(
+      className={cx(
         "w-full max-w-sm",
         "mt-7 p-4",
         "text-center text-sm font-bold",

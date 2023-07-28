@@ -1,4 +1,4 @@
-import cn from "classix";
+import cx from "classix";
 import { NextPageContext } from "next/types";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 const Error = ({ statusCode }: Props) => {
   return (
     <h2
-      className={cn(
+      className={cx(
         "w-screen grow",
         "flex items-center justify-center",
         "text-lg font-bold",

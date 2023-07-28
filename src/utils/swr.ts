@@ -1,7 +1,6 @@
+import { API_URL } from '@constants';
 import axios from 'axios';
 import useSWR, { preload } from 'swr';
-
-import { API_URL } from '@/constants';
 
 export type SwrKey =
   | 'pilots'

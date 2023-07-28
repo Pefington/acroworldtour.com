@@ -1,10 +1,9 @@
-import useLocalStorage from "@state/useLocalStorage";
-import { useUserContext } from "@state/userContext";
-import cn from "classix";
+import { youTubeConsentAtom } from "@state";
+import { YouTubeIcon } from "@ui/icons";
+import cx from "classix";
+import { useAtom } from "jotai";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-
-import { YouTubeIcon } from "@/src/ui/icons";
+import { useState } from "react";
 
 interface Props {
   title: string;
@@ -13,24 +12,7 @@ interface Props {
 
 const HomeYouTubeEmbed = ({ title, embedId }: Props) => {
   const [showDialog, setShowDialog] = useState(false);
-  const { youTubeConsent, setYouTubeConsent } = useUserContext();
-  const [storedYouTubeConsent, setStoredYouTubeConsent] = useLocalStorage(
-    "youTubeConsent",
-    null,
-  );
-
-  useEffect(() => {
-    if (storedYouTubeConsent) {
-      setYouTubeConsent(storedYouTubeConsent);
-    } else {
-      setStoredYouTubeConsent(youTubeConsent);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    setStoredYouTubeConsent(youTubeConsent);
-  }, [setStoredYouTubeConsent, youTubeConsent]);
+  const [youTubeConsent, setYouTubeConsent] = useAtom(youTubeConsentAtom);
 
   const handleDialog = (choice: "Accepted" | "Rejected") => {
     if (choice === "Accepted") setYouTubeConsent(true);
@@ -38,21 +20,21 @@ const HomeYouTubeEmbed = ({ title, embedId }: Props) => {
   };
 
   return (
-    <article className={cn("w-full", "lg:w-2/3")}>
-      <h2 className={cn("mb-4 text-3xl font-black uppercase")}>{title}</h2>
+    <article className={cx("w-full", "lg:w-2/3")}>
+      <h2 className={cx("mb-4 text-3xl font-black uppercase")}>{title}</h2>
       {youTubeConsent ? (
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${embedId}`}
           title="YouTube Video Player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          className={cn("aspect-video w-full rounded shadow-md outline-none")}
+          className={cx("aspect-video w-full rounded shadow-md outline-none")}
         />
       ) : (
         <div
           role="button"
           tabIndex={0}
-          className={cn(
+          className={cx(
             "relative grid place-items-center",
             "rounded bg-white shadow-md",
             "aspect-video w-full",
@@ -66,15 +48,15 @@ const HomeYouTubeEmbed = ({ title, embedId }: Props) => {
             alt="Youtube Video Thumbnail"
             fill
             sizes="100vw"
-            className={cn("rounded object-cover")}
+            className={cx("rounded object-cover")}
           />
 
-          <YouTubeIcon className={cn("z-20 scale-[300%] fill-[#ff0000]")} />
-          <div className={cn("absolute z-10 h-8 w-8 bg-white")} />
+          <YouTubeIcon className={cx("z-20 scale-[300%] fill-[#ff0000]")} />
+          <div className={cx("absolute z-10 h-8 w-8 bg-white")} />
 
           {showDialog && (
             <div
-              className={cn(
+              className={cx(
                 "absolute z-30 flex max-w-sm flex-col gap-4",
                 "rounded bg-white shadow-xl",
                 "text-left text-lg font-semibold",
@@ -86,9 +68,9 @@ const HomeYouTubeEmbed = ({ title, embedId }: Props) => {
                 {`Choosing 'OK' will load the YouTube embed and Google may track you.`}
               </p>
               <p>{`We can't help that.`}</p>
-              <div className={cn("mt-4 flex w-full justify-center gap-8")}>
+              <div className={cx("mt-4 flex w-full justify-center gap-8")}>
                 <button
-                  className={cn(
+                  className={cx(
                     "pointer-events-auto rounded-lg bg-[#ff0000] px-3 py-1 text-white hover:font-black",
                   )}
                   onClick={(event) => {
@@ -99,7 +81,7 @@ const HomeYouTubeEmbed = ({ title, embedId }: Props) => {
                   OK
                 </button>
                 <button
-                  className={cn(
+                  className={cx(
                     "pointer-events-auto rounded-lg bg-secondary px-3 py-1 text-white hover:font-black",
                   )}
                   onClick={(event) => {

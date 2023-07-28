@@ -1,17 +1,11 @@
+import { Competition } from "@api-types";
+import EventCard from "@event/EventCard";
 import { useAPI } from "@utils/swr";
-import cn from "classix";
+import cx from "classix";
 import Link from "next/link";
 
-import EventCard from "@/src/features/event/eventCard";
-import EventCardSkeleton from "@/src/features/event/eventCardSkeleton";
-import { Competition } from "@/types/api-types";
-
 const HomeEvents = () => {
-  const {
-    data: competitions,
-    isLoading: compsLoading,
-    error: compsError,
-  } = useAPI<Competition[]>("competitions");
+  const { data: competitions } = useAPI<Competition[]>("competitions");
 
   const upcomingEvents = competitions?.filter(
     (competition) => competition.state === "init",
@@ -27,13 +21,13 @@ const HomeEvents = () => {
 
   return (
     <section
-      className={cn(
+      className={cx(
         "bg-secondary-light awt-home-section awt-center",
         "flex flex-col",
       )}
     >
       <header className="flex items-center justify-between">
-        <h2 className={cn("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
+        <h2 className={cx("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
           {`${
             competitions && upcomingEvents?.length === 0 ? "No " : ""
           }Upcoming Events`}
@@ -41,7 +35,7 @@ const HomeEvents = () => {
         <Link
           href="/competitions"
           title="View all competitions"
-          className={cn(
+          className={cx(
             "hover:text-hover mb-8 min-w-max font-bold text-accent hover:drop-shadow-md",
           )}
         >
@@ -49,22 +43,16 @@ const HomeEvents = () => {
         </Link>
       </header>
       <div
-        className={cn(
+        className={cx(
           "grid place-items-center gap-10",
           "sm:grid-cols-2",
           "lg:grid-cols-3",
           "xl:grid-cols-4",
         )}
       >
-        {compsLoading || compsError
-          ? Array(4)
-              .fill(0)
-              .map((_, index) => (
-                <EventCardSkeleton key={index} error={!!compsError} />
-              ))
-          : nextFourEvents?.map((competition) => (
-              <EventCard key={competition.code} competition={competition} />
-            ))}
+        {nextFourEvents?.map((competition) => (
+          <EventCard key={competition.code} competition={competition} />
+        ))}
       </div>
     </section>
   );

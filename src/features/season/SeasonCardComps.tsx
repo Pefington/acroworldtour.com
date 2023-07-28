@@ -1,9 +1,8 @@
-import cn from "classix";
+import { Season } from "@api-types";
+import { Flag } from "@ui/Flag";
+import { NewTabIcon } from "@ui/icons";
+import cx from "classix";
 import Link from "next/link";
-
-import { Flag } from "@/src/ui/flag";
-import { NewTabIcon } from "@/src/ui/icons";
-import { Season } from "@/types/api-types";
 
 interface Props {
   season: Season;
@@ -15,7 +14,7 @@ const SeasonCardComps = ({ season, isExpanded }: Props) => {
   competitions.sort((a, b) => a.start_date.localeCompare(b.start_date));
 
   return (
-    <div aria-hidden={!isExpanded} className={cn(isExpanded && "pb-2")}>
+    <div aria-hidden={!isExpanded} className={cx(isExpanded && "pb-2")}>
       {competitions.map((comp) => {
         const { name, code, location, start_date, state } = comp;
         const nameWithoutYear = name.split(" ").slice(0, -1).join(" ");
@@ -31,7 +30,7 @@ const SeasonCardComps = ({ season, isExpanded }: Props) => {
             href={`/events/${code}/${name}`}
             target="_blank"
             title={`${nameWithoutYear}'s page - new tab`}
-            className={cn(
+            className={cx(
               "flex items-center",
               "pl-7 pr-5",
               "text-sm",
@@ -52,7 +51,7 @@ const SeasonCardComps = ({ season, isExpanded }: Props) => {
               </p>
             </div>
             <NewTabIcon
-              className={cn(
+              className={cx(
                 "fill-secondary opacity-0",
                 "h-2.5 w-2.5",
                 "ml-4 -translate-y-px",

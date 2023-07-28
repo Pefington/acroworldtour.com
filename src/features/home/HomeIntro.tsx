@@ -1,13 +1,13 @@
-import cn from "classix";
+import cx from "classix";
 
-import HomeIntroNewsMain from "./homeIntroNewsMain";
-import HomeIntroNewsSecondary from "./homeIntroNewsSecondary";
-import HomeYouTubeEmbed from "./homeYoutubeEmbed";
+import HomeIntroNewsMain from "./HomeIntroNewsMain";
+import HomeIntroNewsSecondary from "./HomeIntroNewsSecondary";
+import HomeYouTubeEmbed from "./HomeYoutubeEmbed";
 
 const HomeIntro = () => {
   return (
     <div
-      className={cn(
+      className={cx(
         "awt-home-section awt-center",
         "flex flex-col gap-10",
         "lg:flex-row",
@@ -18,8 +18,8 @@ const HomeIntro = () => {
         embedId="tIfpP5pdqZ4"
       />
 
-      <section className={cn("flex flex-col")}>
-        <h2 className={cn("mb-4 text-3xl font-black uppercase")}>Hot News</h2>
+      <section className={cx("flex flex-col")}>
+        <h2 className={cx("mb-4 text-3xl font-black uppercase")}>Hot News</h2>
 
         <HomeIntroNewsMain
           title="Dutch pilot wins Acro World Cup for the first time in history"
@@ -28,7 +28,7 @@ const HomeIntro = () => {
           imageUrl="/img/news/news-1.webp"
         />
 
-        <div className={cn("flex flex-col gap-3")}>
+        <div className={cx("flex flex-col gap-3")}>
           <HomeIntroNewsSecondary
             title="Nest Games AWT 01 results"
             date="24 September 2022"

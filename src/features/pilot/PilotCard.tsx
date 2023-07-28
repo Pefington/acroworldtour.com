@@ -1,14 +1,13 @@
+import { Pilot } from "@api-types";
 import { getCountryName } from "@utils/countries";
-import cn from "classix";
+import cx from "classix";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { Pilot } from "@/types/api-types";
-
 interface Props {
   pilot: Pilot;
-  loading: boolean;
+  loading?: boolean;
 }
 
 const PilotCard = ({ pilot, loading }: Props) => {
@@ -32,7 +31,7 @@ const PilotCard = ({ pilot, loading }: Props) => {
 
   return (
     <article
-      className={cn(
+      className={cx(
         "relative flex flex-col justify-end",
         "aspect-[260/370] w-full max-w-card",
         "overflow-hidden rounded shadow-md",
@@ -41,7 +40,7 @@ const PilotCard = ({ pilot, loading }: Props) => {
       )}
     >
       <figure
-        className={cn(
+        className={cx(
           "absolute inset-0",
           "bg-gradient-to-b from-transparent to-slate-900/90",
         )}
@@ -51,7 +50,7 @@ const PilotCard = ({ pilot, loading }: Props) => {
           alt={name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-          className={cn(
+          className={cx(
             "-z-10 object-cover duration-500",
             "group-hover:scale-105",
             imgLoading && "scale-110 blur-2xl",
@@ -62,7 +61,7 @@ const PilotCard = ({ pilot, loading }: Props) => {
       <Link
         href={`/pilots/${civlid}`}
         title={`${name}'s page`}
-        className={cn(
+        className={cx(
           "z-10 w-full",
           "flex flex-col justify-end",
           "py-7 text-center",
@@ -70,8 +69,8 @@ const PilotCard = ({ pilot, loading }: Props) => {
           "group/link",
         )}
       >
-        <h3 className={cn("text-lg font-bold uppercase text-white")}>{name}</h3>
-        <p className={cn("font-semibold uppercase text-secondary-medium")}>
+        <h3 className={cx("text-lg font-bold uppercase text-white")}>{name}</h3>
+        <p className={cx("font-semibold uppercase text-secondary-medium")}>
           {getCountryName(country)}
         </p>
       </Link>

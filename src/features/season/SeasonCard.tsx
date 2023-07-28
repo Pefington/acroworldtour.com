@@ -1,14 +1,13 @@
-import useLocalStorage from "@state/useLocalStorage";
-import { useUserContext } from "@state/userContext";
-import cn from "classix";
+import { Season } from "@api-types";
+import { activeSeasonCodesAtom, activeYearAtom } from "@state";
+import { Flag } from "@ui/Flag";
+import { ChevronIcon } from "@ui/icons";
+import cx from "classix";
+import { useAtom } from "jotai";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { Flag } from "@/src/ui/flag";
-import { ChevronIcon } from "@/src/ui/icons";
-import { Season } from "@/types/api-types";
-
-import SeasonCardDetails from "./seasonCardDetails";
+import SeasonCardDetails from "./SeasonCardDetails";
 
 interface Props {
   season: Season;
@@ -18,31 +17,19 @@ const SeasonCard = ({ season }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
   const [isBlurred, setIsBlurred] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const { activeYear, activeSeasonCodes, setActiveSeasonCodes } =
-    useUserContext();
 
-  const [storedSeasonCodes, setStoredSeasonCodes] = useLocalStorage(
-    "activeSeasonCodes",
-    null,
+  const [activeYear] = useAtom(activeYearAtom);
+  const [activeSeasonCodes, setActiveSeasonCodes] = useAtom(
+    activeSeasonCodesAtom,
   );
 
   useEffect(() => {
-    if (storedSeasonCodes) {
-      setActiveSeasonCodes(storedSeasonCodes);
-    } else {
-      setStoredSeasonCodes(activeSeasonCodes);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    setStoredSeasonCodes(activeSeasonCodes);
     setIsBlurred(
       !!activeSeasonCodes[activeYear] &&
         activeSeasonCodes[activeYear] !== season.code,
     );
     setIsExpanded(activeSeasonCodes[activeYear] === season.code);
-  }, [activeSeasonCodes, activeYear, season.code, setStoredSeasonCodes]);
+  }, [activeSeasonCodes, activeYear, season.code]);
 
   const { name, image, competitions, country } = season;
 
@@ -60,14 +47,14 @@ const SeasonCard = ({ season }: Props) => {
 
   return (
     <article
-      className={cn(
+      className={cx(
         "w-full rounded-md shadow-md",
         "group",
         !isExpanded && "aspect-video",
       )}
     >
       <button
-        className={cn(
+        className={cx(
           "flex flex-col justify-end",
           "aspect-video w-full min-w-max",
           "overflow-hidden rounded-md bg-white",
@@ -77,7 +64,7 @@ const SeasonCard = ({ season }: Props) => {
         onClick={() => handleSelect(season.code)}
         onKeyDown={({ key }) => key === "Enter" && handleSelect(season.code)}
       >
-        <figure className={cn("relative flex h-full w-full overflow-hidden")}>
+        <figure className={cx("relative flex h-full w-full overflow-hidden")}>
           {image ? (
             <Image
               src={image}
@@ -85,7 +72,7 @@ const SeasonCard = ({ season }: Props) => {
               priority
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-              className={cn(
+              className={cx(
                 "object-cover duration-500",
                 !isBlurred && !isExpanded && "group-hover:scale-105",
                 imgLoading && "scale-110 blur-2xl",
@@ -98,7 +85,7 @@ const SeasonCard = ({ season }: Props) => {
               return (
                 <div
                   key={code}
-                  className={cn(
+                  className={cx(
                     "relative h-full w-full",
                     !isBlurred && !isExpanded && "group-hover:scale-105",
                     imgLoading && "scale-110 blur-2xl",
@@ -110,7 +97,7 @@ const SeasonCard = ({ season }: Props) => {
                     priority
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 10vw"
-                    className={cn("object-cover")}
+                    className={cx("object-cover")}
                     onLoadingComplete={() => setImgLoading(false)}
                   />
                 </div>
@@ -118,13 +105,13 @@ const SeasonCard = ({ season }: Props) => {
             })
           )}
         </figure>
-        <div className={cn("flex items-center gap-2 px-4 py-2")}>
+        <div className={cx("flex items-center gap-2 px-4 py-2")}>
           <Flag country={country} className="-mt-0.5 h-5 w-5" />
-          <h4 className={cn("font-bold uppercase", "sm:text-lg")}>
+          <h4 className={cx("font-bold uppercase", "sm:text-lg")}>
             {nameWithoutYear}
           </h4>
           <ChevronIcon
-            className={cn("h-4 fill-secondary", isExpanded && "rotate-180")}
+            className={cx("h-4 fill-secondary", isExpanded && "rotate-180")}
           />
         </div>
       </button>

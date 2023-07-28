@@ -1,5 +1,5 @@
 import { getCountryCode, getCountryName } from "@utils/countries";
-import cn from "classix";
+import cx from "classix";
 import { CircleFlag } from "react-circle-flags";
 
 interface Props {
@@ -13,6 +13,6 @@ export const Flag = ({ country, className }: Props) => (
     width={20}
     height={20}
     countryCode={getCountryCode(country)}
-    className={cn(className || "h-5 w-5")}
+    className={cx(className || "h-5 w-5")}
   />
 );

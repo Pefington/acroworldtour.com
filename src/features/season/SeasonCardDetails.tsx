@@ -1,12 +1,11 @@
+import { Season } from "@api-types";
+import { ChevronIcon } from "@ui/icons";
 import { getCountryName } from "@utils/countries";
-import cn from "classix";
+import cx from "classix";
 import { useState } from "react";
 
-import { ChevronIcon } from "@/src/ui/icons";
-import { Season } from "@/types/api-types";
-
-import SeasonCardComps from "./seasonCardComps";
-import SeasonCardPilots from "./seasonCardPilots";
+import SeasonCardComps from "./SeasonCardComps";
+import SeasonCardPilots from "./SeasonCardPilots";
 
 interface Props {
   season: Season;
@@ -30,7 +29,7 @@ const SeasonCardDetails = ({ season, isExpanded }: Props) => {
   return (
     <div
       aria-hidden={!isExpanded}
-      className={cn(
+      className={cx(
         "flex w-full flex-col",
         "text-sm font-bold uppercase",
         "[&_*]:overflow-hidden",
@@ -40,7 +39,7 @@ const SeasonCardDetails = ({ season, isExpanded }: Props) => {
       )}
     >
       <p
-        className={cn(
+        className={cx(
           "ml-5 w-max",
           "border-b border-accent-light",
           isExpanded ? "mb-2 border-opacity-100" : "mb-0 border-opacity-0",
@@ -51,17 +50,17 @@ const SeasonCardDetails = ({ season, isExpanded }: Props) => {
 
       <button
         disabled={noContestants}
-        className={cn("flex items-center px-5 uppercase")}
+        className={cx("flex items-center px-5 uppercase")}
         onClick={() => setShowCat(showCat === "pilots" ? "none" : "pilots")}
       >
         {type === "solo" ? (
-          <p className={cn(!numberOfPilots && "text-secondary-medium")}>
+          <p className={cx(!numberOfPilots && "text-secondary-medium")}>
             {numberOfPilots
               ? `${numberOfPilots} pilot${numberOfPilots > 1 ? "s" : ""}`
               : "No pilots registered yet"}
           </p>
         ) : (
-          <p className={cn(!numberOfPilots && "text-secondary-medium")}>
+          <p className={cx(!numberOfPilots && "text-secondary-medium")}>
             {numberOfTeams
               ? `${numberOfTeams} team${numberOfTeams > 1 ? "s" : ""}`
               : "No teams registered yet"}
@@ -70,7 +69,7 @@ const SeasonCardDetails = ({ season, isExpanded }: Props) => {
 
         {!noContestants && (
           <ChevronIcon
-            className={cn(
+            className={cx(
               "h-3 fill-secondary",
               showCat === "pilots" && "rotate-180",
             )}
@@ -85,7 +84,7 @@ const SeasonCardDetails = ({ season, isExpanded }: Props) => {
 
       <button
         disabled={!numberOfCompetitions}
-        className={cn("flex items-center px-5 uppercase")}
+        className={cx("flex items-center px-5 uppercase")}
         onClick={() => setShowCat(showCat === "comps" ? "none" : "comps")}
       >
         {`${numberOfCompetitions} competition${
@@ -93,7 +92,7 @@ const SeasonCardDetails = ({ season, isExpanded }: Props) => {
         }`}
         {numberOfCompetitions && (
           <ChevronIcon
-            className={cn(
+            className={cx(
               "h-3 fill-secondary",
               showCat === "comps" && "rotate-180",
             )}

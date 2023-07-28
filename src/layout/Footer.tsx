@@ -1,12 +1,11 @@
-import cn from "classix";
-
-import SocialLink from "@/src/ui/socialLink";
+import SocialLink from "@ui/SocialLink";
+import cx from "classix";
 
 const currentYear = new Date().getFullYear();
 
 const Footer = () => (
   <footer
-    className={cn(
+    className={cx(
       "w-full",
       "flex flex-col items-center justify-center gap-3",
       "sm:flex-row sm:justify-between",

@@ -1,9 +1,9 @@
-import cn from "classix";
+import cx from "classix";
 
 const Custom500 = () => {
   return (
     <h2
-      className={cn(
+      className={cx(
         "w-screen grow",
         "flex items-center justify-center",
         "text-lg font-bold",

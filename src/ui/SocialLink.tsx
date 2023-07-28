@@ -1,4 +1,4 @@
-import cn from "classix";
+import cx from "classix";
 import Link from "next/link";
 
 import {
@@ -42,7 +42,7 @@ const SocialLink = ({ className, link }: Props) => {
       href={{ pathname: link }}
       title={media}
       target="_blank"
-      className={cn(
+      className={cx(
         /* "icons", in caller */
         className,
       )}

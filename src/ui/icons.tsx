@@ -1,8 +1,8 @@
+/* Prefer icons from https://fontawesome.com/icons for consistency */
+
 interface Props {
   className?: string;
 }
-
-/* Prefer icons from https://fontawesome.com/icons for consistency */
 
 export const HomeIcon = ({ className }: Props) => (
   <svg

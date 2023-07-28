@@ -1,11 +1,10 @@
-import { useLayout } from "@state/layoutContext";
-import { useUserContext } from "@state/userContext";
+import { Competition, Season } from "@api-types";
+import EventsSection from "@event/EventsSection";
+import { activeNavAtom, activeYearAtom, pageTitleAtom } from "@state";
+import YearSelector from "@ui/YearSelector";
 import { swrPreload, useAPI } from "@utils/swr";
+import { useAtom, useSetAtom } from "jotai";
 import { useEffect } from "react";
-
-import EventsSection from "@/src/features/event/eventsSection";
-import YearSelector from "@/src/ui/yearSelector";
-import { Competition, Season } from "@/types/api-types";
 
 swrPreload("seasons");
 swrPreload("competitions");
@@ -13,8 +12,11 @@ swrPreload("competitions");
 const currentYear = new Date().getFullYear();
 
 const Competitions = () => {
-  const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
-  const { activeYear } = useUserContext();
+  const setActiveNav = useSetAtom(activeNavAtom);
+  const setPageTitle = useSetAtom(pageTitleAtom);
+  const setPageDescription = useSetAtom(pageTitleAtom);
+
+  const [activeYear] = useAtom(activeYearAtom);
 
   useEffect(() => {
     setPageTitle("Acro World Tour | Events");
@@ -22,19 +24,8 @@ const Competitions = () => {
     setActiveNav("events");
   }, [setPageTitle, setPageDescription, setActiveNav]);
 
-  const {
-    data: seasons,
-    isLoading: seasonsLoading,
-    error: seasonsError,
-  } = useAPI<Season[]>("seasons");
-  const {
-    data: competitions,
-    isLoading: compsLoading,
-    error: compsError,
-  } = useAPI<Competition[]>("competitions");
-
-  const loading = seasonsLoading || compsLoading;
-  const error = seasonsError || compsError;
+  const { data: seasons } = useAPI<Season[]>("seasons");
+  const { data: competitions } = useAPI<Competition[]>("competitions");
 
   seasons?.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -73,6 +64,8 @@ const Competitions = () => {
   //   (competition) => competition.seasons.length === 0,
   // );
 
+  console.log(soloSeasons);
+
   return (
     <>
       <header className="flex flex-wrap items-baseline awt-header awt-center">
@@ -80,25 +73,12 @@ const Competitions = () => {
           years={years}
           list={filteredSeasons || []}
           pluralString={"seasons"}
-          loading={loading}
         />
       </header>
-      {loading ||
-        error ||
-        (soloSeasons && soloSeasons.length > 0 && (
-          <EventsSection
-            seasons={soloSeasons}
-            loading={loading}
-            error={!!error}
-          />
-        ))}
-      {synchroSeasons && synchroSeasons.length > 0 && (
-        <EventsSection
-          seasons={synchroSeasons}
-          loading={loading}
-          error={!!error}
-        />
-      )}
+
+      {soloSeasons?.length && <EventsSection seasons={soloSeasons} />}
+      {synchroSeasons?.length && <EventsSection seasons={synchroSeasons} />}
+
       {
         // competitions && (
         // <div className={cn("flex flex-wrap justify-evenly gap-8 awt-center")}>
