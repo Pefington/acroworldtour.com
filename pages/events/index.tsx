@@ -5,7 +5,7 @@ import YearSelector from "@ui/yearSelector";
 import { swrPreload, useAPI } from "@utils/swr";
 import { useEffect } from "react";
 
-import { Competition, Season } from "@/types/project";
+import { Competition, Season } from "@/types/selected-from-import";
 
 swrPreload("seasons");
 swrPreload("competitions");

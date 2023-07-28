@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { Pilot } from "@/types/project";
+import { Pilot } from "@/types/selected-from-import";
 
 interface Props {
   pilot: Pilot;

@@ -3,334 +3,333 @@
  * Do not make direct changes to the file.
  */
 
-
 export interface paths {
-  "/auth/login": {
+  '/auth/login': {
     /**
      * Login
      * @description Get the JWT for a user with data from OAuth2 request form body.
      */
-    post: operations["login_auth_login_post"];
+    post: operations['login_auth_login_post'];
   };
-  "/auth/me": {
+  '/auth/me': {
     /** Me */
-    get: operations["me_auth_me_get"];
+    get: operations['me_auth_me_get'];
   };
-  "/status/": {
+  '/status/': {
     /** Get */
-    get: operations["get_status__get"];
+    get: operations['get_status__get'];
   };
-  "/pilots/": {
+  '/pilots/': {
     /** List */
-    get: operations["list_pilots__get"];
+    get: operations['list_pilots__get'];
   };
-  "/pilots/{civlid}": {
+  '/pilots/{civlid}': {
     /** Get */
-    get: operations["get_pilots__civlid__get"];
+    get: operations['get_pilots__civlid__get'];
     /** Create */
-    post: operations["create_pilots__civlid__post"];
+    post: operations['create_pilots__civlid__post'];
   };
-  "/pilots/update_all": {
+  '/pilots/update_all': {
     /** Sync */
-    post: operations["sync_pilots_update_all_post"];
+    post: operations['sync_pilots_update_all_post'];
   };
-  "/pilots/update_rankings": {
+  '/pilots/update_rankings': {
     /** Update Rankings */
-    post: operations["update_rankings_pilots_update_rankings_post"];
+    post: operations['update_rankings_pilots_update_rankings_post'];
   };
-  "/pilots/{civlid}/gender": {
+  '/pilots/{civlid}/gender': {
     /** Change Gender */
-    patch: operations["change_gender_pilots__civlid__gender_patch"];
+    patch: operations['change_gender_pilots__civlid__gender_patch'];
   };
-  "/pilots/{civlid}/awt": {
+  '/pilots/{civlid}/awt': {
     /** Change Gender */
-    patch: operations["change_gender_pilots__civlid__awt_patch"];
+    patch: operations['change_gender_pilots__civlid__awt_patch'];
   };
-  "/judges/": {
+  '/judges/': {
     /** List */
-    get: operations["list_judges__get"];
+    get: operations['list_judges__get'];
   };
-  "/judges/levels": {
+  '/judges/levels': {
     /** Get Levels */
-    get: operations["get_levels_judges_levels_get"];
+    get: operations['get_levels_judges_levels_get'];
   };
-  "/judges/{id}": {
+  '/judges/{id}': {
     /** Get */
-    get: operations["get_judges__id__get"];
+    get: operations['get_judges__id__get'];
     /** Update */
-    put: operations["update_judges__id__put"];
+    put: operations['update_judges__id__put'];
     /** Delete */
-    delete: operations["delete_judges__id__delete"];
+    delete: operations['delete_judges__id__delete'];
   };
-  "/judges/new": {
+  '/judges/new': {
     /** Create */
-    post: operations["create_judges_new_post"];
+    post: operations['create_judges_new_post'];
   };
-  "/teams/": {
+  '/teams/': {
     /** List */
-    get: operations["list_teams__get"];
+    get: operations['list_teams__get'];
   };
-  "/teams/{id}": {
+  '/teams/{id}': {
     /** Get */
-    get: operations["get_teams__id__get"];
+    get: operations['get_teams__id__get'];
     /** Update */
-    put: operations["update_teams__id__put"];
+    put: operations['update_teams__id__put'];
     /** Delete */
-    delete: operations["delete_teams__id__delete"];
+    delete: operations['delete_teams__id__delete'];
   };
-  "/teams/new": {
+  '/teams/new': {
     /** Create */
-    post: operations["create_teams_new_post"];
+    post: operations['create_teams_new_post'];
   };
-  "/tricks/": {
+  '/tricks/': {
     /** List */
-    get: operations["list_tricks__get"];
+    get: operations['list_tricks__get'];
   };
-  "/tricks/uniques": {
+  '/tricks/uniques': {
     /** Get Unique Tricks */
-    get: operations["get_unique_tricks_tricks_uniques_get"];
+    get: operations['get_unique_tricks_tricks_uniques_get'];
   };
-  "/tricks/bonuses": {
+  '/tricks/bonuses': {
     /** Get Bonuses */
-    get: operations["get_bonuses_tricks_bonuses_get"];
+    get: operations['get_bonuses_tricks_bonuses_get'];
   };
-  "/tricks/directions": {
+  '/tricks/directions': {
     /** Get Directions */
-    get: operations["get_directions_tricks_directions_get"];
+    get: operations['get_directions_tricks_directions_get'];
   };
-  "/tricks/unique/{id}": {
+  '/tricks/unique/{id}': {
     /** Get Unique Trick */
-    get: operations["get_unique_trick_tricks_unique__id__get"];
+    get: operations['get_unique_trick_tricks_unique__id__get'];
   };
-  "/tricks/{id}": {
+  '/tricks/{id}': {
     /** Get */
-    get: operations["get_tricks__id__get"];
+    get: operations['get_tricks__id__get'];
     /** Update */
-    put: operations["update_tricks__id__put"];
+    put: operations['update_tricks__id__put'];
     /** Delete */
-    delete: operations["delete_tricks__id__delete"];
+    delete: operations['delete_tricks__id__delete'];
   };
-  "/tricks/new": {
+  '/tricks/new': {
     /** Create */
-    post: operations["create_tricks_new_post"];
+    post: operations['create_tricks_new_post'];
   };
-  "/tricks/import": {
+  '/tricks/import': {
     /** Create Import */
-    post: operations["create_import_tricks_import_post"];
+    post: operations['create_import_tricks_import_post'];
   };
-  "/competitions/": {
+  '/competitions/': {
     /** List */
-    get: operations["list_competitions__get"];
+    get: operations['list_competitions__get'];
   };
-  "/competitions/{id}": {
+  '/competitions/{id}': {
     /** Get By Id */
-    get: operations["get_by_id_competitions__id__get"];
+    get: operations['get_by_id_competitions__id__get'];
     /** Delete */
-    delete: operations["delete_competitions__id__delete"];
+    delete: operations['delete_competitions__id__delete'];
     /** Update */
-    patch: operations["update_competitions__id__patch"];
+    patch: operations['update_competitions__id__patch'];
   };
-  "/competitions/new": {
+  '/competitions/new': {
     /** Create */
-    post: operations["create_competitions_new_post"];
+    post: operations['create_competitions_new_post'];
   };
-  "/competitions/{id}/pilots": {
+  '/competitions/{id}/pilots': {
     /** Patch Pilots */
-    patch: operations["patch_pilots_competitions__id__pilots_patch"];
+    patch: operations['patch_pilots_competitions__id__pilots_patch'];
   };
-  "/competitions/{id}/teams": {
+  '/competitions/{id}/teams': {
     /** Patch Teams */
-    patch: operations["patch_teams_competitions__id__teams_patch"];
+    patch: operations['patch_teams_competitions__id__teams_patch'];
   };
-  "/competitions/{id}/judges": {
+  '/competitions/{id}/judges': {
     /** Patch Judges */
-    patch: operations["patch_judges_competitions__id__judges_patch"];
+    patch: operations['patch_judges_competitions__id__judges_patch'];
   };
-  "/competitions/{id}/repeatable_tricks": {
+  '/competitions/{id}/repeatable_tricks': {
     /** Patch Repeatable Tricks */
-    patch: operations["patch_repeatable_tricks_competitions__id__repeatable_tricks_patch"];
+    patch: operations['patch_repeatable_tricks_competitions__id__repeatable_tricks_patch'];
   };
-  "/competitions/{id}/config": {
+  '/competitions/{id}/config': {
     /** Patch Config */
-    patch: operations["patch_config_competitions__id__config_patch"];
+    patch: operations['patch_config_competitions__id__config_patch'];
   };
-  "/competitions/{id}/open": {
+  '/competitions/{id}/open': {
     /** Open */
-    post: operations["open_competitions__id__open_post"];
+    post: operations['open_competitions__id__open_post'];
   };
-  "/competitions/{id}/close": {
+  '/competitions/{id}/close': {
     /** Close */
-    post: operations["close_competitions__id__close_post"];
+    post: operations['close_competitions__id__close_post'];
   };
-  "/competitions/{id}/reopen": {
+  '/competitions/{id}/reopen': {
     /** Close */
-    post: operations["close_competitions__id__reopen_post"];
+    post: operations['close_competitions__id__reopen_post'];
   };
-  "/competitions/{id}/runs/new": {
+  '/competitions/{id}/runs/new': {
     /** New Run */
-    post: operations["new_run_competitions__id__runs_new_post"];
+    post: operations['new_run_competitions__id__runs_new_post'];
   };
-  "/competitions/{cid}/runs/{rid}": {
+  '/competitions/{cid}/runs/{rid}': {
     /** Get Run */
-    get: operations["get_run_competitions__cid__runs__rid__get"];
+    get: operations['get_run_competitions__cid__runs__rid__get'];
   };
-  "/competitions/{id}/runs/{i}/pilots": {
+  '/competitions/{id}/runs/{i}/pilots': {
     /** Patch Run Pilots */
-    patch: operations["patch_run_pilots_competitions__id__runs__i__pilots_patch"];
+    patch: operations['patch_run_pilots_competitions__id__runs__i__pilots_patch'];
   };
-  "/competitions/{id}/runs/{i}/teams": {
+  '/competitions/{id}/runs/{i}/teams': {
     /** Patch Run Teams */
-    patch: operations["patch_run_teams_competitions__id__runs__i__teams_patch"];
+    patch: operations['patch_run_teams_competitions__id__runs__i__teams_patch'];
   };
-  "/competitions/{id}/runs/{i}/judges": {
+  '/competitions/{id}/runs/{i}/judges': {
     /** Patch Run Judges */
-    patch: operations["patch_run_judges_competitions__id__runs__i__judges_patch"];
+    patch: operations['patch_run_judges_competitions__id__runs__i__judges_patch'];
   };
-  "/competitions/{id}/runs/{i}/repeatable_tricks": {
+  '/competitions/{id}/runs/{i}/repeatable_tricks': {
     /** Patch Run Repeatable Tricks */
-    patch: operations["patch_run_repeatable_tricks_competitions__id__runs__i__repeatable_tricks_patch"];
+    patch: operations['patch_run_repeatable_tricks_competitions__id__runs__i__repeatable_tricks_patch'];
   };
-  "/competitions/{id}/runs/{i}/config": {
+  '/competitions/{id}/runs/{i}/config': {
     /** Patch Run Config */
-    patch: operations["patch_run_config_competitions__id__runs__i__config_patch"];
+    patch: operations['patch_run_config_competitions__id__runs__i__config_patch'];
   };
-  "/competitions/{id}/runs/{i}/open": {
+  '/competitions/{id}/runs/{i}/open': {
     /** Run Open */
-    post: operations["run_open_competitions__id__runs__i__open_post"];
+    post: operations['run_open_competitions__id__runs__i__open_post'];
   };
-  "/competitions/{id}/runs/{i}/close": {
+  '/competitions/{id}/runs/{i}/close': {
     /** Run Close */
-    post: operations["run_close_competitions__id__runs__i__close_post"];
+    post: operations['run_close_competitions__id__runs__i__close_post'];
   };
-  "/competitions/{id}/runs/{i}/reopen": {
+  '/competitions/{id}/runs/{i}/reopen': {
     /** Run Reopen */
-    post: operations["run_reopen_competitions__id__runs__i__reopen_post"];
+    post: operations['run_reopen_competitions__id__runs__i__reopen_post'];
   };
-  "/competitions/{id}/runs/{i}/flights/{pilot_team_id}": {
+  '/competitions/{id}/runs/{i}/flights/{pilot_team_id}': {
     /** Flight Get */
-    get: operations["flight_get_competitions__id__runs__i__flights__pilot_team_id__get"];
+    get: operations['flight_get_competitions__id__runs__i__flights__pilot_team_id__get'];
   };
-  "/competitions/{id}/runs/{i}/flights/{pilot_team_id}/new": {
+  '/competitions/{id}/runs/{i}/flights/{pilot_team_id}/new': {
     /** Flight Save */
-    post: operations["flight_save_competitions__id__runs__i__flights__pilot_team_id__new_post"];
+    post: operations['flight_save_competitions__id__runs__i__flights__pilot_team_id__new_post'];
   };
-  "/competitions/{id}/results": {
+  '/competitions/{id}/results': {
     /** Get All Results */
-    get: operations["get_all_results_competitions__id__results_get"];
+    get: operations['get_all_results_competitions__id__results_get'];
   };
-  "/competitions/{id}/results/export": {
+  '/competitions/{id}/results/export': {
     /** Get Export Results */
-    get: operations["get_export_results_competitions__id__results_export_get"];
+    get: operations['get_export_results_competitions__id__results_export_get'];
   };
-  "/competitions/{id}/results/{i}": {
+  '/competitions/{id}/results/{i}': {
     /** Run Get Results */
-    get: operations["run_get_results_competitions__id__results__i__get"];
+    get: operations['run_get_results_competitions__id__results__i__get'];
   };
-  "/competitions/{id}/results/{i}/export": {
+  '/competitions/{id}/results/{i}/export': {
     /** Run Get Results */
-    get: operations["run_get_results_competitions__id__results__i__export_get"];
+    get: operations['run_get_results_competitions__id__results__i__export_get'];
   };
-  "/scores/simulate/{t}": {
+  '/scores/simulate/{t}': {
     /** Simulate */
-    post: operations["simulate_scores_simulate__t__post"];
+    post: operations['simulate_scores_simulate__t__post'];
   };
-  "/public/pilots/": {
+  '/public/pilots/': {
     /** List Pilots */
-    get: operations["list_pilots_public_pilots__get"];
+    get: operations['list_pilots_public_pilots__get'];
   };
-  "/public/pilots/{civlid}": {
+  '/public/pilots/{civlid}': {
     /** Get Pilot */
-    get: operations["get_pilot_public_pilots__civlid__get"];
+    get: operations['get_pilot_public_pilots__civlid__get'];
   };
-  "/public/teams/": {
+  '/public/teams/': {
     /** List Teams */
-    get: operations["list_teams_public_teams__get"];
+    get: operations['list_teams_public_teams__get'];
   };
-  "/public/teams/{id}": {
+  '/public/teams/{id}': {
     /** Get Team */
-    get: operations["get_team_public_teams__id__get"];
+    get: operations['get_team_public_teams__id__get'];
   };
-  "/public/judges/": {
+  '/public/judges/': {
     /** List Judges */
-    get: operations["list_judges_public_judges__get"];
+    get: operations['list_judges_public_judges__get'];
   };
-  "/public/judges/{id}": {
+  '/public/judges/{id}': {
     /** Get Judge */
-    get: operations["get_judge_public_judges__id__get"];
+    get: operations['get_judge_public_judges__id__get'];
   };
-  "/public/competitions/": {
+  '/public/competitions/': {
     /** List Competitions */
-    get: operations["list_competitions_public_competitions__get"];
+    get: operations['list_competitions_public_competitions__get'];
   };
-  "/public/competitions/{id}": {
+  '/public/competitions/{id}': {
     /** Get Competition */
-    get: operations["get_competition_public_competitions__id__get"];
+    get: operations['get_competition_public_competitions__id__get'];
   };
-  "/public/competitions/{id}/standings/overall/svg": {
+  '/public/competitions/{id}/standings/overall/svg': {
     /** Export Competition Overall Standing Svg */
-    get: operations["export_competition_overall_standing_svg_public_competitions__id__standings_overall_svg_get"];
+    get: operations['export_competition_overall_standing_svg_public_competitions__id__standings_overall_svg_get'];
   };
-  "/public/competitions/{id}/standings/run/{run}/svg": {
+  '/public/competitions/{id}/standings/run/{run}/svg': {
     /** Export Competition Overall Standing Svg */
-    get: operations["export_competition_overall_standing_svg_public_competitions__id__standings_run__run__svg_get"];
+    get: operations['export_competition_overall_standing_svg_public_competitions__id__standings_run__run__svg_get'];
   };
-  "/public/seasons/": {
+  '/public/seasons/': {
     /** List Seasons */
-    get: operations["list_seasons_public_seasons__get"];
+    get: operations['list_seasons_public_seasons__get'];
   };
-  "/public/seasons/{id}": {
+  '/public/seasons/{id}': {
     /** Get Season */
-    get: operations["get_season_public_seasons__id__get"];
+    get: operations['get_season_public_seasons__id__get'];
   };
-  "/public/seasons/{id}/standings/svg": {
+  '/public/seasons/{id}/standings/svg': {
     /** Export Season Standing Svg */
-    get: operations["export_season_standing_svg_public_seasons__id__standings_svg_get"];
+    get: operations['export_season_standing_svg_public_seasons__id__standings_svg_get'];
   };
-  "/public/tricks/": {
+  '/public/tricks/': {
     /** List */
-    get: operations["list_public_tricks__get"];
+    get: operations['list_public_tricks__get'];
   };
-  "/utils/backup": {
+  '/utils/backup': {
     /** Backup */
-    get: operations["backup_utils_backup_get"];
+    get: operations['backup_utils_backup_get'];
   };
-  "/utils/cleanup_pilots": {
+  '/utils/cleanup_pilots': {
     /** Backup */
-    post: operations["backup_utils_cleanup_pilots_post"];
+    post: operations['backup_utils_cleanup_pilots_post'];
   };
-  "/files/{id}": {
+  '/files/{id}': {
     /** Get File */
-    get: operations["get_file_files__id__get"];
+    get: operations['get_file_files__id__get'];
     /** Delete */
-    delete: operations["delete_files__id__delete"];
+    delete: operations['delete_files__id__delete'];
   };
-  "/files/new": {
+  '/files/new': {
     /** Post File */
-    post: operations["post_file_files_new_post"];
+    post: operations['post_file_files_new_post'];
   };
-  "/seasons/": {
+  '/seasons/': {
     /** List */
-    get: operations["list_seasons__get"];
+    get: operations['list_seasons__get'];
   };
-  "/seasons/{id}": {
+  '/seasons/{id}': {
     /** Get */
-    get: operations["get_seasons__id__get"];
+    get: operations['get_seasons__id__get'];
     /** Update */
-    put: operations["update_seasons__id__put"];
+    put: operations['update_seasons__id__put'];
     /** Delete */
-    delete: operations["delete_seasons__id__delete"];
+    delete: operations['delete_seasons__id__delete'];
   };
-  "/seasons/{id}/export": {
+  '/seasons/{id}/export': {
     /** Export */
-    get: operations["export_seasons__id__export_get"];
+    get: operations['export_seasons__id__export_get'];
   };
-  "/seasons/new": {
+  '/seasons/new': {
     /** Create */
-    post: operations["create_seasons_new_post"];
+    post: operations['create_seasons_new_post'];
   };
-  "/": {
+  '/': {
     /** Home */
-    get: operations["home__get"];
+    get: operations['home__get'];
   };
 }
 
@@ -440,7 +439,7 @@ export interface components {
        *   "trainee": 20
        * }
        */
-      judge_weights?: components["schemas"]["JudgeWeights"];
+      judge_weights?: components['schemas']['JudgeWeights'];
       /**
        * Mark Percentages
        * @default {
@@ -457,7 +456,7 @@ export interface components {
        *   }
        * }
        */
-      mark_percentages?: components["schemas"]["MarkPercentages"];
+      mark_percentages?: components['schemas']['MarkPercentages'];
       /**
        * Max Bonus Per Run
        * @default {
@@ -466,7 +465,7 @@ export interface components {
        *   "flip": 2
        * }
        */
-      max_bonus_per_run?: components["schemas"]["MaxBonusPerRun"];
+      max_bonus_per_run?: components['schemas']['MaxBonusPerRun'];
     };
     /** CompetitionExport */
     CompetitionExport: {
@@ -490,19 +489,19 @@ export interface components {
       location: string;
       /** Published */
       published: boolean;
-      type: components["schemas"]["CompetitionType"];
+      type: components['schemas']['CompetitionType'];
       /** Pilots */
-      pilots: components["schemas"]["Pilot"][];
+      pilots: components['schemas']['Pilot'][];
       /** Teams */
-      teams: components["schemas"]["TeamExport"][];
+      teams: components['schemas']['TeamExport'][];
       /** Judges */
-      judges: components["schemas"]["Judge"][];
+      judges: components['schemas']['Judge'][];
       /** Repeatable Tricks */
-      repeatable_tricks: components["schemas"]["Trick"][];
-      state: components["schemas"]["CompetitionState"];
-      config: components["schemas"]["CompetitionConfig"];
+      repeatable_tricks: components['schemas']['Trick'][];
+      state: components['schemas']['CompetitionState'];
+      config: components['schemas']['CompetitionConfig'];
       /** Runs */
-      runs: components["schemas"]["RunExport"][];
+      runs: components['schemas']['RunExport'][];
       /**
        * Image
        * Format: uri
@@ -541,7 +540,7 @@ export interface components {
       location: string;
       /** Published */
       published: boolean;
-      type: components["schemas"]["CompetitionType"];
+      type: components['schemas']['CompetitionType'];
       /** Image */
       image?: string;
       /** Logo */
@@ -559,10 +558,10 @@ export interface components {
     };
     /** CompetitionPilotResultsExport */
     CompetitionPilotResultsExport: {
-      pilot?: components["schemas"]["Pilot"];
-      team?: components["schemas"]["TeamExport"];
+      pilot?: components['schemas']['Pilot'];
+      team?: components['schemas']['TeamExport'];
       /** Result Per Run */
-      result_per_run: components["schemas"]["RunResultSummary"][];
+      result_per_run: components['schemas']['RunResultSummary'][];
       /** Score */
       score: number;
     };
@@ -588,8 +587,8 @@ export interface components {
       location: string;
       /** Published */
       published: boolean;
-      type: components["schemas"]["CompetitionType"];
-      state: components["schemas"]["CompetitionState"];
+      type: components['schemas']['CompetitionType'];
+      state: components['schemas']['CompetitionState'];
       /** Number Of Pilots */
       number_of_pilots: number;
       /** Number Of Teams */
@@ -638,8 +637,8 @@ export interface components {
       location: string;
       /** Published */
       published: boolean;
-      type: components["schemas"]["CompetitionType"];
-      state: components["schemas"]["CompetitionState"];
+      type: components['schemas']['CompetitionType'];
+      state: components['schemas']['CompetitionState'];
       /** Number Of Pilots */
       number_of_pilots: number;
       /** Number Of Teams */
@@ -665,17 +664,17 @@ export interface components {
       website?: string;
       /** Seasons */
       seasons: string[];
-      results: components["schemas"]["CompetitionResultsExport"];
+      results: components['schemas']['CompetitionResultsExport'];
       /** Pilots */
-      pilots: components["schemas"]["Pilot"][];
+      pilots: components['schemas']['Pilot'][];
       /** Teams */
-      teams: components["schemas"]["TeamExport"][];
+      teams: components['schemas']['TeamExport'][];
       /** Judges */
-      judges: components["schemas"]["Judge"][];
+      judges: components['schemas']['Judge'][];
     };
     /** CompetitionResult */
     CompetitionResult: {
-      competition: components["schemas"]["CompetitionPublicExport"];
+      competition: components['schemas']['CompetitionPublicExport'];
       /** Rank */
       rank: number;
     };
@@ -686,22 +685,22 @@ export interface components {
       /** Type */
       type: string;
       /** Overall Results */
-      overall_results: components["schemas"]["CompetitionPilotResultsExport"][];
+      overall_results: components['schemas']['CompetitionPilotResultsExport'][];
       /** Runs Results */
-      runs_results: components["schemas"]["RunResultsExport"][];
+      runs_results: components['schemas']['RunResultsExport'][];
     };
     /**
      * CompetitionState
      * @description An enumeration.
      * @enum {string}
      */
-    CompetitionState: "init" | "open" | "closed";
+    CompetitionState: 'init' | 'open' | 'closed';
     /**
      * CompetitionType
      * @description An enumeration.
      * @enum {string}
      */
-    CompetitionType: "solo" | "synchro";
+    CompetitionType: 'solo' | 'synchro';
     /** FileID */
     FileID: {
       /** Id */
@@ -736,7 +735,7 @@ export interface components {
      * }
      */
     FinalMark: {
-      judges_mark: components["schemas"]["JudgeMark"];
+      judges_mark: components['schemas']['JudgeMark'];
       /** Technicity */
       technicity: number;
       /** Bonus Percentage */
@@ -765,7 +764,7 @@ export interface components {
     };
     /** FinalMarkExport */
     FinalMarkExport: {
-      judges_mark: components["schemas"]["JudgeMarkExport"];
+      judges_mark: components['schemas']['JudgeMarkExport'];
       /** Technicity */
       technicity: number;
       /** Bonus Percentage */
@@ -807,15 +806,15 @@ export interface components {
       /** Team */
       team?: string;
       /** Tricks */
-      tricks: components["schemas"]["UniqueTrick"][];
+      tricks: components['schemas']['UniqueTrick'][];
       /** Marks */
-      marks: components["schemas"]["JudgeMark"][];
+      marks: components['schemas']['JudgeMark'][];
       /**
        * Did Not Start
        * @default false
        */
       did_not_start?: boolean;
-      final_marks?: components["schemas"]["FinalMark"];
+      final_marks?: components['schemas']['FinalMark'];
       /**
        * Published
        * @default false
@@ -826,18 +825,18 @@ export interface components {
     };
     /** FlightExport */
     FlightExport: {
-      pilot?: components["schemas"]["Pilot"];
-      team?: components["schemas"]["TeamExport"];
+      pilot?: components['schemas']['Pilot'];
+      team?: components['schemas']['TeamExport'];
       /** Tricks */
-      tricks: components["schemas"]["UniqueTrick"][];
+      tricks: components['schemas']['UniqueTrick'][];
       /** Marks */
-      marks: components["schemas"]["JudgeMarkExport"][];
+      marks: components['schemas']['JudgeMarkExport'][];
       /**
        * Did Not Start
        * @default false
        */
       did_not_start?: boolean;
-      final_marks?: components["schemas"]["FinalMarkExport"];
+      final_marks?: components['schemas']['FinalMarkExport'];
       /**
        * Published
        * @default false
@@ -862,7 +861,7 @@ export interface components {
       /** Tricks */
       tricks: string[];
       /** Marks */
-      marks: components["schemas"]["JudgeMark"][];
+      marks: components['schemas']['JudgeMark'][];
       /**
        * Did Not Start
        * @default false
@@ -879,11 +878,11 @@ export interface components {
      * @description An enumeration.
      * @enum {string}
      */
-    GenderEnum: "man" | "woman" | "none";
+    GenderEnum: 'man' | 'woman' | 'none';
     /** HTTPValidationError */
     HTTPValidationError: {
       /** Detail */
-      detail?: components["schemas"]["ValidationError"][];
+      detail?: components['schemas']['ValidationError'][];
     };
     /**
      * Judge
@@ -908,7 +907,7 @@ export interface components {
        */
       country: string;
       /** @description The level of the judge */
-      level: components["schemas"]["JudgeLevel"];
+      level: components['schemas']['JudgeLevel'];
       /**
        * Civlid
        * @description The CIVL ID if any (must be registered in the pilot database
@@ -925,7 +924,7 @@ export interface components {
      * @description An enumeration.
      * @enum {unknown}
      */
-    JudgeLevel: "trainee" | "certified" | "senior";
+    JudgeLevel: 'trainee' | 'certified' | 'senior';
     /**
      * JudgeMark
      * @example {
@@ -950,7 +949,7 @@ export interface components {
     };
     /** JudgeMarkExport */
     JudgeMarkExport: {
-      judge?: components["schemas"]["Judge"];
+      judge?: components['schemas']['Judge'];
       /** Technical */
       technical?: number;
       /** Choreography */
@@ -1086,7 +1085,7 @@ export interface components {
        *   "landing": 20
        * }
        */
-      solo?: components["schemas"]["MarkPercentageSolo"];
+      solo?: components['schemas']['MarkPercentageSolo'];
       /**
        * Synchro
        * @default {
@@ -1096,7 +1095,7 @@ export interface components {
        *   "synchro": 40
        * }
        */
-      synchro?: components["schemas"]["MarkPercentageSynchro"];
+      synchro?: components['schemas']['MarkPercentageSynchro'];
     };
     /**
      * MaxBonusPerRun
@@ -1222,12 +1221,12 @@ export interface components {
        * Social Links
        * @description List of pilot's links (socials medias, ...)
        */
-      social_links: components["schemas"]["Link"][];
+      social_links: components['schemas']['Link'][];
       /**
        * Sponsors
        * @description List of the pilot's sponsors
        */
-      sponsors: components["schemas"]["Sponsor"][];
+      sponsors: components['schemas']['Sponsor'][];
       /**
        * Photo
        * Format: uri
@@ -1261,7 +1260,7 @@ export interface components {
        * @description Pilot's sex
        * @default man
        */
-      gender?: components["schemas"]["GenderEnum"];
+      gender?: components['schemas']['GenderEnum'];
       /**
        * Is Awt
        * @description the pilot is part of the current's year pro tour (AWT)
@@ -1365,12 +1364,12 @@ export interface components {
        * Social Links
        * @description List of pilot's links (socials medias, ...)
        */
-      social_links: components["schemas"]["Link"][];
+      social_links: components['schemas']['Link'][];
       /**
        * Sponsors
        * @description List of the pilot's sponsors
        */
-      sponsors: components["schemas"]["Sponsor"][];
+      sponsors: components['schemas']['Sponsor'][];
       /**
        * Photo
        * Format: uri
@@ -1404,7 +1403,7 @@ export interface components {
        * @description Pilot's sex
        * @default man
        */
-      gender?: components["schemas"]["GenderEnum"];
+      gender?: components['schemas']['GenderEnum'];
       /**
        * Is Awt
        * @description the pilot is part of the current's year pro tour (AWT)
@@ -1416,28 +1415,28 @@ export interface components {
        * @description List of competitions results
        * @default []
        */
-      competitions_results?: components["schemas"]["CompetitionResult"][];
+      competitions_results?: components['schemas']['CompetitionResult'][];
       /**
        * Seasons Results
        * @description List of seasons results
        * @default []
        */
-      seasons_results?: components["schemas"]["models__pilots_with_results__SeasonResult"][];
+      seasons_results?: components['schemas']['models__pilots_with_results__SeasonResult'][];
     };
     /** RunExport */
     RunExport: {
-      state: components["schemas"]["RunState"];
+      state: components['schemas']['RunState'];
       /** Pilots */
-      pilots: components["schemas"]["Pilot"][];
+      pilots: components['schemas']['Pilot'][];
       /** Teams */
-      teams: components["schemas"]["TeamExport"][];
+      teams: components['schemas']['TeamExport'][];
       /** Judges */
-      judges: components["schemas"]["Judge"][];
+      judges: components['schemas']['Judge'][];
       /** Repeatable Tricks */
-      repeatable_tricks: components["schemas"]["Trick"][];
-      config: components["schemas"]["CompetitionConfig"];
+      repeatable_tricks: components['schemas']['Trick'][];
+      config: components['schemas']['CompetitionConfig'];
       /** Flights */
-      flights: components["schemas"]["FlightExport"][];
+      flights: components['schemas']['FlightExport'][];
     };
     /**
      * RunResultSummary
@@ -1459,14 +1458,14 @@ export interface components {
       /** Type */
       type: string;
       /** Results */
-      results: components["schemas"]["FlightExport"][];
+      results: components['schemas']['FlightExport'][];
     };
     /**
      * RunState
      * @description An enumeration.
      * @enum {string}
      */
-    RunState: "init" | "open" | "closed";
+    RunState: 'init' | 'open' | 'closed';
     /**
      * Season
      * @example {
@@ -1534,15 +1533,15 @@ export interface components {
        * @default 999
        */
       index?: number;
-      type: components["schemas"]["CompetitionType"];
+      type: components['schemas']['CompetitionType'];
       /** Number Of Pilots */
       number_of_pilots: number;
       /** Number Of Teams */
       number_of_teams: number;
       /** Competitions */
-      competitions: components["schemas"]["CompetitionExport"][];
+      competitions: components['schemas']['CompetitionExport'][];
       /** Results */
-      results: components["schemas"]["SeasonResults"][];
+      results: components['schemas']['SeasonResults'][];
     };
     /** SeasonPublicExport */
     SeasonPublicExport: {
@@ -1566,18 +1565,20 @@ export interface components {
        * @default 999
        */
       index?: number;
-      type: components["schemas"]["CompetitionType"];
+      type: components['schemas']['CompetitionType'];
       /** Number Of Pilots */
       number_of_pilots: number;
       /** Number Of Teams */
       number_of_teams: number;
       /** Competitions */
-      competitions: components["schemas"]["CompetitionPublicExportWithResults"][];
+      competitions: components['schemas']['CompetitionPublicExportWithResults'][];
       /** Results */
-      results: components["schemas"]["SeasonResults"][];
+      results: components['schemas']['SeasonResults'][];
       /** Competitions Results */
       competitions_results: {
-        [key: string]: components["schemas"]["CompetitionPilotResultsExport"][] | undefined;
+        [key: string]:
+          | components['schemas']['CompetitionPilotResultsExport'][]
+          | undefined;
       };
     };
     /** SeasonResults */
@@ -1585,7 +1586,7 @@ export interface components {
       /** Type */
       type: string;
       /** Results */
-      results: components["schemas"]["models__seasons__SeasonResult"][];
+      results: components['schemas']['models__seasons__SeasonResult'][];
     };
     /** Sponsor */
     Sponsor: {
@@ -1649,7 +1650,7 @@ export interface components {
       /** Name */
       name: string;
       /** Pilots */
-      pilots: components["schemas"]["Pilot"][];
+      pilots: components['schemas']['Pilot'][];
     };
     /**
      * Trick
@@ -1768,7 +1769,7 @@ export interface components {
        * Bonuses
        * @description List of all bonuses that can apply to this trick
        */
-      bonuses: components["schemas"]["Bonus"][];
+      bonuses: components['schemas']['Bonus'][];
       /**
        * Bonus Constraints
        * @description List of bonuses that are exclusive to each other
@@ -1804,7 +1805,7 @@ export interface components {
        * @description List of all the variant of the trick (this is automatically generated)
        * @default []
        */
-      tricks?: components["schemas"]["UniqueTrick"][];
+      tricks?: components['schemas']['UniqueTrick'][];
       /**
        * Repeatable
        * @description Is this trick can be repeatable
@@ -1867,14 +1868,14 @@ export interface components {
     };
     /** SeasonResult */
     models__pilots_with_results__SeasonResult: {
-      season: components["schemas"]["Season"];
+      season: components['schemas']['Season'];
       /** Rank */
       rank: number;
     };
     /** SeasonResult */
     models__seasons__SeasonResult: {
-      pilot?: components["schemas"]["Pilot"];
-      team?: components["schemas"]["TeamExport"];
+      pilot?: components['schemas']['Pilot'];
+      team?: components['schemas']['TeamExport'];
       /** Score */
       score: number;
     };
@@ -1889,7 +1890,6 @@ export interface components {
 export type external = Record<string, never>;
 
 export interface operations {
-
   /**
    * Login
    * @description Get the JWT for a user with data from OAuth2 request form body.
@@ -1897,20 +1897,20 @@ export interface operations {
   login_auth_login_post: {
     requestBody: {
       content: {
-        "application/x-www-form-urlencoded": components["schemas"]["Body_login_auth_login_post"];
+        'application/x-www-form-urlencoded': components['schemas']['Body_login_auth_login_post'];
       };
     };
     responses: {
       /** @description Successful Response */
       200: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -1921,7 +1921,7 @@ export interface operations {
       /** @description return user informations */
       200: {
         content: {
-          "application/json": unknown;
+          'application/json': unknown;
         };
       };
     };
@@ -1932,7 +1932,7 @@ export interface operations {
       /** @description Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["Status"];
+          'application/json': components['schemas']['Status'];
         };
       };
     };
@@ -1943,7 +1943,7 @@ export interface operations {
       /** @description List all pilots */
       200: {
         content: {
-          "application/json": components["schemas"]["Pilot"][];
+          'application/json': components['schemas']['Pilot'][];
         };
       };
     };
@@ -1959,13 +1959,13 @@ export interface operations {
       /** @description Get a Pilot */
       200: {
         content: {
-          "application/json": components["schemas"]["Pilot"];
+          'application/json': components['schemas']['Pilot'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -1981,13 +1981,13 @@ export interface operations {
       /** @description Add new Pilot */
       201: {
         content: {
-          "application/json": components["schemas"]["Pilot"];
+          'application/json': components['schemas']['Pilot'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2017,13 +2017,13 @@ export interface operations {
       /** @description Change pilot gender */
       200: {
         content: {
-          "application/json": components["schemas"]["Pilot"];
+          'application/json': components['schemas']['Pilot'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2039,13 +2039,13 @@ export interface operations {
       /** @description Change pilot AWT */
       200: {
         content: {
-          "application/json": components["schemas"]["Pilot"];
+          'application/json': components['schemas']['Pilot'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2061,13 +2061,13 @@ export interface operations {
       /** @description List all judges */
       200: {
         content: {
-          "application/json": components["schemas"]["Judge"][];
+          'application/json': components['schemas']['Judge'][];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2078,7 +2078,7 @@ export interface operations {
       /** @description Get list of judges levels */
       200: {
         content: {
-          "application/json": components["schemas"]["JudgeLevel"][];
+          'application/json': components['schemas']['JudgeLevel'][];
         };
       };
     };
@@ -2097,13 +2097,13 @@ export interface operations {
       /** @description Get a Judge */
       200: {
         content: {
-          "application/json": components["schemas"]["Judge"];
+          'application/json': components['schemas']['Judge'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2117,7 +2117,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Judge"];
+        'application/json': components['schemas']['Judge'];
       };
     };
     responses: {
@@ -2126,7 +2126,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2147,7 +2147,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2156,20 +2156,20 @@ export interface operations {
   create_judges_new_post: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Judge"];
+        'application/json': components['schemas']['Judge'];
       };
     };
     responses: {
       /** @description Add new Judge */
       201: {
         content: {
-          "application/json": components["schemas"]["Judge"];
+          'application/json': components['schemas']['Judge'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2185,13 +2185,13 @@ export interface operations {
       /** @description List all teams */
       200: {
         content: {
-          "application/json": components["schemas"]["TeamExport"][];
+          'application/json': components['schemas']['TeamExport'][];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2210,13 +2210,13 @@ export interface operations {
       /** @description Get a Team */
       200: {
         content: {
-          "application/json": components["schemas"]["TeamExport"];
+          'application/json': components['schemas']['TeamExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2230,7 +2230,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Team"];
+        'application/json': components['schemas']['Team'];
       };
     };
     responses: {
@@ -2239,7 +2239,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2260,7 +2260,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2269,20 +2269,20 @@ export interface operations {
   create_teams_new_post: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Team"];
+        'application/json': components['schemas']['Team'];
       };
     };
     responses: {
       /** @description Add new Team */
       201: {
         content: {
-          "application/json": components["schemas"]["TeamExport"];
+          'application/json': components['schemas']['TeamExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2299,13 +2299,13 @@ export interface operations {
       /** @description List all tricks */
       200: {
         content: {
-          "application/json": components["schemas"]["Trick"][];
+          'application/json': components['schemas']['Trick'][];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2322,13 +2322,13 @@ export interface operations {
       /** @description Get all unique tricks */
       200: {
         content: {
-          "application/json": components["schemas"]["UniqueTrick"][];
+          'application/json': components['schemas']['UniqueTrick'][];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2339,7 +2339,7 @@ export interface operations {
       /** @description Get available bonuses */
       200: {
         content: {
-          "application/json": Record<string, never>[];
+          'application/json': Record<string, never>[];
         };
       };
     };
@@ -2350,7 +2350,7 @@ export interface operations {
       /** @description Get available directions */
       200: {
         content: {
-          "application/json": Record<string, never>[];
+          'application/json': Record<string, never>[];
         };
       };
     };
@@ -2366,13 +2366,13 @@ export interface operations {
       /** @description Get a Unique Trick */
       200: {
         content: {
-          "application/json": components["schemas"]["UniqueTrick"];
+          'application/json': components['schemas']['UniqueTrick'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2391,13 +2391,13 @@ export interface operations {
       /** @description Get a Trick */
       200: {
         content: {
-          "application/json": components["schemas"]["Trick"];
+          'application/json': components['schemas']['Trick'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2411,7 +2411,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Trick"];
+        'application/json': components['schemas']['Trick'];
       };
     };
     responses: {
@@ -2420,7 +2420,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2441,7 +2441,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2450,20 +2450,20 @@ export interface operations {
   create_tricks_new_post: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Trick"];
+        'application/json': components['schemas']['Trick'];
       };
     };
     responses: {
       /** @description Add new Trick */
       201: {
         content: {
-          "application/json": components["schemas"]["Trick"];
+          'application/json': components['schemas']['Trick'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2472,20 +2472,20 @@ export interface operations {
   create_import_tricks_import_post: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Trick"][];
+        'application/json': components['schemas']['Trick'][];
       };
     };
     responses: {
       /** @description Add new Trick */
       201: {
         content: {
-          "application/json": string;
+          'application/json': string;
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2496,7 +2496,7 @@ export interface operations {
       /** @description List all competitions */
       200: {
         content: {
-          "application/json": components["schemas"]["CompetitionPublicExport"][];
+          'application/json': components['schemas']['CompetitionPublicExport'][];
         };
       };
     };
@@ -2515,13 +2515,13 @@ export interface operations {
       /** @description Get a Competition */
       200: {
         content: {
-          "application/json": components["schemas"]["CompetitionExport"];
+          'application/json': components['schemas']['CompetitionExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2542,7 +2542,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2556,7 +2556,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompetitionNew"];
+        'application/json': components['schemas']['CompetitionNew'];
       };
     };
     responses: {
@@ -2565,7 +2565,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2574,20 +2574,20 @@ export interface operations {
   create_competitions_new_post: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompetitionNew"];
+        'application/json': components['schemas']['CompetitionNew'];
       };
     };
     responses: {
       /** @description Add new Competition */
       201: {
         content: {
-          "application/json": components["schemas"]["CompetitionExport"];
+          'application/json': components['schemas']['CompetitionExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2601,7 +2601,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": number[];
+        'application/json': number[];
       };
     };
     responses: {
@@ -2610,7 +2610,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2624,7 +2624,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": string[];
+        'application/json': string[];
       };
     };
     responses: {
@@ -2633,7 +2633,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2647,7 +2647,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": string[];
+        'application/json': string[];
       };
     };
     responses: {
@@ -2656,7 +2656,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2670,7 +2670,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": string[];
+        'application/json': string[];
       };
     };
     responses: {
@@ -2679,7 +2679,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2693,7 +2693,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompetitionConfig"];
+        'application/json': components['schemas']['CompetitionConfig'];
       };
     };
     responses: {
@@ -2702,7 +2702,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2720,7 +2720,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2738,7 +2738,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2756,7 +2756,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2775,13 +2775,13 @@ export interface operations {
       /** @description Create a new run for a competition */
       201: {
         content: {
-          "application/json": components["schemas"]["RunExport"];
+          'application/json': components['schemas']['RunExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2798,13 +2798,13 @@ export interface operations {
       /** @description Retrieve a run */
       200: {
         content: {
-          "application/json": components["schemas"]["RunExport"];
+          'application/json': components['schemas']['RunExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2819,7 +2819,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": number[];
+        'application/json': number[];
       };
     };
     responses: {
@@ -2828,7 +2828,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2843,7 +2843,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": string[];
+        'application/json': string[];
       };
     };
     responses: {
@@ -2852,7 +2852,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2867,7 +2867,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": string[];
+        'application/json': string[];
       };
     };
     responses: {
@@ -2876,7 +2876,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2891,7 +2891,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": string[];
+        'application/json': string[];
       };
     };
     responses: {
@@ -2900,7 +2900,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2915,7 +2915,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["CompetitionConfig"];
+        'application/json': components['schemas']['CompetitionConfig'];
       };
     };
     responses: {
@@ -2924,7 +2924,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2943,7 +2943,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2962,7 +2962,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2981,7 +2981,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -2999,13 +2999,13 @@ export interface operations {
       /** @description retrieve a specific flight from a pilot */
       200: {
         content: {
-          "application/json": components["schemas"]["Flight"];
+          'application/json': components['schemas']['Flight'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3025,20 +3025,20 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["FlightNew"];
+        'application/json': components['schemas']['FlightNew'];
       };
     };
     responses: {
       /** @description Simulate a run and get the detail score */
       200: {
         content: {
-          "application/json": components["schemas"]["FinalMarkExport"];
+          'application/json': components['schemas']['FinalMarkExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3054,13 +3054,13 @@ export interface operations {
       /** @description Retrieve the results of the competition */
       200: {
         content: {
-          "application/json": components["schemas"]["CompetitionResultsExport"];
+          'application/json': components['schemas']['CompetitionResultsExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3082,7 +3082,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3102,13 +3102,13 @@ export interface operations {
       /** @description Retrieve the results of a specific run of competition */
       200: {
         content: {
-          "application/json": components["schemas"]["RunResultsExport"];
+          'application/json': components['schemas']['RunResultsExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3130,7 +3130,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3139,25 +3139,25 @@ export interface operations {
   simulate_scores_simulate__t__post: {
     parameters: {
       path: {
-        t: components["schemas"]["CompetitionType"];
+        t: components['schemas']['CompetitionType'];
       };
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["FlightNew"];
+        'application/json': components['schemas']['FlightNew'];
       };
     };
     responses: {
       /** @description Successful Response */
       200: {
         content: {
-          "application/json": components["schemas"]["FinalMark"];
+          'application/json': components['schemas']['FinalMark'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3168,7 +3168,7 @@ export interface operations {
       /** @description List all public */
       200: {
         content: {
-          "application/json": components["schemas"]["Pilot"][];
+          'application/json': components['schemas']['Pilot'][];
         };
       };
     };
@@ -3184,13 +3184,13 @@ export interface operations {
       /** @description Get a Pilot */
       200: {
         content: {
-          "application/json": components["schemas"]["PilotWithResults"];
+          'application/json': components['schemas']['PilotWithResults'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3201,7 +3201,7 @@ export interface operations {
       /** @description List all teams */
       200: {
         content: {
-          "application/json": components["schemas"]["TeamExport"][];
+          'application/json': components['schemas']['TeamExport'][];
         };
       };
     };
@@ -3217,13 +3217,13 @@ export interface operations {
       /** @description Get a Team */
       200: {
         content: {
-          "application/json": components["schemas"]["TeamExport"];
+          'application/json': components['schemas']['TeamExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3234,7 +3234,7 @@ export interface operations {
       /** @description List all judges */
       200: {
         content: {
-          "application/json": components["schemas"]["Judge"][];
+          'application/json': components['schemas']['Judge'][];
         };
       };
     };
@@ -3250,13 +3250,13 @@ export interface operations {
       /** @description Get a Judge */
       200: {
         content: {
-          "application/json": components["schemas"]["Judge"];
+          'application/json': components['schemas']['Judge'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3267,7 +3267,7 @@ export interface operations {
       /** @description List all competitions */
       200: {
         content: {
-          "application/json": components["schemas"]["CompetitionPublicExport"][];
+          'application/json': components['schemas']['CompetitionPublicExport'][];
         };
       };
     };
@@ -3283,13 +3283,13 @@ export interface operations {
       /** @description Get a Competition */
       200: {
         content: {
-          "application/json": components["schemas"]["CompetitionPublicExportWithResults"];
+          'application/json': components['schemas']['CompetitionPublicExportWithResults'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3310,7 +3310,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3332,7 +3332,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3348,13 +3348,13 @@ export interface operations {
       /** @description List all seasons */
       200: {
         content: {
-          "application/json": components["schemas"]["SeasonPublicExport"][];
+          'application/json': components['schemas']['SeasonPublicExport'][];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3373,13 +3373,13 @@ export interface operations {
       /** @description Get a Season */
       200: {
         content: {
-          "application/json": components["schemas"]["SeasonPublicExport"];
+          'application/json': components['schemas']['SeasonPublicExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3400,7 +3400,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3416,13 +3416,13 @@ export interface operations {
       /** @description List all tricks */
       200: {
         content: {
-          "application/json": components["schemas"]["Trick"][];
+          'application/json': components['schemas']['Trick'][];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3456,7 +3456,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3477,7 +3477,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3486,19 +3486,19 @@ export interface operations {
   post_file_files_new_post: {
     requestBody: {
       content: {
-        "multipart/form-data": components["schemas"]["Body_post_file_files_new_post"];
+        'multipart/form-data': components['schemas']['Body_post_file_files_new_post'];
       };
     };
     responses: {
       200: {
         content: {
-          "application/json": components["schemas"]["FileID"];
+          'application/json': components['schemas']['FileID'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3514,13 +3514,13 @@ export interface operations {
       /** @description List all seasons */
       200: {
         content: {
-          "application/json": components["schemas"]["SeasonExport"][];
+          'application/json': components['schemas']['SeasonExport'][];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3539,13 +3539,13 @@ export interface operations {
       /** @description Get a Season */
       200: {
         content: {
-          "application/json": components["schemas"]["Season"];
+          'application/json': components['schemas']['Season'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3559,7 +3559,7 @@ export interface operations {
     };
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Season"];
+        'application/json': components['schemas']['Season'];
       };
     };
     responses: {
@@ -3568,7 +3568,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3589,7 +3589,7 @@ export interface operations {
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3608,13 +3608,13 @@ export interface operations {
       /** @description Get a Season */
       200: {
         content: {
-          "application/json": components["schemas"]["SeasonExport"];
+          'application/json': components['schemas']['SeasonExport'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3623,20 +3623,20 @@ export interface operations {
   create_seasons_new_post: {
     requestBody: {
       content: {
-        "application/json": components["schemas"]["Season"];
+        'application/json': components['schemas']['Season'];
       };
     };
     responses: {
       /** @description Add new Season */
       201: {
         content: {
-          "application/json": components["schemas"]["Season"];
+          'application/json': components['schemas']['Season'];
         };
       };
       /** @description Validation Error */
       422: {
         content: {
-          "application/json": components["schemas"]["HTTPValidationError"];
+          'application/json': components['schemas']['HTTPValidationError'];
         };
       };
     };
@@ -3647,7 +3647,7 @@ export interface operations {
       /** @description home page */
       200: {
         content: {
-          "text/html": string;
+          'text/html': string;
         };
       };
     };

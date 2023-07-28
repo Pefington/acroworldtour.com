@@ -4,7 +4,7 @@ import { useAPI } from "@utils/swr";
 import cn from "classix";
 import Link from "next/link";
 
-import { Competition } from "@/types/project";
+import { Competition } from "@/types/selected-from-import";
 
 const HomeEvents = () => {
   const {

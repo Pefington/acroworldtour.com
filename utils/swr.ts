@@ -1,39 +1,90 @@
-import { useState } from 'react';
+import axios from 'axios';
 import useSWR, { preload } from 'swr';
 
 import { API_URL } from '@/constants';
-import { ApiResponse, SwrKey, SwrParam } from '@/types/project';
+
+export type SwrKey =
+  | 'pilots'
+  | 'teams'
+  | 'judges'
+  | 'competitions'
+  | 'seasons'
+  | 'tricks';
+
+type civlid = string | number;
+type code = string;
+type id = string | number;
+
+export type SwrParam = civlid | code | id;
+
+export type ApiResponse<T> = {
+  data: T | null;
+  isLoading: boolean;
+  error: Error | null;
+  isValidating: boolean;
+  // isApiDown: boolean;
+};
 
 export const fetcher = (url: SwrKey, options?: object) =>
-  fetch(url, options).then((res) => {
-    if (!res.ok) throw new Error(`API returned code ${res.status}`);
-    return res.json();
-  });
+  axios
+    .get(url, options)
+    .then((res) => res.data)
+    .catch((error) => {
+      throw error;
+    });
 
 export const swrPreload = (key: SwrKey) =>
   preload(`${API_URL}/${key}/`, fetcher);
 
-export const useAPI = <T = unknown>(
+export const useAPI = <T>(
   key: SwrKey,
   param: SwrParam = '',
 ): ApiResponse<T> => {
-  const [isApiDown, setIsApiDown] = useState(false);
-  const { data, error, isLoading, isValidating } = useSWR(
+  const {
+    data,
+    isLoading,
+    error,
+    isValidating,
+  } = useSWR(
     `${API_URL}/${key}/${param}`,
     fetcher,
-    {
-      onSuccess: () => setIsApiDown(false),
-      onLoadingSlow: () => setIsApiDown(true),
-      loadingTimeout: 5000,
-      errorRetryInterval: 60000,
-    },
+    // {
+    //   onSuccess: () => {},
+    //   onError: (error) => {
+    //     error;
+    //   },
+    // },
   );
+
+  // useEffect(() => {
+  //   setIsApiUpdating(isValidating);
+  //   if (isValidating) {
+  //     const checkSleeping = setTimeout(() => {
+  //       if (!data) {
+  //         setIsApiSleeping(true);
+  //         const retryAfterSleep = setTimeout(() => {
+  //           if (!data && !error) {
+  //             setIsApiDown(true);
+  //           }
+  //         }, 40000);
+  //         return () => clearTimeout(retryAfterSleep);
+  //       }
+  //     }, 5000);
+  //     return () => clearTimeout(checkSleeping);
+  //   }
+  // }, [
+  //   isValidating,
+  //   data,
+  //   setIsApiUpdating,
+  //   setIsApiSleeping,
+  //   setIsApiDown,
+  //   error,
+  // ]);
 
   return {
     data,
     isLoading,
     error,
     isValidating,
-    isApiDown,
   };
 };

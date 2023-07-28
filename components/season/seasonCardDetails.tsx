@@ -3,7 +3,7 @@ import { getCountryName } from "@utils/countries";
 import cn from "classix";
 import { useState } from "react";
 
-import { Season } from "@/types/project";
+import { Season } from "@/types/selected-from-import";
 
 import SeasonCardComps from "./seasonCardComps";
 import SeasonCardPilots from "./seasonCardPilots";

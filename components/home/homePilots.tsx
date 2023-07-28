@@ -6,7 +6,7 @@ import cn from "classix";
 import Link from "next/link";
 import Flickity from "react-flickity-component";
 
-import { Pilot } from "@/types/project";
+import { Pilot } from "@/types/selected-from-import";
 
 const HomePilots = () => {
   const {

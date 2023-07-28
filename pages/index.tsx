@@ -5,8 +5,7 @@ import HomePilots from "@home/homePilots";
 import HomeResults from "@home/homeResults";
 import HomeRules from "@home/homeRules";
 import { useLayout } from "@state/layoutContext";
-import ApiDown from "@ui/apiDown";
-import { swrPreload, useAPI } from "@utils/swr";
+import { swrPreload } from "@utils/swr";
 import { useEffect } from "react";
 
 swrPreload("competitions");
@@ -15,8 +14,6 @@ swrPreload("pilots");
 
 const Home = () => {
   const { setPageTitle, setPageDescription, setActiveNav } = useLayout();
-
-  const { isApiDown } = useAPI("seasons");
 
   useEffect(() => {
     setPageTitle(
@@ -33,15 +30,11 @@ const Home = () => {
     <>
       <HomeHero />
       <HomeIntro />
-      {isApiDown ? (
-        <ApiDown />
-      ) : (
-        <>
-          <HomeEvents />
-          <HomeResults />
-          <HomePilots />
-        </>
-      )}
+
+      <HomeEvents />
+      <HomeResults />
+      <HomePilots />
+
       <HomeRules />
     </>
   );

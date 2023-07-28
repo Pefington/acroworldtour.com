@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-import { Competition, Season } from "@/types/project";
+import { Competition, Season } from "@/types/selected-from-import";
 
 interface Props {
   competition: Competition;
