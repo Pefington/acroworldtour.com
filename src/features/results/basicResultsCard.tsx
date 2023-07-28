@@ -1,7 +1,7 @@
-import { Flag } from "@ui/flag";
 import cn from "classix";
 import Link from "next/link";
 
+import { Flag } from "@/src/ui/flag";
 import {
   Competition,
   CompetitionResult,

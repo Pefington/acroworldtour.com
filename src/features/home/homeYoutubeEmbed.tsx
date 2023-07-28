@@ -1,9 +1,10 @@
 import useLocalStorage from "@state/useLocalStorage";
 import { useUserContext } from "@state/userContext";
-import { YouTubeIcon } from "@ui/icons";
 import cn from "classix";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+
+import { YouTubeIcon } from "@/src/ui/icons";
 
 interface Props {
   title: string;

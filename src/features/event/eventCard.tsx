@@ -1,11 +1,11 @@
-import { Flag } from "@ui/flag";
-import { RolodexIcon } from "@ui/icons";
 import { useAPI } from "@utils/swr";
 import cn from "classix";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { Flag } from "@/src/ui/flag";
+import { RolodexIcon } from "@/src/ui/icons";
 import { Competition, Season } from "@/types/api-types";
 
 interface Props {

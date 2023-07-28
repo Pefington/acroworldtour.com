@@ -1,8 +1,8 @@
-import { Flag } from "@ui/flag";
-import { NewTabIcon } from "@ui/icons";
 import cn from "classix";
 import Link from "next/link";
 
+import { Flag } from "@/src/ui/flag";
+import { NewTabIcon } from "@/src/ui/icons";
 import { Season } from "@/types/api-types";
 
 interface Props {

@@ -1,8 +1,8 @@
-import { ChevronIcon } from "@ui/icons";
 import { getCountryName } from "@utils/countries";
 import cn from "classix";
 import { useState } from "react";
 
+import { ChevronIcon } from "@/src/ui/icons";
 import { Season } from "@/types/api-types";
 
 import SeasonCardComps from "./seasonCardComps";

@@ -1,5 +1,6 @@
-import SocialLink from "@ui/socialLink";
 import cn from "classix";
+
+import SocialLink from "@/src/ui/socialLink";
 
 const currentYear = new Date().getFullYear();
 

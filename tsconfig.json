@@ -17,18 +17,25 @@
     "skipDefaultLibCheck": true,
     "paths": {
       "@/*": ["./*"],
+
       "@api-types": ["./types/api-types.ts"],
+
       "@constants": ["./constants.ts"],
+
       "@styles/*": ["./src/styles/*"],
-      "@components/*": ["./src/components/*"],
-      "@event/*": ["./src/components/event/*"],
-      "@home/*": ["./src/components/home/*"],
-      "@layout/*": ["./src/components/layout/*"],
-      "@pilot/*": ["./src/components/pilot/*"],
-      "@results/*": ["./src/components/results/*"],
-      "@season/*": ["./src/components/season/*"],
-      "@ui/*": ["./src/components/ui/*"],
+
+      "@layout/*": ["./src/layout/*"],
+      "@ui/*": ["./src/ui/*"],
+
+      "@features/*": ["./src/features/*"],
+      "@event/*": ["./src/features/event/*"],
+      "@home/*": ["./src/features/home/*"],
+      "@pilot/*": ["./src/features/pilot/*"],
+      "@results/*": ["./src/features/results/*"],
+      "@season/*": ["./src/features/season/*"],
+
       "@state/*": ["./src/state/*"],
+
       "@utils/*": ["./src/utils/*"]
     }
   },

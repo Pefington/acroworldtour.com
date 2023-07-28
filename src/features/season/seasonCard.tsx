@@ -1,11 +1,11 @@
 import useLocalStorage from "@state/useLocalStorage";
 import { useUserContext } from "@state/userContext";
-import { Flag } from "@ui/flag";
-import { ChevronIcon } from "@ui/icons";
 import cn from "classix";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+import { Flag } from "@/src/ui/flag";
+import { ChevronIcon } from "@/src/ui/icons";
 import { Season } from "@/types/api-types";
 
 import SeasonCardDetails from "./seasonCardDetails";

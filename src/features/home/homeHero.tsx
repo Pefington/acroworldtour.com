@@ -1,6 +1,7 @@
-import SocialLink from "@ui/socialLink";
 import cn from "classix";
 import Image from "next/image";
+
+import SocialLink from "@/src/ui/socialLink";
 
 const HomeHero = () => {
   return (

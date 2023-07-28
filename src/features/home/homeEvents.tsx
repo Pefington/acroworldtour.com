@@ -1,9 +1,9 @@
-import EventCard from "@event/eventCard";
-import EventCardSkeleton from "@event/eventCardSkeleton";
 import { useAPI } from "@utils/swr";
 import cn from "classix";
 import Link from "next/link";
 
+import EventCard from "@/src/features/event/eventCard";
+import EventCardSkeleton from "@/src/features/event/eventCardSkeleton";
 import { Competition } from "@/types/api-types";
 
 const HomeEvents = () => {
