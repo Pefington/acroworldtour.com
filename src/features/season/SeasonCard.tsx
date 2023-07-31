@@ -1,4 +1,3 @@
-import { Season } from "@api-types";
 import { activeSeasonCodesAtom, activeYearAtom } from "@state";
 import { Flag } from "@ui/Flag";
 import { ChevronIcon } from "@ui/icons";
@@ -10,7 +9,7 @@ import { useEffect, useState } from "react";
 import SeasonCardDetails from "./SeasonCardDetails";
 
 interface Props {
-  season: Season;
+  season: API.Season;
 }
 
 const SeasonCard = ({ season }: Props) => {

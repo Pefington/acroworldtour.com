@@ -1,6 +1,5 @@
 import "flickity/css/flickity.css";
 
-import { Pilot } from "@api-types";
 import PilotCard from "@pilot/PilotCard";
 import { useAPI } from "@utils/swr";
 import cx from "classix";
@@ -8,7 +7,7 @@ import Link from "next/link";
 import Flickity from "react-flickity-component";
 
 const HomePilots = () => {
-  const { data: pilots } = useAPI<Pilot[]>("pilots");
+  const { data: pilots } = useAPI<API.Pilot[]>("pilots");
 
   const awtPilots = pilots
     ?.filter((pilot) => pilot.is_awt)

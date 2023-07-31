@@ -1,15 +1,9 @@
-import {
-  Competition,
-  CompetitionResult,
-  Season,
-  SeasonResult,
-} from "@api-types";
 import { Flag } from "@ui/Flag";
 import cx from "classix";
 import Link from "next/link";
 
 interface Props {
-  event: Competition | Season;
+  event: API.Competition | API.Season;
   updating?: boolean;
   limitTo?: number | "all";
 }
@@ -17,11 +11,11 @@ interface Props {
 const BasicResultsCard = ({ event, updating, limitTo = 5 }: Props) => {
   const results =
     "overall_results" in event.results
-      ? (event.results.overall_results as CompetitionResult[])
+      ? (event.results.overall_results as API.CompetitionResult[])
       : (event.results
           .filter((result) => result.type === "overall")
           .map((result) => result.results)
-          .flat() as SeasonResult[]);
+          .flat() as API.SeasonResult[]);
 
   results.sort((a, b) => b.score - a.score);
 

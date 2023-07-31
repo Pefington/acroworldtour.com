@@ -1,11 +1,10 @@
-import { Competition } from "@api-types";
 import EventCard from "@event/EventCard";
 import { useAPI } from "@utils/swr";
 import cx from "classix";
 import Link from "next/link";
 
 const HomeEvents = () => {
-  const { data: competitions } = useAPI<Competition[]>("competitions");
+  const { data: competitions } = useAPI<API.Competition[]>("competitions");
 
   const upcomingEvents = competitions?.filter(
     (competition) => competition.state === "init",

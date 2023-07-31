@@ -1,4 +1,3 @@
-import { Pilot } from "@api-types";
 import { getCountryName } from "@utils/countries";
 import cx from "classix";
 import Image from "next/image";
@@ -6,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 interface Props {
-  pilot: Pilot;
+  pilot: API.Pilot;
   loading?: boolean;
 }
 

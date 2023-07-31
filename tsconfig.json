@@ -17,7 +17,6 @@
     "skipDefaultLibCheck": true,
     "paths": {
       "@state": ["./src/jotai.ts"],
-      "@api-types": ["./types/api-types.ts"],
       "@constants": ["./constants.ts"],
 
       "@styles/*": ["./src/styles/*"],
@@ -31,9 +30,17 @@
       "@results/*": ["./src/features/results/*"],
       "@season/*": ["./src/features/season/*"],
 
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+
+      "@openapi": ["./types/openapi-import.ts"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "constants.ts"],
+  "include": [
+    "next.env.d.ts",
+    "**/*.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "constants.ts"
+  ],
   "exclude": ["node_modules"]
 }

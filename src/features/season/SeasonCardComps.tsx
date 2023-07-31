@@ -1,11 +1,10 @@
-import { Season } from "@api-types";
 import { Flag } from "@ui/Flag";
 import { NewTabIcon } from "@ui/icons";
 import cx from "classix";
 import Link from "next/link";
 
 interface Props {
-  season: Season;
+  season: API.Season;
   isExpanded: boolean;
 }
 

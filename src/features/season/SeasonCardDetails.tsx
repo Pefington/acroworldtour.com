@@ -1,4 +1,3 @@
-import { Season } from "@api-types";
 import { ChevronIcon } from "@ui/icons";
 import { getCountryName } from "@utils/countries";
 import cx from "classix";
@@ -8,7 +7,7 @@ import SeasonCardComps from "./SeasonCardComps";
 import SeasonCardPilots from "./SeasonCardPilots";
 
 interface Props {
-  season: Season;
+  season: API.Season;
   isExpanded: boolean;
 }
 

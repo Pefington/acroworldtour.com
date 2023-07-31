@@ -1,9 +1,8 @@
-import { Season } from "@api-types";
 import SeasonCard from "@season/SeasonCard";
 import cx from "classix";
 
 interface Props {
-  seasons: Season[];
+  seasons: API.Season[];
 }
 
 const EventsSection = ({ seasons }: Props) => {

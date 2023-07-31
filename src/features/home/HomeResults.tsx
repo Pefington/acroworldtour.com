@@ -1,13 +1,12 @@
-import { Competition, Season } from "@api-types";
 import BasicResultsCard from "@results/BasicResultsCard";
 import { useAPI } from "@utils/swr";
 import cx from "classix";
 import Link from "next/link";
 
 const HomeResults = () => {
-  const { data: competitions } = useAPI<Competition[]>("competitions");
+  const { data: competitions } = useAPI<API.Competition[]>("competitions");
 
-  const { data: seasons } = useAPI<Season[]>("seasons");
+  const { data: seasons } = useAPI<API.Season[]>("seasons");
 
   const pastAwtCompetitions = competitions?.filter(
     (competition) =>
@@ -20,7 +19,7 @@ const HomeResults = () => {
     return aDate.getTime() - bDate.getTime();
   });
 
-  const { data: lastAwtComp } = useAPI<Competition>(
+  const { data: lastAwtComp } = useAPI<API.Competition>(
     "competitions",
     pastAwtCompetitions?.at(-1)?.code,
   );

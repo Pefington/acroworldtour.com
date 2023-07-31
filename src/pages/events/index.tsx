@@ -1,4 +1,3 @@
-import { Competition, Season } from "@api-types";
 import EventsSection from "@event/EventsSection";
 import { activeNavAtom, activeYearAtom, pageTitleAtom } from "@state";
 import YearSelector from "@ui/YearSelector";
@@ -8,8 +7,6 @@ import { useEffect } from "react";
 
 swrPreload("seasons");
 swrPreload("competitions");
-
-const currentYear = new Date().getFullYear();
 
 const Competitions = () => {
   const setActiveNav = useSetAtom(activeNavAtom);
@@ -24,11 +21,12 @@ const Competitions = () => {
     setActiveNav("events");
   }, [setPageTitle, setPageDescription, setActiveNav]);
 
-  const { data: seasons } = useAPI<Season[]>("seasons");
-  const { data: competitions } = useAPI<Competition[]>("competitions");
+  const { data: seasons } = useAPI<API.Season[]>("seasons");
+  const { data: competitions } = useAPI<API.Competition[]>("competitions");
 
   seasons?.sort((a, b) => a.name.localeCompare(b.name));
 
+  const currentYear = new Date().getFullYear();
   const years = [
     ...new Set(
       competitions?.flatMap((comp) => [

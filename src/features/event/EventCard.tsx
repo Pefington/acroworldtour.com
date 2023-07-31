@@ -1,4 +1,3 @@
-import { Competition, Season } from "@api-types";
 import { Flag } from "@ui/Flag";
 import { RolodexIcon } from "@ui/icons";
 import { useAPI } from "@utils/swr";
@@ -8,13 +7,13 @@ import Link from "next/link";
 import { useState } from "react";
 
 interface Props {
-  competition: Competition;
+  competition: API.Competition;
 }
 
 const EventCard = ({ competition }: Props) => {
   const [imgLoading, setImgLoading] = useState(true);
 
-  const { data: seasons } = useAPI<Season[]>("seasons");
+  const { data: seasons } = useAPI<API.Season[]>("seasons");
 
   const {
     name,
