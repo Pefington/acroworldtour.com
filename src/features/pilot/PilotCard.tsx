@@ -39,10 +39,7 @@ const PilotCard = ({ pilot, loading }: Props) => {
       )}
     >
       <figure
-        className={cx(
-          "absolute inset-0",
-          "bg-gradient-to-b from-transparent to-slate-900/90",
-        )}
+        className={cx("absolute inset-0", "bg-gradient-to-b from-transparent to-slate-900/90")}
       >
         <Image
           src={photo ?? photoLowres ?? "/img/blur.webp"}

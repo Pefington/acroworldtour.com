@@ -10,22 +10,12 @@ const EventsSection = ({ seasons }: Props) => {
 
   return (
     <section className={cx("awt-section awt-center")}>
-      <h2
-        className={cx(
-          "text-3xl font-black uppercase text-primary/80",
-          "md:text-5xl",
-        )}
-      >
+      <h2 className={cx("text-3xl font-black uppercase text-primary/80", "md:text-5xl")}>
         {seasons?.length ? type : `No ${type} Seasons`}
       </h2>
       {seasons?.length && (
         <div
-          className={cx(
-            "mt-6 grid gap-8",
-            "sm:grid-cols-2",
-            "lg:grid-cols-3",
-            "xl:grid-cols-4",
-          )}
+          className={cx("mt-6 grid gap-8", "sm:grid-cols-2", "lg:grid-cols-3", "xl:grid-cols-4")}
         >
           {seasons?.map((season) => (
             <SeasonCard key={season.code} season={season} />

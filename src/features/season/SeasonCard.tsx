@@ -18,15 +18,10 @@ const SeasonCard = ({ season }: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const [activeYear] = useAtom(activeYearAtom);
-  const [activeSeasonCodes, setActiveSeasonCodes] = useAtom(
-    activeSeasonCodesAtom,
-  );
+  const [activeSeasonCodes, setActiveSeasonCodes] = useAtom(activeSeasonCodesAtom);
 
   useEffect(() => {
-    setIsBlurred(
-      !!activeSeasonCodes[activeYear] &&
-        activeSeasonCodes[activeYear] !== season.code,
-    );
+    setIsBlurred(!!activeSeasonCodes[activeYear] && activeSeasonCodes[activeYear] !== season.code);
     setIsExpanded(activeSeasonCodes[activeYear] === season.code);
   }, [activeSeasonCodes, activeYear, season.code]);
 
@@ -45,20 +40,13 @@ const SeasonCard = ({ season }: Props) => {
   const nameWithoutYear = name.split(" ").slice(0, -1).join(" ");
 
   return (
-    <article
-      className={cx(
-        "w-full rounded-md shadow-md",
-        "group",
-        !isExpanded && "aspect-video",
-      )}
-    >
+    <article className={cx("w-full rounded-md shadow-md", "group", !isExpanded && "aspect-video")}>
       <button
         className={cx(
           "flex flex-col justify-end",
           "aspect-video w-full min-w-max",
           "overflow-hidden rounded-md bg-white",
-          isBlurred &&
-            "opacity-30 blur-[1px] group-hover:opacity-80 group-hover:blur-none",
+          isBlurred && "opacity-30 blur-[1px] group-hover:opacity-80 group-hover:blur-none",
         )}
         onClick={() => handleSelect(season.code)}
         onKeyDown={({ key }) => key === "Enter" && handleSelect(season.code)}
@@ -106,12 +94,8 @@ const SeasonCard = ({ season }: Props) => {
         </figure>
         <div className={cx("flex items-center gap-2 px-4 py-2")}>
           <Flag country={country} className="-mt-0.5 h-5 w-5" />
-          <h4 className={cx("font-bold uppercase", "sm:text-lg")}>
-            {nameWithoutYear}
-          </h4>
-          <ChevronIcon
-            className={cx("h-4 fill-secondary", isExpanded && "rotate-180")}
-          />
+          <h4 className={cx("font-bold uppercase", "sm:text-lg")}>{nameWithoutYear}</h4>
+          <ChevronIcon className={cx("h-4 fill-secondary", isExpanded && "rotate-180")} />
         </div>
       </button>
 

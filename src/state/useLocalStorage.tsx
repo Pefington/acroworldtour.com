@@ -11,8 +11,7 @@ const useLocalStorage = (key: string, initialValue: unknown) => {
 };
 
 function getStoredValue(key: string, initialValue: unknown) {
-  const initialValueReturn =
-    initialValue instanceof Function ? initialValue() : initialValue;
+  const initialValueReturn = initialValue instanceof Function ? initialValue() : initialValue;
   if (typeof window === "undefined") return initialValueReturn;
 
   const storedValue = localStorage.getItem(key);

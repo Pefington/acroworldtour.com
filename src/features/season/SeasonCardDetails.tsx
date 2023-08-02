@@ -32,9 +32,7 @@ const SeasonCardDetails = ({ season, isExpanded }: Props) => {
         "flex w-full flex-col",
         "text-sm font-bold uppercase",
         "[&_*]:overflow-hidden",
-        isExpanded
-          ? "pb-2 [&>*:not(div)]:py-1 [&>*]:max-h-full"
-          : "[&>*]:max-h-0",
+        isExpanded ? "pb-2 [&>*:not(div)]:py-1 [&>*]:max-h-full" : "[&>*]:max-h-0",
       )}
     >
       <p
@@ -67,42 +65,24 @@ const SeasonCardDetails = ({ season, isExpanded }: Props) => {
         )}
 
         {!noContestants && (
-          <ChevronIcon
-            className={cx(
-              "h-3 fill-secondary",
-              showCat === "pilots" && "rotate-180",
-            )}
-          />
+          <ChevronIcon className={cx("h-3 fill-secondary", showCat === "pilots" && "rotate-180")} />
         )}
       </button>
 
-      <SeasonCardPilots
-        season={season}
-        isExpanded={isExpanded && showCat === "pilots"}
-      />
+      <SeasonCardPilots season={season} isExpanded={isExpanded && showCat === "pilots"} />
 
       <button
         disabled={!numberOfCompetitions}
         className={cx("flex items-center px-5 uppercase")}
         onClick={() => setShowCat(showCat === "comps" ? "none" : "comps")}
       >
-        {`${numberOfCompetitions} competition${
-          numberOfCompetitions > 1 ? "s" : ""
-        }`}
+        {`${numberOfCompetitions} competition${numberOfCompetitions > 1 ? "s" : ""}`}
         {numberOfCompetitions && (
-          <ChevronIcon
-            className={cx(
-              "h-3 fill-secondary",
-              showCat === "comps" && "rotate-180",
-            )}
-          />
+          <ChevronIcon className={cx("h-3 fill-secondary", showCat === "comps" && "rotate-180")} />
         )}
       </button>
 
-      <SeasonCardComps
-        season={season}
-        isExpanded={isExpanded && showCat === "comps"}
-      />
+      <SeasonCardComps season={season} isExpanded={isExpanded && showCat === "comps"} />
     </div>
   );
 };

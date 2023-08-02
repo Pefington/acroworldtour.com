@@ -4,13 +4,10 @@ import Link from "next/link";
 
 const HomeRules = () => (
   <section className={cx("awt-home-section awt-center", "flex flex-col")}>
-    <h2 className={cx("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>
-      Learn the Rules
-    </h2>
+    <h2 className={cx("mb-8 text-3xl font-black uppercase", "md:text-5xl")}>Learn the Rules</h2>
     <p>
-      If you are interested in learning more about the insights of the
-      competitions like the rules, tricks, scoring etc. Download the FAI
-      Sporting Code 7B here.
+      If you are interested in learning more about the insights of the competitions like the rules,
+      tricks, scoring etc. Download the FAI Sporting Code 7B here.
     </p>
     <Link
       href={{

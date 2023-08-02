@@ -64,9 +64,7 @@ const HomeYouTubeEmbed = ({ title, embedId }: Props) => {
                 "lg:px-8",
               )}
             >
-              <p>
-                {`Choosing 'OK' will load the YouTube embed and Google may track you.`}
-              </p>
+              <p>{`Choosing 'OK' will load the YouTube embed and Google may track you.`}</p>
               <p>{`We can't help that.`}</p>
               <div className={cx("mt-4 flex w-full justify-center gap-8")}>
                 <button

@@ -10,11 +10,7 @@ interface Props {
 }
 
 const HomeIntroNewsMain = ({ title, date, href, imageUrl }: Props) => (
-  <Link
-    href={href}
-    title={title}
-    className={cx("group overflow-hidden rounded shadow-md")}
-  >
+  <Link href={href} title={title} className={cx("group overflow-hidden rounded shadow-md")}>
     <figure className={cx("relative w-full overflow-hidden pt-[50%]")}>
       <Image
         src={imageUrl}

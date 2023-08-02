@@ -45,9 +45,7 @@ const SeasonCardComps = ({ season, isExpanded }: Props) => {
             <Flag country={country} className="-mt-px mr-2 h-4 w-4" />
             <div className="flex flex-col pl-1">
               <p>{nameWithoutYear}</p>
-              <p className="text-xs">
-                {state === "init" ? `${startDate}` : "Finished"}
-              </p>
+              <p className="text-xs">{state === "init" ? `${startDate}` : "Finished"}</p>
             </div>
             <NewTabIcon
               className={cx(

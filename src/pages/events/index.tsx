@@ -42,36 +42,22 @@ const Competitions = () => {
     return startYear === activeYear || endYear === activeYear;
   });
 
-  filteredCompetitions?.sort((a, b) =>
-    b.start_date.localeCompare(a.start_date),
-  );
+  filteredCompetitions?.sort((a, b) => b.start_date.localeCompare(a.start_date));
 
-  const filteredSeasons = seasons?.filter(
-    (season) => season.year === activeYear,
-  );
+  const filteredSeasons = seasons?.filter((season) => season.year === activeYear);
 
-  const soloSeasons = filteredSeasons?.filter(
-    (season) => season.type === "solo",
-  );
+  const soloSeasons = filteredSeasons?.filter((season) => season.type === "solo");
 
-  const synchroSeasons = filteredSeasons?.filter(
-    (season) => season.type === "synchro",
-  );
+  const synchroSeasons = filteredSeasons?.filter((season) => season.type === "synchro");
 
   // const offSeasonCompetitions = filteredCompetitions?.filter(
   //   (competition) => competition.seasons.length === 0,
   // );
 
-  console.log(soloSeasons);
-
   return (
     <>
       <header className="flex flex-wrap items-baseline awt-header awt-center">
-        <YearSelector
-          years={years}
-          list={filteredSeasons || []}
-          pluralString={"seasons"}
-        />
+        <YearSelector years={years} list={filteredSeasons || []} pluralString={"seasons"} />
       </header>
 
       {soloSeasons?.length && <EventsSection seasons={soloSeasons} />}

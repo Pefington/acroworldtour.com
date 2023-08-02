@@ -10,8 +10,7 @@ const Custom404 = () => {
         "sm:text-xl",
       )}
     >
-      404 <div className="mx-3 h-12 w-[2px] bg-primary/50" /> This page could
-      not be found.
+      404 <div className="mx-3 h-12 w-[2px] bg-primary/50" /> This page could not be found.
     </h2>
   );
 };

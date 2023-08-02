@@ -44,11 +44,7 @@ const YearSelector = ({ years, list, pluralString, loading }: Props) => {
           onChange={({ target }) => setActiveYear(Number(target.value))}
         >
           {years.map((year) => (
-            <option
-              key={year}
-              value={year}
-              className="bg-secondary-light font-sans text-xl"
-            >
+            <option key={year} value={year} className="bg-secondary-light font-sans text-xl">
               {year}
             </option>
           ))}

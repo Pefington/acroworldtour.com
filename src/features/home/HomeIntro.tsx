@@ -6,17 +6,8 @@ import HomeYouTubeEmbed from "./HomeYoutubeEmbed";
 
 const HomeIntro = () => {
   return (
-    <div
-      className={cx(
-        "awt-home-section awt-center",
-        "flex flex-col gap-10",
-        "lg:flex-row",
-      )}
-    >
-      <HomeYouTubeEmbed
-        title="Acro World Tour 2023 | Stop 01 - Nest Games"
-        embedId="tIfpP5pdqZ4"
-      />
+    <div className={cx("awt-home-section awt-center", "flex flex-col gap-10", "lg:flex-row")}>
+      <HomeYouTubeEmbed title="Acro World Tour 2023 | Stop 01 - Nest Games" embedId="tIfpP5pdqZ4" />
 
       <section className={cx("flex flex-col")}>
         <h2 className={cx("mb-4 text-3xl font-black uppercase")}>Hot News</h2>

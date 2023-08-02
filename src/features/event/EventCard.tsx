@@ -15,15 +15,7 @@ const EventCard = ({ competition }: Props) => {
 
   const { data: seasons } = useAPI<API.Season[]>("seasons");
 
-  const {
-    name,
-    code,
-    start_date,
-    end_date,
-    location,
-    image,
-    seasons: seasonCodes,
-  } = competition;
+  const { name, code, start_date, end_date, location, image, seasons: seasonCodes } = competition;
 
   const startDate = new Date(start_date);
   const endDate = new Date(end_date);
@@ -71,20 +63,14 @@ const EventCard = ({ competition }: Props) => {
           />
         </figure>
         <div className={cx("flex min-w-max flex-col gap-3 px-7 py-4")}>
-          <h3 className={cx("text-lg font-bold uppercase")}>
-            {nameWithoutYear}
-          </h3>
+          <h3 className={cx("text-lg font-bold uppercase")}>{nameWithoutYear}</h3>
           <span className={cx("flex items-center gap-2 font-semibold")}>
             <RolodexIcon className="-ml-[2px] -mt-1 aspect-square h-[18px] fill-current" />
             {`${startDay} ${startMonth !== endMonth ? startMonth : ""} ${
               startYear !== endYear ? startYear : ""
             } to ${endDay} ${endMonth} ${endYear}`}
           </span>
-          <span
-            className={cx(
-              "flex items-center gap-3 text-sm font-medium text-secondary",
-            )}
-          >
+          <span className={cx("flex items-center gap-3 text-sm font-medium text-secondary")}>
             <Flag country={country} className="-mx-0.5 h-5 w-5" />
             {location}
           </span>

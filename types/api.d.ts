@@ -5,9 +5,10 @@ declare namespace API {
   type Pilot = api['PilotWithResults'];
   type Team = api['TeamExport'];
   type Judge = api['Judge'];
-  type Competition = api['CompetitionPublicExportWithResults'];
-  type CompetitionResult = api['CompetitionPilotResultsExport'];
+  type Competition = api['CompetitionPublicExport'];
+  type CompetitionWithResults = api['CompetitionPublicExportWithResults'];
+  type CompetitionResults = api['CompetitionResultsExport'];
   type Season = api['SeasonPublicExport'];
-  type SeasonResult = api['models__seasons__SeasonResult'];
+  type SeasonResults = api['models__seasons__SeasonResult'];
   type Trick = api['Trick'];
 }

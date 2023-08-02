@@ -1,17 +1,22 @@
 import "flickity/css/flickity.css";
 
 import PilotCard from "@pilot/PilotCard";
+import { pilotsAtom } from "@state";
 import { useAPI } from "@utils/swr";
 import cx from "classix";
+import { useAtom } from "jotai";
 import Link from "next/link";
 import Flickity from "react-flickity-component";
 
 const HomePilots = () => {
-  const { data: pilots } = useAPI<API.Pilot[]>("pilots");
+  const [pilots, setPilots] = useAtom(pilotsAtom);
 
-  const awtPilots = pilots
-    ?.filter((pilot) => pilot.is_awt)
-    .sort((a, b) => a.rank - b.rank);
+  useAPI<API.Pilot[]>("pilots", {
+    fallbackData: pilots,
+    onSuccess: (data) => setPilots(data),
+  });
+
+  const awtPilots = pilots?.filter((pilot) => pilot.is_awt).sort((a, b) => a.rank - b.rank);
 
   return (
     <section className="flex flex-col bg-secondary-light awt-home-section">

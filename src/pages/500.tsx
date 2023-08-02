@@ -10,8 +10,8 @@ const Custom500 = () => {
         "sm:text-xl",
       )}
     >
-      500 <div className="mx-3 h-12 w-[2px] bg-primary/50" /> There was an error
-      on our side. Please try again later.
+      500 <div className="mx-3 h-12 w-[2px] bg-primary/50" /> There was an error on our side. Please
+      try again later.
     </h2>
   );
 };

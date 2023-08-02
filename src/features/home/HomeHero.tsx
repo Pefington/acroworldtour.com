@@ -24,13 +24,7 @@ const HomeHero = () => {
       />
       <article className={cx("max-w-lg pb-20 text-white")}>
         <p className={cx("text-lg font-medium")}>Welcome to</p>
-        <h1
-          className={cx(
-            "my-4 text-4xl font-black uppercase",
-            "sm:text-5xl",
-            "md:text-6xl",
-          )}
-        >
+        <h1 className={cx("my-4 text-4xl font-black uppercase", "sm:text-5xl", "md:text-6xl")}>
           The Acro World Tour
         </h1>
         <p className={cx("text-lg font-medium")}>
@@ -39,10 +33,7 @@ const HomeHero = () => {
         <div className={cx("mt-7 flex items-center gap-3 px-1")}>
           <SocialLink link="https://instagram.com/acroworldtour" />
           <SocialLink link="https://www.facebook.com/groups/120757714620928" />
-          <SocialLink
-            link="https://www.youtube.com/@acroworldtour"
-            className="fill-white"
-          />
+          <SocialLink link="https://www.youtube.com/@acroworldtour" className="fill-white" />
         </div>
       </article>
     </header>

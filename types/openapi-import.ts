@@ -1576,9 +1576,7 @@ export interface components {
       results: components['schemas']['SeasonResults'][];
       /** Competitions Results */
       competitions_results: {
-        [key: string]:
-          | components['schemas']['CompetitionPilotResultsExport'][]
-          | undefined;
+        [key: string]: components['schemas']['CompetitionPilotResultsExport'][] | undefined;
       };
     };
     /** SeasonResults */
