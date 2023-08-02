@@ -684,8 +684,10 @@ export interface components {
       final: boolean;
       /** Type */
       type: string;
-      /** Overall Results */
-      overall_results: components['schemas']['CompetitionPilotResultsExport'][];
+      /** Results */
+      results: {
+        [key: string]: components['schemas']['CompetitionPilotResultsExport'][] | undefined;
+      };
       /** Runs Results */
       runs_results: components['schemas']['RunResultsExport'][];
     };
@@ -1458,7 +1460,9 @@ export interface components {
       /** Type */
       type: string;
       /** Results */
-      results: components['schemas']['FlightExport'][];
+      results: {
+        [key: string]: components['schemas']['FlightExport'][] | undefined;
+      };
     };
     /**
      * RunState
