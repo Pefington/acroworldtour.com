@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
-type api = import('@openapi').components['schemas'];
+type awt = import('@api').awt;
 
 declare namespace API {
-  type Pilot = api['PilotWithResults'];
-  type Team = api['TeamExport'];
-  type Judge = api['Judge'];
-  type Competition = api['CompetitionPublicExport'];
-  type CompetitionWithResults = api['CompetitionPublicExportWithResults'];
-  type CompetitionResults = api['CompetitionResultsExport'];
-  type Season = api['SeasonPublicExport'];
-  type SeasonResults = api['models__seasons__SeasonResult'];
-  type Trick = api['Trick'];
+  type Pilot = awt['PilotWithResults'];
+  type Team = awt['TeamExport'];
+  type Judge = awt['Judge'];
+  type Competition = awt['CompetitionPublicExport'];
+  type CompetitionWithResults = awt['CompetitionPublicExportWithResults'];
+  type CompetitionResults = awt['CompetitionResultsExport'];
+  type Season = awt['SeasonPublicExport'];
+  type SeasonResults = awt['models__seasons__SeasonResult'];
+  type Trick = awt['Trick'];
 }

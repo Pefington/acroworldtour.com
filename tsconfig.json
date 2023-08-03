@@ -32,6 +32,7 @@
 
       "@utils/*": ["./src/utils/*"],
 
+      "@api": ["./types/awt.ts"],
       "@openapi": ["./types/openapi-import.ts"]
     }
   },
@@ -40,7 +41,8 @@
     "**/*.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "constants.ts"
+    "constants.ts",
+    "src/utils/getCleanSchema.js"
   ],
   "exclude": ["node_modules"]
 }
