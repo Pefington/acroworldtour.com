@@ -1,65 +1,17 @@
+import { useUpdateCompetitions, useUpdateSeasons } from "@data/useData";
 import BasicResultsCard from "@results/BasicResultsCard";
-import { apiStatusAtom, compsAtom, lastAwqSeasonAtom, lastAwtCompAtom, seasonsAtom } from "@state";
-import { useAPI } from "@utils/swr";
+import { getLastResultableAwqEvent, getLastResultableAwtEvent } from "@utils/data-helpers";
 import cx from "classix";
-import { useAtom, useSetAtom } from "jotai";
 import Link from "next/link";
 
 const HomeResults = () => {
-  const setApiStatus = useSetAtom(apiStatusAtom);
+  useUpdateSeasons();
+  useUpdateCompetitions();
 
-  const [comps, setComps] = useAtom(compsAtom);
-  const [seasons, setSeasons] = useAtom(seasonsAtom);
-  const [lastAwtComp, setLastAwtComp] = useAtom(lastAwtCompAtom);
-  const [lastAwqSeason, setLastAwqSeason] = useAtom(lastAwqSeasonAtom);
+  const lastAwtEvent = getLastResultableAwtEvent();
+  const lastAwqEvent = getLastResultableAwqEvent();
 
-  useAPI<API.Competition[]>("competitions", {
-    fallbackData: comps,
-    onSuccess: (data) => {
-      setComps(data);
-      setApiStatus("up");
-    },
-  });
-
-  useAPI<API.Season[]>("seasons", {
-    fallbackData: seasons,
-    onSuccess: (data) => {
-      setSeasons(data);
-      setApiStatus("up");
-    },
-  });
-
-  const pastAwtComps = comps.filter(
-    (comp) => comp.state === "closed" && comp.seasons.some((season) => season.includes("awt")),
-  );
-  pastAwtComps.sort((a, b) => {
-    const aDate = new Date(a.start_date);
-    const bDate = new Date(b.start_date);
-    return aDate.getTime() - bDate.getTime();
-  });
-
-  useAPI<API.Competition>(`competitions/${pastAwtComps.at(-1)?.code}`, {
-    fallbackData: lastAwtComp,
-    onSuccess: (data) => {
-      setLastAwtComp(data);
-      setApiStatus("up");
-    },
-  });
-
-  const awqSeasons = seasons.filter((season) => {
-    season.code.includes("awq");
-    season.competitions.every((comp) => comp.state === "closed");
-  });
-
-  awqSeasons.sort((a, b) => a.year - b.year);
-
-  useAPI<API.Season>(`seasons/${pastAwtComps.at(-1)?.code}`, {
-    fallbackData: lastAwtComp,
-    onSuccess: (data) => {
-      setLastAwqSeason(data);
-      setApiStatus("up");
-    },
-  });
+  // console.log(lastAwtEvent.name, lastAwqEvent.name);
 
   return (
     <section className={cx("awt-home-section awt-center", "flex flex-col")}>
@@ -76,8 +28,8 @@ const HomeResults = () => {
         </Link>
       </header>
       <div className={cx("grid justify-center gap-10", "md:grid-cols-2")}>
-        {lastAwtComp && <BasicResultsCard event={lastAwtComp} />}
-        {lastAwqSeason && <BasicResultsCard event={lastAwqSeason} />}
+        {lastAwtEvent && <BasicResultsCard event={lastAwtEvent} />}
+        {lastAwqEvent && <BasicResultsCard event={lastAwqEvent} />}
       </div>
     </section>
   );

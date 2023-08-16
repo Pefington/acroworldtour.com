@@ -1,11 +1,11 @@
+import { activeNavAtom, pageDescriptionAtom, pageTitleAtom } from "@data/jotai";
+import { swrPreload } from "@data/swr";
 import HomeEvents from "@home/HomeEvents";
 import HomeHero from "@home/HomeHero";
 import HomeIntro from "@home/HomeIntro";
 import HomePilots from "@home/HomePilots";
 import HomeResults from "@home/HomeResults";
 import HomeRules from "@home/HomeRules";
-import { activeNavAtom, pageDescriptionAtom, pageTitleAtom } from "@state";
-import { swrPreload } from "@utils/swr";
 import { useSetAtom } from "jotai";
 import { useEffect } from "react";
 

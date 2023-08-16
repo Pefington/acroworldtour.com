@@ -1,6 +1,6 @@
 /* eslint-disable-next-line simple-import-sort/imports */
 import { API_URL } from '@constants';
-import { apiStatusAtom, store } from '@state';
+import { apiStatusAtom, store } from '@data/jotai';
 import axios from 'axios';
 import useSWR, { SWRConfiguration, preload } from 'swr';
 
@@ -15,9 +15,10 @@ export const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 export const swrPreload = (key: string) => preload(`${API_URL}/${key}/`, fetcher);
 
-export const useAPI = <T>(slug: string, options?: SWRConfiguration): ApiResponse<T> => {
-  let [key, param] = slug.split('/');
+export const useAPI = <T>(slug: string, options?: SWRConfiguration): ApiResponse<T> | undefined => {
+  store.set(apiStatusAtom, 'busy');
 
+  let [key, param] = slug.split('/');
   param = param === 'undefined' ? '' : param;
 
   const { data, isLoading, error, isValidating } = useSWR(
@@ -25,7 +26,12 @@ export const useAPI = <T>(slug: string, options?: SWRConfiguration): ApiResponse
     fetcher,
     {
       ...options,
-      onSuccess: () => store.set(apiStatusAtom, 'up'),
+      onSuccess: (data, key, config) => {
+        store.set(apiStatusAtom, 'up');
+        options?.onSuccess?.(data, key, config);
+      },
+      onError: (error) =>
+        store.set(apiStatusAtom, error.message === 'Network Error' ? 'down' : error),
     },
   );
 

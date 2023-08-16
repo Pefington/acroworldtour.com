@@ -1,8 +1,8 @@
 import "flickity/css/flickity.css";
 
+import { pilotsAtom } from "@data/jotai";
+import { useAPI } from "@data/swr";
 import PilotCard from "@pilot/PilotCard";
-import { pilotsAtom } from "@state";
-import { useAPI } from "@utils/swr";
 import cx from "classix";
 import { useAtom } from "jotai";
 import Link from "next/link";

@@ -1,4 +1,4 @@
-import { pageDescriptionAtom, pageTitleAtom } from "@state";
+import { pageDescriptionAtom, pageTitleAtom } from "@data/jotai";
 import { useAtom } from "jotai";
 import Head from "next/head";
 

@@ -1,4 +1,4 @@
-import { getCountryName } from "@utils/countries";
+import { getCountryName } from "@utils/countries-helpers";
 import cx from "classix";
 import Image from "next/image";
 import Link from "next/link";

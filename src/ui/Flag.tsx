@@ -1,4 +1,4 @@
-import { getCountryCode, getCountryName } from "@utils/countries";
+import { getCountryCode, getCountryName } from "@utils/countries-helpers";
 import cx from "classix";
 import { CircleFlag } from "react-circle-flags";
 

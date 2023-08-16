@@ -1,4 +1,4 @@
-import { activeSeasonCodesAtom, activeYearAtom } from "@state";
+import { activeSeasonCodesAtom, activeYearAtom } from "@data/jotai";
 import { Flag } from "@ui/Flag";
 import { ChevronIcon } from "@ui/icons";
 import cx from "classix";

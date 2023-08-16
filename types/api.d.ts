@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-type awt = import('@api').awt;
+type awt = import('@api-types').awt;
 
 declare namespace API {
   type Pilot = awt['PilotWithResults'];
@@ -11,4 +11,6 @@ declare namespace API {
   type Season = awt['SeasonPublicExport'];
   type SeasonResults = awt['models__seasons__SeasonResult'];
   type Trick = awt['Trick'];
+
+  type Event = Season | Competition;
 }

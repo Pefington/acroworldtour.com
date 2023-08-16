@@ -1,4 +1,4 @@
-import { activeYearAtom } from "@state";
+import { activeYearAtom } from "@data/jotai";
 import cx from "classix";
 import { useAtom } from "jotai";
 

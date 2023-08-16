@@ -16,6 +16,9 @@ const SeasonCardComps = ({ season, isExpanded }: Props) => {
     <div aria-hidden={!isExpanded} className={cx(isExpanded && "pb-2")}>
       {competitions.map((comp) => {
         const { name, code, location, start_date, state } = comp;
+        const isUnderway = state === "open";
+        const isOpen = state === "init";
+        const isFinished = state === "closed";
         const nameWithoutYear = name.split(" ").slice(0, -1).join(" ");
         const country = location.split(", ").at(-1);
         const startDate = new Date(start_date).toLocaleString("en-IE", {
@@ -36,16 +39,18 @@ const SeasonCardComps = ({ season, isExpanded }: Props) => {
               "group/comp",
               "odd:bg-secondary-light",
               "[&>div]:hover:translate-x-1 [&>div]:hover:text-primary",
-              state === "closed" && "text-secondary",
-              state === "open" && "text-accent",
-              state === "init" && "text-sky-600",
+              isFinished && "text-secondary",
+              isUnderway && "text-accent",
+              isOpen && "text-sky-600",
               isExpanded ? "py-1 [&>*]:my-1" : "[&_*]:-my-10",
             )}
           >
             <Flag country={country} className="-mt-px mr-2 h-4 w-4" />
             <div className="flex flex-col pl-1">
               <p>{nameWithoutYear}</p>
-              <p className="text-xs">{state === "init" ? `${startDate}` : "Finished"}</p>
+              <p className={cx("text-xs", isUnderway && "animate-pulse")}>
+                {state === "init" ? `${startDate}` : "Finished"}
+              </p>
             </div>
             <NewTabIcon
               className={cx(

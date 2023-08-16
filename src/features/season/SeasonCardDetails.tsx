@@ -1,5 +1,5 @@
 import { ChevronIcon } from "@ui/icons";
-import { getCountryName } from "@utils/countries";
+import { getCountryName } from "@utils/countries-helpers";
 import cx from "classix";
 import { useState } from "react";
 
@@ -24,6 +24,9 @@ const SeasonCardDetails = ({ season, isExpanded }: Props) => {
 
   const numberOfCompetitions = competitions.length;
   const noContestants = !numberOfPilots && !numberOfTeams;
+
+  // const pilotsTally = new Set( competitions.flatMap( ( comp ) => comp.pilots ) ).size;
+  // if (isExpanded) console.log(pilotsTally)
 
   return (
     <div

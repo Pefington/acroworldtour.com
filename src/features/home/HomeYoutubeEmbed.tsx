@@ -1,4 +1,4 @@
-import { youTubeConsentAtom } from "@state";
+import { youTubeConsentAtom } from "@data/jotai";
 import { YouTubeIcon } from "@ui/icons";
 import cx from "classix";
 import { useAtom } from "jotai";

@@ -13,19 +13,17 @@ const font = Exo({
 
 const { className } = font;
 
-const App = ({ Component, pageProps }: AppProps) => {
-  return (
-    <>
-      <HeadComponent />
-      <Nav className={className} />
+const App = ({ Component, pageProps }: AppProps) => (
+  <>
+    <HeadComponent />
+    <Nav className={className} />
 
-      <main className={cx(className, "flex w-full grow flex-col md:pt-20")}>
-        <Component {...pageProps} />
-      </main>
+    <main className={cx(className, "flex w-full grow flex-col md:pt-20")}>
+      <Component {...pageProps} />
+    </main>
 
-      <Footer />
-    </>
-  );
-};
+    <Footer />
+  </>
+);
 
 export default App;

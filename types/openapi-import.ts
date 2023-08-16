@@ -1102,7 +1102,15 @@ export interface components {
       config: components['schemas']['CompetitionConfig'];
       /** Flights */
       flights: components['schemas']['FlightExport'][];
+      /** @default 0 */
+      repetitions_reset_policy?: components['schemas']['RunRepetitionsResetPolicy'];
     };
+    /**
+     * RunRepetitionsResetPolicy
+     * @description An enumeration.
+     * @enum {integer}
+     */
+    RunRepetitionsResetPolicy: 0 | 1 | 2 | 3;
     /**
      * RunResultSummary
      * @example {
@@ -1261,7 +1269,7 @@ export interface components {
        * Link
        * Format: uri
        */
-      link: string;
+      link?: string;
       /** Img */
       img: string;
     };

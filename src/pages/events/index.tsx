@@ -1,7 +1,7 @@
+import { activeNavAtom, activeYearAtom, pageTitleAtom } from "@data/jotai";
+import { swrPreload, useAPI } from "@data/swr";
 import EventsSection from "@event/EventsSection";
-import { activeNavAtom, activeYearAtom, pageTitleAtom } from "@state";
 import YearSelector from "@ui/YearSelector";
-import { swrPreload, useAPI } from "@utils/swr";
 import { useAtom, useSetAtom } from "jotai";
 import { useEffect } from "react";
 

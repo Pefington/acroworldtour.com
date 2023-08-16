@@ -1,19 +1,15 @@
+import { compsAtom } from "@data/jotai";
+import { useUpdateCompetitions } from "@data/useData";
 import EventCard from "@event/EventCard";
-import { compsAtom } from "@state";
-import { useAPI } from "@utils/swr";
 import cx from "classix";
-import { useAtom } from "jotai";
+import { useAtomValue } from "jotai";
 import Link from "next/link";
 
 const HomeEvents = () => {
-  const [comps, setComps] = useAtom(compsAtom);
+  useUpdateCompetitions();
+  const comps = useAtomValue(compsAtom);
 
-  useAPI<API.Competition[]>("competitions", {
-    fallbackData: comps,
-    onSuccess: (data) => setComps(data),
-  });
-
-  const upcomingEvents = comps.filter((competition) => competition.state === "init");
+  const upcomingEvents = comps.filter((comp) => comp.state === "init" && comp.type === "solo");
 
   upcomingEvents?.sort((a, b) => {
     const aDate = new Date(a.start_date);

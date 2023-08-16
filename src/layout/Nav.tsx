@@ -1,5 +1,5 @@
-import { activeNavAtom } from "@state";
-import { swrPreload } from "@utils/swr";
+import { activeNavAtom } from "@data/jotai";
+import { swrPreload } from "@data/swr";
 import cx from "classix";
 import { useAtom } from "jotai";
 import Image from "next/image";

@@ -309,7 +309,10 @@ export interface awt {
     repeatable_tricks: awt['Trick'][];
     config: awt['CompetitionConfig'];
     flights: awt['FlightExport'][];
+    repetitions_reset_policy?: awt['RunRepetitionsResetPolicy'];
   };
+
+  RunRepetitionsResetPolicy: 0 | 1 | 2 | 3;
 
   RunResultSummary: {
     rank: number;
@@ -378,7 +381,7 @@ export interface awt {
 
   Sponsor: {
     name: string;
-    link: string;
+    link?: string;
     img: string;
   };
 
