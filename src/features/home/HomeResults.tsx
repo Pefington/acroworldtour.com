@@ -1,6 +1,6 @@
 import { useUpdateCompetitions, useUpdateSeasons } from "@data/useData";
 import BasicResultsCard from "@results/BasicResultsCard";
-import { getLastResultableAwqEvent, getLastResultableAwtEvent } from "@utils/data-helpers";
+import { getLatestResultableFromSeason } from "@utils/data-helpers";
 import cx from "classix";
 import Link from "next/link";
 
@@ -8,10 +8,8 @@ const HomeResults = () => {
   useUpdateSeasons();
   useUpdateCompetitions();
 
-  const lastAwtEvent = getLastResultableAwtEvent();
-  const lastAwqEvent = getLastResultableAwqEvent();
-
-  // console.log(lastAwtEvent.name, lastAwqEvent.name);
+  const lastAwtEvent = getLatestResultableFromSeason("awt");
+  const lastAwqEvent = getLatestResultableFromSeason("awq");
 
   return (
     <section className={cx("awt-home-section awt-center", "flex flex-col")}>

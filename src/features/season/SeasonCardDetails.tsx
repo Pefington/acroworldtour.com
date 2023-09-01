@@ -26,7 +26,7 @@ const SeasonCardDetails = ({ season, isExpanded }: Props) => {
   const noContestants = !numberOfPilots && !numberOfTeams;
 
   // const pilotsTally = new Set( competitions.flatMap( ( comp ) => comp.pilots ) ).size;
-  // if (isExpanded) console.log(pilotsTally)
+  // if (isExpanded) c.log(pilotsTally)
 
   return (
     <div

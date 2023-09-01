@@ -1,5 +1,4 @@
-import { apiStatusAtom, store } from "@data/jotai";
-import { useCompetition } from "@data/useData";
+import { apiStatusAtom } from "@data/jotai";
 import { Flag } from "@ui/Flag";
 import { getCleanName, isSeason } from "@utils/data-helpers";
 import cx from "classix";
@@ -7,24 +6,15 @@ import { useAtomValue } from "jotai";
 import Link from "next/link";
 
 interface Props {
-  event: API.Event;
+  event: API.Season | API.CompetitionWithResults;
   limitTo?: number | "all";
 }
 
 const BasicResultsCard = ({ event, limitTo = 5 }: Props) => {
   const updating = useAtomValue(apiStatusAtom) === "working";
 
-  const response = useCompetition(event.code);
-
-  if (response?.error) {
-    store.set(apiStatusAtom, "error");
-    return <div>{response.error.message}</div>;
-  }
-  if (!response) return <div>loading...</div>;
-
-  const { data: comp } = response;
   const results = !isSeason(event)
-    ? comp?.results.results["overall"]
+    ? event.results.results["overall"]
     : event.results
         .filter((result) => result.type === "overall")
         .map((result) => result.results)
@@ -41,7 +31,7 @@ const BasicResultsCard = ({ event, limitTo = 5 }: Props) => {
       <h4 className={cx("px-7 font-semibold uppercase text-secondary")}>
         {isSeason(event)
           ? `Overall Standings ${event.name.split(" ").at(-1)}`
-          : getCleanName(event.name)}
+          : `${getCleanName(event.name)} - ${event.code}`}
       </h4>
       <header className={cx("my-4 grid grid-cols-12 px-7 text-sm font-bold text-secondary")}>
         <p className={cx("col-span-2")}>Pos.</p>
